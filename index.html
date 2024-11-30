@@ -84,17 +84,23 @@
             console.error("Error fetching files:", error);
         });
 
-    // Load and render Markdown content on click
-    function loadMarkdownContent(url) {
-        fetch(url)
-            .then(response => response.text())
-            .then(mdContent => {
-                document.getElementById('content').innerHTML = marked(mdContent);
-            })
-            .catch(error => {
-                document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
-            });
-    }
+  // Create a marked instance (if needed)
+const markedInstance = marked.setOptions({
+    gfm: true, // GitHub Flavored Markdown
+    breaks: true, // Convert line breaks
+});
+
+// Update the load function
+function loadMarkdownContent(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(mdContent => {
+            document.getElementById('content').innerHTML = marked.parse(mdContent); // Use marked.parse()
+        })
+        .catch(error => {
+            document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
+        });
+}
 </script>
 
 </body>
