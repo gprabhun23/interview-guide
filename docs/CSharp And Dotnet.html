@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <ol>
+<li><strong>Difference between .NET Framework and .NET Core</strong></li>
+</ol>
+<p>.NET Framework is Windows-only, while .NET Core is cross-platform, supporting Windows, macOS, and Linux.</p>
+<p>.NET Framework is monolithic, while .NET Core is modular and lightweight.</p>
+<p>.NET Core offers better performance and supports modern development like microservices and containerization.</p>
+<p>.NET Core is open-source and community-driven, while .NET Framework is closed-source.</p>
+<p>I migrated a large .NET Framework project to .NET Core for containerization using Docker to deploy on Linux.</p>
+<ol start="2">
+<li><strong>Garbage Collection in .NET and its Optimization in .NET Core</strong></li>
+</ol>
+<p>Garbage collection (GC) manages memory by automatically reclaiming unused objects to prevent memory leaks.</p>
+<p>GC works in generations (0, 1, 2) to optimize performance by focusing on short-lived objects.</p>
+<p>In .NET Core, GC is further optimized with server and workstation modes for multi-threaded environments.</p>
+<p>GC in .NET Core also includes enhancements for high-throughput applications, such as background garbage collection.</p>
+<p>I optimized memory usage in a high-load web API project by configuring server GC mode in .NET Core.</p>
+<ol start="3">
+<li><strong>Dispose vs. Finalize in .NET</strong></li>
+</ol>
+<p>Dispose is a method for releasing unmanaged resources explicitly, used in conjunction with the IDisposable interface.</p>
+<p>Finalize is a method called by the garbage collector to clean up unmanaged resources when an object is no longer in use.</p>
+<p>Dispose is deterministic, giving developers control, while Finalize is non-deterministic and depends on garbage collection.</p>
+<p>Using Dispose with <code>using</code> ensures immediate resource cleanup, while Finalize introduces overhead and delayed cleanup.</p>
+<p>I implemented Dispose in a database connection manager to release resources promptly after each operation.</p>
+<ol start="4">
+<li><strong>Asynchronous Programming in C#</strong></li>
+</ol>
+<p>Asynchronous programming enables non-blocking operations, improving responsiveness in applications.</p>
+<p>It uses async and await keywords to make asynchronous calls easier to write and read.</p>
+<p>Tasks represent ongoing operations and are central to asynchronous programming.</p>
+<p>Async methods return a Task or Task, making it easier to chain operations.</p>
+<p>I used async/await in a file processing application to process multiple files without blocking the UI thread.</p>
+<ol start="5">
+<li><strong>Task, async, and await in C#</strong></li>
+</ol>
+<p>Task represents an operation that may complete in the future, similar to a promise in JavaScript.</p>
+<p>Async modifies a method to indicate it can perform asynchronous operations.</p>
+<p>Await pauses the execution of an async method until the awaited Task completes.</p>
+<p>They work together to make asynchronous code readable and maintainable, avoiding callbacks.</p>
+<p>I used Task.Run and await to offload CPU-intensive image processing in a web application.</p>
+<ol start="6">
+<li><strong>Value Types vs. Reference Types in C#</strong></li>
+</ol>
+<p>Value types store data directly in the stack, while reference types store a reference to data in the heap.</p>
+<p>Value types include primitives like int and structs, while reference types include classes and objects.</p>
+<p>Changes to value types do not affect the original variable, while changes to reference types do.</p>
+<p>Boxing and unboxing allow converting between value and reference types.</p>
+<p>I used value types for lightweight data like coordinates and reference types for complex objects like database models.</p>
+<ol start="7">
+<li><strong>Exception Handling in C# (try, catch, finally)</strong></li>
+</ol>
+<p>Try defines a block of code where exceptions might occur.</p>
+<p>Catch handles exceptions, allowing custom error handling.</p>
+<p>Finally executes code regardless of whether an exception was thrown, typically for cleanup.</p>
+<p>Exception handling ensures robustness and prevents crashes due to unhandled errors.</p>
+<p>I used try-catch-finally in a file upload service to handle IO exceptions and ensure resource cleanup.</p>
+<ol start="8">
+<li><strong>Const, Readonly, and Static in C#</strong></li>
+</ol>
+<p>Const values are compile-time constants and cannot be changed after compilation.</p>
+<p>Readonly values are runtime constants and can only be assigned once, either inline or in the constructor.</p>
+<p>Static members belong to the class rather than an instance, allowing shared data or methods.</p>
+<p>Const values cannot have runtime dependencies, while readonly values can.</p>
+<p>I used readonly for configuration properties that depended on runtime input, such as environment variables.</p>
+<ol start="9">
+<li><strong>Dependency Injection in .NET Core</strong></li>
+</ol>
+<p>Dependency injection (DI) is a design pattern that provides dependencies rather than creating them manually.</p>
+<p>It improves testability, maintainability, and decoupling of components.</p>
+<p>.NET Core has built-in support for DI through IServiceCollection and IServiceProvider.</p>
+<p>The three DI registrations in .NET Core are transient, scoped, and singleton.</p>
+<p>I implemented DI in an API project to inject logging and database services, improving testability and modularity.</p>
+<ol start="10">
+<li><strong>Delegates in C#</strong></li>
+</ol>
+<p>Delegates are type-safe function pointers used to encapsulate methods.</p>
+<p>They can point to static or instance methods and allow methods to be passed as parameters.</p>
+<p>Single-cast delegates refer to one method, while multicast delegates refer to multiple methods.</p>
+<p>Events use delegates to provide a publish-subscribe mechanism for signaling.</p>
+<p>I used delegates in a real-time notification system to dynamically invoke appropriate handlers.</p>
+<ol start="11">
+<li><strong>LINQ in .NET</strong></li>
+</ol>
+<p>LINQ (Language Integrated Query) enables querying data using C# syntax for collections, databases, and XML.</p>
+<p>It provides methods like Select, Where, and Join for concise and readable queries.</p>
+<p>LINQ supports deferred execution, meaning queries are executed only when enumerated.</p>
+<p>LINQ integrates seamlessly with databases via LINQ to SQL and Entity Framework.</p>
+<p>I used LINQ to filter and group large datasets in a report-generation feature for a financial system.</p>
+<ol start="12">
+<li><strong>Attributes in C#</strong></li>
+</ol>
+<p>Attributes provide metadata about classes, methods, or properties at runtime.</p>
+<p>They are applied using square brackets and can influence behavior or processing.</p>
+<p>Custom attributes are defined by inheriting from the Attribute base class.</p>
+<p>Attributes are useful for serialization, validation, and runtime inspection.</p>
+<p>I created a custom attribute to enforce validation rules on API inputs in a web application.</p>
+<ol start="13">
+<li><strong>Partial Classes in C#</strong></li>
+</ol>
+<p>Partial classes allow splitting a single class across multiple files.</p>
+<p>They improve code organization and make large classes more maintainable.</p>
+<p>All parts of a partial class are combined into one at compile time.</p>
+<p>Partial classes are commonly used in auto-generated code like designer files.</p>
+<p>I used partial classes in a WPF project to separate auto-generated and manual code for a UI component.</p>
+<ol start="14">
+<li><strong>Extension Methods in C#</strong></li>
+</ol>
+<p>Extension methods add new functionality to existing types without modifying them.</p>
+<p>They are defined as static methods in a static class and use the <code>this</code> keyword for the extended type.</p>
+<p>Extension methods improve code readability and reusability.</p>
+<p>They cannot override existing methods and are invoked like instance methods.</p>
+<p>I created an extension method for IEnumerable to calculate the median in a data analysis project.</p>
+<ol start="15">
+<li><strong>Readonly vs. Const in C#</strong></li>
+</ol>
+<p>Readonly values are runtime constants, while const values are compile-time constants.</p>
+<p>Readonly values can be assigned in the constructor, while const must be assigned at declaration.</p>
+<p>Readonly supports reference types, while const is restricted to primitive types and strings.</p>
+<p>Readonly allows different values for instances, while const is shared across all instances.</p>
+<p>I used readonly for API base URLs that depended on runtime configurations in a multi-environment project.</p>
+<ol start="16">
+<li><strong>Boxing and Unboxing in C#</strong></li>
+</ol>
+<p>Boxing converts a value type to a reference type by wrapping it in an object.</p>
+<p>Unboxing extracts the value type from the boxed object.</p>
+<p>Boxing and unboxing involve performance overhead due to heap allocation and type conversion.</p>
+<p>Avoid excessive boxing and unboxing to maintain performance in high-frequency operations.</p>
+<p>I optimized a project by replacing boxed value types in a logging system with generic methods to reduce GC pressure.</p>
+<ol start="17">
+<li><strong>Significance of IEnumerable and IQueryable in C#</strong></li>
+</ol>
+<p>IEnumerable is used for in-memory, forward-only iteration of collections.</p>
+<p>IQueryable extends IEnumerable for querying data sources like databases with deferred execution.</p>
+<p>IEnumerable processes all data in memory, while IQueryable translates queries into database commands.</p>
+<p>IEnumerable is suitable for small datasets, while IQueryable is preferred for large datasets in remote sources.</p>
+<p>I used IQueryable in an Entity Framework project to optimize database queries and reduce memory usage.</p>
+<ol start="18">
+<li><strong>Difference Between ICollection, IList, and IEnumerable</strong></li>
+</ol>
+<p>ICollection provides size, addition, removal, and containment operations on collections.</p>
+<p>IList extends ICollection by supporting indexed access and item replacement.</p>
+<p>IEnumerable is read-only and supports forward-only iteration over collections.</p>
+<p>ICollection and IList are mutable, while IEnumerable is immutable and deferred-execution friendly.</p>
+<p>I used IList in a project to manage a dynamically sortable and filterable list of user accounts.</p>
+<ol start="19">
+<li><strong>Difference Between ref and out Parameters in C#</strong></li>
+</ol>
+<p>ref requires variables to be initialized before passing them to the method.</p>
+<p>out does not require initialization, but the method must assign a value before returning.</p>
+<p>Both ref and out pass variables by reference, allowing modifications within methods.</p>
+<p>ref is used for modifying existing data, while out is used for returning multiple outputs.</p>
+<p>I used out parameters in a function to return status codes along with messages in a logging system.</p>
+<ol start="20">
+<li><strong>Memory Management in .NET</strong></li>
+</ol>
+<p>.NET uses garbage collection (GC) to manage memory automatically by cleaning up unused objects.</p>
+<p>Managed memory is divided into generations (0, 1, 2) for efficient collection.</p>
+<p>Developers control memory indirectly by managing object lifetimes and using Dispose or <code>using</code> statements.</p>
+<p>Large object heaps (LOH) require special handling to minimize fragmentation and GC overhead.</p>
+<p>I optimized a memory-intensive application by analyzing GC logs and minimizing LOH allocations using pooled objects.</p>
+<ol start="21">
+<li><strong>Nullable Types in C#</strong></li>
+</ol>
+<p>Nullable types allow value types to hold a null value using the <code>?</code> syntax (e.g., <code>int?</code>).</p>
+<p>They are useful for representing missing or undefined data, like database fields.</p>
+<p>Nullable types provide methods like HasValue and Value for null checks and access.</p>
+<p>They help reduce null reference exceptions and improve code clarity.</p>
+<p>I used nullable types in an API to handle optional query parameters for filtering user data.</p>
+<ol start="22">
+<li><strong>Exception Handling Across Functions in C#</strong></li>
+</ol>
+<p>Exceptions propagate up the call stack until a matching catch block is found.</p>
+<p>Try-catch blocks should be used sparingly, ideally at high-level layers for centralized handling.</p>
+<p>Global exception handling can be implemented using middleware in .NET Core.</p>
+<p>Avoid catching general exceptions like <code>Exception</code> unless necessary.</p>
+<p>I implemented centralized exception logging in a middleware to track errors in a .NET Core API.</p>
+<ol start="23">
+<li><strong>Purpose of Sealed Class in C#</strong></li>
+</ol>
+<p>A sealed class cannot be inherited, ensuring no modifications through derived classes.</p>
+<p>Sealed classes are useful for scenarios where behavior must remain consistent.</p>
+<p>They improve performance by allowing certain compiler optimizations.</p>
+<p>Sealed methods can also be defined in unsealed classes to prevent overriding.</p>
+<p>I used sealed classes in a project to secure core encryption logic against unintended changes.</p>
+<ol start="24">
+<li><strong>Multithreading in C#</strong></li>
+</ol>
+<p>Multithreading enables concurrent execution of multiple threads for better performance.</p>
+<p>Threads can be created manually using the <code>Thread</code> class or managed using the Task Parallel Library (TPL).</p>
+<p>.NET provides synchronization constructs like locks, Mutex, and Monitor to manage shared resources.</p>
+<p>Parallel processing can be implemented using <code>Parallel.For</code> and PLINQ for scalable workloads.</p>
+<p>I implemented multithreading in a data processing tool to handle simultaneous file uploads and parsing.</p>
+<ol start="25">
+<li><strong>Significance of async and await Keywords in C#</strong></li>
+</ol>
+<p>async enables methods to run asynchronously, improving responsiveness.</p>
+<p>await pauses execution until the awaited operation completes, avoiding thread blocking.</p>
+<p>They simplify asynchronous programming by eliminating callbacks.</p>
+<p>Only methods returning Task, Task, or void can use async.</p>
+<p>I used async and await in a project to fetch API data concurrently without blocking the UI thread.</p>
+<ol start="26">
+<li><strong>Difference Between Shallow Copy and Deep Copy in .NET</strong></li>
+</ol>
+<p>Shallow copy duplicates the object but retains references to nested objects.</p>
+<p>Deep copy creates a completely independent copy, including nested objects.</p>
+<p>Shallow copies are faster but may cause unintended modifications to shared data.</p>
+<p>Deep copies require manual cloning or serialization for complex structures.</p>
+<p>I implemented deep copying in a project to create independent backup configurations for user profiles.</p>
+<ol start="27">
+<li><strong>Using <code>this</code> Keyword in Static Methods</strong></li>
+</ol>
+<p>Static methods belong to the class, not an instance, so they cannot access instance members.</p>
+<p>The <code>this</code> keyword refers to the current instance and is not available in static methods.</p>
+<p>Static methods can only operate on static fields or methods.</p>
+<p>Instance members can be accessed from static methods by passing the object explicitly.</p>
+<p>I avoided static methods when accessing instance data in a utility class to maintain clean design.</p>
+<ol start="28">
+<li><strong>Exception Handling in Nested Function Calls</strong></li>
+</ol>
+<p>Exceptions propagate up the call stack until handled or crash the application.</p>
+<p>Each method in the hierarchy can have its own try-catch block.</p>
+<p>Alternatively, centralized error handling can catch exceptions at the top level.</p>
+<p>Logging exceptions at every layer helps trace error origins.</p>
+<p>I implemented centralized exception handling in a middleware to catch and log errors in nested function calls.</p>
+<ol start="29">
+<li><strong>Difference Between Synchronous and Asynchronous Programming in .NET</strong></li>
+</ol>
+<p>Synchronous programming executes tasks sequentially, blocking the thread until completion.</p>
+<p>Asynchronous programming allows tasks to run concurrently without blocking the thread.</p>
+<p>Async improves performance for I/O-bound and long-running operations.</p>
+<p>Threads are freed up in async programming, making it more scalable.</p>
+<p>I used asynchronous programming in a REST API to handle high traffic efficiently by avoiding thread-blocking calls.</p>
+<ol start="30">
+<li><strong>Custom Exceptions in C#</strong></li>
+</ol>
+<p>Custom exceptions inherit from the base Exception class.</p>
+<p>They allow defining meaningful error messages and custom properties for specific error scenarios.</p>
+<p>Always include descriptive error messages and optional inner exceptions for better debugging.</p>
+<p>Custom exceptions should follow naming conventions ending with “Exception”.</p>
+<p>I created a custom <code>InvalidUserInputException</code> to handle validation errors in a form-processing API.</p>
+<ol start="31">
+<li><strong>Generics in C#</strong></li>
+</ol>
+<p>Generics enable type safety and reusability by defining classes or methods with type parameters.</p>
+<p>They reduce runtime type errors by enforcing type constraints at compile time.</p>
+<p>Generics eliminate the need for boxing and unboxing, improving performance.</p>
+<p>Common generic types include <code>List&lt;T&gt;</code>, <code>Dictionary&lt;TKey, TValue&gt;</code>, and custom generic classes or methods.</p>
+<p>I used generics in a repository pattern to create a reusable data access layer for multiple entity types.</p>
+<ol start="32">
+<li><strong>Yield Keyword in C#</strong></li>
+</ol>
+<p>The <code>yield</code> keyword simplifies iterator implementation by returning elements one at a time.</p>
+<p>It allows creating custom iterators without building intermediate collections.</p>
+<p>When a <code>yield return</code> is encountered, the current position is saved for the next iteration.</p>
+<p>The <code>yield break</code> statement ends the iteration immediately.</p>
+<p>I used <code>yield</code> in a file-processing application to stream large log files line by line, avoiding memory overhead.</p>
+<ol start="33">
+<li><strong>Using Statement in .NET</strong></li>
+</ol>
+<p>The <code>using</code> statement ensures proper disposal of unmanaged resources by calling Dispose automatically.</p>
+<p>It is used with types implementing the <code>IDisposable</code> interface, like files, streams, and database connections.</p>
+<p>The <code>using</code> block provides a cleaner and safer way to manage resources.</p>
+<p>With C# 8, <code>using</code> declarations simplify scoping by omitting braces.</p>
+<p>I used <code>using</code> in a project to manage database connections, ensuring proper release even during exceptions.</p>
+<ol start="34">
+<li><strong>Value Type vs. Reference Type in C#</strong></li>
+</ol>
+<p>Value types store data directly on the stack and include primitives like <code>int</code>, <code>bool</code>, and structs.</p>
+<p>Reference types store references to data in the heap and include classes, objects, and arrays.</p>
+<p>Value types are passed by value, while reference types are passed by reference.</p>
+<p>Changes to reference types affect the original object, unlike value types.</p>
+<p>I used value types for lightweight objects like coordinates and reference types for complex entities like users.</p>
+<ol start="35">
+<li><strong>Abstract Class vs. Interface in C#</strong></li>
+</ol>
+<p>Abstract classes can have both implemented and abstract methods, while interfaces define only abstract methods (before C# 8).</p>
+<p>Classes can inherit only one abstract class but implement multiple interfaces.</p>
+<p>Abstract classes allow fields and constructors; interfaces do not.</p>
+<p>Interfaces are better for defining contracts, while abstract classes provide base functionality.</p>
+<p>I used an interface for defining payment gateways and an abstract class for shared gateway logic in an e-commerce project.</p>
+<ol start="36">
+<li><strong>Writing Method Bodies in Interfaces</strong></li>
+</ol>
+<p>C# 8 introduced default interface methods, allowing method bodies in interfaces.</p>
+<p>Default methods provide implementation that can be overridden by implementing classes.</p>
+<p>They enable adding functionality without breaking existing implementations.</p>
+<p>Only interfaces with default implementations can include method bodies; fields are still not allowed.</p>
+<p>I added a default logging implementation in an interface to streamline logging in multiple services.</p>
+<ol start="37">
+<li><strong>Preventing Inheritance in C#</strong></li>
+</ol>
+<p>Use the <code>sealed</code> keyword to prevent classes from being inherited.</p>
+<p>Mark methods as <code>sealed</code> in a derived class to prevent further overriding.</p>
+<p>Use private constructors in singleton classes to prevent inheritance or instantiation.</p>
+<p>A combination of internal access modifiers and sealed classes enhances security for internal APIs.</p>
+<p>I used a sealed class for encryption utilities to ensure consistency and avoid inheritance-related bugs.</p>
+<ol start="38">
+<li><strong>Overloading vs. Overriding in C#</strong></li>
+</ol>
+<p>Overloading allows multiple methods with the same name but different signatures in the same class.</p>
+<p>Overriding allows a derived class to modify the behavior of a virtual or abstract method in the base class.</p>
+<p>Overloading is resolved at compile time, while overriding is resolved at runtime.</p>
+<p>Overriding requires the <code>override</code> keyword; overloading does not.</p>
+<p>I used overriding in a base controller to customize API error handling and overloading for flexible input methods.</p>
+<ol start="39">
+<li><strong>Purpose of Access Modifiers in C#</strong></li>
+</ol>
+<p>Access modifiers control the visibility and accessibility of classes, methods, and fields.</p>
+<p><code>public</code> makes members accessible everywhere, while <code>private</code> restricts access to the containing class.</p>
+<p><code>protected</code> allows access in the same class and derived classes, while <code>internal</code> limits it to the same assembly.</p>
+<p>They ensure encapsulation, improving maintainability and security of code.</p>
+<p>I used <code>internal</code> in a library project to expose helper methods only within the assembly.</p>
+<ol start="40">
+<li><strong>CLR Memory Management in .NET</strong></li>
+</ol>
+<p>The Common Language Runtime (CLR) manages memory through garbage collection.</p>
+<p>Memory is allocated in managed heaps: small object heaps (SOH) and large object heaps (LOH).</p>
+<p>Garbage collection runs in generations to optimize performance by focusing on short-lived objects.</p>
+<p>Developers can use <code>Dispose</code>, <code>using</code>, or finalizers for deterministic cleanup of unmanaged resources.</p>
+<p>I analyzed GC behavior in a high-load API project using performance monitoring tools to minimize memory fragmentation.</p>
+<ol start="41">
+<li><strong>Just-In-Time (JIT) Compiler in C#</strong></li>
+</ol>
+<p>The JIT compiler translates Intermediate Language (IL) into machine code at runtime.</p>
+<p>It enables platform-specific optimizations for the executing environment.</p>
+<p>JIT includes different modes like Normal, Pre-JIT (via NGen), and Tiered JIT for performance tuning.</p>
+<p>Code is compiled only when needed, reducing startup time but potentially increasing runtime latency.</p>
+<p>I used ReadyToRun (R2R) in a .NET Core project to precompile code for faster startup in a containerized environment.</p>
+<ol start="42">
+<li><strong>Managed vs. Unmanaged Code in C#</strong></li>
+</ol>
+<p>Managed code runs within the CLR, providing memory management, type safety, and security.</p>
+<p>Unmanaged code executes outside the CLR, typically written in C or C++ and accessed via interop.</p>
+<p>Managed code is garbage-collected, while unmanaged code requires manual memory management.</p>
+<p>Interop tools like P/Invoke and COM are used to bridge managed and unmanaged code.</p>
+<p>I integrated unmanaged C++ libraries in a .NET Core project using P/Invoke for advanced image processing.</p>
+<ol start="43">
+<li><strong>Accessing Unmanaged Code from Managed Code</strong></li>
+</ol>
+<p>P/Invoke is used to call C-style unmanaged functions from managed code.</p>
+<p>COM interop allows managed code to interact with unmanaged COM objects.</p>
+<p>The <code>DllImport</code> attribute specifies the unmanaged library and entry point for interop.</p>
+<p>Memory management must be handled carefully to prevent leaks when working with unmanaged resources.</p>
+<p>I used P/Invoke to call native Win32 APIs for custom window management in a desktop application.</p>
+<ol start="44">
+<li><strong>Difference Between Array and List in C#</strong></li>
+</ol>
+<p>Arrays have fixed size, while lists are dynamic and can grow or shrink.</p>
+<p>Lists provide additional methods like Add, Remove, and Find, making them more flexible.</p>
+<p>Arrays are faster for direct indexing due to their static size and structure.</p>
+<p>Lists are part of the <code>System.Collections.Generic</code> namespace, supporting generic types.</p>
+<p>I used a list to store and manage dynamic user input in a real-time survey application.</p>
+<ol start="45">
+<li><strong>Retrieving Type Information at Runtime in C#</strong></li>
+</ol>
+<p>Use <code>typeof</code> to get the <code>Type</code> of a class at compile time.</p>
+<p>Use <code>GetType()</code> on an instance to retrieve its runtime type information.</p>
+<p>Reflection allows detailed inspection and manipulation of metadata at runtime.</p>
+<p>The <code>is</code> and <code>as</code> operators can help determine and cast types safely.</p>
+<p>I used reflection to dynamically load plugins in an extensible application framework.</p>
+<ol start="46">
+<li><strong><a href="http://ASP.NET">ASP.NET</a> MVC 4.7 Project Components</strong></li>
+</ol>
+<p>An <a href="http://ASP.NET">ASP.NET</a> MVC project typically includes folders like <strong>Models</strong>, <strong>Views</strong>, and <strong>Controllers</strong> for the MVC pattern.</p>
+<p>The <strong>App_Start</strong> folder contains configuration files such as RouteConfig and FilterConfig.</p>
+<p>Static content like images, CSS, and JavaScript files are stored in the <strong>Content</strong> and <strong>Scripts</strong> folders.</p>
+<p>The <strong>Web.config</strong> file manages application settings and configuration.</p>
+<p>I structured an MVC project with Models for database entities, Controllers for business logic, and Views for rendering the UI.</p>
+<ol start="47">
+<li><strong>Static Files in .NET Core Projects</strong></li>
+</ol>
+<p>Static files like images, CSS, and JavaScript are stored in the <strong>wwwroot</strong> folder.</p>
+<p>Static files must be explicitly enabled in the <code>Startup</code> class using <code>UseStaticFiles()</code>.</p>
+<p>Custom folders can be added under <code>wwwroot</code> for better organization (e.g., <strong>images</strong>, <strong>css</strong>, <strong>js</strong>).</p>
+<p>Static files are served directly without invoking the middleware pipeline.</p>
+<p>I stored a custom font in the <code>wwwroot/fonts</code> folder and configured it for a web project using relative paths.</p>
+<ol start="48">
+<li><strong>Partial Views in <a href="http://ASP.NET">ASP.NET</a> MVC 5 vs. .NET Core</strong></li>
+</ol>
+<p>In both, partial views are used to render reusable UI components within a view.</p>
+<p>Partial views are invoked using <code>Html.Partial()</code> or <code>Html.RenderPartial()</code> in MVC 5, and <code>PartialAsync()</code> in .NET Core.</p>
+<p>.NET Core introduced tag helpers, such as <code>&lt;partial&gt;</code>, to simplify partial view rendering.</p>
+<p>Dependency injection is easier in .NET Core partial views using the Razor Pages model.</p>
+<p>I used partial views in both frameworks to display shared navigation bars and footers across multiple pages.</p>
+<ol start="49">
+<li><strong>Four Ways to Return Data from a Controller to a View in <a href="http://ASP.NET">ASP.NET</a> MVC</strong></li>
+</ol>
+<p>Use a <strong>ViewBag</strong> to pass dynamic data.</p>
+<p>Use a <strong>ViewData</strong> dictionary for loosely typed data.</p>
+<p>Use a strongly typed <strong>Model</strong> for structured data.</p>
+<p>Pass data through <strong>TempData</strong>, which persists across requests.</p>
+<p>I returned a <code>ProductViewModel</code> as a strongly typed model in a product catalog project for better type safety.</p>
+<ol start="50">
+<li><strong>Action Filters in <a href="http://ASP.NET">ASP.NET</a> MVC</strong></li>
+</ol>
+<p>Action filters allow executing code before or after an action method runs.</p>
+<p>Filters are implemented by inheriting from attributes like <code>ActionFilterAttribute</code>.</p>
+<p>Common filters include Authorization, Action, Result, and Exception filters.</p>
+<p>Filters can be applied at the action, controller, or global level.</p>
+<p>I created a custom logging filter to log API request details in an audit trail system.</p>
+<ol start="51">
+<li><strong>Saving a Username in a Session in <a href="http://ASP.NET">ASP.NET</a> MVC and .NET Core</strong></li>
+</ol>
+<p>In <a href="http://ASP.NET">ASP.NET</a> MVC, use <code>Session["Username"] = value</code> and retrieve it with <code>Session["Username"]</code>.</p>
+<p>In .NET Core, use the <code>ISession</code> interface and <code>HttpContext.Session.SetString</code>/<code>GetString</code>.</p>
+<p>Session must be configured in <code>Startup.cs</code> using <code>AddSession()</code> and <code>UseSession()</code>.</p>
+<p>Sessions store data in-memory by default but can use distributed storage in .NET Core.</p>
+<p>I stored user preferences in sessions for a multi-user dashboard project using distributed Redis cache.</p>
+<ol start="52">
+<li><strong>Handling File Uploads in .NET Core Controllers</strong></li>
+</ol>
+<p>Use the <code>IFormFile</code> interface to handle uploaded files in .NET Core.</p>
+<p>Bind files to an action method using the <code>[FromForm]</code> attribute.</p>
+<p>Files can be saved using <code>FileStream</code> to a desired directory.</p>
+<p>Validation for size, type, and content is crucial for security.</p>
+<p>I implemented file uploads in a document management system, ensuring secure storage with MIME type checks.</p>
+<ol start="53">
+<li><strong>Middleware in .NET Core</strong></li>
+</ol>
+<p>Middleware is a pipeline component that processes HTTP requests and responses.</p>
+<p>Custom middleware is created by implementing a <code>RequestDelegate</code> and using the <code>Use</code> method.</p>
+<p>Middleware executes in order of registration in the <code>Startup.Configure</code> method.</p>
+<p>It can modify requests, add headers, or handle authentication and logging.</p>
+<p>I built middleware to detect the keyword “Iran” in URLs and return a custom error response for restricted access.</p>
+<ol start="54">
+<li><strong>Adding Output Caching to an API Action Method in .NET Core</strong></li>
+</ol>
+<p>Use the <code>ResponseCache</code> attribute to enable output caching for an API method.</p>
+<p>Configure duration, location, and vary parameters for caching behavior.</p>
+<p>Caching reduces server load and improves performance for frequently accessed endpoints.</p>
+<p>Use distributed caching providers like Redis for scalable caching solutions.</p>
+<p>I implemented caching in an API to store search results for 5 minutes, reducing repeated database queries.</p>
+<ol start="55">
+<li><strong>RabbitMQ and Its Usage</strong></li>
+</ol>
+<p>RabbitMQ is a message broker for implementing asynchronous communication between systems.</p>
+<p>It supports message queuing, routing, and delivery confirmations.</p>
+<p>Messages are exchanged via producers, queues, and consumers using the AMQP protocol.</p>
+<p>RabbitMQ is used for decoupled architecture in microservices, event-driven systems, and job processing.</p>
+<p>I used RabbitMQ in a project to handle background email notifications asynchronously from the main application flow.</p>
+<ol start="56">
+<li><strong>HTTP Action Verbs Used in API Methods</strong></li>
+</ol>
+<p><code>GET</code> retrieves data from the server.</p>
+<p><code>POST</code> creates new resources on the server.</p>
+<p><code>PUT</code> updates an existing resource or creates one if it doesn’t exist.</p>
+<p><code>DELETE</code> removes a resource from the server.</p>
+<p>I used all these verbs in a RESTful API for managing user profiles in a social networking application.</p>
+<ol start="57">
+<li><strong>JWT Tokens and Implementation</strong></li>
+</ol>
+<p>JWT (JSON Web Tokens) is used for secure, stateless authentication.</p>
+<p>It consists of three parts: Header, Payload, and Signature.</p>
+<p>JWT is implemented in .NET Core using libraries like <code>Microsoft.AspNetCore.Authentication.JwtBearer</code>.</p>
+<p>In Angular, JWT is stored in <code>localStorage</code> or <code>sessionStorage</code> and attached to API requests using interceptors.</p>
+<p>I used JWT in a project to authenticate users securely across multiple microservices with token expiration and refresh logic.</p>
+<ol start="58">
+<li><strong>Versioning an API in .NET Core and <a href="http://ASP.NET">ASP.NET</a> MVC</strong></li>
+</ol>
+<p>Use route versioning, such as <code>api/v1/endpoint</code>, for explicit versioning.</p>
+<p>Query string parameters or headers can also indicate the API version.</p>
+<p><a href="http://ASP.NET">ASP.NET</a> Core provides the <code>Microsoft.AspNetCore.Mvc.Versioning</code> package for version management.</p>
+<p>Deprecate older versions gracefully by documenting the changes.</p>
+<p>I implemented API versioning in a project to support legacy clients while transitioning to a newer API design.</p>
+<ol start="59">
+<li><strong>Docker and Its Use in Deployment</strong></li>
+</ol>
+<p>Docker is a platform for containerizing applications with their dependencies for consistent deployment.</p>
+<p>Containers are lightweight and portable, running the same way on different environments.</p>
+<p>Dockerfiles define the build instructions for creating application images.</p>
+<p>It is widely used for microservices, CI/CD pipelines, and scaling distributed systems.</p>
+<p>I used Docker to containerize a .NET Core API, ensuring seamless deployment on AWS ECS.</p>
+<ol start="60">
+<li><strong>Purpose of Span and Memory in C#</strong></li>
+</ol>
+<p>Span and Memory are types for working with contiguous memory efficiently.</p>
+<p>They minimize allocations by allowing slicing without copying data.</p>
+<p>Span works with stack-allocated memory, while Memory supports heap-based and async-friendly scenarios.</p>
+<p>They improve performance in high-frequency operations like parsing or serialization.</p>
+<p>I used Span in a project for parsing large CSV files to avoid unnecessary memory overhead.</p>
+<ol start="61">
+<li><strong>Task.Run and Its Usage in .NET Applications</strong></li>
+</ol>
+<p>Task.Run queues work to a thread pool for parallel execution.</p>
+<p>It should be used for CPU-bound operations rather than I/O-bound tasks.</p>
+<p>Task.Run avoids blocking the main thread, enhancing responsiveness in applications.</p>
+<p>It is not recommended for long-running tasks or server-side code that already runs in a managed thread pool.</p>
+<p>I used Task.Run in a project to offload data processing tasks in a desktop application while keeping the UI responsive.</p>
+<ol start="62">
+<li><strong>Source Generators in .NET</strong></li>
+</ol>
+<p>Source generators produce additional code during compilation based on existing code.</p>
+<p>They improve developer productivity by automating repetitive code tasks.</p>
+<p>Common use cases include generating DTOs, mappings, or validation logic.</p>
+<p>Source generators integrate with the Roslyn compiler, enabling custom code-generation scenarios.</p>
+<p>I implemented a source generator to create boilerplate CRUD methods for entities, reducing manual coding.</p>
+<ol start="63">
+<li><strong>Readonly Modifier vs. Const in C#</strong></li>
+</ol>
+<p><code>readonly</code> is used for instance-level fields and can be assigned during runtime or in constructors.</p>
+<p><code>const</code> is used for compile-time constants and must have a fixed value.</p>
+<p><code>readonly</code> fields can have different values per instance, while <code>const</code> is shared across all instances.</p>
+<p>Use <code>readonly</code> for runtime constants and <code>const</code> for values that won’t change across builds.</p>
+<p>I used a readonly field for configuration values loaded during application startup, such as file paths.</p>
+<ol start="64">
+<li><strong>Role of IL (Intermediate Language) in .NET Runtime</strong></li>
+</ol>
+<p>IL is a CPU-independent instruction set generated from C# code during compilation.</p>
+<p>The JIT compiler converts IL to platform-specific machine code at runtime.</p>
+<p>IL provides portability and flexibility, allowing .NET applications to run on different architectures.</p>
+<p>Tools like ILSpy or dotnet CLI can inspect IL for debugging or learning purposes.</p>
+<p>I analyzed the IL of a complex LINQ query to understand how deferred execution was implemented.</p>
+<ol start="65">
+<li><strong>Value Types and Reference Types with Examples in C#</strong></li>
+</ol>
+<p>Value types (e.g., int, float, struct) store data directly on the stack.</p>
+<p>Reference types (e.g., class, array, object) store a reference to data on the heap.</p>
+<p>Value types are copied when passed, while reference types share the same data reference.</p>
+<p>Boxing converts value types to reference types; unboxing does the reverse.</p>
+<p>In a project, I used a struct for coordinates (value type) and a class for customers (reference type) to model data efficiently.</p>
+<ol start="66">
+<li><strong>Advantages of Record Types in C#</strong></li>
+</ol>
+<p>Records provide immutable object support with concise syntax.</p>
+<p>They are reference types but offer value-based equality checks.</p>
+<p><code>with</code> expressions enable copying records with modifications to specific properties.</p>
+<p>Positional records simplify constructors and property declarations.</p>
+<p>I used records to define entities in a CQRS architecture, ensuring immutability and reliable comparison logic.</p>
+<ol start="67">
+<li><strong>Parallel Processing in .NET Using Parallel.ForEach and PLINQ</strong></li>
+</ol>
+<p>Parallel.ForEach processes items concurrently across threads.</p>
+<p>PLINQ extends LINQ for parallel execution of queries on collections.</p>
+<p>Both approaches utilize the Task Parallel Library (TPL) for workload distribution.</p>
+<p>They optimize performance for CPU-bound operations but require careful synchronization for shared resources.</p>
+<p>I used Parallel.ForEach in a project to process and compress thousands of image files simultaneously.</p>
+<ol start="68">
+<li><strong>Memory Leaks in .NET Applications</strong></li>
+</ol>
+<p>Memory leaks occur when managed objects remain in memory due to unintentional references.</p>
+<p>Leaks can arise from event handlers, static fields, or long-lived collections holding unused objects.</p>
+<p>Tools like dotMemory, CLR Profiler, or Visual Studio diagnostics can detect leaks.</p>
+<p>Garbage collection mitigates leaks, but unmanaged resources require explicit cleanup via Dispose.</p>
+<p>In a project, I resolved a memory leak caused by forgotten event handler subscriptions in a real-time monitoring tool.</p>
+<ol start="69">
+<li><strong>Await Using Syntax in Asynchronous Programming</strong></li>
+</ol>
+<p>The <code>await using</code> syntax ensures proper disposal of asynchronous resources implementing <code>IAsyncDisposable</code>.</p>
+<p>It simplifies resource management for objects used in async code, such as streams and database connections.</p>
+<p><code>await using</code> ensures deterministic cleanup without blocking threads.</p>
+<p>The feature improves readability and reduces boilerplate code for async disposable patterns.</p>
+<p>I applied <code>await using</code> in a project to manage database connections in async methods using Entity Framework Core.</p>
+<ol start="70">
+<li><strong>Sealed Class and Its Purpose in C#</strong></li>
+</ol>
+<p>A sealed class cannot be inherited, ensuring no derived classes alter its behavior.</p>
+<p>It is useful for security or final implementations like utility or helper classes.</p>
+<p>Sealing methods in derived classes prevents further overrides.</p>
+<p>Sealed classes can improve runtime performance by enabling certain optimizations.</p>
+<p>I used a sealed class for encryption utilities in a banking project to guarantee behavior integrity.</p>
+<ol start="71">
+<li><strong>Multithreading in C#</strong></li>
+</ol>
+<p>Multithreading allows running multiple threads concurrently to utilize system resources efficiently.</p>
+<p>C# provides classes like <code>Thread</code>, <code>Task</code>, and <code>ThreadPool</code> for thread management.</p>
+<p>Synchronization primitives like <code>lock</code>, <code>Monitor</code>, and <code>Mutex</code> avoid race conditions in shared resources.</p>
+<p>Parallelism libraries like <code>Parallel.For</code> and <code>PLINQ</code> simplify multithreaded tasks.</p>
+<p>I implemented multithreading in a stock market simulator to handle real-time price updates across multiple streams.</p>
+<ol start="72">
+<li><strong>Synchronous vs. Asynchronous Programming in .NET</strong></li>
+</ol>
+<p>Synchronous code blocks execution until tasks complete, causing potential delays.</p>
+<p>Asynchronous programming allows tasks to run independently, improving responsiveness.</p>
+<p>The <code>async</code> and <code>await</code> keywords simplify async programming in C#.</p>
+<p>Asynchronous methods do not block threads, making them ideal for I/O-bound operations.</p>
+<p>I converted a synchronous API to asynchronous in a project to handle high user loads without degrading performance.</p>
+<ol start="73">
+<li><strong>Custom Exceptions in C#</strong></li>
+</ol>
+<p>Custom exceptions inherit from the <code>Exception</code> class and provide domain-specific error details.</p>
+<p>They can include additional properties or methods for better context.</p>
+<p>Use <code>throw</code> to raise and <code>catch</code> to handle custom exceptions.</p>
+<p>Always include meaningful messages and consider inner exceptions for debugging.</p>
+<p>I created a <code>DataValidationException</code> in a project to standardize validation error reporting in a REST API.</p>
+<ol start="74">
+<li><strong>Boxing and Unboxing in C#</strong></li>
+</ol>
+<p>Boxing converts a value type to a reference type, wrapping it in an object.</p>
+<p>Unboxing extracts the value type from the object, requiring explicit casting.</p>
+<p>Boxing incurs a performance overhead due to heap allocation.</p>
+<p>Avoid frequent boxing/unboxing in performance-critical scenarios by using generics.</p>
+<p>In a project, I replaced boxed collections with generic collections to improve efficiency in data processing.</p>
+<ol start="75">
+<li><strong>Difference Between Shallow Copy and Deep Copy in .NET</strong></li>
+</ol>
+<p>A shallow copy duplicates only the top-level object, sharing references for nested objects.</p>
+<p>A deep copy duplicates the entire object hierarchy, creating independent nested objects.</p>
+<p>Shallow copies can lead to unintended changes in nested objects due to shared references.</p>
+<p>Deep copies are created using serialization, custom copying, or libraries like AutoMapper.</p>
+<p>I implemented deep copy logic in a project to clone configuration objects safely without impacting the originals.</p>
+<ol start="76">
+<li><strong>Can This Keyword Be Used in Static Methods? Why or Why Not?</strong></li>
+</ol>
+<p>The <code>this</code> keyword refers to the current instance of the class.</p>
+<p>Static methods belong to the class, not an instance, so they cannot use <code>this</code>.</p>
+<p>Static methods cannot access instance members directly; they require an instance of the class.</p>
+<p>Use instance methods when you need to work with <code>this</code> or instance-specific data.</p>
+<p>I encountered this when designing utility methods, ensuring they were static as they didn’t rely on any instance.</p>
+<ol start="77">
+<li><strong>Handling Exceptions in Nested Function Calls (A Calls B, B Calls C)</strong></li>
+</ol>
+<p>Use <code>try-catch</code> blocks in the calling methods (A, B, C) where specific handling is needed.</p>
+<p>Rethrow exceptions using <code>throw</code> in intermediate methods if higher-level methods should handle them.</p>
+<p>Use a global exception handler for unhandled exceptions in critical applications.</p>
+<p>AggregateException is useful for combining multiple exceptions in parallel or nested tasks.</p>
+<p>In a payment system, I propagated exceptions from validation methods to the main controller for consolidated logging.</p>
+<ol start="78">
+<li><strong>Synchronous vs. Asynchronous Programming in .NET</strong></li>
+</ol>
+<p>Synchronous programming processes tasks sequentially, one at a time.</p>
+<p>Asynchronous programming allows multiple tasks to run concurrently, improving responsiveness.</p>
+<p><code>Task</code>, <code>async</code>, and <code>await</code> are key components of asynchronous programming in .NET.</p>
+<p>Asynchronous methods are ideal for I/O-bound operations, while synchronous methods work for CPU-bound tasks.</p>
+<p>In a web scraper, I replaced synchronous requests with asynchronous ones to fetch data from multiple URLs concurrently.</p>
+<ol start="79">
+<li><strong>Generics in .NET for Code Reusability and Type Safety</strong></li>
+</ol>
+<p>Generics enable type-safe data structures and methods that work with any type.</p>
+<p>They eliminate the need for type casting, reducing runtime errors.</p>
+<p>Generics are implemented using classes, interfaces, methods, and delegates.</p>
+<p>They improve performance by avoiding boxing/unboxing for value types.</p>
+<p>I used generic repository patterns in a project for managing database operations without duplicating code for each entity.</p>
+<ol start="80">
+<li><strong>Yield Keyword in C#</strong></li>
+</ol>
+<p><code>yield</code> returns elements of a collection one at a time during iteration.</p>
+<p>It is used with <code>IEnumerable</code> or <code>IEnumerable&lt;T&gt;</code> to implement custom iterators.</p>
+<p><code>yield return</code> provides deferred execution, evaluating items only when needed.</p>
+<p><code>yield break</code> stops the iteration prematurely.</p>
+<p>I used <code>yield</code> to create a custom paginator for large data sets, reducing memory consumption by loading only required items.</p>
+<ol start="81">
+<li><strong>Using Statement for Resource Management in .NET</strong></li>
+</ol>
+<p>The <code>using</code> statement ensures that unmanaged resources are disposed of properly.</p>
+<p>It is syntactic sugar for a <code>try-finally</code> block that calls <code>Dispose</code>.</p>
+<p><code>using</code> works with objects implementing the <code>IDisposable</code> interface.</p>
+<p>The <code>await using</code> syntax in C# 8+ supports asynchronous resource cleanup.</p>
+<p>I implemented <code>using</code> for database connections in a .NET Core project to prevent connection leaks.</p>
+<ol start="82">
+<li><strong>Abstract Class vs. Interface in C#</strong></li>
+</ol>
+<p>Abstract classes can have implementation, while interfaces cannot (pre-C# 8).</p>
+<p>Classes can inherit from only one abstract class but can implement multiple interfaces.</p>
+<p>Abstract classes support constructors, while interfaces do not.</p>
+<p>Interfaces define a contract, while abstract classes are partially implemented blueprints.</p>
+<p>I used an abstract base class for common logic in a project and interfaces to enforce implementation-specific details across modules.</p>
+<ol start="83">
+<li><strong>Method Body in Interfaces in C#</strong></li>
+</ol>
+<p>C# 8+ allows default implementations in interfaces using the <code>default</code> keyword.</p>
+<p>Default methods enable extending interfaces without breaking existing implementations.</p>
+<p>Interfaces with method bodies remain less powerful than abstract classes for maintaining state.</p>
+<p>Use default methods cautiously to avoid complexity in understanding interface behavior.</p>
+<p>I added a default logging method in an interface to provide optional behavior in a logging framework.</p>
+<ol start="84">
+<li><strong>Preventing Inheritance in C#</strong></li>
+</ol>
+<p>Mark the class as <code>sealed</code> to prevent it from being inherited.</p>
+<p>Use private or internal constructors to restrict object instantiation.</p>
+<p>Apply the <code>NotInheritable</code> keyword in <a href="http://VB.NET">VB.NET</a> (equivalent to sealed in C#).</p>
+<p>Combine <code>internal</code> with <code>sealed</code> to restrict access to specific assemblies.</p>
+<p>In a security library, I sealed classes for sensitive operations to ensure no tampering via inheritance.</p>
+<ol start="85">
+<li><strong>Overloading vs. Overriding in Object-Oriented Programming</strong></li>
+</ol>
+<p>Overloading defines multiple methods with the same name but different parameters in the same class.</p>
+<p>Overriding changes the behavior of a base class method in a derived class using <code>virtual</code> and <code>override</code>.</p>
+<p>Overloading is compile-time polymorphism, while overriding is runtime polymorphism.</p>
+<p>Overloaded methods belong to the same class; overridden methods span base and derived classes.</p>
+<p>In a reporting system, I overloaded methods for different input types and overridden methods for custom report generation.</p>
+<ol start="86">
+<li><strong>Access Modifiers in C#: Public, Private, Internal</strong></li>
+</ol>
+<p><code>public</code> allows access from any code in the solution.</p>
+<p><code>private</code> restricts access to the containing class only.</p>
+<p><code>internal</code> restricts access to the same assembly.</p>
+<p>Access modifiers help encapsulate logic and expose only necessary functionality.</p>
+<p>In a library, I used internal for helper classes to ensure they were not exposed to external consumers.</p>
+<ol start="87">
+<li><strong>Memory Management in .NET by CLR</strong></li>
+</ol>
+<p>The Common Language Runtime (CLR) manages memory through garbage collection (GC).</p>
+<p>GC identifies unused objects and reclaims their memory.</p>
+<p>Generational GC optimizes performance by dividing objects into generations.</p>
+<p>Developers must manually release unmanaged resources using Dispose or <code>using</code>.</p>
+<p>I resolved memory issues in a project by profiling GC activity and optimizing object lifetimes.</p>
+<ol start="88">
+<li><strong>Just-In-Time (JIT) Compiler in .NET</strong></li>
+</ol>
+<p>The JIT compiler converts IL to machine code at runtime.</p>
+<p>It compiles code on a per-method basis, improving startup performance.</p>
+<p>JIT optimizations include inlining, loop unrolling, and dead code elimination.</p>
+<p>The AOT (Ahead of Time) compiler can complement JIT in .NET Core for faster startup.</p>
+<p>I monitored JIT performance in a financial app to ensure critical methods were optimized during runtime.</p>
+<ol start="89">
+<li><strong>Managed vs. Unmanaged Code in C#</strong></li>
+</ol>
+<p>Managed code runs under the control of the CLR, which handles memory, exceptions, and security.</p>
+<p>Unmanaged code is executed directly by the OS, bypassing CLR services.</p>
+<p>C# primarily produces managed code but can interact with unmanaged libraries via P/Invoke.</p>
+<p>Memory leaks are less frequent in managed code but common in unmanaged code without proper cleanup.</p>
+<p>I integrated a C++ library with C# using unmanaged interop for a high-performance image processing module.</p>
+<ol start="90">
+<li><strong>Accessing Unmanaged Code in C#</strong></li>
+</ol>
+<p>Use Platform Invocation (P/Invoke) to call unmanaged functions in native DLLs.</p>
+<p>The <code>DllImport</code> attribute specifies the DLL and entry point for the method.</p>
+<p>Marshalling handles data type conversions between managed and unmanaged environments.</p>
+<p>Release unmanaged resources explicitly using methods like <code>FreeLibrary</code>.</p>
+<p>I used P/Invoke in a project to access legacy hardware APIs, ensuring seamless integration with modern .NET applications.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>

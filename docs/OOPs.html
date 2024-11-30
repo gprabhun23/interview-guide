@@ -1,0 +1,1861 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h3 id="what-are-the-four-principles-of-oop">1. What are the four principles of OOP?</h3>
+<ul>
+<li>
+<p><strong>Encapsulation</strong>: Bundles data and methods operating on that data into a single unit (class) and restricts direct access.</p>
+</li>
+<li>
+<p><strong>Abstraction</strong>: Hides implementation details and only exposes functionality.</p>
+</li>
+<li>
+<p><strong>Inheritance</strong>: Allows a class to acquire properties and behaviors of another class.</p>
+</li>
+<li>
+<p><strong>Polymorphism</strong>: Enables a single interface to represent different underlying forms (e.g., method overriding).</p>
+</li>
+<li>
+<p>Example: In a project, I used inheritance to create specific vehicle classes from a general “Vehicle” base class, allowing reusability and extensibility.</p>
+</li>
+</ul>
+<h3 id="how-does-encapsulation-work-in-c-how-is-encapsulation-achieved-in-c">2. How does encapsulation work in C#? How is encapsulation achieved in C#?</h3>
+<ul>
+<li>
+<p>Encapsulation is achieved using access modifiers like <code>private</code>, <code>protected</code>, <code>internal</code>, and <code>public</code>.</p>
+</li>
+<li>
+<p>It restricts access to class fields and methods, exposing only what’s necessary.</p>
+</li>
+<li>
+<p>Provides <code>get</code> and <code>set</code> accessors for controlled access to properties.</p>
+</li>
+<li>
+<p>Helps maintain code modularity and protect the integrity of data.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Employee</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">string</span>  name<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">string</span>  Name <span class="token punctuation">{</span>
+
+<span class="token keyword">get</span> <span class="token punctuation">{</span> <span class="token keyword">return</span>  name<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">set</span> <span class="token punctuation">{</span> name <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>This ensures <code>name</code> is only accessed through the property <code>Name</code>.</p>
+<h3 id="explain-the-concept-of-inheritance-with-examples-in-c.-how-does-inheritance-work-in-c">3. Explain the concept of inheritance with examples in C#. How does inheritance work in C#?</h3>
+<ul>
+<li>
+<p>Inheritance allows a derived class to reuse and extend the functionality of a base class.</p>
+</li>
+<li>
+<p>Achieved using the <code>:</code> syntax (e.g., <code>class Derived : Base</code>).</p>
+</li>
+<li>
+<p>Promotes code reuse and logical hierarchy.</p>
+</li>
+<li>
+<p>Supports method overriding for customizing behavior in derived classes.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Vehicle started"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Car</span> <span class="token punctuation">:</span> Vehicle <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Car is driving"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+Car  car <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+car<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Inherited</span>
+
+car<span class="token punctuation">.</span><span class="token function">Drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Custom</span>
+
+</code></pre>
+<h3 id="what-are-abstract-classes-and-interfaces-and-how-are-they-different-what-are-the-advantages-of-using-interfaces-over-abstract-classes-in-c">4. What are abstract classes and interfaces, and how are they different? What are the advantages of using interfaces over abstract classes in C#?</h3>
+<ul>
+<li>
+<p>Abstract classes can have methods with or without implementations, whereas interfaces only declare methods.</p>
+</li>
+<li>
+<p>A class can inherit multiple interfaces but only one abstract class.</p>
+</li>
+<li>
+<p>Abstract classes provide shared functionality; interfaces define contracts.</p>
+</li>
+<li>
+<p>Interfaces promote loose coupling and flexibility in design.</p>
+</li>
+<li>
+<p>Example: I used an interface <code>IDatabase</code> in a project to switch between SQL and NoSQL databases dynamically.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">interface</span>  <span class="token class-name">IDatabase</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">SqlDatabase</span> <span class="token punctuation">:</span> IDatabase <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Connected to SQL"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-use-of-virtual-methods-in-c">5. What is the use of virtual methods in C#?</h3>
+<ul>
+<li>
+<p>Virtual methods allow derived classes to override a method defined in a base class.</p>
+</li>
+<li>
+<p>Declared with the <code>virtual</code> keyword and overridden using <code>override</code>.</p>
+</li>
+<li>
+<p>Enables polymorphism by allowing behavior to change in derived classes.</p>
+</li>
+<li>
+<p>Supports dynamic dispatch of methods at runtime.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Animal speaks"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Animal <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Dog barks"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+Animal  animal <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+animal<span class="token punctuation">.</span><span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: Dog barks</span>
+
+</code></pre>
+<h3 id="explain-the-concept-of-sealed-classes-in-c.">6. Explain the concept of sealed classes in C#.</h3>
+<ul>
+<li>
+<p>Sealed classes cannot be inherited.</p>
+</li>
+<li>
+<p>Declared with the <code>sealed</code> keyword.</p>
+</li>
+<li>
+<p>Useful for preventing further extension of critical functionality.</p>
+</li>
+<li>
+<p>Enhances security and avoids unintended modifications.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">sealed</span>  <span class="token keyword">class</span>  <span class="token class-name">FinalClass</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"This is a sealed class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-an-indexer-in-c-provide-an-example.">7. What is an indexer in C#? Provide an example.</h3>
+<ul>
+<li>
+<p>Indexers allow objects to be indexed like arrays.</p>
+</li>
+<li>
+<p>Defined using the <code>this</code> keyword.</p>
+</li>
+<li>
+<p>Simplify object data access without explicit method calls.</p>
+</li>
+<li>
+<p>Useful for collections or data structures.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">BookCollection</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> books <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">string</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">string</span>  <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token keyword">int</span>  index<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">get</span> <span class="token operator">=</span><span class="token operator">&gt;</span> books<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">set</span> <span class="token operator">=</span><span class="token operator">&gt;</span> books<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+BookCollection  collection <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">BookCollection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+collection<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"C# Basics"</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>collection<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: C# Basics</span>
+
+</code></pre>
+<h3 id="how-is-multiple-inheritance-achieved-in-c">8. How is multiple inheritance achieved in C#?</h3>
+<ul>
+<li>
+<p>Multiple inheritance is not supported with classes but is achieved using interfaces.</p>
+</li>
+<li>
+<p>A class can implement multiple interfaces.</p>
+</li>
+<li>
+<p>Promotes better design by combining behaviors without complexity.</p>
+</li>
+<li>
+<p>Avoids the “diamond problem” seen in other languages.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">interface</span>  <span class="token class-name">IReadable</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span>  <span class="token class-name">IWritable</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Document</span> <span class="token punctuation">:</span> IReadable<span class="token punctuation">,</span> IWritable <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Reading document"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Writing document"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-are-constructors-and-how-do-you-implement-different-types-of-constructors-in-c">9. What are constructors, and how do you implement different types of constructors in C#?</h3>
+<ul>
+<li>
+<p>Constructors initialize an object when it is created.</p>
+</li>
+<li>
+<p>Types: Default, Parameterized, Copy, and Static constructors.</p>
+</li>
+<li>
+<p>Default constructors take no arguments; parameterized constructors take arguments.</p>
+</li>
+<li>
+<p>Static constructors initialize static members.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">string</span>  Name <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token function">Person</span><span class="token punctuation">(</span><span class="token keyword">string</span>  name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+Name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+Person  person <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-destructors-in-c">10. What is the purpose of destructors in C#?</h3>
+<ul>
+<li>
+<p>Destructors release resources before an object is reclaimed by the garbage collector.</p>
+</li>
+<li>
+<p>Automatically invoked when the object goes out of scope.</p>
+</li>
+<li>
+<p>Defined using a tilde (<code>~</code>) before the class name.</p>
+</li>
+<li>
+<p>Used in unmanaged resource cleanup.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Resource</span> <span class="token punctuation">{</span>
+
+<span class="token operator">~</span><span class="token function">Resource</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Destructor called"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="explain-the-significance-of-access-modifiers-in-oop.">11. Explain the significance of access modifiers in OOP.</h3>
+<ul>
+<li>
+<p>Control the visibility and accessibility of class members.</p>
+</li>
+<li>
+<p>Types: <code>public</code>, <code>private</code>, <code>protected</code>, <code>internal</code>, and <code>protected internal</code>.</p>
+</li>
+<li>
+<p>Ensure encapsulation and prevent unauthorized access.</p>
+</li>
+<li>
+<p>Facilitate the principle of least privilege.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">int</span>  data<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  Data <span class="token punctuation">{</span>
+
+<span class="token keyword">get</span> <span class="token operator">=</span><span class="token operator">&gt;</span> data<span class="token punctuation">;</span>
+
+<span class="token keyword">set</span> <span class="token operator">=</span><span class="token operator">&gt;</span> data <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-the-this-keyword-in-c">12. What is the purpose of the this keyword in C#?</h3>
+<ul>
+<li>
+<p>Refers to the current instance of a class.</p>
+</li>
+<li>
+<p>Differentiates between class members and parameters with the same name.</p>
+</li>
+<li>
+<p>Passes the current object as a parameter.</p>
+</li>
+<li>
+<p>Calls another constructor in the same class.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">int</span>  <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token keyword">int</span>  <span class="token keyword">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword">value</span> <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-the-singleton-pattern-relate-to-oop-concepts">13. How does the Singleton pattern relate to OOP concepts?</h3>
+<ul>
+<li>
+<p>Ensures a class has only one instance and provides a global access point.</p>
+</li>
+<li>
+<p>Implements encapsulation, abstraction, and controlled instantiation.</p>
+</li>
+<li>
+<p>Used for managing shared resources.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">static</span>  Singleton  instance<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span>  <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  Singleton  Instance <span class="token operator">=</span><span class="token operator">&gt;</span> instance <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-polymorphism-and-how-is-it-implemented-in-c-how-do-polymorphism-and-method-overriding-work-in-c">14. What is polymorphism, and how is it implemented in C#? How do polymorphism and method overriding work in C#?</h3>
+<ul>
+<li>
+<p>Polymorphism allows one interface to represent multiple types.</p>
+</li>
+<li>
+<p>Achieved through method overriding (<code>virtual</code> and <code>override</code>) and interfaces.</p>
+</li>
+<li>
+<p>Method overriding enables behavior modification in derived classes.</p>
+</li>
+<li>
+<p>Supports runtime polymorphism.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Drawing shape"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Circle</span> <span class="token punctuation">:</span> Shape <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Drawing circle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-an-interface-and-an-abstract-class-in-oop">15. What is the difference between an interface and an abstract class in OOP?</h3>
+<ul>
+<li>
+<p>Abstract classes can have implementation; interfaces cannot.</p>
+</li>
+<li>
+<p>Classes can inherit multiple interfaces but only one abstract class.</p>
+</li>
+<li>
+<p>Interfaces define behavior contracts; abstract classes share common code.</p>
+</li>
+<li>
+<p>Abstract classes support fields; interfaces do not.</p>
+</li>
+<li>
+<p>Example: Abstract class used for base behavior, interface for external API communication.</p>
+</li>
+</ul>
+<p>Here are the next 15 questions. After this set, <strong>15 questions</strong> will remain pending from your original list.</p>
+<h3 id="how-does-the-virtual-keyword-work-in-c-and-why-is-it-used">16. How does the virtual keyword work in C#, and why is it used?</h3>
+<ul>
+<li>
+<p>Declares a method or property as overrideable in derived classes.</p>
+</li>
+<li>
+<p>Allows derived classes to change behavior by using the <code>override</code> keyword.</p>
+</li>
+<li>
+<p>Facilitates runtime polymorphism.</p>
+</li>
+<li>
+<p>Ensures base class methods can provide default functionality while being extensible.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-do-you-implement-the-singleton-design-pattern-in-c">17. How do you implement the Singleton design pattern in C#?</h3>
+<ul>
+<li>
+<p>Ensure only one instance of the class exists using private constructors.</p>
+</li>
+<li>
+<p>Use a static property or method to provide access to the instance.</p>
+</li>
+<li>
+<p>Use thread-safe mechanisms for multi-threaded environments.</p>
+</li>
+<li>
+<p>Lazy initialization is common to optimize resource usage.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">static</span>  Singleton  instance<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span>  <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  Singleton  Instance <span class="token operator">=</span><span class="token operator">&gt;</span> instance <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-method-overloading-and-method-overriding">18. What is the difference between method overloading and method overriding?</h3>
+<ul>
+<li>
+<p><strong>Method overloading</strong>: Same method name, different parameter lists in the same class.</p>
+</li>
+<li>
+<p><strong>Method overriding</strong>: Redefining a base class method in a derived class using <code>virtual</code> and <code>override</code>.</p>
+</li>
+<li>
+<p>Overloading is compile-time polymorphism; overriding is runtime polymorphism.</p>
+</li>
+<li>
+<p>Overloading uses static resolution, while overriding uses dynamic resolution.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token comment">// Overloading</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token keyword">int</span>  num<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Overriding</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-are-constructors-and-how-are-they-different-from-methods-in-oop">19. What are constructors, and how are they different from methods in OOP?</h3>
+<ul>
+<li>
+<p>Constructors initialize objects and have the same name as the class.</p>
+</li>
+<li>
+<p>Constructors are invoked automatically during object creation.</p>
+</li>
+<li>
+<p>Cannot return a value, unlike methods.</p>
+</li>
+<li>
+<p>Can be overloaded but not overridden.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Constructor called"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Method called"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-do-you-implement-the-factory-pattern-in-oop">20. How do you implement the Factory pattern in OOP?</h3>
+<ul>
+<li>
+<p>Creates objects without specifying the exact class type.</p>
+</li>
+<li>
+<p>Promotes loose coupling by using a common interface or base class.</p>
+</li>
+<li>
+<p>Useful for creating objects with complex construction logic.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">interface</span>  <span class="token class-name">IShape</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Circle</span> <span class="token punctuation">:</span> IShape <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Drawing circle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">ShapeFactory</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  IShape  <span class="token function">GetShape</span><span class="token punctuation">(</span><span class="token keyword">string</span>  type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  type <span class="token operator">==</span> <span class="token string">"Circle"</span> <span class="token operator">?</span> <span class="token keyword">new</span>  <span class="token class-name">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-a-static-class-in-c">21. What is the purpose of a static class in C#?</h3>
+<ul>
+<li>
+<p>Used to group utility or helper methods.</p>
+</li>
+<li>
+<p>Cannot be instantiated or inherited.</p>
+</li>
+<li>
+<p>All members must be static.</p>
+</li>
+<li>
+<p>Provides a global point of access for shared methods or properties.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">static</span>  <span class="token keyword">class</span>  <span class="token class-name">MathHelper</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  <span class="token keyword">int</span>  <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span>  a<span class="token punctuation">,</span> <span class="token keyword">int</span>  b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-are-the-principles-of-solid-and-how-do-they-relate-to-oop">22. What are the principles of SOLID, and how do they relate to OOP?</h3>
+<ul>
+<li>
+<p><strong>Single Responsibility Principle (SRP)</strong>: A class should have one reason to change.</p>
+</li>
+<li>
+<p><strong>Open/Closed Principle (OCP)</strong>: Classes should be open for extension but closed for modification.</p>
+</li>
+<li>
+<p><strong>Liskov Substitution Principle (LSP)</strong>: Derived classes must be substitutable for their base classes.</p>
+</li>
+<li>
+<p><strong>Interface Segregation Principle (ISP)</strong>: Prefer smaller, specific interfaces over larger, general ones.</p>
+</li>
+<li>
+<p><strong>Dependency Inversion Principle (DIP)</strong>: Depend on abstractions, not concrete implementations.</p>
+</li>
+<li>
+<p>Example: Using DI containers in a project ensures DIP by injecting dependencies.</p>
+</li>
+</ul>
+<h3 id="explain-the-concept-of-method-hiding-using-the-new-keyword-in-c.">23. Explain the concept of method hiding using the new keyword in C#.</h3>
+<ul>
+<li>
+<p>Hides a base class method in the derived class without overriding it.</p>
+</li>
+<li>
+<p>Declared using the <code>new</code> keyword in the derived class.</p>
+</li>
+<li>
+<p>Useful for redefining base class members without affecting the base class behavior.</p>
+</li>
+<li>
+<p>Does not support runtime polymorphism.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base display"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">new</span>  <span class="token class-name">void</span>  <span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived display"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-runtime-polymorphism-differ-from-compile-time-polymorphism-in-oop">24. How does runtime polymorphism differ from compile-time polymorphism in OOP?</h3>
+<ul>
+<li>
+<p><strong>Runtime polymorphism</strong>: Achieved through method overriding using <code>virtual</code> and <code>override</code>.</p>
+</li>
+<li>
+<p><strong>Compile-time polymorphism</strong>: Achieved through method overloading or operator overloading.</p>
+</li>
+<li>
+<p>Runtime polymorphism is resolved during execution; compile-time polymorphism is resolved at compile time.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token comment">// Runtime</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+Base  obj <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Derived</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+obj<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: Derived</span>
+
+</code></pre>
+<h3 id="what-is-the-role-of-a-constructor-in-object-initialization-and-what-are-its-types">25. What is the role of a constructor in object initialization, and what are its types?</h3>
+<ul>
+<li>
+<p>Initializes an object’s state during its creation.</p>
+</li>
+<li>
+<p>Types: Default, parameterized, copy, and static constructors.</p>
+</li>
+<li>
+<p>Ensures objects are in a valid state before use.</p>
+</li>
+<li>
+<p>Can include logic for dependency injection or resource initialization.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Default constructor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token keyword">int</span>  id<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>$<span class="token string">"Parameterized: {id}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-the-solid-principle-enhance-object-oriented-design-and-what-are-practical-examples-of-each-principle">26. How does the SOLID principle enhance object-oriented design, and what are practical examples of each principle?</h3>
+<ul>
+<li>
+<p>Enhances code maintainability and scalability.</p>
+</li>
+<li>
+<p>SRP: Separate classes for logging and data storage.</p>
+</li>
+<li>
+<p>OCP: Plugin-based architecture.</p>
+</li>
+<li>
+<p>LSP: Replaceable subclasses in collection classes.</p>
+</li>
+<li>
+<p>ISP: Specific interfaces like <code>IReadable</code> and <code>IWritable</code>.</p>
+</li>
+<li>
+<p>DIP: Constructor injection for database services.</p>
+</li>
+</ul>
+<h3 id="what-is-the-difference-between-polymorphism-at-compile-time-and-runtime-provide-examples-in-c.">27. What is the difference between polymorphism at compile-time and runtime? Provide examples in C#.</h3>
+<ul>
+<li>
+<p>Compile-time polymorphism uses overloading; runtime uses overriding.</p>
+</li>
+<li>
+<p>Compile-time resolves at compile time; runtime resolves during execution.</p>
+</li>
+<li>
+<p>Compile-time doesn’t involve inheritance; runtime requires it.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token comment">// Compile-time</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">MathOperations</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span>  a<span class="token punctuation">,</span> <span class="token keyword">int</span>  b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">double</span>  <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">double</span>  a<span class="token punctuation">,</span> <span class="token keyword">double</span>  b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Runtime</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-can-you-implement-method-overloading-and-overriding-in-an-oop-language-like-c">28. How can you implement method overloading and overriding in an OOP language like C#?</h3>
+<ul>
+<li>
+<p><strong>Method overloading</strong>: Same method name, different parameters.</p>
+</li>
+<li>
+<p><strong>Method overriding</strong>: Derived class changes base class method using <code>virtual</code> and <code>override</code>.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-are-sealed-classes-in-oop-and-when-would-you-use-them">29. What are sealed classes in OOP, and when would you use them?</h3>
+<ul>
+<li>
+<p>Classes marked <code>sealed</code> cannot be inherited.</p>
+</li>
+<li>
+<p>Used to prevent further extension or overriding.</p>
+</li>
+<li>
+<p>Useful for security and performance optimization.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">sealed</span>  <span class="token keyword">class</span>  <span class="token class-name">Final</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Final class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="explain-the-concept-of-association-aggregation-and-composition-with-examples.">30. Explain the concept of association, aggregation, and composition with examples.</h3>
+<ul>
+<li>
+<p><strong>Association</strong>: A general relationship between two classes.</p>
+</li>
+<li>
+<p><strong>Aggregation</strong>: “Has-a” relationship where one class contains another but doesn’t control its lifecycle.</p>
+</li>
+<li>
+<p><strong>Composition</strong>: Stronger “Has-a” relationship where the container class owns the lifecycle.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token comment">// Aggregation</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Engine</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Car</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  Engine  Engine <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Composition</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Computer</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  Processor  processor <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Processor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>Here are the last 15 questions. This completes all the questions from your original list.</p>
+<h3 id="what-is-the-liskov-substitution-principle-and-how-does-it-affect-subclassing">31. What is the Liskov Substitution Principle, and how does it affect subclassing?</h3>
+<ul>
+<li>
+<p>Derived classes must be replaceable for their base classes without affecting functionality.</p>
+</li>
+<li>
+<p>Ensures objects of a superclass can be used wherever the base type is expected.</p>
+</li>
+<li>
+<p>Violations occur when derived classes modify expected behavior or constraints.</p>
+</li>
+<li>
+<p>Promotes reusable and interchangeable code.</p>
+</li>
+<li>
+<p>Example: Using a <code>Rectangle</code> and <code>Square</code> where both adhere to a common <code>Shape</code> base class.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">int</span>  <span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Rectangle</span> <span class="token punctuation">:</span> Shape <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  Width <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  Height <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">int</span>  <span class="token function">Area</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Width <span class="token operator">*</span> Height<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-can-you-enforce-encapsulation-while-allowing-flexible-access-to-object-properties">32. How can you enforce encapsulation while allowing flexible access to object properties?</h3>
+<ul>
+<li>
+<p>Use private fields with public properties for controlled access.</p>
+</li>
+<li>
+<p>Leverage <code>get</code> and <code>set</code> accessors with logic validation.</p>
+</li>
+<li>
+<p>Use access modifiers to restrict visibility.</p>
+</li>
+<li>
+<p>Implement read-only properties for immutable values.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Product</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">decimal</span>  price<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">decimal</span>  Price <span class="token punctuation">{</span>
+
+<span class="token keyword">get</span> <span class="token operator">=</span><span class="token operator">&gt;</span> price<span class="token punctuation">;</span>
+
+<span class="token keyword">set</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">value</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> price <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-abstract-classes-and-interfaces-provide-examples-in-c.">33. What is the difference between abstract classes and interfaces? Provide examples in C#.</h3>
+<ul>
+<li>
+<p>Abstract classes can have implementations; interfaces cannot.</p>
+</li>
+<li>
+<p>A class can implement multiple interfaces but inherit only one abstract class.</p>
+</li>
+<li>
+<p>Interfaces define behavior contracts; abstract classes provide shared behavior.</p>
+</li>
+<li>
+<p>Abstract classes can have fields; interfaces cannot.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">abstract</span>  <span class="token keyword">class</span>  <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">abstract</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span>  <span class="token class-name">IFlyable</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Bird</span> <span class="token punctuation">:</span> Animal<span class="token punctuation">,</span> IFlyable <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Chirp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Flying"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-do-design-patterns-like-singleton-and-factory-adhere-to-oop-principles">34. How do design patterns like Singleton and Factory adhere to OOP principles?</h3>
+<ul>
+<li>
+<p>Singleton encapsulates the instance and provides controlled access (encapsulation, abstraction).</p>
+</li>
+<li>
+<p>Factory abstracts object creation (abstraction, open/closed principle).</p>
+</li>
+<li>
+<p>Promotes reusability and scalability.</p>
+</li>
+<li>
+<p>Reduces code duplication and dependency coupling.</p>
+</li>
+<li>
+<p>Example: A Singleton database connection or Factory for shape creation.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Database</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">static</span>  Database  instance<span class="token punctuation">;</span>
+
+<span class="token keyword">private</span>  <span class="token function">Database</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  Database  Instance <span class="token operator">=</span><span class="token operator">&gt;</span> instance <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-the-concept-of-dependency-inversion-lead-to-loosely-coupled-systems">35. How does the concept of dependency inversion lead to loosely coupled systems?</h3>
+<ul>
+<li>
+<p>High-level modules should not depend on low-level modules; both should depend on abstractions.</p>
+</li>
+<li>
+<p>Promotes reusability by decoupling concrete implementations.</p>
+</li>
+<li>
+<p>Achieved using interfaces and dependency injection.</p>
+</li>
+<li>
+<p>Simplifies testing by substituting mock implementations.</p>
+</li>
+<li>
+<p>Example: Injecting a logging service into a class.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">interface</span>  <span class="token class-name">ILogger</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Log</span><span class="token punctuation">(</span><span class="token keyword">string</span>  message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">ConsoleLogger</span> <span class="token punctuation">:</span> ILogger <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Log</span><span class="token punctuation">(</span><span class="token keyword">string</span>  message<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  ILogger  logger<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token function">Application</span><span class="token punctuation">(</span>ILogger  logger<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>logger <span class="token operator">=</span> logger<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> logger<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token string">"App running"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="explain-runtime-polymorphism-with-examples-in-c.">36. Explain runtime polymorphism with examples in C#.</h3>
+<ul>
+<li>
+<p>Achieved using method overriding with <code>virtual</code> and <code>override</code>.</p>
+</li>
+<li>
+<p>Enables dynamic method dispatch at runtime.</p>
+</li>
+<li>
+<p>Allows using base class references for derived class objects.</p>
+</li>
+<li>
+<p>Useful for creating flexible and reusable code.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Animal sound"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Dog</span> <span class="token punctuation">:</span> Animal <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Dog barks"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+Animal  animal <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+animal<span class="token punctuation">.</span><span class="token function">Speak</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: Dog barks</span>
+
+</code></pre>
+<h3 id="what-are-the-benefits-of-using-interfaces-in-oop-design">37. What are the benefits of using interfaces in OOP design?</h3>
+<ul>
+<li>
+<p>Facilitates multiple inheritance by allowing a class to implement multiple interfaces.</p>
+</li>
+<li>
+<p>Encourages loose coupling by relying on contracts rather than concrete classes.</p>
+</li>
+<li>
+<p>Enhances flexibility and reusability in system design.</p>
+</li>
+<li>
+<p>Simplifies testing by mocking implementations.</p>
+</li>
+<li>
+<p>Example: I used an interface for database access to support both SQL and NoSQL in my project.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">interface</span>  <span class="token class-name">IDatabase</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">void</span>  <span class="token function">Save</span><span class="token punctuation">(</span><span class="token keyword">string</span>  data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-method-overriding-differ-from-method-overloading">38. How does method overriding differ from method overloading?</h3>
+<ul>
+<li>
+<p>Overloading: Same method name, different signatures in the same class.</p>
+</li>
+<li>
+<p>Overriding: Redefining a base class method in a derived class.</p>
+</li>
+<li>
+<p>Overloading is compile-time polymorphism; overriding is runtime polymorphism.</p>
+</li>
+<li>
+<p>Overriding requires <code>virtual</code> and <code>override</code> keywords.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">virtual</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-an-abstract-property-in-c">39. What is an abstract property in C#?</h3>
+<ul>
+<li>
+<p>A property declared in an abstract class without implementation.</p>
+</li>
+<li>
+<p>Forces derived classes to provide implementation.</p>
+</li>
+<li>
+<p>Allows abstraction of property behavior.</p>
+</li>
+<li>
+<p>Ensures consistency across derived classes.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">abstract</span>  <span class="token keyword">class</span>  <span class="token class-name">Shape</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">abstract</span>  <span class="token keyword">int</span>  Area <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Rectangle</span> <span class="token punctuation">:</span> Shape <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  Width <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  Height <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">override</span>  <span class="token keyword">int</span>  Area <span class="token operator">=</span><span class="token operator">&gt;</span> Width <span class="token operator">*</span> Height<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-does-dependency-injection-promote-better-software-design">40. How does dependency injection promote better software design?</h3>
+<ul>
+<li>
+<p>Decouples components by injecting dependencies rather than hardcoding them.</p>
+</li>
+<li>
+<p>Improves testability with mock objects.</p>
+</li>
+<li>
+<p>Enhances flexibility and scalability.</p>
+</li>
+<li>
+<p>Implements the Dependency Inversion Principle.</p>
+</li>
+<li>
+<p>Example: I used DI to manage services in a .NET Core web application.</p>
+</li>
+</ul>
+<h3 id="what-is-method-hiding-in-c">41. What is method hiding in C#?</h3>
+<ul>
+<li>
+<p>Hides a base class method using the <code>new</code> keyword in a derived class.</p>
+</li>
+<li>
+<p>Base class reference calls the base method, not the hidden method.</p>
+</li>
+<li>
+<p>Does not affect runtime polymorphism.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Base</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Base"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Derived</span> <span class="token punctuation">:</span> Base <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">new</span>  <span class="token class-name">void</span>  <span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Derived"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="explain-the-use-of-the-partial-keyword-in-c.">42. Explain the use of the partial keyword in C#.</h3>
+<ul>
+<li>
+<p>Splits a class or method into multiple files for better organization.</p>
+</li>
+<li>
+<p>Allows collaborative development on large classes.</p>
+</li>
+<li>
+<p>Combines all parts during compilation.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">partial</span>  <span class="token keyword">class</span>  <span class="token class-name">Sample</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Part1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Part 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">partial</span>  <span class="token keyword">class</span>  <span class="token class-name">Sample</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Part2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Part 2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-the-readonly-keyword-in-c">43. What is the purpose of the readonly keyword in C#?</h3>
+<ul>
+<li>
+<p>Declares a field that can only be assigned during declaration or in the constructor.</p>
+</li>
+<li>
+<p>Ensures immutability after initialization.</p>
+</li>
+<li>
+<p>Useful for constants derived from runtime values.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Example</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">readonly</span>  <span class="token keyword">int</span>  Value <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token keyword">int</span>  <span class="token keyword">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+Value <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="how-do-delegates-work-in-c-and-what-are-their-benefits">44. How do delegates work in C#, and what are their benefits?</h3>
+<ul>
+<li>
+<p>Delegates are type-safe function pointers.</p>
+</li>
+<li>
+<p>Enable methods to be passed as parameters.</p>
+</li>
+<li>
+<p>Support event handling and callback mechanisms.</p>
+</li>
+<li>
+<p>Promote decoupling of methods from their invocation.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">delegate</span>  <span class="token keyword">void</span>  <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">string</span>  message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Program</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">static</span>  <span class="token keyword">void</span>  <span class="token function">Main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+Notify  notify <span class="token operator">=</span> Console<span class="token punctuation">.</span>WriteLine<span class="token punctuation">;</span>
+
+<span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">"Hello, delegate!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-generics-in-c">45. What is the purpose of generics in C#?</h3>
+<ul>
+<li>
+<p>Enable type-safe data structures and methods without specifying a concrete type.</p>
+</li>
+<li>
+<p>Reduce code duplication by creating reusable components.</p>
+</li>
+<li>
+<p>Improve performance by avoiding boxing and unboxing.</p>
+</li>
+<li>
+<p>Example: I used generics to build a custom repository in a data access layer.</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">GenericRepository</span><span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token keyword">where</span>  T <span class="token punctuation">:</span> <span class="token keyword">class</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Add</span><span class="token punctuation">(</span>T  entity<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>$<span class="token string">"Added {entity}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>Here are 15 new, unique questions and answers based on OOP and C#. These do not repeat any from the above list.</p>
+<h3 id="what-is-the-purpose-of-the-base-keyword-in-c">1. What is the purpose of the <code>base</code> keyword in C#?</h3>
+<ul>
+<li>
+<p>Allows access to members of the base class from a derived class.</p>
+</li>
+<li>
+<p>Used to invoke base class constructors.</p>
+</li>
+<li>
+<p>Enables overriding methods to extend base functionality.</p>
+</li>
+<li>
+<p>Ensures derived class can reuse and enhance base class logic.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Parent</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token function">Parent</span><span class="token punctuation">(</span><span class="token keyword">string</span>  message<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Parent: "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span>  <span class="token class-name">Child</span> <span class="token punctuation">:</span> Parent <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token function">Child</span><span class="token punctuation">(</span><span class="token keyword">string</span>  message<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Child: "</span> <span class="token operator">+</span> message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-are-extension-methods-in-c">2. What are extension methods in C#?</h3>
+<ul>
+<li>
+<p>Provide additional functionality to existing classes without modifying them.</p>
+</li>
+<li>
+<p>Defined as static methods in static classes.</p>
+</li>
+<li>
+<p>The first parameter specifies the type being extended and uses the <code>this</code> keyword.</p>
+</li>
+<li>
+<p>Useful for enhancing third-party libraries or sealed classes.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  <span class="token keyword">class</span>  <span class="token class-name">StringExtensions</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">static</span>  <span class="token keyword">int</span>  <span class="token function">WordCount</span><span class="token punctuation">(</span><span class="token keyword">this</span>  <span class="token keyword">string</span>  str<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> str<span class="token punctuation">.</span><span class="token function">Split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Length<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+<span class="token keyword">string</span>  text <span class="token operator">=</span> <span class="token string">"Hello world!"</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">WordCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-are-nullable-types-in-c-and-why-are-they-used">3. What are nullable types in C#, and why are they used?</h3>
+<ul>
+<li>
+<p>Allow value types to represent null.</p>
+</li>
+<li>
+<p>Declared using <code>T?</code> syntax (e.g., <code>int?</code>).</p>
+</li>
+<li>
+<p>Useful for scenarios where absence of a value is meaningful.</p>
+</li>
+<li>
+<p>Includes methods like <code>.HasValue</code> and <code>.Value</code>.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">int</span><span class="token operator">?</span> nullableInt <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>nullableInt<span class="token punctuation">.</span>HasValue<span class="token punctuation">)</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>nullableInt<span class="token punctuation">.</span>Value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-ref-and-out-keywords-in-c">4. What is the difference between <code>ref</code> and <code>out</code> keywords in C#?</h3>
+<ul>
+<li>
+<p>Both pass parameters by reference, but with different requirements.</p>
+</li>
+<li>
+<p><code>ref</code>: The variable must be initialized before passing.</p>
+</li>
+<li>
+<p><code>out</code>: The variable does not need to be initialized before passing.</p>
+</li>
+<li>
+<p><code>out</code> ensures a value is assigned inside the method.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">void</span>  <span class="token function">Example</span><span class="token punctuation">(</span><span class="token keyword">ref</span>  <span class="token keyword">int</span>  a<span class="token punctuation">,</span> <span class="token keyword">out</span>  <span class="token keyword">int</span>  b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+a <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span>  x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+
+<span class="token function">Example</span><span class="token punctuation">(</span><span class="token keyword">ref</span>  x<span class="token punctuation">,</span> <span class="token keyword">out</span>  y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: 6</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: 10</span>
+
+</code></pre>
+<h3 id="what-is-the-use-of-the-dynamic-keyword-in-c">5. What is the use of the <code>dynamic</code> keyword in C#?</h3>
+<ul>
+<li>
+<p>Bypasses compile-time type checking for variables.</p>
+</li>
+<li>
+<p>Type resolution happens at runtime.</p>
+</li>
+<li>
+<p>Useful for scenarios involving reflection, COM objects, or dynamic languages.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">dynamic</span>  <span class="token keyword">value</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token keyword">value</span><span class="token punctuation">.</span><span class="token function">GetType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: System.Int32</span>
+
+<span class="token keyword">value</span> <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token keyword">value</span><span class="token punctuation">.</span><span class="token function">GetType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: System.String</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-the-is-and-as-keywords-in-c">6. What is the purpose of the <code>is</code> and <code>as</code> keywords in C#?</h3>
+<ul>
+<li>
+<p><strong><code>is</code></strong>: Checks if an object is compatible with a type.</p>
+</li>
+<li>
+<p><strong><code>as</code></strong>: Performs a type cast and returns null if the cast fails.</p>
+</li>
+<li>
+<p>Avoids exceptions compared to traditional casting.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">object</span>  obj <span class="token operator">=</span> <span class="token string">"Test"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>obj  <span class="token keyword">is</span>  <span class="token keyword">string</span>  str<span class="token punctuation">)</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">string</span>  castedStr <span class="token operator">=</span> obj  <span class="token keyword">as</span>  <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>castedStr <span class="token operator">?</span><span class="token operator">?</span> <span class="token string">"Not a string"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-the-yield-keyword-in-c">7. What is the purpose of the <code>yield</code> keyword in C#?</h3>
+<ul>
+<li>
+<p>Facilitates stateful iteration in methods.</p>
+</li>
+<li>
+<p>Used in conjunction with <code>IEnumerable</code> or <code>IEnumerator</code>.</p>
+</li>
+<li>
+<p>Enables deferred execution for collection traversal.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+IEnumerable<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">GetNumbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span>  i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">yield</span>  <span class="token keyword">return</span>  i<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token keyword">var</span>  num  <span class="token keyword">in</span>  <span class="token function">GetNumbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-nameof-in-c">8. What is the purpose of <code>nameof</code> in C#?</h3>
+<ul>
+<li>
+<p>Retrieves the name of a variable, property, or class as a string.</p>
+</li>
+<li>
+<p>Prevents hardcoding and improves refactoring.</p>
+</li>
+<li>
+<p>Useful for logging and exceptions.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">string</span>  propertyName <span class="token operator">=</span> <span class="token function">nameof</span><span class="token punctuation">(</span>Console<span class="token punctuation">.</span>WriteLine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>propertyName<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: WriteLine</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-task-and-thread-in-c">9. What is the difference between <code>Task</code> and <code>Thread</code> in C#?</h3>
+<ul>
+<li>
+<p><strong>Task</strong>: Higher-level abstraction for concurrent operations.</p>
+</li>
+<li>
+<p><strong>Thread</strong>: Represents a single, low-level OS thread.</p>
+</li>
+<li>
+<p>Tasks allow easier cancellation, continuation, and exception handling.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+Task<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Task running"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span>  <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Thread running"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-are-indexers-in-c-and-how-are-they-implemented">10. What are <code>indexers</code> in C#, and how are they implemented?</h3>
+<ul>
+<li>
+<p>Allow objects to be indexed like arrays.</p>
+</li>
+<li>
+<p>Use the <code>this</code> keyword with square brackets.</p>
+</li>
+<li>
+<p>Simplify accessing collections within a class.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Sample</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">int</span>  <span class="token keyword">this</span><span class="token punctuation">[</span><span class="token keyword">int</span>  index<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">get</span> <span class="token operator">=</span><span class="token operator">&gt;</span> numbers<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">set</span> <span class="token operator">=</span><span class="token operator">&gt;</span> numbers<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+Sample  sample <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+sample<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>sample<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="how-does-the-lock-keyword-work-in-c">11. How does the <code>lock</code> keyword work in C#?</h3>
+<ul>
+<li>
+<p>Prevents multiple threads from accessing a critical section simultaneously.</p>
+</li>
+<li>
+<p>Ensures thread safety.</p>
+</li>
+<li>
+<p>Used with an object reference as a lock token.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">private</span>  <span class="token keyword">readonly</span>  <span class="token keyword">object</span>  lockObj <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span>  <span class="token function">ThreadSafeMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">lock</span> <span class="token punctuation">(</span>lockObj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Thread-safe code"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="what-is-the-purpose-of-gc.collect-in-c">12. What is the purpose of <code>GC.Collect()</code> in C#?</h3>
+<ul>
+<li>
+<p>Forces garbage collection to reclaim unused memory.</p>
+</li>
+<li>
+<p>Should be used sparingly as it impacts performance.</p>
+</li>
+<li>
+<p>Useful for testing or specific memory cleanup scenarios.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+GC<span class="token punctuation">.</span><span class="token function">Collect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+GC<span class="token punctuation">.</span><span class="token function">WaitForPendingFinalizers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-are-tuples-in-c-and-when-would-you-use-them">13. What are tuples in C#, and when would you use them?</h3>
+<ul>
+<li>
+<p>Lightweight structures for grouping multiple values.</p>
+</li>
+<li>
+<p>Avoids creating custom types for simple data grouping.</p>
+</li>
+<li>
+<p>Supports named elements for readability.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">var</span>  tuple <span class="token operator">=</span> <span class="token punctuation">(</span>Id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> Name<span class="token punctuation">:</span> <span class="token string">"John"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>tuple<span class="token punctuation">.</span>Name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: John</span>
+
+</code></pre>
+<h3 id="how-do-events-work-in-c">14. How do events work in C#?</h3>
+<ul>
+<li>
+<p>Encapsulate the publisher-subscriber pattern.</p>
+</li>
+<li>
+<p>Subscribers register methods to execute when the event is raised.</p>
+</li>
+<li>
+<p>Defined using the <code>event</code> keyword with delegates.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+<span class="token keyword">class</span>  <span class="token class-name">Publisher</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">event</span>  Action  OnPublish<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span>  <span class="token keyword">void</span>  <span class="token function">Publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> OnPublish<span class="token operator">?</span><span class="token punctuation">.</span><span class="token function">Invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage:</span>
+
+Publisher  pub <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+pub<span class="token punctuation">.</span>OnPublish <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Event triggered"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+pub<span class="token punctuation">.</span><span class="token function">Publish</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h3 id="what-is-the-difference-between-ienumerable-and-iqueryable-in-c">15. What is the difference between <code>IEnumerable</code> and <code>IQueryable</code> in C#?</h3>
+<ul>
+<li>
+<p><strong>IEnumerable</strong>: Executes queries on the server; evaluates in memory.</p>
+</li>
+<li>
+<p><strong>IQueryable</strong>: Allows LINQ-to-SQL and deferred query execution on the database.</p>
+</li>
+<li>
+<p><strong>IQueryable</strong> is more efficient for large datasets.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-csharp"><code class="prism  language-csharp">
+IEnumerable<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> nums <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">List</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+IQueryable<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> query <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">AsQueryable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+
+    </div>
+  </div>
+</body>
+
+</html>

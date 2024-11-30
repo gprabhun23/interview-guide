@@ -1,0 +1,2493 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h3 id="what-are-directives-in-angular-have-you-ever-created-a-custom-directive-can-you-explain-the-steps">1. What are directives in Angular? Have you ever created a custom directive? Can you explain the steps?</h3>
+<ul>
+<li>
+<p>Directives in Angular are classes that add custom behavior to elements in the DOM.</p>
+</li>
+<li>
+<p>There are three types: Structural (<code>*ngIf</code>, <code>*ngFor</code>), Attribute (e.g., <code>[ngClass]</code>), and Component.</p>
+</li>
+<li>
+<p>Custom directives are used to create reusable behaviors like toggling styles or handling events.</p>
+</li>
+<li>
+<p>Steps to create a custom directive:</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Use <code>ng generate directive &lt;directive-name&gt;</code> to scaffold the directive.</p>
+</li>
+<li>
+<p>Define behavior in the <code>@Directive</code> class.</p>
+</li>
+<li>
+<p>Apply the directive to elements in templates.</p>
+</li>
+</ol>
+<ul>
+<li><strong>Example</strong>: Created a hover effect directive in a project.</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Directive<span class="token punctuation">,</span> ElementRef<span class="token punctuation">,</span> HostListener <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+
+  
+
+@<span class="token function">Directive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+selector<span class="token punctuation">:</span>  <span class="token string">'[appHoverHighlight]'</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">HoverHighlightDirective</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span>  el<span class="token punctuation">:</span> ElementRef<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">)</span> <span class="token function">onMouseEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>el<span class="token punctuation">.</span>nativeElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">'yellow'</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+  
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">)</span> <span class="token function">onMouseLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>el<span class="token punctuation">.</span>nativeElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">'white'</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<p>Applied it for dynamic hover highlighting in a dashboard component.</p>
+<hr>
+<h3 id="what-are-the-different-ways-to-share-data-between-components">2. What are the different ways to share data between components?</h3>
+<ul>
+<li>
+<p>Sharing data between components depends on their relationship (parent-child, siblings, etc.).</p>
+</li>
+<li>
+<p>Use <strong>Input and Output</strong> bindings for parent-child communication.</p>
+</li>
+<li>
+<p>Use a <strong>shared service with Subjects or BehaviorSubjects</strong> for sibling components.</p>
+</li>
+<li>
+<p>Use <strong>Angular’s State Management tools</strong> like NGRX for application-wide sharing.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a service with BehaviorSubject for real-time updates between unrelated components in a project dashboard.</p>
+</li>
+</ul>
+<hr>
+<h3 id="can-you-explain-your-role-and-responsibilities-in-the-current-project-do-you-follow-the-agile-methodology">3. Can you explain your role and responsibilities in the current project? Do you follow the Agile methodology?</h3>
+<ul>
+<li>
+<p>As a full-stack developer, responsible for building Angular-based user interfaces and integrating APIs.</p>
+</li>
+<li>
+<p>Participate in sprint planning, daily stand-ups, and retrospectives following Agile.</p>
+</li>
+<li>
+<p>Write and optimize Angular components for scalability and performance.</p>
+</li>
+<li>
+<p>Ensure code quality using unit tests, code reviews, and adherence to best practices.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Delivered a reusable component library that reduced development time across multiple sprints.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-an-interceptor-in-angular">4. What is an Interceptor in Angular?</h3>
+<ul>
+<li>
+<p>Interceptors intercept HTTP requests and responses globally in an Angular application.</p>
+</li>
+<li>
+<p>Useful for logging, modifying headers, or handling errors.</p>
+</li>
+<li>
+<p>Implemented by creating a class that implements <code>HttpInterceptor</code>.</p>
+</li>
+<li>
+<p>Add the interceptor in the <code>providers</code> array using <code>HTTP_INTERCEPTORS</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used an interceptor for adding authentication tokens to all API requests.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HttpInterceptor<span class="token punctuation">,</span> HttpRequest<span class="token punctuation">,</span> HttpHandler <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/common/http'</span><span class="token punctuation">;</span>
+
+  
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">AuthInterceptor</span>  <span class="token keyword">implements</span>  <span class="token class-name">HttpInterceptor</span> <span class="token punctuation">{</span>
+
+<span class="token function">intercept</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span> HttpRequest<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> next<span class="token punctuation">:</span> HttpHandler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span>  authToken <span class="token operator">=</span> <span class="token string">'Bearer token'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span>  authReq <span class="token operator">=</span> req<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">{</span> setHeaders<span class="token punctuation">:</span> <span class="token punctuation">{</span> Authorization<span class="token punctuation">:</span>  authToken <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span>  next<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>authReq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="how-would-you-handle-error-handling-in-a-centralized-manner-in-angular">5. How would you handle error handling in a centralized manner in Angular?</h3>
+<ul>
+<li>
+<p>Use HTTP Interceptors for centralizing error handling.</p>
+</li>
+<li>
+<p>Create a global error service to display error messages via UI components.</p>
+</li>
+<li>
+<p>Use RxJS operators like <code>catchError</code> in services for more granular control.</p>
+</li>
+<li>
+<p>Implement Angular’s <code>ErrorHandler</code> class to catch application-level errors.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Centralized error handling in an e-commerce app using an interceptor to log errors and notify users.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-does-lazy-loading-work-in-angular-and-what-are-the-routing-guards-available-how-do-you-perform-role-based-routing-and-restrict-access-to-certain-pages-in-angular">6. How does lazy loading work in Angular, and what are the routing guards available? How do you perform role-based routing and restrict access to certain pages in Angular?</h3>
+<ul>
+<li>
+<p>Lazy loading loads feature modules only when needed to improve performance.</p>
+</li>
+<li>
+<p>Use <code>loadChildren</code> in the route configuration to enable lazy loading.</p>
+</li>
+<li>
+<p>Routing guards include <code>canActivate</code>, <code>canDeactivate</code>, <code>canLoad</code>, and <code>resolve</code>.</p>
+</li>
+<li>
+<p>Implement role-based routing by checking roles in a guard and redirecting unauthorized users.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Restricted admin routes by implementing a <code>canActivate</code> guard in an enterprise application.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-communication-between-two-unrelated-components-in-angular">7. How do you manage communication between two unrelated components in Angular?</h3>
+<ul>
+<li>
+<p>Use a shared service with Subject or BehaviorSubject to share data.</p>
+</li>
+<li>
+<p>Use the Angular EventEmitter API in services for emitting events.</p>
+</li>
+<li>
+<p>Leverage local storage or session storage for persistent data sharing.</p>
+</li>
+<li>
+<p>Use Angular’s state management tools for global application state sharing.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Built a service using BehaviorSubject for real-time notifications in unrelated dashboard widgets.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-session-or-local-storage-for-large-data-in-the-browser">8. How do you manage session or local storage for large data in the browser?</h3>
+<ul>
+<li>
+<p>Store data in JSON format using <code>localStorage</code> or <code>sessionStorage</code>.</p>
+</li>
+<li>
+<p>Compress data using libraries like LZ-String for large data.</p>
+</li>
+<li>
+<p>Use IndexedDB for structured storage of large datasets.</p>
+</li>
+<li>
+<p>Implement custom storage services for better encapsulation and reusability.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used IndexedDB for offline storage of order history in a retail app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="have-you-worked-with-angular-material-what-components-have-you-used-or-customized">9. Have you worked with Angular Material? What components have you used or customized?</h3>
+<ul>
+<li>
+<p>Angular Material provides pre-built UI components that follow Material Design.</p>
+</li>
+<li>
+<p>Frequently used components include buttons, dialogs, tables, and date pickers.</p>
+</li>
+<li>
+<p>Customized themes using Angular Material’s theming capabilities.</p>
+</li>
+<li>
+<p>Integrated Material icons for consistent design.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Customized Material tables with dynamic filtering and sorting for a data-heavy application.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-does-the-initialization-of-an-angular-application-happen">10. How does the initialization of an Angular application happen?</h3>
+<ul>
+<li>
+<p>Starts with <code>main.ts</code> that bootstraps the root module (<code>AppModule</code>).</p>
+</li>
+<li>
+<p>The root module declares components and imports modules like <code>BrowserModule</code>.</p>
+</li>
+<li>
+<p>The <code>AppComponent</code> is the root component rendered in <code>index.html</code>.</p>
+</li>
+<li>
+<p>Lifecycle hooks like <code>ngOnInit</code> initialize components post-bootstrap.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Debugged application initialization issues using the bootstrapping sequence in <code>main.ts</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-are-decorators-in-angular">11. What are decorators in Angular?</h3>
+<ul>
+<li>
+<p>Decorators are functions that add metadata to classes, methods, properties, or parameters.</p>
+</li>
+<li>
+<p>Common decorators include <code>@Component</code>, <code>@Directive</code>, <code>@Injectable</code>, <code>@Input</code>, and <code>@Output</code>.</p>
+</li>
+<li>
+<p>Decorators enable Angular to understand the structure and behavior of the application.</p>
+</li>
+<li>
+<p>Used extensively for dependency injection and configuring components.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>@Input</code> and <code>@Output</code> decorators for parent-child communication in reusable components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-importance-of-the-ngif-directive-in-angular-can-you-use-the-ngif-directive-to-check-if-the-array-is-empty-or-not">12. What is the importance of the ngIf directive in Angular? Can you use the ngIf directive to check if the array is empty or not?</h3>
+<ul>
+<li>
+<p><code>ngIf</code> conditionally renders DOM elements based on the given expression.</p>
+</li>
+<li>
+<p>Improves performance by removing elements not required in the DOM.</p>
+</li>
+<li>
+<p>Supports <code>else</code> template for fallback rendering.</p>
+</li>
+<li>
+<p>Can check if an array is empty using <code>array.length</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>*ngIf</code> to show a “No Data Available” message when a table’s data array was empty.</p>
+</li>
+</ul>
+<hr>
+<h3 id="can-you-explain-the-changes-in-angular-17-regarding-the-syntax-for-directives-like-ngfor-and-ngif">13. Can you explain the changes in Angular 17 regarding the syntax for directives like ngFor and ngIf?</h3>
+<ul>
+<li>
+<p>Angular 17 introduced simpler syntax for commonly used directives.</p>
+</li>
+<li>
+<p>Enables compact usage of structural directives without repetition.</p>
+</li>
+<li>
+<p>Removed some verbosity in directive implementation for improved readability.</p>
+</li>
+<li>
+<p>Simplified examples include shorthand for conditional loops or checks.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Migrated existing <code>*ngFor</code> loops to new Angular 17 syntax in a project for cleaner code.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-can-we-communicate-between-components-in-angular">14. How can we communicate between components in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>@Input</code> for parent-to-child communication.</p>
+</li>
+<li>
+<p>Use <code>@Output</code> with <code>EventEmitter</code> for child-to-parent communication.</p>
+</li>
+<li>
+<p>Use a shared service for sibling or unrelated components.</p>
+</li>
+<li>
+<p>Leverage Angular’s state management libraries for complex use cases.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used shared services for dynamic menu updates across unrelated components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-observable-subject-and-behaviorsubject-in-angular">15. What is the difference between Observable, Subject, and BehaviorSubject in Angular?</h3>
+<ul>
+<li>
+<p>Observable is a data stream that emits values over time.</p>
+</li>
+<li>
+<p>Subject is both an observer and observable; it multicasts values.</p>
+</li>
+<li>
+<p>BehaviorSubject emits the last value upon subscription.</p>
+</li>
+<li>
+<p>BehaviorSubject requires an initial value, unlike Subject.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used BehaviorSubject for maintaining and updating the user authentication state in a project.</p>
+</li>
+</ul>
+<p>Apologies for the mix-up earlier! Let me start properly from <strong>16</strong> as you requested, ensuring every question is answered concisely and examples are included.</p>
+<hr>
+<h3 id="what-is-debounce-and-why-do-we-use-it-in-angular">16. What is Debounce, and why do we use it in Angular?</h3>
+<ul>
+<li>
+<p>Debounce delays execution of a function after a user’s last action.</p>
+</li>
+<li>
+<p>It reduces redundant calls, optimizing performance (e.g., during keypress events).</p>
+</li>
+<li>
+<p>Implemented with RxJS <code>debounceTime</code> or <code>debounce</code>.</p>
+</li>
+<li>
+<p>Used primarily in search inputs or real-time filters.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Implemented <code>debounceTime</code> in a search bar to delay API calls.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+searchControl<span class="token punctuation">.</span>valueChanges<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">debounceTime</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>query  <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>searchService<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-difference-between-hot-and-cold-observables-in-angular">17. What is the difference between hot and cold observables in Angular?</h3>
+<ul>
+<li>
+<p>Cold observables emit data only when there’s an active subscription.</p>
+</li>
+<li>
+<p>Hot observables produce data continuously, even without subscribers.</p>
+</li>
+<li>
+<p>Cold observables are used for operations like HTTP requests.</p>
+</li>
+<li>
+<p>Hot observables are suitable for shared event streams like WebSocket updates.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a hot observable to stream real-time notifications in a messaging app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="why-was-typescript-used-in-angular-instead-of-javascript">18. Why was TypeScript used in Angular (instead of JavaScript)?</h3>
+<ul>
+<li>
+<p>TypeScript offers static typing, reducing runtime errors.</p>
+</li>
+<li>
+<p>Provides powerful tooling like interfaces and decorators.</p>
+</li>
+<li>
+<p>Supports ES6+ features, enabling modern development practices.</p>
+</li>
+<li>
+<p>Makes the codebase more maintainable and scalable.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used TypeScript interfaces to enforce consistent API data structure validation.</p>
+</li>
+</ul>
+<hr>
+<h3 id="do-you-have-any-questions-for-me">19. Do you have any questions for me?</h3>
+<ul>
+<li>
+<p>What technologies are you currently exploring for future projects?</p>
+</li>
+<li>
+<p>How does your team ensure a balance between quality and delivery timelines?</p>
+</li>
+<li>
+<p>Can you describe the structure of the development team?</p>
+</li>
+<li>
+<p>What are your expectations for this role in the first six months?</p>
+</li>
+<li>
+<p><strong>Example</strong>: Asked these questions in my previous interview to gauge team dynamics and project priorities.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-hostbinding-and-hostlistener-in-angular">20. What is the difference between @HostBinding and @HostListener in Angular?</h3>
+<ul>
+<li>
+<p><code>@HostBinding</code> binds a property or attribute to the host element.</p>
+</li>
+<li>
+<p><code>@HostListener</code> listens to events on the host element.</p>
+</li>
+<li>
+<p>Both are used to interact with host components or elements.</p>
+</li>
+<li>
+<p>Commonly used in directives for DOM manipulation.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>@HostListener</code> to handle clicks and <code>@HostBinding</code> to toggle classes in a hover directive.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Directive</span><span class="token punctuation">(</span><span class="token punctuation">{</span> selector<span class="token punctuation">:</span>  <span class="token string">'[appHoverHighlight]'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">HoverHighlightDirective</span> <span class="token punctuation">{</span>
+
+@<span class="token function">HostBinding</span><span class="token punctuation">(</span><span class="token string">'class.highlight'</span><span class="token punctuation">)</span> isHighlighted <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">)</span> <span class="token function">onMouseEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isHighlighted <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">)</span> <span class="token function">onMouseLeave</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isHighlighted <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="have-you-ever-faced-event-bubbling-in-an-angular-application">21. Have you ever faced event bubbling in an Angular application?</h3>
+<ul>
+<li>
+<p>Event bubbling occurs when events propagate from child to parent elements.</p>
+</li>
+<li>
+<p>Can lead to unintended consequences if not properly managed.</p>
+</li>
+<li>
+<p>Use <code>stopPropagation()</code> to prevent bubbling.</p>
+</li>
+<li>
+<p>Angular’s event binding automatically contains bubbling in most cases.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Encountered bubbling in a nested dropdown menu and resolved it using <code>stopPropagation()</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="do-you-use-observables-or-promises-more-frequently-in-angular-which-is-better-for-data-handling">22. Do you use Observables or Promises more frequently in Angular? Which is better for data handling?</h3>
+<ul>
+<li>
+<p>Observables are more flexible than Promises for asynchronous tasks.</p>
+</li>
+<li>
+<p>Observables can handle multiple values over time, while Promises resolve once.</p>
+</li>
+<li>
+<p>Observables integrate seamlessly with RxJS operators like <code>map</code>, <code>filter</code>, etc.</p>
+</li>
+<li>
+<p>Promises are simpler for one-time HTTP requests.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used Observables for real-time stock updates and Promises for user login operations.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-unsubscribe-from-an-observable-when-navigating-away-from-a-component-in-angular">23. How do you unsubscribe from an Observable when navigating away from a component in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>Subscription.unsubscribe()</code> in the <code>ngOnDestroy</code> lifecycle hook.</p>
+</li>
+<li>
+<p>Utilize <code>takeUntil</code> with a Subject to manage unsubscription automatically.</p>
+</li>
+<li>
+<p>Use <code>async pipe</code> for template bindings to handle unsubscription automatically.</p>
+</li>
+<li>
+<p>Avoid memory leaks by unsubscribing from all subscriptions.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>takeUntil</code> in a dashboard component to unsubscribe from live data streams.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">ngOnDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>unsubscribe$<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>unsubscribe$<span class="token punctuation">.</span><span class="token function">complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="why-do-we-use-ngondestroy-in-angular-how-do-you-handle-async-data-and-avoid-memory-leaks-using-ngondestroy">24. Why do we use ngOnDestroy in Angular? How do you handle async data and avoid memory leaks using ngOnDestroy?</h3>
+<ul>
+<li>
+<p><code>ngOnDestroy</code> is called when a component is destroyed.</p>
+</li>
+<li>
+<p>Used to clean up resources like subscriptions, intervals, or listeners.</p>
+</li>
+<li>
+<p>Unsubscribe from Observables to prevent memory leaks.</p>
+</li>
+<li>
+<p>Clear timers or event listeners for better performance.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ngOnDestroy</code> to clear WebSocket connections in a chat application.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-the-ngmodule-decorator-in-angular">25. What is the purpose of the @NgModule decorator in Angular?</h3>
+<ul>
+<li>
+<p>Declares and organizes Angular modules.</p>
+</li>
+<li>
+<p>Defines the components, directives, and pipes used within the module.</p>
+</li>
+<li>
+<p>Specifies imports, exports, and providers for dependency injection.</p>
+</li>
+<li>
+<p>Helps with modularization and lazy loading of features.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>@NgModule</code> to structure feature modules like UserModule and AdminModule.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-are-the-key-sections-inside-the-ngmodule-decorator">26. What are the key sections inside the @NgModule decorator?</h3>
+<ul>
+<li>
+<p><code>declarations</code>: Declares components, directives, and pipes.</p>
+</li>
+<li>
+<p><code>imports</code>: Includes other modules like <code>BrowserModule</code> or <code>FormsModule</code>.</p>
+</li>
+<li>
+<p><code>providers</code>: Registers services and dependencies for DI.</p>
+</li>
+<li>
+<p><code>bootstrap</code>: Specifies the root component for bootstrapping.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>imports</code> to integrate Angular Material in a module.</p>
+</li>
+</ul>
+<hr>
+<h3 id="can-you-have-multiple-ngmodule-decorators-in-an-angular-application">27. Can you have multiple @NgModule decorators in an Angular application?</h3>
+<ul>
+<li>
+<p>Yes, Angular supports multiple modules to modularize the application.</p>
+</li>
+<li>
+<p>Feature modules encapsulate related functionality.</p>
+</li>
+<li>
+<p>CoreModule contains singleton services; SharedModule contains reusable components.</p>
+</li>
+<li>
+<p>Helps with lazy loading and reducing bundle size.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Created separate modules for authentication, dashboard, and reporting in a project.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-implement-lazy-loading-in-angular-using-ngmodule">28. How do you implement lazy loading in Angular using @NgModule?</h3>
+<ul>
+<li>
+<p>Define feature modules with their own routing configurations.</p>
+</li>
+<li>
+<p>Use <code>loadChildren</code> in the <code>AppRoutingModule</code> to load modules lazily.</p>
+</li>
+<li>
+<p>Ensure each feature module has its own <code>RouterModule</code> configuration.</p>
+</li>
+<li>
+<p>Improves application performance by reducing initial load size.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Implemented lazy loading for an admin module in an e-commerce app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-the-providers-and-declarations-properties-in-the-ngmodule-decorator">29. What is the purpose of the providers and declarations properties in the @NgModule decorator?</h3>
+<ul>
+<li>
+<p><code>providers</code> registers services and dependencies at the module level.</p>
+</li>
+<li>
+<p><code>declarations</code> registers components, directives, and pipes in the module.</p>
+</li>
+<li>
+<p>Ensures proper DI and component recognition.</p>
+</li>
+<li>
+<p>Prevents redeclaration errors by scoping components to their modules.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Declared shared components in SharedModule and services in CoreModule.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-add-a-module-like-the-formsmodule-to-an-angular-application">30. How do you add a module like the FormsModule to an Angular application?</h3>
+<ul>
+<li>
+<p>Import the module in the <code>AppModule</code> or the required feature module.</p>
+</li>
+<li>
+<p>Add the module to the <code>imports</code> array of <code>@NgModule</code>.</p>
+</li>
+<li>
+<p>Use the directives or components provided by the module in templates.</p>
+</li>
+<li>
+<p>Ensure proper configuration if required (e.g., ReactiveFormsModule).</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>FormsModule</code> for two-way binding in a user registration form.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-are-route-guards-in-angular-and-how-do-you-implement-them-for-authentication">31. What are route guards in Angular, and how do you implement them for authentication?</h3>
+<ul>
+<li>
+<p>Route guards control access to specific routes based on conditions.</p>
+</li>
+<li>
+<p>Common types include <code>CanActivate</code>, <code>CanDeactivate</code>, and <code>Resolve</code>.</p>
+</li>
+<li>
+<p>Implement route guards as services by extending their respective interfaces.</p>
+</li>
+<li>
+<p>Use guards in the <code>AppRoutingModule</code> to protect routes.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>CanActivate</code> guard to restrict access to admin routes for unauthorized users.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">{</span> providedIn<span class="token punctuation">:</span>  <span class="token string">'root'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">AuthGuard</span>  <span class="token keyword">implements</span>  <span class="token class-name">CanActivate</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span>  authService<span class="token punctuation">:</span> AuthService<span class="token punctuation">,</span> <span class="token keyword">private</span>  router<span class="token punctuation">:</span> Router<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token function">canActivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>authService<span class="token punctuation">.</span><span class="token function">isLoggedIn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>router<span class="token punctuation">.</span><span class="token function">navigate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'/login'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-purpose-of-canactivate-and-candeactivate-route-guards-in-angular">32. What is the purpose of canActivate and canDeactivate route guards in Angular?</h3>
+<ul>
+<li>
+<p><code>CanActivate</code> determines whether a user can access a route.</p>
+</li>
+<li>
+<p><code>CanDeactivate</code> checks if a user can leave a route, useful for unsaved changes.</p>
+</li>
+<li>
+<p>Both return boolean or Observable/Promise resolving to boolean.</p>
+</li>
+<li>
+<p>Used to enforce authentication, permissions, or confirm actions.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>CanDeactivate</code> in a form editor to prevent unsaved data loss.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-data-transfer-between-components-using-services-and-subject-in-angular">33. How do you manage data transfer between components using services and Subject in Angular?</h3>
+<ul>
+<li>
+<p>Create a shared service for communication between components.</p>
+</li>
+<li>
+<p>Use an RxJS <code>Subject</code> for broadcasting data changes.</p>
+</li>
+<li>
+<p>Inject the service into the components needing communication.</p>
+</li>
+<li>
+<p>Subscribe to the <code>Subject</code> to listen for updates.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a shared service to notify components of user role changes.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">{</span> providedIn<span class="token punctuation">:</span>  <span class="token string">'root'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">DataService</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">private</span>  userRoleSubject <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Subject</span><span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+userRole$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>userRoleSubject<span class="token punctuation">.</span><span class="token function">asObservable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">updateRole</span><span class="token punctuation">(</span>role<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>userRoleSubject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span>role<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="how-do-you-style-components-in-angular-using-external-or-inline-styles">34. How do you style components in Angular using external or inline styles?</h3>
+<ul>
+<li>
+<p>External styles: Use <code>styleUrls</code> in the component metadata.</p>
+</li>
+<li>
+<p>Inline styles: Use the <code>styles</code> property in the component metadata.</p>
+</li>
+<li>
+<p>CSS can be scoped to components using Angular’s View Encapsulation.</p>
+</li>
+<li>
+<p>External stylesheets can also be included globally via <code>angular.json</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>styleUrls</code> for maintaining reusable CSS across components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-apply-conditional-classes-or-styles-in-angular-templates">35. How do you apply conditional classes or styles in Angular templates?</h3>
+<ul>
+<li>
+<p>Use <code>[class.className]</code> to conditionally apply a class.</p>
+</li>
+<li>
+<p>Use <code>[ngClass]</code> for multiple dynamic classes.</p>
+</li>
+<li>
+<p>Apply inline styles conditionally using <code>[style.property]</code> or <code>[ngStyle]</code>.</p>
+</li>
+<li>
+<p>Useful for UI state changes like active/inactive toggles.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>[ngClass]</code> to highlight selected rows in a table dynamically.</p>
+</li>
+</ul>
+<pre class=" language-html"><code class="prism  language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span>  <span class="token attr-name">[ngClass]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{ <span class="token punctuation">'</span>selected<span class="token punctuation">'</span>: isSelected(row) }<span class="token punctuation">"</span></span>  <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>let row of rows<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+{{ row.name }}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<hr>
+<h3 id="how-do-you-handle-forms-in-angular-template-driven-vs.-reactive">36. How do you handle forms in Angular? (Template-driven vs. Reactive)</h3>
+<ul>
+<li>
+<p>Template-driven forms rely on directives in templates and are simpler for basic forms.</p>
+</li>
+<li>
+<p>Reactive forms provide a model-driven approach with better control and validation.</p>
+</li>
+<li>
+<p>Use <code>FormsModule</code> for template-driven and <code>ReactiveFormsModule</code> for reactive forms.</p>
+</li>
+<li>
+<p>Reactive forms use <code>FormGroup</code> and <code>FormControl</code> for form control management.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used reactive forms for building dynamic form fields with validation.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">this</span><span class="token punctuation">.</span>form <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">FormGroup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+name<span class="token punctuation">:</span>  <span class="token keyword">new</span>  <span class="token class-name">FormControl</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>required<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+email<span class="token punctuation">:</span>  <span class="token keyword">new</span>  <span class="token class-name">FormControl</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Validators<span class="token punctuation">.</span>required<span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>email<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="how-can-you-handle-form-validation-in-angular-using-reactiveforms-and-templatedrivenforms">37. How can you handle form validation in Angular using ReactiveForms and TemplateDrivenForms?</h3>
+<ul>
+<li>
+<p>Use <code>Validators</code> for both approaches to enforce rules.</p>
+</li>
+<li>
+<p>For reactive forms, bind errors to controls programmatically.</p>
+</li>
+<li>
+<p>For template-driven forms, use Angular’s built-in validation directives.</p>
+</li>
+<li>
+<p>Display error messages using conditional rendering in the template.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used reactive form validators to validate email and password fields.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-are-the-best-practices-for-handling-dynamic-content-loading-in-angular">38. What are the best practices for handling dynamic content loading in Angular?</h3>
+<ul>
+<li>
+<p>Use lazy loading for heavy modules or components.</p>
+</li>
+<li>
+<p>Implement <code>trackBy</code> in <code>*ngFor</code> to optimize DOM rendering.</p>
+</li>
+<li>
+<p>Avoid unnecessary API calls by caching data.</p>
+</li>
+<li>
+<p>Use Angular resolvers for pre-fetching route data.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used lazy loading to defer loading of the admin dashboard module.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-formbuilder-and-formgroup-in-angular">39. What is the purpose of FormBuilder and FormGroup in Angular?</h3>
+<ul>
+<li>
+<p><code>FormBuilder</code> simplifies form creation using less boilerplate code.</p>
+</li>
+<li>
+<p><code>FormGroup</code> manages multiple form controls as a single group.</p>
+</li>
+<li>
+<p>Use <code>FormBuilder</code> to instantiate <code>FormGroup</code> and <code>FormControl</code>.</p>
+</li>
+<li>
+<p>Helps organize and validate complex forms easily.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>FormBuilder</code> to dynamically generate a user registration form.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">this</span><span class="token punctuation">.</span>form <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fb<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+username<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>required<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+password<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>required<span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="how-can-you-add-dynamic-validation-to-angular-reactive-form-controls">40. How can you add dynamic validation to Angular reactive form controls?</h3>
+<ul>
+<li>
+<p>Use the <code>setValidators</code> method on form controls to add or update validators.</p>
+</li>
+<li>
+<p>Use <code>updateValueAndValidity()</code> to re-evaluate validation rules.</p>
+</li>
+<li>
+<p>Useful for conditional form requirements based on user actions.</p>
+</li>
+<li>
+<p>Validators can be combined or removed dynamically.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Added validation dynamically for a required OTP field based on user input.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-using-an-interface-in-angular">41. What is the purpose of using an interface in Angular?</h3>
+<ul>
+<li>
+<p>Defines a contract for data structures to ensure type safety.</p>
+</li>
+<li>
+<p>Simplifies API response handling by describing expected shapes.</p>
+</li>
+<li>
+<p>Makes code more readable and maintainable.</p>
+</li>
+<li>
+<p>Enables type-checking during development to catch errors early.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used an interface to type-check API response data for user profiles.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-the-async-pipe-in-angular">42. What is the purpose of the async pipe in Angular?</h3>
+<ul>
+<li>
+<p>Simplifies subscription to Observables or Promises in templates.</p>
+</li>
+<li>
+<p>Automatically handles unsubscription to avoid memory leaks.</p>
+</li>
+<li>
+<p>Reduces boilerplate code for manual subscription handling.</p>
+</li>
+<li>
+<p>Useful for binding async data directly in the template.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>async</code> pipe to display user notifications from an Observable stream.</p>
+</li>
+</ul>
+<pre class=" language-html"><code class="prism  language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>let notification of notifications$ | async<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+{{ notification.message }}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-an-angular-resolver-and-how-does-it-work">43. What is an Angular resolver, and how does it work?</h3>
+<ul>
+<li>
+<p>Pre-fetches data for a route before navigating to it.</p>
+</li>
+<li>
+<p>Implemented as a service using the <code>Resolve</code> interface.</p>
+</li>
+<li>
+<p>Ensures route loads only after data is available.</p>
+</li>
+<li>
+<p>Use <code>resolve</code> property in the <code>AppRoutingModule</code> for configuration.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a resolver to load user details before rendering the dashboard.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-jit-and-aot-compilation-in-angular">44. What is the difference between JIT and AOT compilation in Angular?</h3>
+<ul>
+<li>
+<p>JIT (Just-In-Time) compiles the app in the browser at runtime.</p>
+</li>
+<li>
+<p>AOT (Ahead-Of-Time) compiles the app during the build process.</p>
+</li>
+<li>
+<p>AOT provides faster load times and better performance.</p>
+</li>
+<li>
+<p>JIT is more suitable for development; AOT is recommended for production.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used AOT compilation for production builds to minimize load times.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-lazy-loading-in-angular-and-how-does-it-improve-performance">45. What is lazy loading in Angular, and how does it improve performance?</h3>
+<ul>
+<li>
+<p>Defers loading of feature modules until they are needed.</p>
+</li>
+<li>
+<p>Reduces the initial bundle size, improving load time.</p>
+</li>
+<li>
+<p>Configured using <code>loadChildren</code> in routing modules.</p>
+</li>
+<li>
+<p>Ensures efficient resource utilization and better scalability.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Implemented lazy loading for the reports module in an analytics dashboard.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-role-of-http-interceptors-in-angular">46. What is the role of HTTP interceptors in Angular?</h3>
+<ul>
+<li>
+<p>Intercept and modify HTTP requests or responses globally.</p>
+</li>
+<li>
+<p>Useful for adding headers like authentication tokens to requests.</p>
+</li>
+<li>
+<p>Can handle centralized error handling or request logging.</p>
+</li>
+<li>
+<p>Implemented by extending the <code>HttpInterceptor</code> interface.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used an interceptor to attach JWT tokens to outgoing API calls.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">AuthInterceptor</span>  <span class="token keyword">implements</span>  <span class="token class-name">HttpInterceptor</span> <span class="token punctuation">{</span>
+
+<span class="token function">intercept</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span> HttpRequest<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> next<span class="token punctuation">:</span> HttpHandler<span class="token punctuation">)</span><span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>HttpEvent<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span>  cloned <span class="token operator">=</span> req<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">{</span> headers<span class="token punctuation">:</span>  req<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'Authorization'</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>token<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span>  next<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>cloned<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-purpose-of-viewchild-and-viewchildren-in-angular">47. What is the purpose of ViewChild and ViewChildren in Angular?</h3>
+<ul>
+<li>
+<p><code>ViewChild</code> retrieves a reference to a single DOM element or component.</p>
+</li>
+<li>
+<p><code>ViewChildren</code> retrieves references to multiple elements or components.</p>
+</li>
+<li>
+<p>Access children in the component’s template for manipulation or querying.</p>
+</li>
+<li>
+<p>Useful for DOM interactions or component communication.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ViewChild</code> to reset a child form component programmatically.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">ViewChild</span><span class="token punctuation">(</span>ChildComponent<span class="token punctuation">)</span> childComp<span class="token operator">!</span><span class="token punctuation">:</span> ChildComponent<span class="token punctuation">;</span>
+
+<span class="token function">resetChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>childComp<span class="token punctuation">.</span><span class="token function">resetForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-are-entrycomponents-in-angular">48. What are entryComponents in Angular?</h3>
+<ul>
+<li>
+<p>Components loaded dynamically rather than declared in a template.</p>
+</li>
+<li>
+<p>Specified in the <code>entryComponents</code> array in earlier Angular versions.</p>
+</li>
+<li>
+<p>No longer required in Angular 9+ due to Ivy renderer.</p>
+</li>
+<li>
+<p>Commonly used for dialog boxes, modals, or dynamically added UI elements.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used an entry component to create a custom dynamic modal dialog.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-role-of-angular-material-in-an-angular-application">49. What is the role of Angular Material in an Angular application?</h3>
+<ul>
+<li>
+<p>Provides pre-designed UI components for faster development.</p>
+</li>
+<li>
+<p>Ensures consistency with Google’s Material Design guidelines.</p>
+</li>
+<li>
+<p>Components include buttons, forms, dialogs, and tables.</p>
+</li>
+<li>
+<p>Supports accessibility and responsiveness out of the box.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used Angular Material’s <code>MatTable</code> and <code>MatPaginator</code> for a paginated data table.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-a-component-in-angular">50. What is a component in Angular?</h3>
+<ul>
+<li>
+<p>A building block of Angular applications consisting of TypeScript, HTML, and CSS.</p>
+</li>
+<li>
+<p>Defined using the <code>@Component</code> decorator.</p>
+</li>
+<li>
+<p>Controls a specific portion of the UI and handles data binding.</p>
+</li>
+<li>
+<p>Communicates with other components using inputs, outputs, or services.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Created a reusable button component for a project.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+selector<span class="token punctuation">:</span>  <span class="token string">'app-button'</span><span class="token punctuation">,</span>
+
+template<span class="token punctuation">:</span>  <span class="token template-string"><span class="token string">`&lt;button [class]="btnClass"&gt;{{ label }}&lt;/button&gt;`</span></span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">ButtonComponent</span> <span class="token punctuation">{</span>
+
+@<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> label<span class="token operator">!</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+@<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> btnClass<span class="token operator">!</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="how-do-you-bind-data-in-angular">51. How do you bind data in Angular?</h3>
+<ul>
+<li>
+<p>Interpolation (<code>{{}}</code>) for binding data to templates.</p>
+</li>
+<li>
+<p>Property binding (<code>[property]="expression"</code>) for dynamic property values.</p>
+</li>
+<li>
+<p>Event binding (<code>(event)="handler"</code>) for listening to DOM events.</p>
+</li>
+<li>
+<p>Two-way binding (<code>[(ngModel)]</code>) for syncing data between the UI and model.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used two-way binding to sync form input with a model.</p>
+</li>
+</ul>
+<pre class=" language-html"><code class="prism  language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">[(ngModel)]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span>  <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Enter your name<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-ngmodel-and-how-is-it-used">52. What is ngModel, and how is it used?</h3>
+<ul>
+<li>
+<p>A directive for two-way data binding in Angular.</p>
+</li>
+<li>
+<p>Requires importing <code>FormsModule</code> in <code>AppModule</code>.</p>
+</li>
+<li>
+<p>Binds an input element to a component property.</p>
+</li>
+<li>
+<p>Automatically updates the property value on user input.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ngModel</code> to bind a search bar input to a component property.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-add-modules-in-angular">53. How do you add modules in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>ng generate module</code> or <code>ng g module</code> command with Angular CLI.</p>
+</li>
+<li>
+<p>Import the module in the root or feature module.</p>
+</li>
+<li>
+<p>Use <code>NgModule</code> metadata to configure the module’s components and services.</p>
+</li>
+<li>
+<p>Modular architecture helps organize large applications.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Added a feature module for managing user profiles in an application.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-appmodule-and-why-is-it-important">54. What is the AppModule, and why is it important?</h3>
+<ul>
+<li>
+<p>The root module of an Angular application, bootstrapped at runtime.</p>
+</li>
+<li>
+<p>Declares and provides all components, directives, and pipes used in the app.</p>
+</li>
+<li>
+<p>Imports essential Angular modules like <code>BrowserModule</code> and <code>FormsModule</code>.</p>
+</li>
+<li>
+<p>Defines entry components and the root component.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Configured global services and root-level declarations in <code>AppModule</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-routing-in-angular">55. How do you handle routing in Angular?</h3>
+<ul>
+<li>
+<p>Define routes using <code>RouterModule</code> in the <code>AppRoutingModule</code>.</p>
+</li>
+<li>
+<p>Use <code>RouterOutlet</code> in templates to load components dynamically.</p>
+</li>
+<li>
+<p>Link routes with <code>routerLink</code> directive.</p>
+</li>
+<li>
+<p>Manage route parameters with <code>ActivatedRoute</code> service.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Configured routes for navigation in an e-commerce application.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-are-the-different-types-of-angular-guards">56. What are the different types of Angular guards?</h3>
+<ul>
+<li>
+<p><code>CanActivate</code>: Controls access to a route.</p>
+</li>
+<li>
+<p><code>CanDeactivate</code>: Prevents leaving a route without confirmation.</p>
+</li>
+<li>
+<p><code>Resolve</code>: Pre-fetches data before route activation.</p>
+</li>
+<li>
+<p><code>CanLoad</code>: Restricts loading of lazy-loaded modules.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>CanLoad</code> guard to restrict loading of admin modules for unauthorized users.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-a-subject-and-an-observable-in-angular">57. What is the difference between a subject and an observable in Angular?</h3>
+<ul>
+<li>
+<p>Observable emits data streams, while Subject emits and listens simultaneously.</p>
+</li>
+<li>
+<p>Subjects act as both Observable and Observer.</p>
+</li>
+<li>
+<p>Useful for multicasting data to multiple subscribers.</p>
+</li>
+<li>
+<p>Subjects allow manual control of emitted data.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a <code>Subject</code> in a shared service to broadcast user role changes.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-a-behavior-subject-how-does-it-differ-from-a-regular-subject">58. What is a behavior subject? How does it differ from a regular subject?</h3>
+<ul>
+<li>
+<p>BehaviorSubject holds a default value and emits the latest value to new subscribers.</p>
+</li>
+<li>
+<p>Regular Subject doesn’t retain the last emitted value.</p>
+</li>
+<li>
+<p>Useful for managing state across components.</p>
+</li>
+<li>
+<p>BehaviorSubject is ideal for application-level state sharing.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used BehaviorSubject to store and share authentication status.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-data-sharing-between-components-in-angular">59. How do you handle data sharing between components in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>@Input</code> and <code>@Output</code> for parent-child communication.</p>
+</li>
+<li>
+<p>Use shared services with Observables or Subjects for unrelated components.</p>
+</li>
+<li>
+<p>Use <code>EventEmitter</code> for emitting events from child to parent.</p>
+</li>
+<li>
+<p>Avoid tight coupling by using state management libraries for large apps.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Shared user preferences using a service and BehaviorSubject.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-does-angular-handle-data-sharing-between-components-e.g.-parent-child">60. How does Angular handle data sharing between components (e.g., parent-child)?</h3>
+<ul>
+<li>
+<p>Parent to child: Use <code>@Input</code> binding for passing data.</p>
+</li>
+<li>
+<p>Child to parent: Use <code>@Output</code> and <code>EventEmitter</code>.</p>
+</li>
+<li>
+<p>Sibling components: Use shared services with Subjects or Observables.</p>
+</li>
+<li>
+<p>Unrelated components: Use global state management solutions like NGRX.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Passed user details from parent to child using <code>@Input</code>.</p>
+</li>
+</ul>
+<hr>
+<p>We have covered questions 1–60. A total of 120 questions are to be answered. This means <strong>60 questions are pending.</strong> Here is the next set:</p>
+<hr>
+<h3 id="how-do-you-handle-http-requests-in-angular">61. How do you handle HTTP requests in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>HttpClient</code> module to send HTTP requests.</p>
+</li>
+<li>
+<p>Provides methods like <code>get</code>, <code>post</code>, <code>put</code>, <code>delete</code> for CRUD operations.</p>
+</li>
+<li>
+<p>Supports request options like headers, parameters, and response type.</p>
+</li>
+<li>
+<p>Use Observables to handle asynchronous responses.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>HttpClient</code> to fetch user data from a REST API.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">this</span><span class="token punctuation">.</span>http<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'https://api.example.com/users'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>data  <span class="token operator">=&gt;</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="how-do-you-work-with-the-httpclientmodule-in-angular">62. How do you work with the HttpClientModule in Angular?</h3>
+<ul>
+<li>
+<p>Import <code>HttpClientModule</code> into the app or feature module.</p>
+</li>
+<li>
+<p>Use <code>HttpClient</code> service for making HTTP calls.</p>
+</li>
+<li>
+<p>Can intercept requests using HTTP interceptors.</p>
+</li>
+<li>
+<p>Supports advanced features like retry logic and error handling.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Imported <code>HttpClientModule</code> to enable HTTP services in <code>AppModule</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-prevent-memory-leaks-in-angular">63. How do you prevent memory leaks in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>takeUntil</code> with a <code>Subject</code> for unsubscribing from Observables.</p>
+</li>
+<li>
+<p>Use the <code>async</code> pipe to manage subscriptions in templates.</p>
+</li>
+<li>
+<p>Destroy subscriptions in the <code>ngOnDestroy</code> lifecycle hook.</p>
+</li>
+<li>
+<p>Avoid retaining unused DOM references or listeners.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>takeUntil</code> to safely unsubscribe on component destruction.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">private</span>  destroy$ <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Subject</span><span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>observable<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">takeUntil</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>destroy$<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">ngOnDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>destroy$<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>destroy$<span class="token punctuation">.</span><span class="token function">complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-appinitializer-and-where-would-you-use-it">64. What is AppInitializer, and where would you use it?</h3>
+<ul>
+<li>
+<p>A function or service that runs before the Angular app initializes.</p>
+</li>
+<li>
+<p>Configured in the <code>providers</code> array of the root module.</p>
+</li>
+<li>
+<p>Useful for preloading configurations or fetching essential data.</p>
+</li>
+<li>
+<p>Executes during the bootstrapping process.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used AppInitializer to fetch environment settings before app loads.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-run-tests-in-angular-using-karma-and-jasmine">65. How do you run tests in Angular using Karma and Jasmine?</h3>
+<ul>
+<li>
+<p>Write test cases using Jasmine syntax (<code>describe</code>, <code>it</code>, <code>expect</code>).</p>
+</li>
+<li>
+<p>Use Angular CLI command <code>ng test</code> to run tests with Karma test runner.</p>
+</li>
+<li>
+<p>Configure Karma for test execution and reporting.</p>
+</li>
+<li>
+<p>Test both unit and integration scenarios.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Wrote a unit test to verify a service function’s output.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-the-angular.json-file-in-configuring-tests">66. What is the purpose of the angular.json file in configuring tests?</h3>
+<ul>
+<li>
+<p>Configures Angular CLI build and test settings.</p>
+</li>
+<li>
+<p>Specifies test frameworks, environments, and scripts.</p>
+</li>
+<li>
+<p>Allows customizing Karma and Protractor configurations.</p>
+</li>
+<li>
+<p>Defines test coverage options and output paths.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Updated <code>angular.json</code> to enable detailed test coverage reports.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-generate-a-coverage-report-in-angular-tests">67. How do you generate a coverage report in Angular tests?</h3>
+<ul>
+<li>
+<p>Run tests using <code>ng test --code-coverage</code> command.</p>
+</li>
+<li>
+<p>Generates a <code>coverage</code> folder in the root directory.</p>
+</li>
+<li>
+<p>Open <code>index.html</code> inside the folder to view detailed coverage.</p>
+</li>
+<li>
+<p>Includes metrics like lines, branches, and functions covered.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used coverage reports to optimize under-tested components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-debug-an-angular-application">68. How do you debug an Angular application?</h3>
+<ul>
+<li>
+<p>Use Chrome Developer Tools to inspect elements and console logs.</p>
+</li>
+<li>
+<p>Use Angular DevTools for component and state debugging.</p>
+</li>
+<li>
+<p>Add breakpoints in TypeScript files using source maps.</p>
+</li>
+<li>
+<p>Leverage <code>console.log</code> and debugging utilities for real-time insights.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Debugged a routing issue by analyzing the navigation state in Angular DevTools.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-mock-services-for-testing-in-angular">69. How do you mock services for testing in Angular?</h3>
+<ul>
+<li>
+<p>Create mock classes that implement the service interface.</p>
+</li>
+<li>
+<p>Use <code>TestBed</code> to provide mock services during tests.</p>
+</li>
+<li>
+<p>Replace actual dependencies with mock versions using <code>useClass</code> or <code>useValue</code>.</p>
+</li>
+<li>
+<p>Test component behavior independently of service logic.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Mocked an API call by returning a predefined response.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  mockService <span class="token operator">=</span> <span class="token punctuation">{</span> getData<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>  <span class="token keyword">of</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">{</span> id<span class="token punctuation">:</span>  <span class="token number">1</span><span class="token punctuation">,</span> name<span class="token punctuation">:</span>  <span class="token string">'Test'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-difference-between-unit-testing-and-integration-testing">70. What is the difference between unit testing and integration testing?</h3>
+<ul>
+<li>
+<p>Unit testing focuses on individual components or functions in isolation.</p>
+</li>
+<li>
+<p>Integration testing validates interactions between components or modules.</p>
+</li>
+<li>
+<p>Unit tests are faster and easier to debug.</p>
+</li>
+<li>
+<p>Integration tests ensure overall system correctness.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used unit testing to validate form validation logic in a component.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-structure-an-angular-project-for-scalability">71. How do you structure an Angular project for scalability?</h3>
+<ul>
+<li>
+<p>Use feature modules to group related functionality.</p>
+</li>
+<li>
+<p>Separate shared modules for reusable components and services.</p>
+</li>
+<li>
+<p>Use consistent naming conventions for files and folders.</p>
+</li>
+<li>
+<p>Modularize services, pipes, and directives.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Organized e-commerce features like product listing and cart into feature modules.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-break-down-an-e-commerce-website-into-modules-and-components">72. How do you break down an e-commerce website into modules and components?</h3>
+<ul>
+<li>
+<p>Create feature modules like <code>Product</code>, <code>Cart</code>, <code>Order</code>, and <code>User</code>.</p>
+</li>
+<li>
+<p>Use components for UI elements like product cards, filters, and headers.</p>
+</li>
+<li>
+<p>Define shared services for managing cart data and API interactions.</p>
+</li>
+<li>
+<p>Create reusable components for common features like modals.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Built a <code>ProductCard</code> component and reused it across the site.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-shared-components-in-an-angular-project">73. How do you manage shared components in an Angular project?</h3>
+<ul>
+<li>
+<p>Create a shared module to declare and export reusable components.</p>
+</li>
+<li>
+<p>Import the shared module in feature modules where needed.</p>
+</li>
+<li>
+<p>Avoid duplicating components by centralizing their definitions.</p>
+</li>
+<li>
+<p>Update the shared module to include additional components or pipes.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Added a custom <code>LoadingSpinner</code> component to a shared module.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-role-based-access-control-rbac-and-how-do-you-implement-it-in-angular">74. What is role-based access control (RBAC), and how do you implement it in Angular?</h3>
+<ul>
+<li>
+<p>RBAC restricts user actions based on assigned roles.</p>
+</li>
+<li>
+<p>Implement using route guards and conditional UI rendering.</p>
+</li>
+<li>
+<p>Store roles in JWT tokens or a user management service.</p>
+</li>
+<li>
+<p>Validate roles during route navigation or API calls.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>canActivate</code> guard to block unauthorized users from admin routes.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-clean-architecture-how-do-you-implement-it-in-angular">75. What is Clean Architecture? How do you implement it in Angular?</h3>
+<ul>
+<li>
+<p>A layered design approach separating concerns like UI, business logic, and data access.</p>
+</li>
+<li>
+<p>Use feature modules for UI and core modules for shared services.</p>
+</li>
+<li>
+<p>Ensure that dependencies flow inward, not outward.</p>
+</li>
+<li>
+<p>Utilize interfaces for dependency inversion.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Structured an Angular application using clean architecture for maintainability.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-deploy-an-angular-application">76. How do you deploy an Angular application?</h3>
+<ul>
+<li>
+<p>Use <code>ng build --prod</code> to generate production-ready static files.</p>
+</li>
+<li>
+<p>Deploy files to a web server like Apache, Nginx, or Azure Static Web Apps.</p>
+</li>
+<li>
+<p>Configure routing with <code>rewrites</code> or <code>.htaccess</code> for SPA navigation.</p>
+</li>
+<li>
+<p>Use CI/CD pipelines for automated deployment.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Deployed the application to AWS S3 with CloudFront for faster delivery.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-ng-build-and-ng-serve">77. What is the difference between ng build and ng serve?</h3>
+<ul>
+<li>
+<p><code>ng build</code> compiles the app into static files for deployment.</p>
+</li>
+<li>
+<p><code>ng serve</code> runs a development server for local testing.</p>
+</li>
+<li>
+<p><code>ng build</code> includes optimizations like AOT and minification for production builds.</p>
+</li>
+<li>
+<p><code>ng serve</code> provides live reloading for development.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ng build</code> to generate a production version before deploying.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-configure-multiple-environments-in-angular">78. How do you configure multiple environments in Angular?</h3>
+<ul>
+<li>
+<p>Define environment-specific files like <code>environment.prod.ts</code> and <code>environment.dev.ts</code>.</p>
+</li>
+<li>
+<p>Use the <code>fileReplacements</code> option in <code>angular.json</code> to switch environments.</p>
+</li>
+<li>
+<p>Access environment variables via the <code>environment</code> object.</p>
+</li>
+<li>
+<p>Build the application using flags like <code>--configuration=production</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Configured <code>API_BASE_URL</code> for different environments in the app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-dependencies-and-versions-in-an-angular-project">79. How do you manage dependencies and versions in an Angular project?</h3>
+<ul>
+<li>
+<p>Use <code>package.json</code> to declare project dependencies.</p>
+</li>
+<li>
+<p>Use <code>npm</code> or <code>yarn</code> to install and manage dependencies.</p>
+</li>
+<li>
+<p>Lock dependency versions with <code>package-lock.json</code> or <code>yarn.lock</code>.</p>
+</li>
+<li>
+<p>Update dependencies periodically using tools like <code>npm-check-updates</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Resolved version conflicts by updating all related packages.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-happens-when-you-run-npm-install">80. What happens when you run npm install?</h3>
+<ul>
+<li>
+<p>Downloads and installs packages listed in <code>package.json</code>.</p>
+</li>
+<li>
+<p>Resolves dependencies and creates <code>node_modules</code>.</p>
+</li>
+<li>
+<p>Updates <code>package-lock.json</code> to lock specific versions.</p>
+</li>
+<li>
+<p>Installs both development and production dependencies.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Installed required packages for Angular Material using <code>npm install</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-purpose-of-the-package-lock.json-file">81. What is the purpose of the package-lock.json file?</h3>
+<ul>
+<li>
+<p>Locks exact dependency versions to ensure consistency across environments.</p>
+</li>
+<li>
+<p>Provides a snapshot of the dependency tree.</p>
+</li>
+<li>
+<p>Speeds up future installations by caching resolved packages.</p>
+</li>
+<li>
+<p>Helps in debugging version conflicts.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>package-lock.json</code> to restore the exact dependency tree on a new system.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-node-version-conflicts">82. How do you handle node version conflicts?</h3>
+<ul>
+<li>
+<p>Use a version manager like <code>nvm</code> to switch between Node versions.</p>
+</li>
+<li>
+<p>Specify the required version in a <code>.nvmrc</code> file.</p>
+</li>
+<li>
+<p>Update Node.js to compatible versions when required.</p>
+</li>
+<li>
+<p>Test the application on multiple versions during development.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Resolved compatibility issues by switching to Node.js LTS version.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-use-the---force-flag-in-npm">83. How do you use the --force flag in npm?</h3>
+<ul>
+<li>
+<p>Forces installation of packages despite errors or warnings.</p>
+</li>
+<li>
+<p>Used to bypass peer dependency conflicts.</p>
+</li>
+<li>
+<p>Risky as it might lead to compatibility issues.</p>
+</li>
+<li>
+<p>Use sparingly and test thoroughly after using it.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Installed a specific library version by using <code>npm install package-name --force</code>.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-manage-state-in-an-angular-application">84. How do you manage state in an Angular application?</h3>
+<ul>
+<li>
+<p>Use services to share and manage state across components.</p>
+</li>
+<li>
+<p>Employ state management libraries like NgRx or Akita for complex applications.</p>
+</li>
+<li>
+<p>Use <code>BehaviorSubject</code> or <code>ReplaySubject</code> for reactive state updates.</p>
+</li>
+<li>
+<p>Keep the application state immutable wherever possible.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used NgRx for managing the shopping cart state in an e-commerce app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-does-the-angular-cli-do-when-you-add-a-component-to-your-project">85. What does the Angular CLI do when you add a component to your project?</h3>
+<ul>
+<li>
+<p>Creates a new component file structure (HTML, TS, CSS, spec).</p>
+</li>
+<li>
+<p>Updates <code>AppModule</code> or feature module with the new component.</p>
+</li>
+<li>
+<p>Automatically adds component dependencies if routing is enabled.</p>
+</li>
+<li>
+<p>Provides configuration flags for customization during creation.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ng generate component header</code> to add a header component with routing.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-angular-cli-commands-like-ng-build-ng-serve-and-ng-test">86. What is the difference between Angular CLI commands like ng build, ng serve, and ng test?</h3>
+<ul>
+<li>
+<p><code>ng build</code>: Compiles app into static files for deployment.</p>
+</li>
+<li>
+<p><code>ng serve</code>: Starts a development server with live reload.</p>
+</li>
+<li>
+<p><code>ng test</code>: Runs unit tests using Karma and Jasmine.</p>
+</li>
+<li>
+<p><code>ng build</code> focuses on production readiness; <code>ng serve</code> is for local testing.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ng test</code> to validate a new service implementation.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-custom-pipes-in-angular">87. How do you handle custom pipes in Angular?</h3>
+<ul>
+<li>
+<p>Create a pipe class using the <code>@Pipe</code> decorator.</p>
+</li>
+<li>
+<p>Implement the <code>PipeTransform</code> interface to define transformation logic.</p>
+</li>
+<li>
+<p>Register the pipe in the module’s <code>declarations</code> array.</p>
+</li>
+<li>
+<p>Use the pipe in templates with the <code>|</code> operator.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Created a <code>CurrencyFormatterPipe</code> to display formatted prices.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Pipe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span>  <span class="token string">'currencyFormatter'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">CurrencyFormatterPipe</span>  <span class="token keyword">implements</span>  <span class="token class-name">PipeTransform</span> <span class="token punctuation">{</span>
+
+<span class="token function">transform</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  <span class="token template-string"><span class="token string">`$</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-are-content-projection-and-ng-content-slots">88. What are content projection and ng-content slots?</h3>
+<ul>
+<li>
+<p>Content projection allows inserting custom content into a component template.</p>
+</li>
+<li>
+<p>Use the <code>&lt;ng-content&gt;</code> tag to define projection slots.</p>
+</li>
+<li>
+<p>Supports single or multiple slots with <code>select</code> attributes.</p>
+</li>
+<li>
+<p>Enhances component reusability and flexibility.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ng-content</code> for creating a reusable card component.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-ngrx-and-how-do-you-use-it-for-state-management-in-angular">89. What is NGRX, and how do you use it for state management in Angular?</h3>
+<ul>
+<li>
+<p>A Redux-inspired state management library for Angular.</p>
+</li>
+<li>
+<p>Stores application state in a centralized store.</p>
+</li>
+<li>
+<p>Manages state changes through actions, reducers, and effects.</p>
+</li>
+<li>
+<p>Ensures a predictable state flow across the application.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used NGRX to manage user authentication state in a dashboard app.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-side-effects-in-ngrx-using-effects">90. How do you handle side effects in NGRX using effects?</h3>
+<ul>
+<li>
+<p>Use <code>@ngrx/effects</code> to handle asynchronous tasks like HTTP requests.</p>
+</li>
+<li>
+<p>Define effects as Observables that listen to actions and trigger side effects.</p>
+</li>
+<li>
+<p>Use <code>Actions</code> stream to map actions to effects.</p>
+</li>
+<li>
+<p>Dispatch new actions based on the effect’s outcome.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Created an effect to fetch products from an API when the app loads.</p>
+</li>
+</ul>
+<hr>
+<h3 id="can-you-explain-the-difference-between-a-smart-component-and-a-dumb-component-in-angular">91. Can you explain the difference between a smart component and a dumb component in Angular?</h3>
+<ul>
+<li>
+<p>Smart components manage logic and data; dumb components focus on presentation.</p>
+</li>
+<li>
+<p>Smart components communicate with services or APIs; dumb components rely on inputs/outputs.</p>
+</li>
+<li>
+<p>Smart components handle state changes; dumb components only receive data.</p>
+</li>
+<li>
+<p>Dumb components are reusable and focused on UI.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Created a smart component for fetching and storing user data and a dumb component for displaying it.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-would-you-handle-data-sharing-between-components-in-angular">92. How would you handle data sharing between components in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>@Input()</code> and <code>@Output()</code> for parent-child communication.</p>
+</li>
+<li>
+<p>Use services with observables for sibling and parent-child communication.</p>
+</li>
+<li>
+<p>Employ state management libraries like NgRx for global state sharing.</p>
+</li>
+<li>
+<p>Use <code>EventEmitter</code> to send data from child to parent.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a shared service with <code>BehaviorSubject</code> to manage theme preferences across components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="can-you-explain-dependency-injection-in-angular-and-how-it-works">93. Can you explain dependency injection in Angular and how it works?</h3>
+<ul>
+<li>
+<p>Angular uses dependency injection (DI) to provide services and dependencies.</p>
+</li>
+<li>
+<p>DI simplifies the creation and management of services across components.</p>
+</li>
+<li>
+<p>Services are injected through constructors or <code>@Injectable</code> decorators.</p>
+</li>
+<li>
+<p>DI helps in improving modularity and testability.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Injected an authentication service into a component to manage user login.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span>  authService<span class="token punctuation">:</span> AuthService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-purpose-of-hostbinding-and-hostlistener-decorators-in-angular">94. What is the purpose of HostBinding and HostListener decorators in Angular?</h3>
+<ul>
+<li>
+<p><code>@HostBinding</code> binds properties or attributes to the host element.</p>
+</li>
+<li>
+<p><code>@HostListener</code> listens for events on the host element.</p>
+</li>
+<li>
+<p>These decorators are used for enhancing the behavior of components without modifying templates.</p>
+</li>
+<li>
+<p>They are useful for working with DOM events directly within the component.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>@HostListener</code> to detect mouse events and <code>@HostBinding</code> to change class based on the event.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">HostBinding</span><span class="token punctuation">(</span><span class="token string">'class.active'</span><span class="token punctuation">)</span> isActive <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">)</span> <span class="token function">onMouseEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="can-you-explain-how-an-angular-interceptor-works-and-how-you-can-add-it-to-an-angular-application">95. Can you explain how an Angular Interceptor works and how you can add it to an Angular application?</h3>
+<ul>
+<li>
+<p>An HTTP interceptor intercepts and modifies HTTP requests or responses.</p>
+</li>
+<li>
+<p>It allows for tasks like adding authentication headers or logging.</p>
+</li>
+<li>
+<p>Interceptors are added to the <code>HTTP_INTERCEPTORS</code> array in the providers section.</p>
+</li>
+<li>
+<p>They can modify outgoing requests and incoming responses globally.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used an interceptor to add an authentication token to HTTP requests.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">AuthInterceptor</span>  <span class="token keyword">implements</span>  <span class="token class-name">HttpInterceptor</span> <span class="token punctuation">{</span>
+
+<span class="token function">intercept</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span> HttpRequest<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> next<span class="token punctuation">:</span> HttpHandler<span class="token punctuation">)</span><span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>HttpEvent<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span>  clonedRequest <span class="token operator">=</span> req<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+setHeaders<span class="token punctuation">:</span> <span class="token punctuation">{</span> Authorization<span class="token punctuation">:</span>  <span class="token template-string"><span class="token string">`Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>authService<span class="token punctuation">.</span><span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span>  next<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>clonedRequest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="what-changes-were-introduced-in-angular-16-and-17-regarding-modules-and-component-creation">96. What changes were introduced in Angular 16 and 17 regarding modules and component creation?</h3>
+<ul>
+<li>
+<p>Angular 16 introduced standalone components to reduce module reliance.</p>
+</li>
+<li>
+<p>Standalone components eliminate the need for <code>@NgModule</code> in certain cases.</p>
+</li>
+<li>
+<p>Angular 17 further enhanced support for reactive forms and directive bindings.</p>
+</li>
+<li>
+<p>These changes aim to simplify application structure and improve modularity.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Migrated components to be standalone in Angular 16 for improved readability and testability.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-npm-in-the-context-of-angular-why-is-it-important">97. What is npm in the context of Angular? Why is it important?</h3>
+<ul>
+<li>
+<p><code>npm</code> (Node Package Manager) is a package manager for JavaScript.</p>
+</li>
+<li>
+<p>It is used to install and manage libraries and dependencies in an Angular project.</p>
+</li>
+<li>
+<p><code>npm</code> ensures that the correct versions of libraries are installed.</p>
+</li>
+<li>
+<p>It is essential for managing dependencies and scripts in an Angular app.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>npm install</code> to add Angular Material to my project for UI components.</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-significance-of-the-angularcore-module-in-angular-applications">98. What is the significance of the @angular/core module in Angular applications?</h3>
+<ul>
+<li>
+<p><code>@angular/core</code> contains essential Angular features like components, directives, services, and dependency injection.</p>
+</li>
+<li>
+<p>It includes foundational decorators like <code>@Component</code>, <code>@NgModule</code>, and <code>@Injectable</code>.</p>
+</li>
+<li>
+<p>The module provides APIs for core functionality, like lifecycle hooks and change detection.</p>
+</li>
+<li>
+<p>It is a mandatory module for every Angular application.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Imported <code>@angular/core</code> in my custom service to use the <code>@Injectable()</code> decorator.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-handle-routing-in-angular-1">99. How do you handle routing in Angular?</h3>
+<ul>
+<li>
+<p>Use <code>RouterModule</code> to define routes in the application.</p>
+</li>
+<li>
+<p>Define routes in an array and configure them in the module’s imports section.</p>
+</li>
+<li>
+<p>Use <code>routerLink</code> for navigation and <code>ActivatedRoute</code> for route parameters.</p>
+</li>
+<li>
+<p>Implement lazy loading for better performance with feature modules.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Configured routing for an admin and user module in the application.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'admin'</span><span class="token punctuation">,</span> loadChildren<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./admin/admin.module'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>m  <span class="token operator">=&gt;</span>  m<span class="token punctuation">.</span>AdminModule<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="what-are-the-different-types-of-angular-guards-canactivate-candeactivate">100. What are the different types of Angular guards (canActivate, canDeactivate)?</h3>
+<ul>
+<li>
+<p><code>canActivate</code>: Checks if a route can be activated.</p>
+</li>
+<li>
+<p><code>canDeactivate</code>: Ensures a user can leave the current route.</p>
+</li>
+<li>
+<p><code>canLoad</code>: Prevents loading a module based on conditions.</p>
+</li>
+<li>
+<p><code>resolve</code>: Pre-fetches data before a route is activated.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Implemented <code>canActivate</code> guard to prevent unauthorized users from accessing certain pages.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">canActivate</span><span class="token punctuation">(</span>route<span class="token punctuation">:</span> ActivatedRouteSnapshot<span class="token punctuation">,</span> state<span class="token punctuation">:</span> RouterStateSnapshot<span class="token punctuation">)</span><span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span><span class="token keyword">boolean</span><span class="token operator">&gt;</span> <span class="token operator">|</span> Promise<span class="token operator">&lt;</span><span class="token keyword">boolean</span><span class="token operator">&gt;</span> <span class="token operator">|</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>authService<span class="token punctuation">.</span><span class="token function">isLoggedIn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<p>There are <strong>10 questions</strong> pending. Here’s the next set:</p>
+<hr>
+<h3 id="what-is-the-difference-between-observable-subject-and-behaviorsubject-in-angular-1">101. What is the difference between Observable, Subject, and BehaviorSubject in Angular?</h3>
+<ul>
+<li>
+<p><strong>Observable</strong>: Streams of data that you can subscribe to.</p>
+</li>
+<li>
+<p><strong>Subject</strong>: A type of Observable that allows multicasting to many Observers.</p>
+</li>
+<li>
+<p><strong>BehaviorSubject</strong>: A Subject that holds a current value and emits it to new subscribers.</p>
+</li>
+<li>
+<p><strong>Observable</strong> is used for one-time data streams; <strong>BehaviorSubject</strong> is used for streams with a starting value.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a <code>BehaviorSubject</code> to store and emit the current user’s authentication state.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">private</span>  userSubject <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">BehaviorSubject</span><span class="token operator">&lt;</span>User<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+currentUser$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>userSubject<span class="token punctuation">.</span><span class="token function">asObservable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-debounce-and-why-do-we-use-it-in-angular-1">102. What is Debounce and why do we use it in Angular?</h3>
+<ul>
+<li>
+<p><strong>Debounce</strong>: Delays the processing of an event until a specified amount of time has passed.</p>
+</li>
+<li>
+<p>Used to avoid unnecessary API calls or heavy computations on every user input.</p>
+</li>
+<li>
+<p>Commonly used with search inputs to wait for the user to stop typing before sending a request.</p>
+</li>
+<li>
+<p>It prevents high frequency, redundant API calls.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used debounce in a search bar to wait for the user to stop typing before making an API call.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+searchTerm <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Subject</span><span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>searchTerm<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">debounceTime</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">switchMap</span><span class="token punctuation">(</span>query  <span class="token operator">=&gt;</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>searchService<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>results  <span class="token operator">=&gt;</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>searchResults <span class="token operator">=</span> results<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h3 id="what-is-the-difference-between-hot-and-cold-observables-in-angular-1">103. What is the difference between hot and cold observables in Angular?</h3>
+<ul>
+<li>
+<p><strong>Cold Observable</strong>: Starts emitting values only when subscribed to, e.g., HTTP requests.</p>
+</li>
+<li>
+<p><strong>Hot Observable</strong>: Emits values immediately and shares them with all subscribers, e.g., event streams.</p>
+</li>
+<li>
+<p>Cold observables can result in multiple calls to the server if subscribed multiple times.</p>
+</li>
+<li>
+<p>Hot observables are shared, so the same event is emitted to all subscribers.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used a cold observable for an HTTP request and a hot observable for a WebSocket connection.</p>
+</li>
+</ul>
+<hr>
+<h3 id="why-was-typescript-used-in-angular-instead-of-javascript-1">104. Why was TypeScript used in Angular (instead of JavaScript)?</h3>
+<ul>
+<li>
+<p>TypeScript offers static typing, which helps catch errors early.</p>
+</li>
+<li>
+<p>Provides better tooling support with IntelliSense, refactoring, and auto-completion.</p>
+</li>
+<li>
+<p>Improves code maintainability and readability with features like classes, interfaces, and decorators.</p>
+</li>
+<li>
+<p>TypeScript’s strict typing ensures more reliable code for large applications.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used TypeScript’s strong typing to define strict interfaces for API response objects, reducing runtime errors.</p>
+</li>
+</ul>
+<hr>
+<h3 id="do-you-have-any-questions-for-me-1">105. Do you have any questions for me?</h3>
+<ul>
+<li>
+<p>This question is asked in interviews to gauge your interest and understanding of the role.</p>
+</li>
+<li>
+<p>Ask about the team structure, project technologies, or challenges the company faces.</p>
+</li>
+<li>
+<p>Inquire about how they measure success or what a typical day looks like.</p>
+</li>
+<li>
+<p>Show interest in their approach to software development or their adoption of new technologies.</p>
+</li>
+<li>
+<p><strong>Example</strong>: “Can you share more about the team’s approach to implementing Angular best practices?”</p>
+</li>
+</ul>
+<hr>
+<h3 id="what-is-the-difference-between-hostbinding-and-hostlistener-in-angular-1">106. What is the difference between @HostBinding and @HostListener in Angular?</h3>
+<ul>
+<li>
+<p><strong>@HostBinding</strong> binds properties or attributes to the host element of a directive or component.</p>
+</li>
+<li>
+<p><strong>@HostListener</strong> listens to events on the host element.</p>
+</li>
+<li>
+<p><code>@HostBinding</code> is used to manipulate DOM properties, while <code>@HostListener</code> is used for event handling.</p>
+</li>
+<li>
+<p>Both decorators enhance the interaction with the host element, but for different purposes.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>@HostListener</code> to detect mouse events and <code>@HostBinding</code> to apply styles dynamically.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">)</span> <span class="token function">onMouseEnter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>isHovered <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+@<span class="token function">HostBinding</span><span class="token punctuation">(</span><span class="token string">'style.backgroundColor'</span><span class="token punctuation">)</span> <span class="token keyword">get</span>  <span class="token function">backgroundColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>isHovered <span class="token operator">?</span> <span class="token string">'blue'</span> <span class="token punctuation">:</span> <span class="token string">'gray'</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="have-you-ever-faced-event-bubbling-in-an-angular-application-1">107. Have you ever faced event bubbling in an Angular application?</h3>
+<ul>
+<li>
+<p>Event bubbling occurs when an event triggered on a child element propagates to its parent elements.</p>
+</li>
+<li>
+<p>It can lead to unintended actions if not managed properly.</p>
+</li>
+<li>
+<p>Prevent bubbling using <code>event.stopPropagation()</code> or <code>event.preventDefault()</code>.</p>
+</li>
+<li>
+<p>In Angular, event bubbling can be handled with <code>@HostListener</code> and <code>@Output</code>.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Stopped the bubbling of a click event in a child component to prevent the parent’s click handler from triggering.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'$event'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">onClick</span><span class="token punctuation">(</span>event<span class="token punctuation">:</span> MouseEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+event<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="do-you-use-observables-or-promises-more-frequently-in-angular-which-is-better-for-data-handling-1">108. Do you use Observables or Promises more frequently in Angular? Which is better for data handling?</h3>
+<ul>
+<li>
+<p><strong>Observables</strong> are more flexible, support multiple values, and can be cancelled or unsubscribed.</p>
+</li>
+<li>
+<p><strong>Promises</strong> are simpler and resolve a single value once.</p>
+</li>
+<li>
+<p>Observables are better suited for continuous streams like HTTP requests, user events, etc.</p>
+</li>
+<li>
+<p>Promises are ideal for handling single asynchronous results.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used Observables for handling HTTP requests, and Promises for handling single async results in a form validation scenario.</p>
+</li>
+</ul>
+<hr>
+<h3 id="how-do-you-unsubscribe-from-an-observable-when-navigating-away-from-a-component-in-angular-1">109. How do you unsubscribe from an Observable when navigating away from a component in Angular?</h3>
+<ul>
+<li>
+<p>Use the <code>ngOnDestroy</code> lifecycle hook to unsubscribe from Observables.</p>
+</li>
+<li>
+<p>It ensures that subscriptions do not persist after the component is destroyed, preventing memory leaks.</p>
+</li>
+<li>
+<p>You can store subscriptions in an array and unsubscribe them in <code>ngOnDestroy</code>.</p>
+</li>
+<li>
+<p>Another approach is using the <code>takeUntil</code> operator to automatically unsubscribe.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Unsubscribed from an Observable in the <code>ngOnDestroy</code> lifecycle hook.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">ngOnDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>subscription<span class="token punctuation">.</span><span class="token function">unsubscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+<h3 id="why-do-we-use-ngondestroy-in-angular-how-do-you-handle-async-data-and-avoid-memory-leaks-using-ngondestroy-in-angular">110. Why do we use ngOnDestroy in Angular? How do you handle async data and avoid memory leaks using ngOnDestroy in Angular?</h3>
+<ul>
+<li>
+<p><code>ngOnDestroy</code> is used to clean up resources, cancel subscriptions, and remove event listeners when a component is destroyed.</p>
+</li>
+<li>
+<p>It helps in preventing memory leaks by ensuring subscriptions and other resources are disposed of.</p>
+</li>
+<li>
+<p>For async data, unsubscribe from Observables in <code>ngOnDestroy</code> or use the <code>takeUntil</code> operator.</p>
+</li>
+<li>
+<p>It is important for managing resources and cleaning up timers, subscriptions, etc.</p>
+</li>
+<li>
+<p><strong>Example</strong>: Used <code>ngOnDestroy</code> to unsubscribe from a timer Observable to avoid memory leaks.</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">ngOnDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>timerSubscription<span class="token punctuation">.</span><span class="token function">unsubscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<hr>
+
+    </div>
+  </div>
+</body>
+
+</html>

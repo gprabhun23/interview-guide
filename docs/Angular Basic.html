@@ -1,0 +1,1997 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <ol>
+<li><strong>What lifecycle hook should you use when accessing a child component using @ViewChild?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use <code>ngAfterViewInit</code> for accessing child components via <code>@ViewChild</code>.</p>
+</li>
+<li>
+<p><code>ngAfterViewInit</code> ensures the child component is fully initialized.</p>
+</li>
+<li>
+<p>It’s important because <code>ngOnInit</code> is too early to access the child components.</p>
+</li>
+<li>
+<p>The <code>ngAfterViewInit</code> hook runs after Angular initializes the component’s views.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">ViewChild</span><span class="token punctuation">(</span>ChildComponent<span class="token punctuation">)</span> child<span class="token punctuation">:</span> ChildComponent<span class="token punctuation">;</span>
+
+<span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>child<span class="token punctuation">.</span><span class="token function">someMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="2">
+<li><strong>Have you worked with Angular Material? Can you explain how to open a dialog using Angular Material?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular Material provides a <code>MatDialog</code> service to manage dialog windows.</p>
+</li>
+<li>
+<p>You need to inject <code>MatDialog</code> in the constructor of your component.</p>
+</li>
+<li>
+<p>Use <code>open()</code> method of <code>MatDialog</code> to open the dialog.</p>
+</li>
+<li>
+<p>Dialogs can be customized with a component or template.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MatDialog <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/material/dialog'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span>  dialog<span class="token punctuation">:</span> MatDialog<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  
+
+<span class="token function">openDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">this</span><span class="token punctuation">.</span>dialog<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>DialogComponent<span class="token punctuation">,</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> <span class="token punctuation">{</span> message<span class="token punctuation">:</span>  <span class="token string">'Hello'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="3">
+<li><strong>How can you pass data to a dialog in Angular Material?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Data can be passed using the <code>data</code> property in the <code>open()</code> method.</p>
+</li>
+<li>
+<p>This data will be accessible in the dialog component through <code>MAT_DIALOG_DATA</code>.</p>
+</li>
+<li>
+<p>The data is passed as an object.</p>
+</li>
+<li>
+<p>The <code>DialogComponent</code> can inject the data in its constructor.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MAT_DIALOG_DATA <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/material/dialog'</span><span class="token punctuation">;</span>
+
+  
+
+<span class="token keyword">constructor</span><span class="token punctuation">(</span>@<span class="token function">Inject</span><span class="token punctuation">(</span>MAT_DIALOG_DATA<span class="token punctuation">)</span> <span class="token keyword">public</span>  data<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="4">
+<li><strong>What is the use of ngOnChanges lifecycle hook in Angular? Can you provide an example where it is used?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ngOnChanges</code> is used to detect changes to input properties (<code>@Input()</code>).</p>
+</li>
+<li>
+<p>It is triggered whenever the value of an <code>@Input()</code> property changes.</p>
+</li>
+<li>
+<p>This hook provides both the current and previous values of the input.</p>
+</li>
+<li>
+<p>Useful for reacting to changes in input data and performing actions like recalculating values.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> item<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+<span class="token function">ngOnChanges</span><span class="token punctuation">(</span>changes<span class="token punctuation">:</span> SimpleChanges<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Previous value: '</span><span class="token punctuation">,</span> changes<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>previousValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Current value: '</span><span class="token punctuation">,</span> changes<span class="token punctuation">[</span><span class="token string">'item'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>currentValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="5">
+<li><strong>How do you compare form values (e.g., password and confirm password) in Angular forms?</strong></li>
+</ol>
+<ul>
+<li>
+<p>You can use a custom validator to compare form values like password and confirm password.</p>
+</li>
+<li>
+<p>This is typically done in the form group’s <code>validator</code> property.</p>
+</li>
+<li>
+<p>The validator checks whether both fields match.</p>
+</li>
+<li>
+<p>It’s helpful in ensuring the password fields are identical before submission.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AbstractControl<span class="token punctuation">,</span> ValidationErrors <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/forms'</span><span class="token punctuation">;</span>
+
+  
+
+<span class="token keyword">export</span>  <span class="token keyword">function</span>  <span class="token function">confirmPasswordValidator</span><span class="token punctuation">(</span>control<span class="token punctuation">:</span> AbstractControl<span class="token punctuation">)</span><span class="token punctuation">:</span> ValidationErrors <span class="token operator">|</span> <span class="token keyword">null</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span>  password <span class="token operator">=</span> control<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span>  confirmPassword <span class="token operator">=</span> control<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'confirmPassword'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>password <span class="token operator">&amp;&amp;</span> confirmPassword <span class="token operator">&amp;&amp;</span> password<span class="token punctuation">.</span>value <span class="token operator">!==</span> confirmPassword<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">{</span> passwordsNotMatching<span class="token punctuation">:</span>  <span class="token keyword">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="6">
+<li><strong>What are the differences between eager loading and lazy loading in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Eager loading loads all modules at the application startup.</p>
+</li>
+<li>
+<p>Lazy loading loads modules only when they are needed, improving initial load time.</p>
+</li>
+<li>
+<p>Eager loading is simpler to implement but may lead to slower performance in large apps.</p>
+</li>
+<li>
+<p>Lazy loading is more efficient for large applications and better for performance optimization.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'home'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  HomeComponent <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'about'</span><span class="token punctuation">,</span> loadChildren<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./about/about.module'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>m  <span class="token operator">=&gt;</span>  m<span class="token punctuation">.</span>AboutModule<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+</code></pre>
+<ol start="7">
+<li><strong>What are Angular Standalone components, and how are they different from the traditional module-based components?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Standalone components don’t require a module for declarations or imports.</p>
+</li>
+<li>
+<p>They simplify the structure of Angular apps by eliminating the need for a separate module.</p>
+</li>
+<li>
+<p>You can use them directly in routes or other components.</p>
+</li>
+<li>
+<p>Standalone components can be used independently or with other standalone components.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+selector<span class="token punctuation">:</span>  <span class="token string">'app-standalone'</span><span class="token punctuation">,</span>
+
+standalone<span class="token punctuation">:</span>  <span class="token keyword">true</span><span class="token punctuation">,</span>
+
+imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+template<span class="token punctuation">:</span>  <span class="token template-string"><span class="token string">`&lt;div&gt;Standalone Component&lt;/div&gt;`</span></span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">StandaloneComponent</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="8">
+<li><strong>What are standalone components in Angular 16/17, and how does the application structure? Why are they considered a best practice in Angular 16+?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Standalone components reduce the complexity of modules by allowing components to exist independently.</p>
+</li>
+<li>
+<p>They encourage modularity and make applications more maintainable and scalable.</p>
+</li>
+<li>
+<p>They simplify the routing process and can be directly used in routes or other components.</p>
+</li>
+<li>
+<p>Angular 16+ promotes their use for better encapsulation and easier testing.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+selector<span class="token punctuation">:</span>  <span class="token string">'app-feature'</span><span class="token punctuation">,</span>
+
+standalone<span class="token punctuation">:</span>  <span class="token keyword">true</span><span class="token punctuation">,</span>
+
+imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+template<span class="token punctuation">:</span>  <span class="token template-string"><span class="token string">`&lt;h1&gt;Feature Component&lt;/h1&gt;`</span></span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">FeatureComponent</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="9">
+<li><strong>How do you manage routing and components in a project when using Angular versions that don’t use modules (standalone components)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>In Angular 16+, routes can be defined using the <code>imports</code> property of the <code>@Component</code> decorator.</p>
+</li>
+<li>
+<p>Routing can directly reference standalone components without needing to wrap them in modules.</p>
+</li>
+<li>
+<p>Lazy loading and child routes work seamlessly with standalone components.</p>
+</li>
+<li>
+<p>Each component can be imported directly into the routing configuration.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'home'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  HomeComponent <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'about'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  AboutComponent <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+</code></pre>
+<ol start="10">
+<li><strong>How does Angular 16 make it easier to maintain a project with Standalone Components?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Standalone components reduce the overhead of maintaining multiple modules.</p>
+</li>
+<li>
+<p>Angular 16+ introduces better encapsulation and dependency management within components.</p>
+</li>
+<li>
+<p>The routing system is simplified by directly referencing components, removing the need for intermediary modules.</p>
+</li>
+<li>
+<p>They improve the modularity of the application, allowing more reusable components.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+selector<span class="token punctuation">:</span>  <span class="token string">'app-module-less'</span><span class="token punctuation">,</span>
+
+standalone<span class="token punctuation">:</span>  <span class="token keyword">true</span><span class="token punctuation">,</span>
+
+imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+template<span class="token punctuation">:</span>  <span class="token template-string"><span class="token string">`&lt;div&gt;Module-less Component&lt;/div&gt;`</span></span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">ModuleLessComponent</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="11">
+<li><strong>What is Angular Signals? How does it improve the framework’s reactivity? Purpose of signals?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular Signals is a reactive system introduced in Angular 16 for better reactivity management.</p>
+</li>
+<li>
+<p>It helps manage state and updates more efficiently, without needing extensive observables.</p>
+</li>
+<li>
+<p>Signals optimize the change detection mechanism, reducing unnecessary checks.</p>
+</li>
+<li>
+<p>They simplify state management, especially in reactive forms and dynamic data-driven applications.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> signal <span class="token punctuation">}</span> <span class="token keyword">from</span>  <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+
+  
+
+<span class="token keyword">const</span>  count <span class="token operator">=</span> <span class="token function">signal</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+count<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>value  <span class="token operator">=&gt;</span>  value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<ol start="12">
+<li><strong>How would you structure an Angular project? What components would you place in the core, shared, and feature modules?</strong></li>
+</ol>
+<ul>
+<li>
+<p><strong>Core Module</strong>: Singleton services, guards, interceptors, and application-wide components.</p>
+</li>
+<li>
+<p><strong>Shared Module</strong>: Reusable components, directives, and pipes that can be used across multiple feature modules.</p>
+</li>
+<li>
+<p><strong>Feature Module</strong>: Group related components, services, and routes specific to a feature.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+declarations<span class="token punctuation">:</span> <span class="token punctuation">[</span>HeaderComponent<span class="token punctuation">,</span> FooterComponent<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>HeaderComponent<span class="token punctuation">,</span> FooterComponent<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonModule<span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">SharedModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="13">
+<li><strong>How do you manage dependencies in a large Angular application?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use Angular modules to organize dependencies and services.</p>
+</li>
+<li>
+<p>Group related services and components into feature modules to reduce dependencies between unrelated parts of the app.</p>
+</li>
+<li>
+<p>Lazy load modules to only load what’s necessary, reducing initial load time.</p>
+</li>
+<li>
+<p>Use <code>providedIn: 'root'</code> for global services to avoid redundancy.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+
+providedIn<span class="token punctuation">:</span>  <span class="token string">'root'</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">UserService</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="14">
+<li><strong>Have you used ngFor in Angular? Are you familiar with the updated syntax in recent Angular versions? How do you use ngFor to apply styles to even and odd rows?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ngFor</code> is used to loop over arrays or objects to display a list of items.</p>
+</li>
+<li>
+<p>In recent versions, <code>ngFor</code> can be enhanced with <code>trackBy</code> for performance optimization.</p>
+</li>
+<li>
+<p>To apply styles to even and odd rows, you can use <code>ngClass</code> or <code>ngStyle</code>.</p>
+</li>
+<li>
+<p>Use <code>index</code> from <code>ngFor</code> to conditionally apply styles based on row position.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-html"><code class="prism  language-html">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>let item of items; let i = index<span class="token punctuation">"</span></span>  <span class="token attr-name">[ngClass]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{<span class="token punctuation">'</span>even-row<span class="token punctuation">'</span>: i % 2 === 0, <span class="token punctuation">'</span>odd-row<span class="token punctuation">'</span>: i % 2 !== 0}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+{{ item }}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre>
+<ol start="15">
+<li><strong>What is differential loading in Angular? How is it used?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Differential loading creates two separate JavaScript bundles: one for modern browsers (ES2015+) and one for older browsers (ES5).</p>
+</li>
+<li>
+<p>Angular CLI handles differential loading automatically during production builds.</p>
+</li>
+<li>
+<p>It improves performance by serving smaller, optimized bundles to modern browsers.</p>
+</li>
+<li>
+<p>It includes polyfills only for browsers that require them, reducing the payload for modern ones.</p>
+</li>
+<li>
+<p>Example: Run <code>ng build --configuration production</code> to generate ES2015 and ES5 bundles for modern and legacy browsers.</p>
+</li>
+</ul>
+<ol start="16">
+<li><strong>What is Angular’s BehaviorSubject and how does it differ from Subject?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>BehaviorSubject</code> retains the last emitted value and emits it to any new subscribers immediately upon subscription.</p>
+</li>
+<li>
+<p><code>Subject</code> does not hold any value and emits only to existing subscribers when <code>next()</code> is called.</p>
+</li>
+<li>
+<p><code>BehaviorSubject</code> is suitable for state management, while <code>Subject</code> is better for events that don’t require state retention.</p>
+</li>
+<li>
+<p><code>BehaviorSubject</code> requires an initial value when created, whereas <code>Subject</code> does not.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  subject <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">Subject</span><span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span>  behaviorSubject <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">BehaviorSubject</span><span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  
+
+subject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// no subscribers, no output</span>
+
+behaviorSubject<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs: 0 (initial value)</span>
+
+behaviorSubject<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs: 2</span>
+
+</code></pre>
+<ol start="17">
+<li><strong>How would you sum all the elements in an array without using a built-in function?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use a <code>for</code> loop to iterate through the array and calculate the sum manually.</p>
+</li>
+<li>
+<p>Initialize a variable to store the sum, starting from zero.</p>
+</li>
+<li>
+<p>Loop through each element of the array and add it to the sum variable.</p>
+</li>
+<li>
+<p>This approach is useful for custom logic or when using environments without built-in methods.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span>  sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span>  i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+sum <span class="token operator">+=</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Outputs: 10</span>
+
+</code></pre>
+<ol start="18">
+<li><strong>What are the key features of Angular Material and Bootstrap?</strong></li>
+</ol>
+<ul>
+<li>
+<p><strong>Angular Material</strong> provides pre-built UI components adhering to Material Design specifications. It focuses on Angular-specific needs like dynamic data binding and animations.</p>
+</li>
+<li>
+<p><strong>Bootstrap</strong> offers responsive design utilities, grid systems, and general-purpose CSS/JS components. It is framework-agnostic.</p>
+</li>
+<li>
+<p>Angular Material integrates seamlessly with Angular’s reactive forms and animations, while Bootstrap supports a wide variety of frameworks.</p>
+</li>
+<li>
+<p>Angular Material is highly customizable with theming support; Bootstrap relies on CSS/SASS for customization.</p>
+</li>
+<li>
+<p>Example: Use Angular Material’s <code>MatButtonModule</code> or Bootstrap’s <code>btn</code> class for buttons.</p>
+</li>
+</ul>
+<ol start="19">
+<li><strong>Can you explain how routing works in Angular, particularly with the routerOutlet component?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular’s routing system uses <code>Routes</code> to map URLs to components.</p>
+</li>
+<li>
+<p>The <code>RouterOutlet</code> directive acts as a placeholder for dynamically loaded components based on the route.</p>
+</li>
+<li>
+<p>The <code>RouterModule.forRoot(routes)</code> configures the routes for the application.</p>
+</li>
+<li>
+<p>Child routes are defined within feature modules for modular routing.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'home'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  HomeComponent <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'about'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  AboutComponent <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span> imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>RouterModule<span class="token punctuation">.</span><span class="token function">forRoot</span><span class="token punctuation">(</span>routes<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>RouterModule<span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">AppRoutingModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="20">
+<li><strong>Do you have any Angular running environment at the local?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Yes, a local development environment typically includes Node.js, Angular CLI, and IDEs like Visual Studio Code.</p>
+</li>
+<li>
+<p>The Angular CLI (<code>ng</code>) is used for scaffolding, building, and serving Angular applications.</p>
+</li>
+<li>
+<p>A local environment allows for testing and debugging Angular apps during development.</p>
+</li>
+<li>
+<p>Example: Run <code>ng serve</code> to start the development server locally.</p>
+</li>
+<li>
+<p>I’ve used this for testing new features and debugging issues in Angular projects.</p>
+</li>
+</ul>
+<ol start="21">
+<li><strong>Have you mentioned your testing experience anywhere in your resume?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Testing experience is highlighted, including unit tests with Jasmine and Karma, and end-to-end testing with Protractor or Cypress.</p>
+</li>
+<li>
+<p>I also mention integration tests and API mocking where applicable.</p>
+</li>
+<li>
+<p>Testing libraries such as Jest are also included if used.</p>
+</li>
+<li>
+<p>Example: “Developed unit tests for services and components, achieving 90%+ test coverage using Jasmine and Karma.”</p>
+</li>
+</ul>
+<ol start="22">
+<li><strong>Can you see the component setup on the online Angular compiler?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Yes, tools like <a href="https://stackblitz.com">StackBlitz</a> allow online Angular development and testing.</p>
+</li>
+<li>
+<p>These compilers are useful for quickly prototyping or debugging code.</p>
+</li>
+<li>
+<p>They provide a real-time preview of the app as changes are made.</p>
+</li>
+<li>
+<p>Example: Created sample projects on StackBlitz to share implementations during team discussions.</p>
+</li>
+</ul>
+<ol start="23">
+<li><strong>Do you know how to handle input events on “Enter”?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Listen for the <code>keydown</code> or <code>keyup</code> event on the input element.</p>
+</li>
+<li>
+<p>Check for the <code>Enter</code> key (<code>event.key === 'Enter'</code>).</p>
+</li>
+<li>
+<p>Execute the desired logic when the condition is met.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token operator">&lt;</span><span class="token function">input</span> <span class="token punctuation">(</span>keydown<span class="token punctuation">.</span>enter<span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">"onEnter($event)"</span>  placeholder<span class="token operator">=</span><span class="token string">"Press Enter"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token function">onEnter</span><span class="token punctuation">(</span>event<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Enter key pressed!'</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="24">
+<li><strong>What is an App Initializer in Angular? How would you use it?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>APP_INITIALIZER</code> is a multi-provided token used to execute code before the app bootstraps.</p>
+</li>
+<li>
+<p>It ensures necessary configuration or data is loaded before the app starts.</p>
+</li>
+<li>
+<p>It returns a factory function that resolves a <code>Promise</code>.</p>
+</li>
+<li>
+<p>Useful for loading environment settings or user data.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span>
+
+provide<span class="token punctuation">:</span>  APP_INITIALIZER<span class="token punctuation">,</span>
+
+useFactory<span class="token punctuation">:</span>  initApp<span class="token punctuation">,</span>
+
+deps<span class="token punctuation">:</span> <span class="token punctuation">[</span>ConfigService<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+multi<span class="token punctuation">:</span>  <span class="token keyword">true</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span>
+
+<span class="token keyword">function</span>  <span class="token function">initApp</span><span class="token punctuation">(</span>config<span class="token punctuation">:</span> ConfigService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>  config<span class="token punctuation">.</span><span class="token function">loadConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="25">
+<li><strong>How would you add Bootstrap to an Angular application? What is the difference between adding it via npm versus a CDN?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Via npm: Install using <code>npm install bootstrap</code> and add it in <code>angular.json</code> under styles and scripts.</p>
+</li>
+<li>
+<p>Via CDN: Add the CDN link to <code>index.html</code> for styles and scripts.</p>
+</li>
+<li>
+<p>NPM is preferred for offline development and build integration, while CDN is faster for loading in production.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json">
+<span class="token string">"styles"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"node_modules/bootstrap/dist/css/bootstrap.min.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"node_modules/bootstrap/dist/js/bootstrap.min.js"</span><span class="token punctuation">]</span>
+
+</code></pre>
+<ol start="26">
+<li><strong>Can you explain the role of the package-lock.json file in Angular projects? How does it handle versioning of dependencies?</strong></li>
+</ol>
+<ul>
+<li>
+<p>The <code>package-lock.json</code> file ensures consistent dependency versions across installations.</p>
+</li>
+<li>
+<p>It records the exact versions of dependencies and sub-dependencies installed.</p>
+</li>
+<li>
+<p>Helps to avoid version conflicts by locking the dependency tree.</p>
+</li>
+<li>
+<p>It is automatically updated when dependencies are added or updated.</p>
+</li>
+<li>
+<p>Example: “I ensured consistent builds across environments by committing the <code>package-lock.json</code> file.”</p>
+</li>
+</ul>
+<ol start="27">
+<li><strong>What is the difference between dependencies and devDependencies in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p><strong>Dependencies</strong>: Required for the application to run, such as Angular core libraries (<code>@angular/core</code>).</p>
+</li>
+<li>
+<p><strong>DevDependencies</strong>: Required only during development or build time, such as testing tools (<code>jasmine</code>, <code>karma</code>).</p>
+</li>
+<li>
+<p>DevDependencies are excluded from production builds.</p>
+</li>
+<li>
+<p>Example from <code>package.json</code>:</p>
+</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json">
+<span class="token string">"dependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"@angular/core"</span><span class="token punctuation">:</span> <span class="token string">"^16.0.0"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token string">"devDependencies"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"karma"</span><span class="token punctuation">:</span> <span class="token string">"^6.3.0"</span> <span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="28">
+<li><strong>How do you upgrade an Angular application from one version to another? Can you walk through the process?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Update Angular CLI globally and locally using <code>npm install -g @angular/cli@latest</code>.</p>
+</li>
+<li>
+<p>Use <code>ng update</code> to check available updates and dependencies.</p>
+</li>
+<li>
+<p>Update the framework packages and resolve breaking changes as per Angular’s update guide.</p>
+</li>
+<li>
+<p>Test the application thoroughly after upgrading.</p>
+</li>
+<li>
+<p>Example: Ran <code>ng update @angular/core @angular/cli</code> to upgrade from Angular 15 to 16.</p>
+</li>
+</ul>
+<ol start="29">
+<li><strong>How can you use multiple RouterOutlet in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Multiple <code>RouterOutlet</code> instances can be used with named outlets.</p>
+</li>
+<li>
+<p>Define named outlets in the routes configuration.</p>
+</li>
+<li>
+<p>Activate the outlets programmatically using <code>router.navigate()</code> with outlet names.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'main'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  MainComponent<span class="token punctuation">,</span> outlet<span class="token punctuation">:</span>  <span class="token string">'primary'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'sidebar'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  SidebarComponent<span class="token punctuation">,</span> outlet<span class="token punctuation">:</span>  <span class="token string">'sidebar'</span> <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+</code></pre>
+<ol start="30">
+<li><strong>What is the role of HTTP interceptors in Angular? How do you ensure that a particular interceptor runs first in Angular when multiple interceptors are used?</strong></li>
+</ol>
+<ul>
+<li>
+<p>HTTP interceptors modify outgoing requests or incoming responses in the HTTP pipeline.</p>
+</li>
+<li>
+<p>They are implemented using the <code>HttpInterceptor</code> interface.</p>
+</li>
+<li></li>
+</ul>
+<p>The order of execution is determined by the order of their registration in the <code>providers</code> array.</p>
+<ul>
+<li>Example: Add an authorization header to all requests.</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">intercept</span><span class="token punctuation">(</span>req<span class="token punctuation">:</span> HttpRequest<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> next<span class="token punctuation">:</span> HttpHandler<span class="token punctuation">)</span><span class="token punctuation">:</span> Observable<span class="token operator">&lt;</span>HttpEvent<span class="token operator">&lt;</span><span class="token keyword">any</span><span class="token operator">&gt;&gt;</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">const</span> cloned <span class="token operator">=</span> req<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">{</span> headers<span class="token punctuation">:</span>  req<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'Authorization'</span><span class="token punctuation">,</span> <span class="token string">'Bearer token'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> next<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>cloned<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="31">
+<li><strong>How do you handle passing children routes in a module-less Angular application?</strong></li>
+</ol>
+<ul>
+<li>
+<p>In a module-less Angular app, use standalone components with the <code>standalone: true</code> property.</p>
+</li>
+<li>
+<p>Define child routes within the <code>children</code> array of the parent route.</p>
+</li>
+<li>
+<p>Configure the <code>RouterModule</code> using <code>RouterModule.forRoot(routes)</code> or <code>forChild(routes)</code> for lazy-loaded modules.</p>
+</li>
+<li>
+<p>Ensure components are imported directly in routes without relying on feature modules.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">const</span>  routes<span class="token punctuation">:</span> Routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span>
+
+path<span class="token punctuation">:</span>  <span class="token string">'parent'</span><span class="token punctuation">,</span>
+
+component<span class="token punctuation">:</span>  ParentComponent<span class="token punctuation">,</span>
+
+children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+
+<span class="token punctuation">{</span> path<span class="token punctuation">:</span>  <span class="token string">'child'</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span>  ChildComponent <span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+</code></pre>
+<ol start="32">
+<li><strong>Can you explain the concept of a “Differ” in Angular and where it is used?</strong></li>
+</ol>
+<ul>
+<li>
+<p>A differ detects changes in an iterable or key-value collection.</p>
+</li>
+<li>
+<p>Angular uses differs internally for change detection in structural directives like <code>ngFor</code>.</p>
+</li>
+<li>
+<p>KeyValueDiffers and IterableDiffers detect changes in objects and arrays, respectively.</p>
+</li>
+<li>
+<p>Custom differs can be created for complex data structures.</p>
+</li>
+<li>
+<p>Example: <code>ngFor</code> updates the DOM only for changed items using IterableDiffers.</p>
+</li>
+</ul>
+<ol start="33">
+<li><strong>What is your experience with Angular, and which versions have you worked with?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Extensive experience with Angular, starting from Angular 2 to the latest versions like Angular 16/17.</p>
+</li>
+<li>
+<p>Worked on projects involving reactive forms, material design, and state management using RxJS or NgRx.</p>
+</li>
+<li>
+<p>Experience includes upgrading Angular apps and implementing modular architecture.</p>
+</li>
+<li>
+<p>Hands-on with new Angular features like standalone components and Angular Signals.</p>
+</li>
+<li>
+<p>Example: Migrated an enterprise app from Angular 9 to Angular 16, introducing standalone components.</p>
+</li>
+</ul>
+<ol start="34">
+<li><strong>What is a Cross-Origin Resource Sharing (CORS) error and how do you handle it in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>A CORS error occurs when a browser blocks requests to a server on a different origin due to security policies.</p>
+</li>
+<li>
+<p>It is resolved by enabling CORS on the server through headers like <code>Access-Control-Allow-Origin</code>.</p>
+</li>
+<li>
+<p>In development, proxy configurations in Angular can be used to avoid CORS issues.</p>
+</li>
+<li>
+<p>Example: Configure a proxy in <code>proxy.conf.json</code> to redirect API calls during local development.</p>
+</li>
+<li>
+<p>“I encountered and resolved CORS issues while integrating third-party APIs in Angular projects.”</p>
+</li>
+</ul>
+<ol start="35">
+<li><strong>Can you explain Angular directives and the different types (structural, attribute, and component directives)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Structural directives (e.g., <code>*ngIf</code>, <code>*ngFor</code>) alter the DOM structure by adding or removing elements.</p>
+</li>
+<li>
+<p>Attribute directives (e.g., <code>ngClass</code>, <code>ngStyle</code>) modify the appearance or behavior of existing elements.</p>
+</li>
+<li>
+<p>Component directives define reusable UI elements with templates, styles, and logic.</p>
+</li>
+<li>
+<p>Directives are declared in <code>declarations</code> for module-based components or used directly in standalone components.</p>
+</li>
+<li>
+<p>Example: Created a custom attribute directive to highlight invalid form fields.</p>
+</li>
+</ul>
+<ol start="36">
+<li><strong>What is the difference between a pure pipe and an impure pipe in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>A pure pipe processes only when its input changes by reference (default behavior).</p>
+</li>
+<li>
+<p>An impure pipe processes on every change detection cycle, even for same-reference inputs.</p>
+</li>
+<li>
+<p>Impure pipes are less performant and should be used sparingly.</p>
+</li>
+<li>
+<p>Mark a pipe as impure using <code>pure: false</code> in its metadata.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Pipe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span>  <span class="token string">'impurePipe'</span><span class="token punctuation">,</span> pure<span class="token punctuation">:</span>  <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span>  <span class="token keyword">class</span>  <span class="token class-name">ImpurePipe</span>  <span class="token keyword">implements</span>  <span class="token class-name">PipeTransform</span> <span class="token punctuation">{</span>
+
+<span class="token function">transform</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  value<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>item  <span class="token operator">=&gt;</span>  item<span class="token punctuation">.</span>active<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="37">
+<li><strong>What is Track By in Angular and how does it work?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>trackBy</code> is used in <code>ngFor</code> to uniquely identify items in a list, improving rendering performance.</p>
+</li>
+<li>
+<p>It prevents Angular from recreating DOM elements unnecessarily during change detection.</p>
+</li>
+<li>
+<p>Define a <code>trackBy</code> function that returns a unique identifier for each item.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token operator">&lt;</span>div <span class="token operator">*</span>ngFor<span class="token operator">=</span><span class="token string">"let item of items; trackBy: trackById"</span><span class="token operator">&gt;</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> item<span class="token punctuation">.</span>name <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token function">trackById</span><span class="token punctuation">(</span>index<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> item<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  item<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="38">
+<li><strong>How would you handle a large dataset in the DOM?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use pagination to load and display smaller chunks of data.</p>
+</li>
+<li>
+<p>Implement virtual scrolling to render only the visible portion of the dataset.</p>
+</li>
+<li>
+<p>Optimize change detection using <code>OnPush</code> strategy to reduce performance overhead.</p>
+</li>
+<li>
+<p>Example: Used Angular CDK’s <code>VirtualScrollViewport</code> for efficient rendering of large datasets.</p>
+</li>
+</ul>
+<ol start="39">
+<li><strong>What is server-side rendering (SSR) in Angular, and how do you implement it?</strong></li>
+</ol>
+<ul>
+<li>
+<p>SSR renders Angular applications on the server before sending them to the client.</p>
+</li>
+<li>
+<p>It improves performance and SEO by pre-rendering content.</p>
+</li>
+<li>
+<p>Implement SSR using Angular Universal.</p>
+</li>
+<li>
+<p>Example: Run <code>ng add @nguniversal/express-engine</code> to set up SSR in an Angular app.</p>
+</li>
+<li>
+<p>“I implemented SSR for an e-commerce platform to optimize page load times and improve SEO.”</p>
+</li>
+</ul>
+<ol start="40">
+<li><strong>What are the best practices to optimize performance in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use lazy loading for feature modules to reduce the initial bundle size.</p>
+</li>
+<li>
+<p>Employ <code>OnPush</code> change detection to minimize unnecessary DOM updates.</p>
+</li>
+<li>
+<p>Optimize template binding by avoiding expensive computations in HTML.</p>
+</li>
+<li>
+<p>Enable Ahead-of-Time (AOT) compilation to precompile templates during the build process.</p>
+</li>
+<li>
+<p>Example: Applied these practices to enhance the performance of a dashboard application with dynamic widgets.</p>
+</li>
+</ul>
+<ol start="41">
+<li><strong>How would you share data between sibling components in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use a shared service to manage state and facilitate communication between sibling components.</p>
+</li>
+<li>
+<p>Implement <code>BehaviorSubject</code> or <code>Subject</code> in the shared service to notify subscribers about data changes.</p>
+</li>
+<li>
+<p>Inject the shared service into sibling components to access or modify the shared state.</p>
+</li>
+<li>
+<p>Optionally, use <code>@Input()</code> and <code>@Output()</code> for intermediate parent-child communication.</p>
+</li>
+<li>
+<p>Example: Used a shared service with <code>BehaviorSubject</code> to sync search filters between a list and a chart component.</p>
+</li>
+</ul>
+<ol start="42">
+<li><strong>What are Progressive Web Apps (PWA)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>PWAs are web applications that offer an app-like experience on mobile and desktop devices.</p>
+</li>
+<li>
+<p>They are installable, work offline, and provide fast performance using Service Workers.</p>
+</li>
+<li>
+<p>PWAs leverage browser caching to function in low or no network environments.</p>
+</li>
+<li>
+<p>Add Angular PWA support using <code>ng add @angular/pwa</code>.</p>
+</li>
+<li>
+<p>Example: Built a PWA for an e-commerce site to enable offline browsing of product catalogs.</p>
+</li>
+</ul>
+<ol start="43">
+<li><strong>How would you create a multi-step form in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use Angular Reactive Forms to manage the form state and validation for each step.</p>
+</li>
+<li>
+<p>Divide the form into multiple components or sections, one for each step.</p>
+</li>
+<li>
+<p>Manage navigation and data sharing between steps using a shared service or parent component.</p>
+</li>
+<li>
+<p>Add form progress tracking and a summary view at the end of the steps.</p>
+</li>
+<li>
+<p>Example: Built a multi-step registration form for a SaaS application with real-time validation.</p>
+</li>
+</ul>
+<ol start="44">
+<li><strong>Which form type is better for large forms in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Reactive Forms are better for large forms because they provide greater control and flexibility.</p>
+</li>
+<li>
+<p>They allow dynamic form generation and validation rules assignment.</p>
+</li>
+<li>
+<p>Form state can be easily tracked and manipulated using the <code>FormGroup</code> and <code>FormControl</code> APIs.</p>
+</li>
+<li>
+<p>Example: Used Reactive Forms to dynamically generate a multi-section medical questionnaire.</p>
+</li>
+</ul>
+<ol start="45">
+<li><strong>How would you get data from a third-party API in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use Angular’s <code>HttpClient</code> service to make HTTP requests to the API.</p>
+</li>
+<li>
+<p>Handle asynchronous responses using RxJS operators like <code>subscribe</code>, <code>map</code>, and <code>catchError</code>.</p>
+</li>
+<li>
+<p>Configure interceptors for shared headers or token-based authentication.</p>
+</li>
+<li>
+<p>Example: Retrieved real-time weather data using <code>HttpClient</code> for a weather forecasting app.</p>
+</li>
+</ul>
+<ol start="46">
+<li><strong>Have you worked with responsive design? How do you make a design responsive in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use CSS media queries and frameworks like Angular Material or Bootstrap for responsive layouts.</p>
+</li>
+<li>
+<p>Employ Angular’s <code>FlexLayout</code> library for grid-based designs.</p>
+</li>
+<li>
+<p>Utilize viewport-specific directives and conditions in templates for device-specific behavior.</p>
+</li>
+<li>
+<p>Example: Designed a dashboard that adapts layout and features based on screen size.</p>
+</li>
+</ul>
+<ol start="47">
+<li><strong>What are the main steps to prevent and troubleshoot performance issues in Angular applications?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Identify bottlenecks using tools like Chrome DevTools, Angular Profiler, and Lighthouse.</p>
+</li>
+<li>
+<p>Optimize change detection by switching to <code>OnPush</code> strategy where possible.</p>
+</li>
+<li>
+<p>Minimize the bundle size with lazy loading and AOT compilation.</p>
+</li>
+<li>
+<p>Reduce redundant HTTP requests by implementing caching in services.</p>
+</li>
+<li>
+<p>Example: Debugged a sluggish app using Angular Profiler and improved rendering with virtual scrolling.</p>
+</li>
+</ul>
+<ol start="48">
+<li><strong>Can you explain how to manage state in Angular using services or stores?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use Angular services with <code>BehaviorSubject</code> or <code>ReplaySubject</code> for basic state management.</p>
+</li>
+<li>
+<p>Implement NgRx or Akita for advanced state management with Redux-style architecture.</p>
+</li>
+<li>
+<p>Structure the state into actions, reducers, and selectors for clarity and scalability.</p>
+</li>
+<li>
+<p>Example: Used NgRx to manage user authentication and profile data in a social media app.</p>
+</li>
+</ul>
+<ol start="49">
+<li><strong>What is the current version of Angular you are working on? What versions have you worked with before?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Currently working with Angular 16/17, leveraging standalone components and Angular Signals.</p>
+</li>
+<li>
+<p>Past experience spans Angular 2 to Angular 15, covering both legacy and modern features.</p>
+</li>
+<li>
+<p>“I have worked extensively on Angular applications in various industries like e-commerce, healthcare, and SaaS.”</p>
+</li>
+</ul>
+<ol start="50">
+<li><strong>What is the difference between authentication and authorization?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Authentication verifies the identity of a user, ensuring they are who they claim to be.</p>
+</li>
+<li>
+<p>Authorization determines what resources or actions a user is allowed to access.</p>
+</li>
+<li>
+<p>Authentication typically involves login credentials, while authorization checks roles/permissions.</p>
+</li>
+<li>
+<p>Example: Implemented authentication using OAuth2 and role-based authorization for API access control.</p>
+</li>
+</ul>
+<ol start="51">
+<li><strong>How would you implement route guards in Angular for authorization?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use <code>CanActivate</code> or <code>CanActivateChild</code> guards to restrict access to specific routes.</p>
+</li>
+<li>
+<p>Implement a guard service that checks user roles or tokens before allowing navigation.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token function">canActivate</span><span class="token punctuation">(</span>route<span class="token punctuation">:</span> ActivatedRouteSnapshot<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">boolean</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>authService<span class="token punctuation">.</span><span class="token function">hasRole</span><span class="token punctuation">(</span>route<span class="token punctuation">.</span>data<span class="token punctuation">.</span>requiredRole<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="52">
+<li><strong>What is the difference between canActivate and canLoad guards in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>CanActivate</code> prevents unauthorized navigation to a route.</p>
+</li>
+<li>
+<p><code>CanLoad</code> prevents lazy-loaded modules from being loaded.</p>
+</li>
+<li>
+<p>Use <code>CanLoad</code> for performance optimization, ensuring restricted modules are never downloaded.</p>
+</li>
+<li>
+<p>Example: Used <code>CanLoad</code> for securing admin modules in a multi-role app.</p>
+</li>
+</ul>
+<ol start="53">
+<li><strong>How does Angular load and run an application in the DOM? Can you explain the process step-by-step?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular bootstraps the root module and creates the root component.</p>
+</li>
+<li>
+<p>It initializes the component tree, instantiates services, and processes DI tokens.</p>
+</li>
+<li>
+<p>The app structure is rendered into the DOM using the <code>AppComponent</code>.</p>
+</li>
+<li>
+<p>Example: Built a custom loader to visualize app initialization stages during bootstrapping.</p>
+</li>
+</ul>
+<ol start="54">
+<li><strong>How do you change the root component in an Angular application (other than app-root)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Update the <code>bootstrap</code> array in the root module to include the desired component.</p>
+</li>
+<li>
+<p>Update the <code>selector</code> in the index.html to match the new component’s selector.</p>
+</li>
+<li>
+<p>Example: Switched the root component to <code>MainComponent</code> for a multi-tenant Angular app.</p>
+</li>
+</ul>
+<ol start="55">
+<li><strong>What is the difference between ng build and ng serve commands in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ng build</code> compiles the app into static files for production or development use.</p>
+</li>
+<li>
+<p><code>ng serve</code> starts a local development server with live reloading for faster testing.</p>
+</li>
+<li>
+<p>Example: Used <code>ng build --prod</code> to deploy a high-performance build of a web app to production.</p>
+</li>
+</ul>
+<ol start="56">
+<li><strong>How does ng build work internally? What steps does Angular take to build the application?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular compiles the application using the TypeScript compiler and Ahead-of-Time (AOT) or Just-in-Time (JIT) compilation.</p>
+</li>
+<li>
+<p>It optimizes code by tree-shaking unused code and minifying assets for production builds.</p>
+</li>
+<li>
+<p>The <code>angular.json</code> file governs build configurations like assets, styles, and environments.</p>
+</li>
+<li>
+<p>Bundles are generated using Webpack, separating runtime, vendor, and application code.</p>
+</li>
+<li>
+<p>Example: Used <code>ng build --configuration production</code> to create an optimized build for deployment.</p>
+</li>
+</ul>
+<ol start="57">
+<li><strong>How can you improve the performance of an Angular application?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Implement lazy loading for feature modules and routes to reduce the initial load time.</p>
+</li>
+<li>
+<p>Use <code>OnPush</code> change detection to minimize unnecessary DOM updates.</p>
+</li>
+<li>
+<p>Optimize assets using compression, minification, and caching strategies.</p>
+</li>
+<li>
+<p>Reduce HTTP calls by caching frequently requested data in services.</p>
+</li>
+<li>
+<p>Example: Enhanced an analytics dashboard’s performance by integrating Angular CDK’s virtual scrolling.</p>
+</li>
+</ul>
+<ol start="58">
+<li><strong>What is tree shaking and how does it work in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Tree shaking is a build optimization technique that removes unused code during bundling.</p>
+</li>
+<li>
+<p>Angular uses tools like Webpack and Rollup to analyze imports and eliminate dead code.</p>
+</li>
+<li>
+<p>It ensures smaller bundle sizes and faster application loading.</p>
+</li>
+<li>
+<p>Example: Observed a 30% reduction in bundle size by removing unused third-party libraries.</p>
+</li>
+</ul>
+<ol start="59">
+<li><strong>Have you worked with lazy loading in Angular? How does it help in performance optimization?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Lazy loading defers the loading of feature modules until they are required by the user.</p>
+</li>
+<li>
+<p>It reduces the initial load time and improves application performance.</p>
+</li>
+<li>
+<p>Define lazy-loaded routes using the <code>loadChildren</code> property in the routing configuration.</p>
+</li>
+<li>
+<p>Example: Implemented lazy loading for an admin panel to enhance the startup time of an e-commerce platform.</p>
+</li>
+</ul>
+<ol start="60">
+<li><strong>How do you handle data binding in Angular (e.g., input/output bindings)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use <code>@Input()</code> for passing data from a parent to a child component.</p>
+</li>
+<li>
+<p>Use <code>@Output()</code> with <code>EventEmitter</code> for emitting events from a child to a parent component.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> item<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+@<span class="token function">Output</span><span class="token punctuation">(</span><span class="token punctuation">)</span> onItemSelect <span class="token operator">=</span> <span class="token keyword">new</span>  <span class="token class-name">EventEmitter</span><span class="token operator">&lt;</span><span class="token keyword">string</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>“I used this pattern to synchronize selected items between a list and a parent container.”</p>
+<ol start="61">
+<li><strong>What is the difference between @Input() and @Output() decorators in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>@Input()</code> allows passing data from a parent to a child component.</p>
+</li>
+<li>
+<p><code>@Output()</code> emits events from a child to a parent, enabling interaction.</p>
+</li>
+<li>
+<p>Example: Created reusable dropdown components with <code>@Input()</code> for options and <code>@Output()</code> for selection events.</p>
+</li>
+</ul>
+<ol start="62">
+<li><strong>What are lifecycle hooks in Angular? Can you explain the common ones you use?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ngOnInit</code>: Initialization logic runs after the constructor.</p>
+</li>
+<li>
+<p><code>ngOnChanges</code>: Runs when input-bound properties change.</p>
+</li>
+<li>
+<p><code>ngAfterViewInit</code>: Executes after child components and DOM elements are initialized.</p>
+</li>
+<li>
+<p>Example: Used <code>ngOnInit</code> to fetch initial data for dashboard components.</p>
+</li>
+</ul>
+<ol start="63">
+<li><strong>What is the difference between ngOnChanges and ngOnInit lifecycle hooks?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ngOnChanges</code> runs whenever input properties change; ideal for reacting to data updates.</p>
+</li>
+<li>
+<p><code>ngOnInit</code> runs once when the component initializes, used for setup logic.</p>
+</li>
+<li>
+<p>Example: Used <code>ngOnChanges</code> to dynamically update charts when data input changes.</p>
+</li>
+</ul>
+<ol start="64">
+<li><strong>What is change detection in Angular? How does it work?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Change detection is a mechanism Angular uses to track and update the DOM when component data changes.</p>
+</li>
+<li>
+<p>It runs a digest cycle to compare component properties and template bindings.</p>
+</li>
+<li>
+<p>Example: Optimized performance using <code>ChangeDetectionStrategy.OnPush</code> for static content-heavy pages.</p>
+</li>
+</ul>
+<ol start="65">
+<li><strong>What is the purpose of OnPush change detection strategy in Angular? When should it be used?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>OnPush</code> change detection updates the view only when input bindings change by reference.</p>
+</li>
+<li>
+<p>It enhances performance by skipping redundant checks.</p>
+</li>
+<li>
+<p>Example: Applied <code>OnPush</code> strategy to a large data table to reduce unnecessary updates.</p>
+</li>
+</ul>
+<ol start="66">
+<li><strong>What is ngZone in Angular, and how is it used internally by Angular for change detection?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>ngZone</code> is a service that helps Angular detect asynchronous operations and trigger change detection.</p>
+</li>
+<li>
+<p>It wraps browser APIs (e.g., <code>setTimeout</code>) to notify Angular when updates are needed.</p>
+</li>
+<li>
+<p>Example: Used <code>NgZone.runOutsideAngular()</code> to handle heavy tasks without triggering unnecessary updates.</p>
+</li>
+</ul>
+<ol start="67">
+<li><strong>Have you used pipes in Angular? Can you explain how they are used?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Pipes transform displayed data in templates (e.g., <code>date</code>, <code>currency</code>).</p>
+</li>
+<li>
+<p>Create custom pipes by implementing the <code>PipeTransform</code> interface.</p>
+</li>
+<li>
+<p>Example: Developed a <code>capitalize</code> pipe to format user input in forms dynamically.</p>
+</li>
+</ul>
+<ol start="68">
+<li><strong>How would you implement authorization in an Angular app using route guards?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Create a guard implementing <code>CanActivate</code> to verify user roles or tokens.</p>
+</li>
+<li>
+<p>Use the guard in the route configuration to secure specific routes.</p>
+</li>
+<li>
+<p>Example: Restricted admin routes in a project using a role-based guard.</p>
+</li>
+</ul>
+<ol start="69">
+<li><strong>How would you bind data to a component from a service in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Inject the service into the component and use its methods or observables to fetch data.</p>
+</li>
+<li>
+<p>Bind the data to the component’s template using interpolation or directives like <code>ngIf</code> and <code>ngFor</code>.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+<span class="token keyword">this</span><span class="token punctuation">.</span>dataService<span class="token punctuation">.</span><span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>items  <span class="token operator">=&gt;</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> items<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>“I used this approach for dynamic rendering of a product list in a shopping app.”</p>
+<ol start="70">
+<li><strong>How can you pass data between components in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use <code>@Input</code>/<code>@Output</code> decorators for parent-child communication.</p>
+</li>
+<li>
+<p>Use a shared service with <code>BehaviorSubject</code> for sibling components.</p>
+</li>
+<li>
+<p>Example: Used a shared service to synchronize user preferences across different sections of a settings page.</p>
+</li>
+</ul>
+<ol start="71">
+<li><strong>What is the role of a service in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Services in Angular centralize business logic and data sharing across components.</p>
+</li>
+<li>
+<p>They provide reusable methods, which help maintain separation of concerns.</p>
+</li>
+<li>
+<p>Angular’s Dependency Injection (DI) system allows services to be easily shared.</p>
+</li>
+<li>
+<p>They can be singleton by default when provided in the root module (<code>providedIn: 'root'</code>).</p>
+</li>
+<li>
+<p>Example: Used a logging service in an Angular project to record user interactions across components.</p>
+</li>
+</ul>
+<ol start="72">
+<li><strong>Which version of Angular are you currently working on?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Currently working with Angular 16/17, utilizing new features like standalone components and Signals.</p>
+</li>
+<li>
+<p>Have worked on Angular versions from 2 to 15, covering major updates like Ivy and Angular Material.</p>
+</li>
+<li>
+<p>Angular 16 introduced improvements like enhanced SSR, Signals, and developer ergonomics.</p>
+</li>
+<li>
+<p>The experience includes migration projects from AngularJS to Angular and major version upgrades.</p>
+</li>
+<li>
+<p>Example: Leveraged Angular 16’s Signals for state management in a real-time chat application.</p>
+</li>
+</ul>
+<ol start="73">
+<li><strong>Can you explain any new features introduced in Angular 16?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Signals: A new reactive primitive to track and update application state.</p>
+</li>
+<li>
+<p>Standalone APIs are now the default for building module-less Angular apps.</p>
+</li>
+<li>
+<p>Improved Hydration for server-side rendering (SSR) to boost client performance.</p>
+</li>
+<li>
+<p>Dependency Injection enhancements, including zone-less execution optimizations.</p>
+</li>
+<li>
+<p>Example: Replaced <code>BehaviorSubject</code> with Signals for state management in an admin dashboard.</p>
+</li>
+</ul>
+<ol start="74">
+<li><strong>What happens if you don’t import a component into the module where you want to use it?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Angular will throw a template compilation error stating the component is not recognized.</p>
+</li>
+<li>
+<p>Components must be declared in an <code>NgModule</code> or imported if declared elsewhere.</p>
+</li>
+<li>
+<p>For standalone components, they need to be imported directly into the consuming module/component.</p>
+</li>
+<li>
+<p>Example: Encountered this issue in a project and resolved it by adding the missing component to the declarations array.</p>
+</li>
+</ul>
+<ol start="75">
+<li><strong>What frameworks other than Angular have you worked with?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Proficient in frameworks like React (functional and class-based components).</p>
+</li>
+<li>
+<p>Experience with Vue.js for lightweight front-end development.</p>
+</li>
+<li>
+<p>Familiar with backend frameworks like Express.js and Spring Boot for API integration.</p>
+</li>
+<li>
+<p>Used these frameworks in multi-stack projects to build dynamic, interactive applications.</p>
+</li>
+<li>
+<p>Example: Combined Angular and Spring Boot for an enterprise-level CRM system.</p>
+</li>
+</ul>
+<ol start="76">
+<li><strong>In an e-commerce project, how did you handle large datasets?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Implemented server-side pagination to fetch only required data.</p>
+</li>
+<li>
+<p>Used Angular CDK’s virtual scrolling to render visible items only.</p>
+</li>
+<li>
+<p>Leveraged caching for frequently accessed datasets using services.</p>
+</li>
+<li>
+<p>Integrated lazy loading to defer loading non-essential modules.</p>
+</li>
+<li>
+<p>Example: Optimized product listing for a retail site with over 10,000 items using virtual scrolling.</p>
+</li>
+</ul>
+<ol start="77">
+<li><strong>What is Infinite Scroll in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Infinite scroll loads additional data as the user scrolls, creating a seamless UX.</p>
+</li>
+<li>
+<p>Detect the scroll position using Angular event listeners or CDK’s <code>ScrollViewport</code>.</p>
+</li>
+<li>
+<p>Fetch data dynamically using services and append it to the current dataset.</p>
+</li>
+<li>
+<p>Handle loading states and errors gracefully for a smooth experience.</p>
+</li>
+<li>
+<p>Example: Built an infinite scrolling feed for a social media app using RxJS observables.</p>
+</li>
+</ul>
+<ol start="78">
+<li><strong>How do you optimize Angular application performance (e.g., lazy loading, bundle size)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Apply lazy loading to feature modules and routes.</p>
+</li>
+<li>
+<p>Use AOT compilation for faster and smaller builds.</p>
+</li>
+<li>
+<p>Optimize template bindings using <code>OnPush</code> strategy and immutability patterns.</p>
+</li>
+<li>
+<p>Example: Reduced initial load time of a finance dashboard by splitting heavy charts into lazy-loaded modules.</p>
+</li>
+</ul>
+<ol start="79">
+<li><strong>How can you check which models/components are taking time to load or increasing the bundle size?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use Angular CLI’s <code>ng build --stats-json</code> to generate a bundle statistics file.</p>
+</li>
+<li>
+<p>Analyze the stats using tools like Webpack Bundle Analyzer or Source Map Explorer.</p>
+</li>
+<li>
+<p>Debug performance with Chrome DevTools or Angular Profiler.</p>
+</li>
+<li>
+<p>Example: Identified and replaced a large third-party library with a lightweight alternative to optimize a client app.</p>
+</li>
+</ul>
+<ol start="80">
+<li><strong>What is the purpose of the angular.json file?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>angular.json</code> is the workspace configuration file for Angular CLI projects.</p>
+</li>
+<li>
+<p>It manages build options, global assets, styles, and environment-specific settings.</p>
+</li>
+<li>
+<p>Controls optimization, budgets, and output paths for builds.</p>
+</li>
+<li>
+<p>Example: Updated <code>angular.json</code> to include new global CSS and configure production builds.</p>
+</li>
+</ul>
+<ol start="81">
+<li><strong>How do you run unit tests in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Use the Angular CLI command <code>ng test</code> to execute unit tests via Karma.</p>
+</li>
+<li>
+<p>Write tests using Jasmine, and Angular’s TestBed for component/service testing.</p>
+</li>
+<li>
+<p>Mock dependencies with libraries like <code>jasmine.createSpyObj</code> or Angular’s <code>HttpTestingController</code>.</p>
+</li>
+<li>
+<p>Example: Developed unit tests for a login form, achieving 95% code coverage using Angular CLI.</p>
+</li>
+</ul>
+<ol start="82">
+<li><strong>Have you used tools like SonarQube for code quality checks?</strong></li>
+</ol>
+<ul>
+<li>
+<p>SonarQube ensures code quality by detecting bugs, vulnerabilities, and smells.</p>
+</li>
+<li>
+<p>Integrated SonarQube with CI/CD pipelines for automated checks.</p>
+</li>
+<li>
+<p>Followed code quality improvements suggested by SonarQube during PR reviews.</p>
+</li>
+<li>
+<p>Example: Used SonarQube in a healthcare project to meet strict security standards and ensure quality.</p>
+</li>
+</ul>
+<ol start="83">
+<li><strong>What is the difference between ngOnInit and constructor in Angular components?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Constructor initializes class members but should not contain Angular logic.</p>
+</li>
+<li>
+<p><code>ngOnInit</code> is invoked after Angular sets up input bindings, ideal for initialization logic.</p>
+</li>
+<li>
+<p>Example: Used <code>ngOnInit</code> for making initial API calls and avoided calling APIs in the constructor.</p>
+</li>
+</ul>
+<ol start="84">
+<li><strong>What is the lifecycle of a component in Angular, and why is the constructor called before ngOnInit?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Constructor initializes the component’s instance.</p>
+</li>
+<li>
+<p><code>ngOnInit</code> executes after constructor and input bindings, ensuring data is ready.</p>
+</li>
+<li>
+<p>Example: Initialized a user service in the constructor and fetched user data in <code>ngOnInit</code>.</p>
+</li>
+</ul>
+<ol start="85">
+<li><strong>What is a route guard in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>A route guard determines if a user can access or load a route.</p>
+</li>
+<li>
+<p>Guards include <code>CanActivate</code>, <code>CanLoad</code>, <code>CanActivateChild</code>, <code>CanDeactivate</code>, and <code>Resolve</code>.</p>
+</li>
+<li>
+<p>Example: Used <code>CanActivate</code> to restrict dashboard access to authenticated users only.</p>
+</li>
+</ul>
+<ol start="86">
+<li><strong>What is the purpose of directives in Angular? Can you explain Angular directives and the different types (structural, attribute, and component directives)?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Directives in Angular are instructions that enhance or modify the behavior of DOM elements.</p>
+</li>
+<li>
+<p><strong>Structural Directives</strong>: Change the structure of the DOM (e.g., <code>*ngIf</code>, <code>*ngFor</code>, <code>*ngSwitch</code>).</p>
+</li>
+<li>
+<p><strong>Attribute Directives</strong>: Change the appearance or behavior of an element (e.g., <code>[style]</code>, <code>[class]</code>, <code>ngStyle</code>, <code>ngClass</code>).</p>
+</li>
+<li>
+<p><strong>Component Directives</strong>: Special directives with templates, extending the view (essentially Angular components).</p>
+</li>
+<li>
+<p>Example: Used <code>*ngFor</code> for iterating over lists and <code>ngClass</code> to apply dynamic styles in a project.</p>
+</li>
+</ul>
+<ol start="87">
+<li><strong>What is the difference between a component and a directive in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>A component is a directive with a template, designed to encapsulate UI and logic.</p>
+</li>
+<li>
+<p>A directive without a template modifies the behavior or appearance of DOM elements.</p>
+</li>
+<li>
+<p>Components are always used with a selector (e.g., <code>&lt;app-header&gt;</code>), whereas directives can apply directly to elements.</p>
+</li>
+<li>
+<p>Example: Used a custom directive to highlight invalid form fields, enhancing UX across the app.</p>
+</li>
+</ul>
+<ol start="88">
+<li><strong>What is HostBinding and HostListener in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p><code>HostBinding</code> binds a property of the host element to a directive/component property.</p>
+</li>
+<li>
+<p><code>HostListener</code> listens to events on the host element and triggers corresponding methods.</p>
+</li>
+<li>
+<p>These features enable better interaction and customization for directives.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">HostBinding</span><span class="token punctuation">(</span><span class="token string">'class.active'</span><span class="token punctuation">)</span> isActive <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+@<span class="token function">HostListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span> <span class="token function">toggleActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isActive <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>isActive<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+</code></pre>
+<p>“Used <code>HostBinding</code> and <code>HostListener</code> to implement a toggle button behavior in an interactive dashboard.”</p>
+<ol start="89">
+<li><strong>How do you pass data to a directive in Angular?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Pass data to directives using <code>@Input</code> binding.</p>
+</li>
+<li>
+<p>Bind a value to the directive attribute in the template.</p>
+</li>
+<li>
+<p>Ensure the directive processes the input dynamically based on the data.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<pre class=" language-typescript"><code class="prism  language-typescript">
+@<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span> appHighlightColor<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+
+@<span class="token function">HostBinding</span><span class="token punctuation">(</span><span class="token string">'style.color'</span><span class="token punctuation">)</span> <span class="token keyword">get</span>  <span class="token function">color</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>appHighlightColor<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+</code></pre>
+<p>“Used this approach to build a reusable directive for dynamic text highlighting based on user input.”</p>
+<ol start="90">
+<li><strong>How do you handle memory leaks in Angular applications?</strong></li>
+</ol>
+<ul>
+<li>
+<p>Unsubscribe from Observables manually or use <code>takeUntil</code> with <code>Subject</code> to clean up subscriptions.</p>
+</li>
+<li>
+<p>Use Angular’s <code>OnDestroy</code> lifecycle hook to clean up resources like event listeners or timers.</p>
+</li>
+<li>
+<p>Avoid retaining references to unused components or services.</p>
+</li>
+<li>
+<p>Example: Prevented memory leaks by unsubscribing from a WebSocket service in a stock-trading app.</p>
+</li>
+</ul>
+
+    </div>
+  </div>
+</body>
+
+</html>
