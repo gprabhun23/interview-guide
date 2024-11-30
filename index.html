@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Markdown Loader</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        .sidenav {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        #content {
+            margin-left: 260px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        #content h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidenav" id="menu"></div>
+
+<div id="content">
+    <h2>Markdown Content</h2>
+    <p>Select a file from the menu to load its content.</p>
+</div>
+
+<!-- Load marked.js -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+    const repoOwner = "gprabhun23"; // Replace with your GitHub username
+    const repoName = "Interview-Guide"; // Replace with your GitHub repository name
+    const folderPath = "docs"; // Replace with your folder path
+
+    const apiURL = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
+
+    // Fetch the list of Markdown files from GitHub
+    fetch(apiURL)
+        .then(response => response.json())
+        .then(files => {
+            const mdFiles = files.filter(file => file.name.endsWith('.md'))
+                                 .sort((a, b) => a.name.localeCompare(b.name));
+            const menu = document.getElementById('menu');
+            mdFiles.forEach(file => {
+                const link = document.createElement('a');
+                link.href = "#";
+                link.textContent = file.name; // Show full .md name
+                link.onclick = () => loadMarkdownContent(file.download_url);
+                menu.appendChild(link);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching files:", error);
+        });
+
+    // Load and render Markdown content on click
+    function loadMarkdownContent(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(mdContent => {
+                document.getElementById('content').innerHTML = marked(mdContent);
+            })
+            .catch(error => {
+                document.getElementById('content').innerHTML = `<p>Error loading content: ${error.message}</p>`;
+            });
+    }
+</script>
+
+</body>
+</html>
