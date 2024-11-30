@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,12 @@
 
   <!-- Optional: Custom CSS for side nav toggle -->
   <style>
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
     }
+
     /* Side navigation styles */
     #sideNav {
       position: fixed;
@@ -23,29 +26,34 @@
       background-color: #343a40;
       transition: left 0.3s ease;
     }
+
     #sideNav.open {
       left: 0;
     }
+
     #sideNav a {
       color: white;
       padding: 15px;
       text-decoration: none;
       display: block;
     }
+
     #sideNav a:hover {
       background-color: #575757;
     }
+
     .content {
       margin-left: 0;
       transition: margin-left 0.3s ease;
     }
+
     .content.shift {
       margin-left: 250px;
     }
 
     /* Custom styles for content */
     .content-wrapper {
-      padding: 20px;
+      padding: 5px;
       max-width: 100%;
       overflow-x: hidden;
     }
@@ -58,6 +66,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Side Navigation -->
@@ -67,7 +76,7 @@
 
   <!-- Page Content -->
   <div class="content">
-    <button id="toggleBtn" class="btn btn-primary mt-3">-</button>
+    <button id="toggleBtn" class="btn btn-primary mt-3" style="width: 100%;"> Expand Me</button>
 
     <div class="container mt-5">
       <div class="row">
@@ -95,51 +104,51 @@
 
     // Fetch the list of HTML files from GitHub
     fetch(apiURL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch files');
-            }
-            return response.json();
-        })
-        .then(files => {
-            console.log(files);  // Log the response to check the files
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch files');
+        }
+        return response.json();
+      })
+      .then(files => {
+        console.log(files);  // Log the response to check the files
 
-            // Filter files to only include HTML files
-            const htmlFiles = files.filter(file => file.name.endsWith('.html'))
-                                   .sort((a, b) => a.name.localeCompare(b.name)); // Sort HTML files alphabetically
+        // Filter files to only include HTML files
+        const htmlFiles = files.filter(file => file.name.endsWith('.html'))
+          .sort((a, b) => a.name.localeCompare(b.name)); // Sort HTML files alphabetically
 
-            // If no HTML files found, display a message
-            if (htmlFiles.length === 0) {
-                document.getElementById('sideNav').innerHTML = '<p class="text-white">No HTML files found in the specified folder.</p>';
-                return;
-            }
+        // If no HTML files found, display a message
+        if (htmlFiles.length === 0) {
+          document.getElementById('sideNav').innerHTML = '<p class="text-white">No HTML files found in the specified folder.</p>';
+          return;
+        }
 
-            // Create and display the menu
-            const menu = document.getElementById('sideNav');
-            menu.innerHTML = '';  // Clear any existing content in the menu
-            htmlFiles.forEach(file => {
-                const link = document.createElement('a');
-                link.href = "#";
-                link.textContent = file.name.replace('.html', ''); // Show file name without extension
-                link.onclick = () => loadHTMLContent(file.download_url);
-                menu.appendChild(link); 
-            });
-        })
-        .catch(error => {
-            console.error("Error fetching files:", error);
-            document.getElementById('sideNav').innerHTML = `<p class="text-white">Error loading menu: ${error.message}</p>`;
+        // Create and display the menu
+        const menu = document.getElementById('sideNav');
+        menu.innerHTML = '';  // Clear any existing content in the menu
+        htmlFiles.forEach(file => {
+          const link = document.createElement('a');
+          link.href = "#";
+          link.textContent = file.name.replace('.html', ''); // Show file name without extension
+          link.onclick = () => loadHTMLContent(file.download_url);
+          menu.appendChild(link);
         });
+      })
+      .catch(error => {
+        console.error("Error fetching files:", error);
+        document.getElementById('sideNav').innerHTML = `<p class="text-white">Error loading menu: ${error.message}</p>`;
+      });
 
     // Load and render HTML content on click
     function loadHTMLContent(url) {
-        fetch(url)
-            .then(response => response.text()) // Fetch the HTML content
-            .then(htmlContent => {
-                document.getElementById('dynamicContent').innerHTML = htmlContent; // Render HTML in the content area
-            })
-            .catch(error => {
-                document.getElementById('dynamicContent').innerHTML = `<p>Error loading HTML content: ${error.message}</p>`;
-            });
+      fetch(url)
+        .then(response => response.text()) // Fetch the HTML content
+        .then(htmlContent => {
+          document.getElementById('dynamicContent').innerHTML = htmlContent; // Render HTML in the content area
+        })
+        .catch(error => {
+          document.getElementById('dynamicContent').innerHTML = `<p>Error loading HTML content: ${error.message}</p>`;
+        });
     }
 
     // Toggle the side menu visibility
