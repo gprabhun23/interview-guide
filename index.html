@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub PDF Loader</title>
+    <title>GitHub HTML Loader</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -40,11 +40,6 @@
             padding: 20px;
             flex: 1;
         }
-
-        #content canvas {
-            width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
@@ -52,33 +47,31 @@
 <div class="sidenav" id="menu"></div>
 
 <div id="content">
-    <h2>PDF Content</h2>
-    <p>Select a PDF file from the menu to load its content.</p>
-    <canvas id="pdf-canvas"></canvas>
+    <h2>HTML Content</h2>
+    <p>Select an HTML file from the menu to load its content.</p>
 </div>
 
-<!-- Load PDF.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-
+<!-- Fetching files from GitHub API -->
 <script>
-    const repoOwner = "gprabhun23"; // Replace with your GitHub username
+      const repoOwner = "gprabhun23"; // Replace with your GitHub username
     const repoName = "Interview-Guide"; // Replace with your GitHub repository name
     const folderPath = "docs"; // Replace with your folder path
 
     const apiURL = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
 
-    // Fetch the list of PDF files from GitHub
+    // Fetch the list of HTML files from GitHub
     fetch(apiURL)
         .then(response => response.json())
         .then(files => {
-            const pdfFiles = files.filter(file => file.name.endsWith('.pdf'))
-                                  .sort((a, b) => a.name.localeCompare(b.name));
+            const htmlFiles = files.filter(file => file.name.endsWith('.html'))
+                                   .sort((a, b) => a.name.localeCompare(b.name)); // Sort HTML files alphabetically
+
             const menu = document.getElementById('menu');
-            pdfFiles.forEach(file => {
+            htmlFiles.forEach(file => {
                 const link = document.createElement('a');
                 link.href = "#";
-                link.textContent = file.name.replace('.pdf', ''); // Show file name without extension
-                link.onclick = () => loadPDFContent(file.download_url);
+                link.textContent = file.name.replace('.html', ''); // Show file name without extension
+                link.onclick = () => loadHTMLContent(file.download_url);
                 menu.appendChild(link);
             });
         })
@@ -86,44 +79,21 @@
             console.error("Error fetching files:", error);
         });
 
-    // Load and render PDF content on click
-    function loadPDFContent(url) {
+    // Load and render HTML content on click
+    function loadHTMLContent(url) {
         fetch(url)
-            .then(response => response.arrayBuffer()) // Fetch PDF as ArrayBuffer
-            .then(pdfData => {
-                const loadingTask = pdfjsLib.getDocument(pdfData);
-                loadingTask.promise.then(pdf => {
-                    console.log("PDF loaded");
-
-                    // Fetch the first page
-                    pdf.getPage(1).then(page => {
-                        console.log("Page loaded");
-
-                        const scale = 1.5;
-                        const viewport = page.getViewport({ scale: scale });
-
-                        const canvas = document.getElementById('pdf-canvas');
-                        const context = canvas.getContext('2d');
-
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-
-                        // Render PDF page into canvas context
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        page.render(renderContext);
-                    });
-                }).catch(error => {
-                    document.getElementById('content').innerHTML = `<p>Error loading PDF: ${error.message}</p>`;
-                });
+            .then(response => response.text()) // Fetch the HTML content
+            .then(htmlContent => {
+                document.getElementById('content').innerHTML = htmlContent; // Render HTML in the content area
             })
             .catch(error => {
-                document.getElementById('content').innerHTML = `<p>Error loading PDF content: ${error.message}</p>`;
+                document.getElementById('content').innerHTML = `<p>Error loading HTML content: ${error.message}</p>`;
             });
     }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
