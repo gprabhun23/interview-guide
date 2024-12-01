@@ -1,0 +1,1143 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style>@charset "UTF-8";@import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css';code{color:#c7254e;background-color:#f9f2f4;border-radius:4px}code,kbd{padding:2px 4px}kbd{color:#fff;background-color:#333;border-radius:3px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}kbd kbd{padding:0;font-size:100%;box-shadow:none}pre{display:block;margin:0 0 10px;word-break:break-all;word-wrap:break-word;color:#333;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}.pre-scrollable{max-height:340px;overflow-y:scroll}table{background-color:transparent}th{text-align:left}.table{width:100%;max-width:100%;margin-bottom:20px}.table>thead>tr>th{padding:8px;line-height:1.4285714;border-top:1px solid #ddd}.table>thead>tr>td,.table>tbody>tr>th,.table>tbody>tr>td,.table>tfoot>tr>th,.table>tfoot>tr>td{padding:8px;line-height:1.4285714;vertical-align:top;border-top:1px solid #ddd}.table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd}.table>caption+thead>tr:first-child>th,.table>caption+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>td,.table>thead:first-child>tr:first-child>th,.table>thead:first-child>tr:first-child>td{border-top:0}.table>tbody+tbody{border-top:2px solid #ddd}.table .table{background-color:#fff}.table-condensed>thead>tr>th,.table-condensed>thead>tr>td,.table-condensed>tbody>tr>th,.table-condensed>tbody>tr>td,.table-condensed>tfoot>tr>th,.table-condensed>tfoot>tr>td{padding:5px}.table-bordered,.table-bordered>thead>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>th,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>th,.table-bordered>tfoot>tr>td{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}.table-hover>tbody>tr:hover>td,.table-hover>tbody>tr:hover>th{background-color:#f5f5f5}table col[class*="col-"]{position:static;float:none;display:table-column}table td[class*="col-"],table th[class*="col-"]{position:static;float:none;display:table-cell}.table>thead>tr>td.active,.table>thead>tr>th.active,.table>thead>tr.active>td,.table>thead>tr.active>th,.table>tbody>tr>td.active,.table>tbody>tr>th.active,.table>tbody>tr.active>td,.table>tbody>tr.active>th,.table>tfoot>tr>td.active,.table>tfoot>tr>th.active,.table>tfoot>tr.active>td,.table>tfoot>tr.active>th{background-color:#f5f5f5}.table-hover>tbody>tr>td.active:hover,.table-hover>tbody>tr>th.active:hover,.table-hover>tbody>tr.active:hover>td,.table-hover>tbody>tr:hover>.active,.table-hover>tbody>tr.active:hover>th{background-color:#e8e8e8}.table>thead>tr>td.success,.table>thead>tr>th.success,.table>thead>tr.success>td,.table>thead>tr.success>th,.table>tbody>tr>td.success,.table>tbody>tr>th.success,.table>tbody>tr.success>td,.table>tbody>tr.success>th,.table>tfoot>tr>td.success,.table>tfoot>tr>th.success,.table>tfoot>tr.success>td,.table>tfoot>tr.success>th{background-color:#dff0d8}.table-hover>tbody>tr>td.success:hover,.table-hover>tbody>tr>th.success:hover,.table-hover>tbody>tr.success:hover>td,.table-hover>tbody>tr:hover>.success,.table-hover>tbody>tr.success:hover>th{background-color:#d0e9c6}.table>thead>tr>td.info,.table>thead>tr>th.info,.table>thead>tr.info>td,.table>thead>tr.info>th,.table>tbody>tr>td.info,.table>tbody>tr>th.info,.table>tbody>tr.info>td,.table>tbody>tr.info>th,.table>tfoot>tr>td.info,.table>tfoot>tr>th.info,.table>tfoot>tr.info>td,.table>tfoot>tr.info>th{background-color:#d9edf7}.table-hover>tbody>tr>td.info:hover,.table-hover>tbody>tr>th.info:hover,.table-hover>tbody>tr.info:hover>td,.table-hover>tbody>tr:hover>.info,.table-hover>tbody>tr.info:hover>th{background-color:#c4e3f3}.table>thead>tr>td.warning,.table>thead>tr>th.warning,.table>thead>tr.warning>td,.table>thead>tr.warning>th,.table>tbody>tr>td.warning,.table>tbody>tr>th.warning,.table>tbody>tr.warning>td,.table>tbody>tr.warning>th,.table>tfoot>tr>td.warning,.table>tfoot>tr>th.warning,.table>tfoot>tr.warning>td,.table>tfoot>tr.warning>th{background-color:#fcf8e3}.table-hover>tbody>tr>td.warning:hover,.table-hover>tbody>tr>th.warning:hover,.table-hover>tbody>tr.warning:hover>td,.table-hover>tbody>tr:hover>.warning,.table-hover>tbody>tr.warning:hover>th{background-color:#faf2cc}.table>thead>tr>td.danger,.table>thead>tr>th.danger,.table>thead>tr.danger>td,.table>thead>tr.danger>th,.table>tbody>tr>td.danger,.table>tbody>tr>th.danger,.table>tbody>tr.danger>td,.table>tbody>tr.danger>th,.table>tfoot>tr>td.danger,.table>tfoot>tr>th.danger,.table>tfoot>tr.danger>td,.table>tfoot>tr.danger>th{background-color:#f2dede}.table-hover>tbody>tr>td.danger:hover,.table-hover>tbody>tr>th.danger:hover,.table-hover>tbody>tr.danger:hover>td,.table-hover>tbody>tr:hover>.danger,.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc}fieldset{border:0;min-width:0}legend{display:block;width:100%;margin-bottom:20px;font-size:21px;line-height:inherit;color:#333;border-bottom:1px solid #e5e5e5}label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700}input[type="radio"],input[type="checkbox"]{margin:4px 0 0;margin-top:1px \9;line-height:normal}input[type="file"]{display:block}input[type="range"]{display:block;width:100%}select[multiple],select[size]{height:auto}input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}output{padding-top:7px}output,.form-control{display:block;font-size:14px;line-height:1.4285714;color:#555}.form-control{width:100%;height:34px;padding:6px 12px;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.form-control:focus{border-color:#66afe9;outline:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.form-control::-moz-placeholder{color:#777;opacity:1}.form-control:-ms-input-placeholder{color:#777}.form-control::-webkit-input-placeholder{color:#777}.form-control[disabled],.form-control[readonly],fieldset[disabled] .form-control{cursor:not-allowed;background-color:#eee;opacity:1}textarea.form-control{height:auto}input[type="date"],input[type="time"],input[type="datetime-local"],input[type="month"]{line-height:34px;line-height:1.4285714 \0}input[type="date"].input-sm,.form-horizontal .form-group-sm input.form-control[type="date"],.input-group-sm>input.form-control[type="date"],.input-group-sm>input.input-group-addon[type="date"],.input-group-sm>.input-group-btn>input.btn[type="date"],input[type="time"].input-sm,.form-horizontal .form-group-sm input.form-control[type="time"],.input-group-sm>input.form-control[type="time"],.input-group-sm>input.input-group-addon[type="time"],.input-group-sm>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-sm,.form-horizontal .form-group-sm input.form-control[type="datetime-local"],.input-group-sm>input.form-control[type="datetime-local"],.input-group-sm>input.input-group-addon[type="datetime-local"],.input-group-sm>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-sm,.form-horizontal .form-group-sm input.form-control[type="month"],.input-group-sm>input.form-control[type="month"],.input-group-sm>input.input-group-addon[type="month"],.input-group-sm>.input-group-btn>input.btn[type="month"]{line-height:30px}input[type="date"].input-lg,.form-horizontal .form-group-lg input.form-control[type="date"],.input-group-lg>input.form-control[type="date"],.input-group-lg>input.input-group-addon[type="date"],.input-group-lg>.input-group-btn>input.btn[type="date"],input[type="time"].input-lg,.form-horizontal .form-group-lg input.form-control[type="time"],.input-group-lg>input.form-control[type="time"],.input-group-lg>input.input-group-addon[type="time"],.input-group-lg>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-lg,.form-horizontal .form-group-lg input.form-control[type="datetime-local"],.input-group-lg>input.form-control[type="datetime-local"],.input-group-lg>input.input-group-addon[type="datetime-local"],.input-group-lg>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-lg,.form-horizontal .form-group-lg input.form-control[type="month"],.input-group-lg>input.form-control[type="month"],.input-group-lg>input.input-group-addon[type="month"],.input-group-lg>.input-group-btn>input.btn[type="month"]{line-height:46px}.form-group{margin-bottom:15px}.radio,.checkbox{position:relative;display:block;min-height:20px;margin-top:10px;margin-bottom:10px}.radio label,.checkbox label{padding-left:20px;margin-bottom:0;font-weight:400;cursor:pointer}.radio input[type="radio"],.radio-inline input[type="radio"],.checkbox input[type="checkbox"],.checkbox-inline input[type="checkbox"]{position:absolute;margin-left:-20px;margin-top:4px \9}.radio+.radio,.checkbox+.checkbox{margin-top:-5px}.radio-inline,.checkbox-inline{display:inline-block;padding-left:20px;margin-bottom:0;vertical-align:middle;font-weight:400;cursor:pointer}.radio-inline+.radio-inline,.checkbox-inline+.checkbox-inline{margin-top:0;margin-left:10px}input[type="radio"][disabled],input[type="radio"].disabled,fieldset[disabled] input[type="radio"],input[type="checkbox"][disabled],input[type="checkbox"].disabled,fieldset[disabled] input[type="checkbox"],.radio-inline.disabled,fieldset[disabled] .radio-inline,.checkbox-inline.disabled,fieldset[disabled] .checkbox-inline,.radio.disabled label,fieldset[disabled] .radio label,.checkbox.disabled label,fieldset[disabled] .checkbox label{cursor:not-allowed}.form-control-static{padding-top:7px;padding-bottom:7px;margin-bottom:0}.form-control-static.input-lg,.form-horizontal .form-group-lg .form-control-static.form-control,.input-group-lg>.form-control-static.form-control,.input-group-lg>.form-control-static.input-group-addon,.input-group-lg>.input-group-btn>.form-control-static.btn,.form-control-static.input-sm,.form-horizontal .form-group-sm .form-control-static.form-control,.input-group-sm>.form-control-static.form-control,.input-group-sm>.form-control-static.input-group-addon,.input-group-sm>.input-group-btn>.form-control-static.btn{padding-left:0;padding-right:0}.input-sm,.form-horizontal .form-group-sm .form-control,.input-group-sm>.form-control{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}.input-group-sm>.input-group-addon{height:30px;line-height:1.5}.input-group-sm>.input-group-btn>.btn{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}select.input-sm,.form-horizontal .form-group-sm select.form-control,.input-group-sm>select.form-control,.input-group-sm>select.input-group-addon,.input-group-sm>.input-group-btn>select.btn{height:30px;line-height:30px}textarea.input-sm,.form-horizontal .form-group-sm textarea.form-control,.input-group-sm>textarea.form-control,.input-group-sm>textarea.input-group-addon,.input-group-sm>.input-group-btn>textarea.btn,select[multiple].input-sm,.form-horizontal .form-group-sm select.form-control[multiple],.input-group-sm>select.form-control[multiple],.input-group-sm>select.input-group-addon[multiple],.input-group-sm>.input-group-btn>select.btn[multiple]{height:auto}.input-lg,.form-horizontal .form-group-lg .form-control,.input-group-lg>.form-control{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.input-group-lg>.input-group-addon{height:46px;line-height:1.33}.input-group-lg>.input-group-btn>.btn{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}select.input-lg,.form-horizontal .form-group-lg select.form-control,.input-group-lg>select.form-control,.input-group-lg>select.input-group-addon,.input-group-lg>.input-group-btn>select.btn{height:46px;line-height:46px}textarea.input-lg,.form-horizontal .form-group-lg textarea.form-control,.input-group-lg>textarea.form-control,.input-group-lg>textarea.input-group-addon,.input-group-lg>.input-group-btn>textarea.btn,select[multiple].input-lg,.form-horizontal .form-group-lg select.form-control[multiple],.input-group-lg>select.form-control[multiple],.input-group-lg>select.input-group-addon[multiple],.input-group-lg>.input-group-btn>select.btn[multiple]{height:auto}.has-feedback{position:relative}.has-feedback .form-control{padding-right:42.5px}.form-control-feedback{position:absolute;top:25px;right:0;z-index:2;display:block;width:34px;height:34px;line-height:34px;text-align:center}.input-lg+.form-control-feedback,.form-horizontal .form-group-lg .form-control+.form-control-feedback,.input-group-lg>.form-control+.form-control-feedback,.input-group-lg>.input-group-addon+.form-control-feedback,.input-group-lg>.input-group-btn>.btn+.form-control-feedback{width:46px;height:46px;line-height:46px}.input-sm+.form-control-feedback,.form-horizontal .form-group-sm .form-control+.form-control-feedback,.input-group-sm>.form-control+.form-control-feedback,.input-group-sm>.input-group-addon+.form-control-feedback,.input-group-sm>.input-group-btn>.btn+.form-control-feedback{width:30px;height:30px;line-height:30px}.has-success .help-block,.has-success .control-label,.has-success .radio,.has-success .checkbox,.has-success .radio-inline,.has-success .checkbox-inline{color:#3c763d}.has-success .form-control{border-color:#3c763d;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-success .form-control:focus{border-color:#2b542c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168}.has-success .input-group-addon{color:#3c763d;border-color:#3c763d;background-color:#dff0d8}.has-success .form-control-feedback{color:#3c763d}.has-warning .help-block,.has-warning .control-label,.has-warning .radio,.has-warning .checkbox,.has-warning .radio-inline,.has-warning .checkbox-inline{color:#8a6d3b}.has-warning .form-control{border-color:#8a6d3b;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-warning .form-control:focus{border-color:#66512c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b}.has-warning .input-group-addon{color:#8a6d3b;border-color:#8a6d3b;background-color:#fcf8e3}.has-warning .form-control-feedback{color:#8a6d3b}.has-error .help-block,.has-error .control-label,.has-error .radio,.has-error .checkbox,.has-error .radio-inline,.has-error .checkbox-inline{color:#a94442}.has-error .form-control{border-color:#a94442;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-error .form-control:focus{border-color:#843534;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}.has-error .input-group-addon{color:#a94442;border-color:#a94442;background-color:#f2dede}.has-error .form-control-feedback{color:#a94442}.has-feedback label.sr-only~.form-control-feedback{top:0}.help-block{display:block;margin-top:5px;margin-bottom:10px;color:#737373}.form-horizontal .radio,.form-horizontal .checkbox,.form-horizontal .radio-inline,.form-horizontal .checkbox-inline{margin-top:0;margin-bottom:0;padding-top:7px}.form-horizontal .radio,.form-horizontal .checkbox{min-height:27px}.form-horizontal .form-group{margin-left:-15px;margin-right:-15px}.form-horizontal .form-group:before{content:" ";display:table}.form-horizontal .form-group:after{content:" ";display:table;clear:both}.form-horizontal .has-feedback .form-control-feedback{top:0;right:15px}.btn{display:inline-block;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.btn:focus,.btn:active:focus,.btn.active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:hover,.btn:focus{color:#333;text-decoration:none}.btn:active,.btn.active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;pointer-events:none;opacity:.65;filter:alpha(opacity=65);box-shadow:none}.btn-default{color:#333;background-color:#fff;border-color:#ccc}.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{color:#333;background-color:#e6e6e6;border-color:#adadad}.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{background-image:none}.btn-default.disabled,.btn-default.disabled:hover,.btn-default.disabled:focus,.btn-default.disabled:active,.btn-default.disabled.active,.btn-default[disabled],.btn-default[disabled]:hover,.btn-default[disabled]:focus,.btn-default[disabled]:active,.btn-default[disabled].active,fieldset[disabled] .btn-default,fieldset[disabled] .btn-default:hover,fieldset[disabled] .btn-default:focus,fieldset[disabled] .btn-default:active,fieldset[disabled] .btn-default.active{background-color:#fff;border-color:#ccc}.btn-default .badge{color:#fff;background-color:#333}.btn-primary{color:#fff;background-color:#428bca;border-color:#357ebd}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#3071a9;border-color:#285e8e}.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{background-image:none}.btn-primary.disabled,.btn-primary.disabled:hover,.btn-primary.disabled:focus,.btn-primary.disabled:active,.btn-primary.disabled.active,.btn-primary[disabled],.btn-primary[disabled]:hover,.btn-primary[disabled]:focus,.btn-primary[disabled]:active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary,fieldset[disabled] .btn-primary:hover,fieldset[disabled] .btn-primary:focus,fieldset[disabled] .btn-primary:active,fieldset[disabled] .btn-primary.active{background-color:#428bca;border-color:#357ebd}.btn-primary .badge{color:#428bca;background-color:#fff}.btn-success{color:#fff;background-color:#5cb85c;border-color:#4cae4c}.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{color:#fff;background-color:#449d44;border-color:#398439}.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{background-image:none}.btn-success.disabled,.btn-success.disabled:hover,.btn-success.disabled:focus,.btn-success.disabled:active,.btn-success.disabled.active,.btn-success[disabled],.btn-success[disabled]:hover,.btn-success[disabled]:focus,.btn-success[disabled]:active,.btn-success[disabled].active,fieldset[disabled] .btn-success,fieldset[disabled] .btn-success:hover,fieldset[disabled] .btn-success:focus,fieldset[disabled] .btn-success:active,fieldset[disabled] .btn-success.active{background-color:#5cb85c;border-color:#4cae4c}.btn-success .badge{color:#5cb85c;background-color:#fff}.btn-info{color:#fff;background-color:#5bc0de;border-color:#46b8da}.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{color:#fff;background-color:#31b0d5;border-color:#269abc}.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{background-image:none}.btn-info.disabled,.btn-info.disabled:hover,.btn-info.disabled:focus,.btn-info.disabled:active,.btn-info.disabled.active,.btn-info[disabled],.btn-info[disabled]:hover,.btn-info[disabled]:focus,.btn-info[disabled]:active,.btn-info[disabled].active,fieldset[disabled] .btn-info,fieldset[disabled] .btn-info:hover,fieldset[disabled] .btn-info:focus,fieldset[disabled] .btn-info:active,fieldset[disabled] .btn-info.active{background-color:#5bc0de;border-color:#46b8da}.btn-info .badge{color:#5bc0de;background-color:#fff}.btn-warning{color:#fff;background-color:#f0ad4e;border-color:#eea236}.btn-warning:hover,.btn-warning:focus,.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{color:#fff;background-color:#ec971f;border-color:#d58512}.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{background-image:none}.btn-warning.disabled,.btn-warning.disabled:hover,.btn-warning.disabled:focus,.btn-warning.disabled:active,.btn-warning.disabled.active,.btn-warning[disabled],.btn-warning[disabled]:hover,.btn-warning[disabled]:focus,.btn-warning[disabled]:active,.btn-warning[disabled].active,fieldset[disabled] .btn-warning,fieldset[disabled] .btn-warning:hover,fieldset[disabled] .btn-warning:focus,fieldset[disabled] .btn-warning:active,fieldset[disabled] .btn-warning.active{background-color:#f0ad4e;border-color:#eea236}.btn-warning .badge{color:#f0ad4e;background-color:#fff}.btn-danger{color:#fff;background-color:#d9534f;border-color:#d43f3a}.btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{color:#fff;background-color:#c9302c;border-color:#ac2925}.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{background-image:none}.btn-danger.disabled,.btn-danger.disabled:hover,.btn-danger.disabled:focus,.btn-danger.disabled:active,.btn-danger.disabled.active,.btn-danger[disabled],.btn-danger[disabled]:hover,.btn-danger[disabled]:focus,.btn-danger[disabled]:active,.btn-danger[disabled].active,fieldset[disabled] .btn-danger,fieldset[disabled] .btn-danger:hover,fieldset[disabled] .btn-danger:focus,fieldset[disabled] .btn-danger:active,fieldset[disabled] .btn-danger.active{background-color:#d9534f;border-color:#d43f3a}.btn-danger .badge{color:#d9534f;background-color:#fff}.btn-link{color:#428bca;font-weight:400;cursor:pointer;border-radius:0}.btn-link,.btn-link:active,.btn-link[disabled],fieldset[disabled] .btn-link{background-color:transparent;box-shadow:none}.btn-link,.btn-link:hover,.btn-link:focus,.btn-link:active{border-color:transparent}.btn-link:hover,.btn-link:focus{color:#2a6496;text-decoration:underline;background-color:transparent}.btn-link[disabled]:hover,.btn-link[disabled]:focus,fieldset[disabled] .btn-link:hover,fieldset[disabled] .btn-link:focus{color:#777;text-decoration:none}.btn-lg{padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.btn-sm{padding:5px 10px}.btn-sm,.btn-xs{font-size:12px;line-height:1.5;border-radius:3px}.btn-xs{padding:1px 5px}.btn-block{display:block;width:100%}.btn-block+.btn-block{margin-top:5px}input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"].btn-block{width:100%}.fade{opacity:0;transition:opacity .15s linear}.fade.in{opacity:1}.collapse{display:none}.collapse.in{display:block}tr.collapse.in{display:table-row}tbody.collapse.in{display:table-row-group}.collapsing{position:relative;height:0;overflow:hidden;transition:height .35s ease}.input-group{position:relative;display:table;border-collapse:separate}.input-group[class*="col-"]{float:none;padding-left:0;padding-right:0}.input-group .form-control{position:relative;z-index:2;float:left;width:100%;margin-bottom:0}.input-group-addon,.input-group-btn,.input-group .form-control{display:table-cell}.input-group-addon:not(:first-child):not(:last-child),.input-group-btn:not(:first-child):not(:last-child),.input-group .form-control:not(:first-child):not(:last-child){border-radius:0}.input-group-addon{white-space:nowrap}.input-group-addon,.input-group-btn{width:1%;vertical-align:middle}.input-group-addon{padding:6px 12px;font-size:14px;font-weight:400;line-height:1;color:#555;text-align:center;background-color:#eee;border:1px solid #ccc;border-radius:4px}.input-group-addon.input-sm,.form-horizontal .form-group-sm .input-group-addon.form-control,.input-group-sm>.input-group-addon,.input-group-sm>.input-group-btn>.input-group-addon.btn{padding:5px 10px;font-size:12px;border-radius:3px}.input-group-addon.input-lg,.form-horizontal .form-group-lg .input-group-addon.form-control,.input-group-lg>.input-group-addon,.input-group-lg>.input-group-btn>.input-group-addon.btn{padding:10px 16px;font-size:18px;border-radius:6px}.input-group-addon input[type="radio"],.input-group-addon input[type="checkbox"]{margin-top:0}.input-group .form-control:first-child,.input-group-addon:first-child,.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group>.btn,.input-group-btn:first-child>.dropdown-toggle,.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),.input-group-btn:last-child>.btn-group:not(:last-child)>.btn{border-bottom-right-radius:0;border-top-right-radius:0}.input-group-addon:first-child{border-right:0}.input-group .form-control:last-child,.input-group-addon:last-child,.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group>.btn,.input-group-btn:last-child>.dropdown-toggle,.input-group-btn:first-child>.btn:not(:first-child),.input-group-btn:first-child>.btn-group:not(:first-child)>.btn{border-bottom-left-radius:0;border-top-left-radius:0}.input-group-addon:last-child{border-left:0}.input-group-btn{font-size:0;white-space:nowrap}.input-group-btn,.input-group-btn>.btn{position:relative}.input-group-btn>.btn+.btn{margin-left:-1px}.input-group-btn>.btn:hover,.input-group-btn>.btn:focus,.input-group-btn>.btn:active{z-index:2}.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group{margin-right:-1px}.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group{margin-left:-1px}.pagination{display:inline-block;padding-left:0;margin:20px 0;border-radius:4px}.pagination>li{display:inline}.pagination>li>a,.pagination>li>span{position:relative;float:left;padding:6px 12px;line-height:1.4285714;text-decoration:none;color:#428bca;background-color:#fff;border:1px solid #ddd;margin-left:-1px}.pagination>li:first-child>a,.pagination>li:first-child>span{margin-left:0;border-bottom-left-radius:4px;border-top-left-radius:4px}.pagination>li:last-child>a,.pagination>li:last-child>span{border-bottom-right-radius:4px;border-top-right-radius:4px}.pagination>li>a:hover,.pagination>li>a:focus,.pagination>li>span:hover,.pagination>li>span:focus{color:#2a6496;background-color:#eee;border-color:#ddd}.pagination>.active>a,.pagination>.active>a:hover,.pagination>.active>a:focus,.pagination>.active>span,.pagination>.active>span:hover,.pagination>.active>span:focus{z-index:2;color:#fff;background-color:#428bca;border-color:#428bca;cursor:default}.pagination>.disabled>span,.pagination>.disabled>span:hover,.pagination>.disabled>span:focus,.pagination>.disabled>a,.pagination>.disabled>a:hover,.pagination>.disabled>a:focus{color:#777;background-color:#fff;border-color:#ddd;cursor:not-allowed}.pagination-lg>li>a,.pagination-lg>li>span{padding:10px 16px;font-size:18px}.pagination-lg>li:first-child>a,.pagination-lg>li:first-child>span{border-bottom-left-radius:6px;border-top-left-radius:6px}.pagination-lg>li:last-child>a,.pagination-lg>li:last-child>span{border-bottom-right-radius:6px;border-top-right-radius:6px}.pagination-sm>li>a,.pagination-sm>li>span{padding:5px 10px;font-size:12px}.pagination-sm>li:first-child>a,.pagination-sm>li:first-child>span{border-bottom-left-radius:3px;border-top-left-radius:3px}.pagination-sm>li:last-child>a,.pagination-sm>li:last-child>span{border-bottom-right-radius:3px;border-top-right-radius:3px}.close{float:right;font-size:21px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}.close:hover,.close:focus{color:#000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity=50)}button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}.modal-open,.modal{overflow:hidden}.modal{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}.modal.fade .modal-dialog{transform:translate3d(0,-25%,0);transition:transform .3s ease-out}.modal.in .modal-dialog{transform:translate3d(0,0,0)}.modal-open .modal{overflow-x:hidden;overflow-y:auto}.modal-dialog{position:relative;width:auto;margin:10px}.modal-content{position:relative;background-color:#fff;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 3px 9px rgba(0,0,0,.5);background-clip:padding-box;outline:0}.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:#000}.modal-backdrop.fade{opacity:0;filter:alpha(opacity=0)}.modal-backdrop.in{opacity:.5;filter:alpha(opacity=50)}.modal-header{padding:15px;border-bottom:1px solid #e5e5e5;min-height:16.4285714px}.modal-header .close{margin-top:-2px}.modal-title{margin:0;line-height:1.4285714}.modal-body{position:relative;padding:15px}.modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5}.modal-footer:before,.modal-footer:after{content:" ";display:table}.modal-footer:after{clear:both}.modal-footer .btn+.btn{margin-left:5px;margin-bottom:0}.modal-footer .btn-group .btn+.btn{margin-left:-1px}.modal-footer .btn-block+.btn-block{margin-left:0}.modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right!important}.pull-left{float:left!important}.hide{display:none!important}.show{display:block!important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none!important;visibility:hidden!important}.affix{position:fixed;transform:translate3d(0,0,0)}.hljs{display:block;overflow-x:auto;padding:.5em;background:#002b36;color:#839496;-webkit-text-size-adjust:none}.hljs-comment,.hljs-template_comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc{color:#586e75}.hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title{color:#859900}.hljs-number,.hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url{color:#2aa198}.hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-built_in,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function{color:#268bd2}.hljs-attribute,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number,.hljs-constant,.hljs-class .hljs-title,.hljs-parent,.hljs-type,.hljs-link_reference{color:#b58900}.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-pragma,.hljs-shebang,.hljs-symbol,.hljs-symbol .hljs-string,.diff .hljs-change,.hljs-special,.hljs-attr_selector,.hljs-subst,.hljs-cdata,.css .hljs-pseudo,.hljs-header{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#073642}*,*:before,*:after{box-sizing:border-box}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}images{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd{font-size:1em}code,kbd,pre,samp{font-family:monospace,monospace}samp{font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;margin-right:5px}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}.debug{background-color:#ffc0cb!important}.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ir{background-color:transparent;border:0;overflow:hidden}.ir::before{content:'';display:block;height:150%;width:0}html{font-size:.875em;background:#fff;color:#373D49}html,body{font-family:Georgia,Cambria,serif;height:100%}body{font-size:1rem;font-weight:400;line-height:2rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}li{font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-left:1rem}li>ul,li>ol{margin-bottom:0}p{padding-top:.66001rem;font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-top:0}p,pre{margin-bottom:1.33999rem}pre{font-size:1rem;padding:.66001rem 9.5px 9.5px;line-height:2rem;background:linear-gradient(to bottom,#fff 0,#fff .75rem,#f5f7fa .75rem,#f5f7fa 2.75rem,#fff 2.75rem,#fff 4rem);background-size:100% 4rem;border-color:#D3DAEA}blockquote{margin:0}blockquote p{font-size:1rem;margin-bottom:.33999rem;font-style:italic;padding:.66001rem 1rem 1rem;border-left:3px solid #A0AABF}th,td{padding:12px}h1,h2,h3,h4,h5,h6{font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-feature-settings:'dlig' 1,'liga' 1,'lnum' 1,'kern' 1;font-style:normal;font-weight:600;margin-top:0}h1{line-height:3rem;font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h2,h3{line-height:3rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}a{cursor:pointer;color:#35D7BB;text-decoration:none}a:hover,a:focus{border-bottom-color:#35D7BB;color:#dff9f4}img{height:auto;max-width:100%}dt{font-style:italic;font-weight:600}.g{display:block}.g:after{clear:both;content:'';display:table}.g-b{float:left;margin:0;width:100%}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--center{display:block;float:none;margin:0 auto}.g-b--right{float:right}.g-b--1of1{width:100%}.g-b--1of2,.g-b--2of4,.g-b--3of6,.g-b--4of8,.g-b--5of10,.g-b--6of12{width:50%}.g-b--1of3,.g-b--2of6,.g-b--4of12{width:33.333%}.g-b--2of3,.g-b--4of6,.g-b--8of12{width:66.666%}.g-b--1of4,.g-b--2of8,.g-b--3of12{width:25%}.g-b--3of4,.g-b--6of8,.g-b--9of12{width:75%}.g-b--1of5,.g-b--2of10{width:20%}.g-b--2of5,.g-b--4of10{width:40%}.g-b--3of5,.g-b--6of10{width:60%}.g-b--4of5,.g-b--8of10{width:80%}.g-b--1of6,.g-b--2of12{width:16.666%}.g-b--5of6,.g-b--10of12{width:83.333%}.g-b--1of8{width:12.5%}.g-b--3of8{width:37.5%}.g-b--5of8{width:62.5%}.g-b--7of8{width:87.5%}.g-b--1of10{width:10%}.g-b--3of10{width:30%}.g-b--7of10{width:70%}.g-b--9of10{width:90%}.g-b--1of12{width:8.333%}.g-b--5of12{width:41.666%}.g-b--7of12{width:58.333%}.g-b--11of12{width:91.666%}.g-b--push--1of1{margin-left:100%}.g-b--push--1of2,.g-b--push--2of4,.g-b--push--3of6,.g-b--push--4of8,.g-b--push--5of10,.g-b--push--6of12{margin-left:50%}.g-b--push--1of3,.g-b--push--2of6,.g-b--push--4of12{margin-left:33.333%}.g-b--push--2of3,.g-b--push--4of6,.g-b--push--8of12{margin-left:66.666%}.g-b--push--1of4,.g-b--push--2of8,.g-b--push--3of12{margin-left:25%}.g-b--push--3of4,.g-b--push--6of8,.g-b--push--9of12{margin-left:75%}.g-b--push--1of5,.g-b--push--2of10{margin-left:20%}.g-b--push--2of5,.g-b--push--4of10{margin-left:40%}.g-b--push--3of5,.g-b--push--6of10{margin-left:60%}.g-b--push--4of5,.g-b--push--8of10{margin-left:80%}.g-b--push--1of6,.g-b--push--2of12{margin-left:16.666%}.g-b--push--5of6,.g-b--push--10of12{margin-left:83.333%}.g-b--push--1of8{margin-left:12.5%}.g-b--push--3of8{margin-left:37.5%}.g-b--push--5of8{margin-left:62.5%}.g-b--push--7of8{margin-left:87.5%}.g-b--push--1of10{margin-left:10%}.g-b--push--3of10{margin-left:30%}.g-b--push--7of10{margin-left:70%}.g-b--push--9of10{margin-left:90%}.g-b--push--1of12{margin-left:8.333%}.g-b--push--5of12{margin-left:41.666%}.g-b--push--7of12{margin-left:58.333%}.g-b--push--11of12{margin-left:91.666%}.g-b--pull--1of1{margin-right:100%}.g-b--pull--1of2,.g-b--pull--2of4,.g-b--pull--3of6,.g-b--pull--4of8,.g-b--pull--5of10,.g-b--pull--6of12{margin-right:50%}.g-b--pull--1of3,.g-b--pull--2of6,.g-b--pull--4of12{margin-right:33.333%}.g-b--pull--2of3,.g-b--pull--4of6,.g-b--pull--8of12{margin-right:66.666%}.g-b--pull--1of4,.g-b--pull--2of8,.g-b--pull--3of12{margin-right:25%}.g-b--pull--3of4,.g-b--pull--6of8,.g-b--pull--9of12{margin-right:75%}.g-b--pull--1of5,.g-b--pull--2of10{margin-right:20%}.g-b--pull--2of5,.g-b--pull--4of10{margin-right:40%}.g-b--pull--3of5,.g-b--pull--6of10{margin-right:60%}.g-b--pull--4of5,.g-b--pull--8of10{margin-right:80%}.g-b--pull--1of6,.g-b--pull--2of12{margin-right:16.666%}.g-b--pull--5of6,.g-b--pull--10of12{margin-right:83.333%}.g-b--pull--1of8{margin-right:12.5%}.g-b--pull--3of8{margin-right:37.5%}.g-b--pull--5of8{margin-right:62.5%}.g-b--pull--7of8{margin-right:87.5%}.g-b--pull--1of10{margin-right:10%}.g-b--pull--3of10{margin-right:30%}.g-b--pull--7of10{margin-right:70%}.g-b--pull--9of10{margin-right:90%}.g-b--pull--1of12{margin-right:8.333%}.g-b--pull--5of12{margin-right:41.666%}.g-b--pull--7of12{margin-right:58.333%}.g-b--pull--11of12{margin-right:91.666%}.splashscreen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#373D49;z-index:22}.splashscreen-dillinger{width:260px;height:auto;display:block;margin:0 auto;padding-bottom:3rem}.splashscreen p{font-size:1.25rem;padding-top:.56251rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;text-align:center;max-width:500px;margin:0 auto;color:#FFF}.sp-center{position:relative;transform:translateY(-50%);top:50%}.open-menu>.wrapper{overflow-x:hidden}.page{margin:0 auto;position:relative;top:0;left:0;width:100%;height:100%;z-index:2;transition:all .25s ease-in-out;background-color:#fff;padding-top:51px;will-change:left}.open-menu .page{left:270px}.title{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;color:#A0AABF;letter-spacing:1px;text-transform:uppercase;padding-left:16px;padding-right:16px;margin-top:1rem}.split-preview .title{padding-left:0}.title-document{line-height:1rem;font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem;font-weight:400;font-family:"Ubuntu Mono",Monaco;color:#373D49;padding-left:16px;padding-right:16px;width:80%;min-width:300px;outline:0;border:none}.icon{display:block;margin:0 auto;width:36px;height:36px;border-radius:3px;text-align:center}.icon svg{display:inline-block;margin-left:auto;margin-right:auto}.icon-preview{background-color:#373D49;line-height:40px}.icon-preview svg{width:19px;height:12px}.icon-settings{background-color:#373D49;line-height:44px}.icon-settings svg{width:18px;height:18px}.icon-link{width:16px;height:16px;line-height:1;margin-right:24px;text-align:right}.navbar{background-color:#373D49;height:51px;width:100%;position:fixed;top:0;left:0;z-index:6;transition:all .25s ease-in-out;will-change:left}.navbar:after{content:"";display:table;clear:both}.open-menu .navbar{left:270px}.navbar-brand{float:left;margin:0 0 0 24px;padding:0;line-height:42px}.navbar-brand svg{width:85px;height:11px}.nav-left{float:left}.nav-right{float:right}.nav-sidebar{width:100%}.menu{list-style:none;margin:0;padding:0}.menu a{border:0;color:#A0AABF;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;outline:none;text-transform:uppercase}.menu a:hover{color:#35D7BB}.menu .menu-item{border:0;display:none;float:left;margin:0;position:relative}.menu .menu-item>a{display:block;font-size:12px;height:51px;letter-spacing:1px;line-height:51px;padding:0 24px}.menu .menu-item--settings,.menu .menu-item--preview,.menu .menu-item--save-to.in-sidebar,.menu .menu-item--import-from.in-sidebar,.menu .menu-item--link-unlink.in-sidebar,.menu .menu-item--documents.in-sidebar{display:block}.menu .menu-item--documents{padding-bottom:1rem}.menu .menu-item.open>a{background-color:#1D212A}.menu .menu-item-icon>a{height:auto;padding:0}.menu .menu-item-icon:hover>a{background-color:transparent}.menu .menu-link.open i{background-color:#1D212A}.menu .menu-link.open g{fill:#35D7BB}.menu .menu-link-preview,.menu .menu-link-settings{margin-top:8px;width:51px}.menu-sidebar{width:100%}.menu-sidebar .menu-item{float:none;margin-bottom:1px;width:100%}.menu-sidebar .menu-item.open>a{background-color:#373D49}.menu-sidebar .open .caret{transform:rotate(180deg)}.menu-sidebar>.menu-item:hover .dropdown a,.menu-sidebar>.menu-item:hover .settings a{background-color:transparent}.menu-sidebar .menu-link{background-color:#373D49;font-weight:600}.menu-sidebar .menu-link:after{content:"";display:table;clear:both}.menu-sidebar .menu-link>span{float:left}.menu-sidebar .menu-link>.caret{float:right;text-align:right;top:22px}.menu-sidebar .dropdown,.menu-sidebar .settings{background-color:transparent;position:static;width:100%}.dropdown{position:absolute;right:0;top:51px;width:188px}.dropdown,.settings{display:none;background-color:#1D212A}.dropdown{padding:0}.dropdown,.settings,.sidebar-list{list-style:none;margin:0}.sidebar-list{padding:0}.dropdown li{margin:32px 0;padding:0 0 0 32px}.dropdown li,.settings li{line-height:1}.sidebar-list li{line-height:1;margin:32px 0;padding:0 0 0 32px}.dropdown a{color:#D0D6E2}.dropdown a,.settings a,.sidebar-list a{display:block;text-transform:none}.sidebar-list a{color:#D0D6E2}.dropdown a:after,.settings a:after,.sidebar-list a:after{content:"";display:table;clear:both}.dropdown .icon,.settings .icon,.sidebar-list .icon{float:right}.open .dropdown,.open .settings,.open .sidebar-list{display:block}.open .dropdown.collapse,.open .collapse.settings,.open .sidebar-list.collapse{display:none}.open .dropdown.collapse.in,.open .collapse.in.settings,.open .sidebar-list.collapse.in{display:block}.dropdown .unlinked .icon,.settings .unlinked .icon,.sidebar-list .unlinked .icon{opacity:.3}.dropdown.documents li,.documents.settings li,.sidebar-list.documents li{background-image:url("../img/icons/file.svg");background-position:240px center;background-repeat:no-repeat;background-size:14px 16px;padding:3px 32px}.dropdown.documents li.octocat,.documents.settings li.octocat,.sidebar-list.documents li.octocat{background-image:url("../img/icons/octocat.svg");background-position:234px center;background-size:24px 24px}.dropdown.documents li:last-child,.documents.settings li:last-child,.sidebar-list.documents li:last-child{margin-bottom:1rem}.dropdown.documents li.active a,.documents.settings li.active a,.sidebar-list.documents li.active a{color:#35D7BB}.settings{position:fixed;top:67px;right:16px;border-radius:3px;width:288px;background-color:#373D49;padding:16px;z-index:7}.show-settings .settings{display:block}.settings .has-checkbox{float:left}.settings form{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.settings input{width:20%}.settings a{font-size:1.25rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:28px;color:#D0D6E2}.settings a:after{content:"";display:table;clear:both}.settings a:hover{color:#35D7BB}.settings li{border-bottom:1px solid #4F535B;margin:0;padding:16px 0}.settings li:last-child{border-bottom:none}.brand{border:none;display:block}.brand:hover g{fill:#35D7BB}.toggle{display:block;float:left;height:16px;padding:25px 16px 26px;width:40px}.toggle span:after,.toggle span:before{content:'';left:0;position:absolute;top:-6px}.toggle span:after{top:6px}.toggle span{display:block;position:relative}.toggle span,.toggle span:after,.toggle span:before{-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:#D3DAEA;height:2px;transition:all .3s;width:20px}.open-menu .toggle span{background-color:transparent}.open-menu .toggle span:before{transform:rotate(45deg) translate(3px,3px)}.open-menu .toggle span:after{transform:rotate(-45deg) translate(5px,-6px)}.caret{display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;position:relative;top:-1px;border-top:4px solid;border-right:4px solid transparent;border-left:4px solid transparent}.sidebar{overflow:auto;height:100%;padding-right:15px;padding-bottom:15px;width:285px}.sidebar-wrapper{-webkit-overflow-scrolling:touch;background-color:#2B2F36;left:0;height:100%;overflow-y:hidden;position:fixed;top:0;width:285px;z-index:1}.sidebar-branding{width:160px;padding:0;margin:16px auto}.header{border-bottom:1px solid #E8E8E8;position:relative}.words,.characters{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;z-index:5;position:absolute;right:16px;top:0}.words span,.characters span{color:#A0AABF}.words .counter,.characters .counter{color:#000}.words+.characters{top:22px}.mr10{margin-right:10px}.btn{text-align:center;display:inline-block;width:100%;text-transform:uppercase;font-weight:600;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;text-shadow:0 1px 0 #1b8b77;padding:16px 24px;background-color:#35D7BB;border-radius:3px;margin:0 auto 16px;line-height:1;color:#fff;transition:all .15s linear;-webkit-font-smoothing:antialiased}.btn--new,.btn--save{display:block;width:238px}.btn--new:hover,.btn--new:focus,.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 3px #24b59c;text-shadow:0 1px 0 #24b59c}.btn--save{background-color:#4A5261;text-shadow:0 1px 1px #1e2127}.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 5px #08090a;text-shadow:none}.btn--delete{display:block;width:238px;background-color:transparent;font-size:12px;text-shadow:none}.btn--delete:hover,.btn--delete:focus{color:#fff;border-bottom-color:transparent;text-shadow:0 1px 0 #08090a;opacity:.8}.btn--delete-modal,.btn--ok,.btn--close{border-top:0;background-color:#4A5261;text-shadow:0 1px 0 #08090a;margin:0}.btn--delete-modal:hover,.btn--delete-modal:focus,.btn--ok:hover,.btn--ok:focus,.btn--close:hover,.btn--close:focus{color:#fff;background-color:#292d36;text-shadow:none}.btn--delete-modal{display:inline;width:auto}.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(55,61,73,.8);transition:all .25s ease-in-out;transition-timing-function:ease-out;will-change:left,opacity,visibility;z-index:5;opacity:0;visibility:hidden}.show-settings .overlay{visibility:visible;opacity:1}.switch{float:right;line-height:1}.switch input{display:none}.switch small{display:inline-block;cursor:pointer;padding:0 24px 0 0;transition:all ease .2s;background-color:#2B2F36;border-color:#2B2F36}.switch small,.switch small:before{border-radius:30px;box-shadow:inset 0 0 2px 0 #14171F}.switch small:before{display:block;content:'';width:28px;height:28px;background:#fff}.switch.checked small{padding-right:0;padding-left:24px;background-color:#35D7BB;box-shadow:none}.modal--dillinger.about .modal-dialog{font-size:1.25rem;max-width:500px}.modal--dillinger.scope .modal-dialog{max-width:300px;margin:5rem auto}.modal--dillinger .modal-dialog{max-width:600px;width:auto;margin:5rem auto}.modal--dillinger .modal-content{background:#373D49;border-radius:3px;box-shadow:0 2px 5px 0 #2C3B59;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;padding:2rem}.modal--dillinger ul{list-style-type:disc;margin:1rem 0;padding:0 0 0 1rem}.modal--dillinger li{padding:0;margin:0}.modal--dillinger .modal-header{border:0;padding:0}.modal--dillinger .modal-body{padding:0}.modal--dillinger .modal-footer{border:0;padding:0}.modal--dillinger .close{color:#fff;opacity:1}.modal-backdrop{background-color:#373D49}.pagination--dillinger{padding:0!important;margin:1.5rem 0!important;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:stretch;align-content:stretch}.pagination--dillinger li{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;text-align:center}.pagination--dillinger li:first-child>a,.pagination--dillinger li.disabled>a,.pagination--dillinger li.disabled>a:hover,.pagination--dillinger li.disabled>a:focus,.pagination--dillinger li>a{background-color:transparent;border-color:#4F535B;border-right-color:transparent}.pagination--dillinger li.active>a,.pagination--dillinger li.active>a:hover,.pagination--dillinger li.active>a:focus{border-color:#4A5261;background-color:#4A5261;color:#fff}.pagination--dillinger li>a{float:none;color:#fff;width:100%;display:block;text-align:center;margin:0;border-right-color:transparent;padding:6px}.pagination--dillinger li>a:hover,.pagination--dillinger li>a:focus{border-color:#35D7BB;background-color:#35D7BB;color:#fff}.pagination--dillinger li:last-child a{border-color:#4F535B}.pagination--dillinger li:first-child a{border-right-color:transparent}.diNotify{position:absolute;z-index:9999;left:0;right:0;top:0;margin:0 auto;max-width:400px;text-align:center;transition:top .5s ease-in-out,opacity .5s ease-in-out;visibility:hidden}.diNotify-body{-webkit-font-smoothing:antialiased;background-color:#35D7BB;background:#666E7F;border-radius:3px;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;overflow:hidden;padding:1rem 2rem .5rem;display:-ms-flexbox;display:flex;-ms-flex-align:baseline;align-items:baseline;-ms-flex-pack:center;justify-content:center}.diNotify-icon{display:block;width:16px;height:16px;line-height:16px;position:relative;top:3px}.diNotify-message{padding-left:1rem}.zen-wrapper{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:10;background-color:#FFF;opacity:0;transition:opacity .25s ease-in-out}.zen-wrapper.on{opacity:1}.enter-zen-mode{background-image:url("../img/icons/enter-zen.svg");right:.5rem;top:.313rem;display:none}.enter-zen-mode,.close-zen-mode{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute}.close-zen-mode{background-image:url("../img/icons/exit-zen.svg");right:1rem;top:1rem}.zen-page{position:relative;top:0;bottom:0;z-index:11;height:100%;width:100%}#zen{font-size:1.25rem;width:300px;height:80%;margin:0 auto;position:relative;top:10%}#zen:before,#zen:after{content:"";position:absolute;height:10%;width:100%;z-index:12;pointer-events:none}#preview .table{width:auto}.ui-resizable{position:relative}.ui-resizable-handle{position:absolute;font-size:.1px;z-index:99999;display:block}.ui-resizable-e{background-color:#666;border-right:8px solid #e8e8e8;border-left:1px solid #222;width:10px;z-index:88!important;position:relative}.ui-resizable-e:after{content:"-";display:block;position:absolute;top:calc(50% - 16px);left:0;height:25px;width:2px;background-color:rgba(0,0,0,.4);margin:3px}#editor{cursor:ew-resize;position:relative;z-index:auto}.profile-pic{float:left;width:250px}#_default_ a::before{color:#A0AABF}#_default_ img{display:none}#_default_ #_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ .default-ad{display:none}#_default_ ._default_{display:block}#_default_ a{color:#35d7bb;text-decoration:none}#_default_ a:hover{color:#8ae8d8}#_default_ .default-image{display:none}#_default_ .default-title:after{content:" — "}#_default_ .default-title,#_default_ .default-text,#_default_ .default-description{display:inline}#_default_ .default-title{position:relative;font-weight:600;display:none}#_default_ a:before{position:relative;top:0;padding:5px;color:#a0aabf;content:"Ad";text-transform:uppercase;font-size:8px;font-family:Verdana,sans-serif}#_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ ._default_{display:block;font-size:.75rem;height:51px;letter-spacing:1px;line-height:1rem;padding:18px 24px}body{max-width:1024px;margin:0 auto;overflow:auto;padding:2%}.split{overflow:scroll;padding:0!important;-webkit-overflow-scrolling:touch}.split-editor{padding-left:0;padding-right:0;position:relative;z-index:3}.show-preview .split-editor{display:none}.split-preview{background-color:#fff;display:none;top:0;position:relative;z-index:4}.show-preview .split-preview{display:block}#editor{font-size:1rem;font-family:"Ubuntu Mono",Monaco;font-weight:400;line-height:2rem;width:100%;height:100%}#editor .ace_gutter{-webkit-font-smoothing:antialiased}.editor-header{width:50%;float:left;border-bottom:1px solid #E8E8E8;position:relative}.editor-header--first{border-right:1px solid #E8E8E8}.editor-header .title{display:inline-block}.preview-html{padding:15px}.preview-html a{color:#A0AABF;text-decoration:underline}.preview-src{white-space:normal}.preview-mode-toggle-src{background-image:url("../img/icons/code.svg")}.preview-mode-toggle-src,.preview-mode-toggle-html{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute;right:.5rem;top:.5rem;display:none}.preview-mode-toggle-html{background-image:url("../img/icons/eye.svg")}.sr-only{visibility:hidden;text-overflow:110%;overflow:hidden;top:-100px;position:absolute}.mnone{margin:0!important}@media screen and (min-width:27.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--m1of1{width:100%}.g-b--m1of2,.g-b--m2of4,.g-b--m3of6,.g-b--m4of8,.g-b--m5of10,.g-b--m6of12{width:50%}.g-b--m1of3,.g-b--m2of6,.g-b--m4of12{width:33.333%}.g-b--m2of3,.g-b--m4of6,.g-b--m8of12{width:66.666%}.g-b--m1of4,.g-b--m2of8,.g-b--m3of12{width:25%}.g-b--m3of4,.g-b--m6of8,.g-b--m9of12{width:75%}.g-b--m1of5,.g-b--m2of10{width:20%}.g-b--m2of5,.g-b--m4of10{width:40%}.g-b--m3of5,.g-b--m6of10{width:60%}.g-b--m4of5,.g-b--m8of10{width:80%}.g-b--m1of6,.g-b--m2of12{width:16.666%}.g-b--m5of6,.g-b--m10of12{width:83.333%}.g-b--m1of8{width:12.5%}.g-b--m3of8{width:37.5%}.g-b--m5of8{width:62.5%}.g-b--m7of8{width:87.5%}.g-b--m1of10{width:10%}.g-b--m3of10{width:30%}.g-b--m7of10{width:70%}.g-b--m9of10{width:90%}.g-b--m1of12{width:8.333%}.g-b--m5of12{width:41.666%}.g-b--m7of12{width:58.333%}.g-b--m11of12{width:91.666%}.g-b--push--m1of1{margin-left:100%}.g-b--push--m1of2,.g-b--push--m2of4,.g-b--push--m3of6,.g-b--push--m4of8,.g-b--push--m5of10,.g-b--push--m6of12{margin-left:50%}.g-b--push--m1of3,.g-b--push--m2of6,.g-b--push--m4of12{margin-left:33.333%}.g-b--push--m2of3,.g-b--push--m4of6,.g-b--push--m8of12{margin-left:66.666%}.g-b--push--m1of4,.g-b--push--m2of8,.g-b--push--m3of12{margin-left:25%}.g-b--push--m3of4,.g-b--push--m6of8,.g-b--push--m9of12{margin-left:75%}.g-b--push--m1of5,.g-b--push--m2of10{margin-left:20%}.g-b--push--m2of5,.g-b--push--m4of10{margin-left:40%}.g-b--push--m3of5,.g-b--push--m6of10{margin-left:60%}.g-b--push--m4of5,.g-b--push--m8of10{margin-left:80%}.g-b--push--m1of6,.g-b--push--m2of12{margin-left:16.666%}.g-b--push--m5of6,.g-b--push--m10of12{margin-left:83.333%}.g-b--push--m1of8{margin-left:12.5%}.g-b--push--m3of8{margin-left:37.5%}.g-b--push--m5of8{margin-left:62.5%}.g-b--push--m7of8{margin-left:87.5%}.g-b--push--m1of10{margin-left:10%}.g-b--push--m3of10{margin-left:30%}.g-b--push--m7of10{margin-left:70%}.g-b--push--m9of10{margin-left:90%}.g-b--push--m1of12{margin-left:8.333%}.g-b--push--m5of12{margin-left:41.666%}.g-b--push--m7of12{margin-left:58.333%}.g-b--push--m11of12{margin-left:91.666%}.g-b--pull--m1of1{margin-right:100%}.g-b--pull--m1of2,.g-b--pull--m2of4,.g-b--pull--m3of6,.g-b--pull--m4of8,.g-b--pull--m5of10,.g-b--pull--m6of12{margin-right:50%}.g-b--pull--m1of3,.g-b--pull--m2of6,.g-b--pull--m4of12{margin-right:33.333%}.g-b--pull--m2of3,.g-b--pull--m4of6,.g-b--pull--m8of12{margin-right:66.666%}.g-b--pull--m1of4,.g-b--pull--m2of8,.g-b--pull--m3of12{margin-right:25%}.g-b--pull--m3of4,.g-b--pull--m6of8,.g-b--pull--m9of12{margin-right:75%}.g-b--pull--m1of5,.g-b--pull--m2of10{margin-right:20%}.g-b--pull--m2of5,.g-b--pull--m4of10{margin-right:40%}.g-b--pull--m3of5,.g-b--pull--m6of10{margin-right:60%}.g-b--pull--m4of5,.g-b--pull--m8of10{margin-right:80%}.g-b--pull--m1of6,.g-b--pull--m2of12{margin-right:16.666%}.g-b--pull--m5of6,.g-b--pull--m10of12{margin-right:83.333%}.g-b--pull--m1of8{margin-right:12.5%}.g-b--pull--m3of8{margin-right:37.5%}.g-b--pull--m5of8{margin-right:62.5%}.g-b--pull--m7of8{margin-right:87.5%}.g-b--pull--m1of10{margin-right:10%}.g-b--pull--m3of10{margin-right:30%}.g-b--pull--m7of10{margin-right:70%}.g-b--pull--m9of10{margin-right:90%}.g-b--pull--m1of12{margin-right:8.333%}.g-b--pull--m5of12{margin-right:41.666%}.g-b--pull--m7of12{margin-right:58.333%}.g-b--pull--m11of12{margin-right:91.666%}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{margin-bottom:.89999rem;padding-top:.10001rem}.title-document,.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#zen{width:400px}#editor{font-size:1rem}}@media screen and (min-width:46.25em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--t1of1{width:100%}.g-b--t1of2,.g-b--t2of4,.g-b--t3of6,.g-b--t4of8,.g-b--t5of10,.g-b--t6of12{width:50%}.g-b--t1of3,.g-b--t2of6,.g-b--t4of12{width:33.333%}.g-b--t2of3,.g-b--t4of6,.g-b--t8of12{width:66.666%}.g-b--t1of4,.g-b--t2of8,.g-b--t3of12{width:25%}.g-b--t3of4,.g-b--t6of8,.g-b--t9of12{width:75%}.g-b--t1of5,.g-b--t2of10{width:20%}.g-b--t2of5,.g-b--t4of10{width:40%}.g-b--t3of5,.g-b--t6of10{width:60%}.g-b--t4of5,.g-b--t8of10{width:80%}.g-b--t1of6,.g-b--t2of12{width:16.666%}.g-b--t5of6,.g-b--t10of12{width:83.333%}.g-b--t1of8{width:12.5%}.g-b--t3of8{width:37.5%}.g-b--t5of8{width:62.5%}.g-b--t7of8{width:87.5%}.g-b--t1of10{width:10%}.g-b--t3of10{width:30%}.g-b--t7of10{width:70%}.g-b--t9of10{width:90%}.g-b--t1of12{width:8.333%}.g-b--t5of12{width:41.666%}.g-b--t7of12{width:58.333%}.g-b--t11of12{width:91.666%}.g-b--push--t1of1{margin-left:100%}.g-b--push--t1of2,.g-b--push--t2of4,.g-b--push--t3of6,.g-b--push--t4of8,.g-b--push--t5of10,.g-b--push--t6of12{margin-left:50%}.g-b--push--t1of3,.g-b--push--t2of6,.g-b--push--t4of12{margin-left:33.333%}.g-b--push--t2of3,.g-b--push--t4of6,.g-b--push--t8of12{margin-left:66.666%}.g-b--push--t1of4,.g-b--push--t2of8,.g-b--push--t3of12{margin-left:25%}.g-b--push--t3of4,.g-b--push--t6of8,.g-b--push--t9of12{margin-left:75%}.g-b--push--t1of5,.g-b--push--t2of10{margin-left:20%}.g-b--push--t2of5,.g-b--push--t4of10{margin-left:40%}.g-b--push--t3of5,.g-b--push--t6of10{margin-left:60%}.g-b--push--t4of5,.g-b--push--t8of10{margin-left:80%}.g-b--push--t1of6,.g-b--push--t2of12{margin-left:16.666%}.g-b--push--t5of6,.g-b--push--t10of12{margin-left:83.333%}.g-b--push--t1of8{margin-left:12.5%}.g-b--push--t3of8{margin-left:37.5%}.g-b--push--t5of8{margin-left:62.5%}.g-b--push--t7of8{margin-left:87.5%}.g-b--push--t1of10{margin-left:10%}.g-b--push--t3of10{margin-left:30%}.g-b--push--t7of10{margin-left:70%}.g-b--push--t9of10{margin-left:90%}.g-b--push--t1of12{margin-left:8.333%}.g-b--push--t5of12{margin-left:41.666%}.g-b--push--t7of12{margin-left:58.333%}.g-b--push--t11of12{margin-left:91.666%}.g-b--pull--t1of1{margin-right:100%}.g-b--pull--t1of2,.g-b--pull--t2of4,.g-b--pull--t3of6,.g-b--pull--t4of8,.g-b--pull--t5of10,.g-b--pull--t6of12{margin-right:50%}.g-b--pull--t1of3,.g-b--pull--t2of6,.g-b--pull--t4of12{margin-right:33.333%}.g-b--pull--t2of3,.g-b--pull--t4of6,.g-b--pull--t8of12{margin-right:66.666%}.g-b--pull--t1of4,.g-b--pull--t2of8,.g-b--pull--t3of12{margin-right:25%}.g-b--pull--t3of4,.g-b--pull--t6of8,.g-b--pull--t9of12{margin-right:75%}.g-b--pull--t1of5,.g-b--pull--t2of10{margin-right:20%}.g-b--pull--t2of5,.g-b--pull--t4of10{margin-right:40%}.g-b--pull--t3of5,.g-b--pull--t6of10{margin-right:60%}.g-b--pull--t4of5,.g-b--pull--t8of10{margin-right:80%}.g-b--pull--t1of6,.g-b--pull--t2of12{margin-right:16.666%}.g-b--pull--t5of6,.g-b--pull--t10of12{margin-right:83.333%}.g-b--pull--t1of8{margin-right:12.5%}.g-b--pull--t3of8{margin-right:37.5%}.g-b--pull--t5of8{margin-right:62.5%}.g-b--pull--t7of8{margin-right:87.5%}.g-b--pull--t1of10{margin-right:10%}.g-b--pull--t3of10{margin-right:30%}.g-b--pull--t7of10{margin-right:70%}.g-b--pull--t9of10{margin-right:90%}.g-b--pull--t1of12{margin-right:8.333%}.g-b--pull--t5of12{margin-right:41.666%}.g-b--pull--t7of12{margin-right:58.333%}.g-b--pull--t11of12{margin-right:91.666%}.splashscreen-dillinger{width:500px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem}.menu .menu-item--save-to,.menu .menu-item--import-from{display:block}.menu .menu-item--preview,.menu .menu-item--save-to.in-sidebar,.menu .menu-item--import-from.in-sidebar{display:none}.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog{font-size:1.25rem}.enter-zen-mode{display:block}.close-zen-mode{right:3rem;top:3rem}#zen{font-size:1.25rem;width:500px}.split-editor{border-right:1px solid #E8E8E8;float:left;padding-right:16px;width:50%}.show-preview .split-editor{display:block}.split-preview{display:block;float:right;position:relative;top:0;width:50%}#editor{font-size:1rem}.preview-mode-toggle-src,.preview-mode-toggle-html{display:block}}@media screen and (min-width:62.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--d1of1{width:100%}.g-b--d1of2,.g-b--d2of4,.g-b--d3of6,.g-b--d4of8,.g-b--d5of10,.g-b--d6of12{width:50%}.g-b--d1of3,.g-b--d2of6,.g-b--d4of12{width:33.333%}.g-b--d2of3,.g-b--d4of6,.g-b--d8of12{width:66.666%}.g-b--d1of4,.g-b--d2of8,.g-b--d3of12{width:25%}.g-b--d3of4,.g-b--d6of8,.g-b--d9of12{width:75%}.g-b--d1of5,.g-b--d2of10{width:20%}.g-b--d2of5,.g-b--d4of10{width:40%}.g-b--d3of5,.g-b--d6of10{width:60%}.g-b--d4of5,.g-b--d8of10{width:80%}.g-b--d1of6,.g-b--d2of12{width:16.666%}.g-b--d5of6,.g-b--d10of12{width:83.333%}.g-b--d1of8{width:12.5%}.g-b--d3of8{width:37.5%}.g-b--d5of8{width:62.5%}.g-b--d7of8{width:87.5%}.g-b--d1of10{width:10%}.g-b--d3of10{width:30%}.g-b--d7of10{width:70%}.g-b--d9of10{width:90%}.g-b--d1of12{width:8.333%}.g-b--d5of12{width:41.666%}.g-b--d7of12{width:58.333%}.g-b--d11of12{width:91.666%}.g-b--push--d1of1{margin-left:100%}.g-b--push--d1of2,.g-b--push--d2of4,.g-b--push--d3of6,.g-b--push--d4of8,.g-b--push--d5of10,.g-b--push--d6of12{margin-left:50%}.g-b--push--d1of3,.g-b--push--d2of6,.g-b--push--d4of12{margin-left:33.333%}.g-b--push--d2of3,.g-b--push--d4of6,.g-b--push--d8of12{margin-left:66.666%}.g-b--push--d1of4,.g-b--push--d2of8,.g-b--push--d3of12{margin-left:25%}.g-b--push--d3of4,.g-b--push--d6of8,.g-b--push--d9of12{margin-left:75%}.g-b--push--d1of5,.g-b--push--d2of10{margin-left:20%}.g-b--push--d2of5,.g-b--push--d4of10{margin-left:40%}.g-b--push--d3of5,.g-b--push--d6of10{margin-left:60%}.g-b--push--d4of5,.g-b--push--d8of10{margin-left:80%}.g-b--push--d1of6,.g-b--push--d2of12{margin-left:16.666%}.g-b--push--d5of6,.g-b--push--d10of12{margin-left:83.333%}.g-b--push--d1of8{margin-left:12.5%}.g-b--push--d3of8{margin-left:37.5%}.g-b--push--d5of8{margin-left:62.5%}.g-b--push--d7of8{margin-left:87.5%}.g-b--push--d1of10{margin-left:10%}.g-b--push--d3of10{margin-left:30%}.g-b--push--d7of10{margin-left:70%}.g-b--push--d9of10{margin-left:90%}.g-b--push--d1of12{margin-left:8.333%}.g-b--push--d5of12{margin-left:41.666%}.g-b--push--d7of12{margin-left:58.333%}.g-b--push--d11of12{margin-left:91.666%}.g-b--pull--d1of1{margin-right:100%}.g-b--pull--d1of2,.g-b--pull--d2of4,.g-b--pull--d3of6,.g-b--pull--d4of8,.g-b--pull--d5of10,.g-b--pull--d6of12{margin-right:50%}.g-b--pull--d1of3,.g-b--pull--d2of6,.g-b--pull--d4of12{margin-right:33.333%}.g-b--pull--d2of3,.g-b--pull--d4of6,.g-b--pull--d8of12{margin-right:66.666%}.g-b--pull--d1of4,.g-b--pull--d2of8,.g-b--pull--d3of12{margin-right:25%}.g-b--pull--d3of4,.g-b--pull--d6of8,.g-b--pull--d9of12{margin-right:75%}.g-b--pull--d1of5,.g-b--pull--d2of10{margin-right:20%}.g-b--pull--d2of5,.g-b--pull--d4of10{margin-right:40%}.g-b--pull--d3of5,.g-b--pull--d6of10{margin-right:60%}.g-b--pull--d4of5,.g-b--pull--d8of10{margin-right:80%}.g-b--pull--d1of6,.g-b--pull--d2of12{margin-right:16.666%}.g-b--pull--d5of6,.g-b--pull--d10of12{margin-right:83.333%}.g-b--pull--d1of8{margin-right:12.5%}.g-b--pull--d3of8{margin-right:37.5%}.g-b--pull--d5of8{margin-right:62.5%}.g-b--pull--d7of8{margin-right:87.5%}.g-b--pull--d1of10{margin-right:10%}.g-b--pull--d3of10{margin-right:30%}.g-b--pull--d7of10{margin-right:70%}.g-b--pull--d9of10{margin-right:90%}.g-b--pull--d1of12{margin-right:8.333%}.g-b--pull--d5of12{margin-right:41.666%}.g-b--pull--d7of12{margin-right:58.333%}.g-b--pull--d11of12{margin-right:91.666%}.splashscreen-dillinger{width:700px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem}.menu .menu-item--export-as{display:block}.menu .menu-item--preview{display:none}.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#zen{width:700px}#editor{font-size:1rem}}@media screen and (min-width:87.5em){html{font-size:.875em}body{font-size:1rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1rem;margin-bottom:-.65001rem;padding-top:.65001rem}.splashscreen-dillinger{width:800px}.splashscreen p{font-size:1.25rem;margin-bottom:1.43749rem;padding-top:.56251rem}.title{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.title-document{margin-bottom:.89999rem;padding-top:.10001rem}.title-document,.settings a{font-size:1.25rem}.words,.characters{font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem}.modal--dillinger.about .modal-dialog,#zen{font-size:1.25rem}#editor{font-size:1rem}}@media (min-width:768px){.form-inline .form-group{display:inline-block;margin-bottom:0;vertical-align:middle}.form-inline .form-control{display:inline-block;width:auto;vertical-align:middle}.form-inline .input-group{display:inline-table;vertical-align:middle}.form-inline .input-group .input-group-addon,.form-inline .input-group .input-group-btn,.form-inline .input-group .form-control{width:auto}.form-inline .input-group>.form-control{width:100%}.form-inline .control-label{margin-bottom:0;vertical-align:middle}.form-inline .radio,.form-inline .checkbox{display:inline-block;margin-top:0;margin-bottom:0;vertical-align:middle}.form-inline .radio label,.form-inline .checkbox label{padding-left:0}.form-inline .radio input[type="radio"],.form-inline .checkbox input[type="checkbox"]{position:relative;margin-left:0}.form-inline .has-feedback .form-control-feedback{top:0}.form-horizontal .control-label{text-align:right;margin-bottom:0;padding-top:7px}.form-horizontal .form-group-lg .control-label{padding-top:14.3px}.form-horizontal .form-group-sm .control-label{padding-top:6px}.modal-dialog{width:600px;margin:30px auto}.modal-content{box-shadow:0 5px 15px rgba(0,0,0,.5)}.modal-sm{width:300px}}@media (min-width:992px){.modal-lg{width:900px}}@media screen and (max-width:1200px){#_default_{max-width:30%}#_default_ ._default_{font-size:.825rem;line-height:.875rem;padding:12px 12px 6px 24px;text-align:justify}}@media screen and (max-width:1100px){#_default_{max-width:27%}#_default_ ._default_{font-size:.8rem;line-height:.85rem;padding:12px 6px 6px 24px;text-align:justify}}@media screen and (max-width:1000px){#_default_{max-width:24%}#_default_ ._default_{font-size:.775rem;line-height:.8rem;padding:12px 6px 6px 24px;text-align:justify}}@media screen and (max-width:900px){#_default_{max-width:30%}}@media screen and (max-width:767px){.table-responsive{width:100%;margin-bottom:15px;overflow-y:hidden;overflow-x:auto;-ms-overflow-style:-ms-autohiding-scrollbar;border:1px solid #ddd;-webkit-overflow-scrolling:touch}.table-responsive>.table{margin-bottom:0}.table-responsive>.table>thead>tr>th,.table-responsive>.table>thead>tr>td,.table-responsive>.table>tbody>tr>th,.table-responsive>.table>tbody>tr>td,.table-responsive>.table>tfoot>tr>th,.table-responsive>.table>tfoot>tr>td{white-space:nowrap}.table-responsive>.table-bordered{border:0}.table-responsive>.table-bordered>thead>tr>th:first-child,.table-responsive>.table-bordered>thead>tr>td:first-child,.table-responsive>.table-bordered>tbody>tr>th:first-child,.table-responsive>.table-bordered>tbody>tr>td:first-child,.table-responsive>.table-bordered>tfoot>tr>th:first-child,.table-responsive>.table-bordered>tfoot>tr>td:first-child{border-left:0}.table-responsive>.table-bordered>thead>tr>th:last-child,.table-responsive>.table-bordered>thead>tr>td:last-child,.table-responsive>.table-bordered>tbody>tr>th:last-child,.table-responsive>.table-bordered>tbody>tr>td:last-child,.table-responsive>.table-bordered>tfoot>tr>th:last-child,.table-responsive>.table-bordered>tfoot>tr>td:last-child{border-right:0}.table-responsive>.table-bordered>tbody>tr:last-child>th,.table-responsive>.table-bordered>tbody>tr:last-child>td,.table-responsive>.table-bordered>tfoot>tr:last-child>th,.table-responsive>.table-bordered>tfoot>tr:last-child>td{border-bottom:0}}@media screen and (max-width:720px){#_default_{max-width:60%}#_default_ ._default_{font-size:.75rem;line-height:1rem;padding:12px 24px}}@media screen and (max-width:620px){#_default_{max-width:50%}#_default_ ._default_{font-size:.66rem;letter-spacing:1px;line-height:1rem;padding:10px 24px}}@media screen and (max-width:520px){#_default_ ._default_{font-size:.4rem;line-height:.875rem;padding:6px 12px 6px 24px;text-align:justify}}@media screen and (max-width:460px){#_default_{display:none}}@media screen and (max-width:46.1875em){.editor-header{display:none}.editor-header--first{display:block;width:100%}}</style></head><body id="preview">
+<ol>
+<li class="has-line-data" data-line-start="0" data-line-end="1"><strong>What is Entity Framework, and how does it simplify data access?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="1" data-line-end="2">Entity Framework (EF) is an Object-Relational Mapping (ORM) framework for .NET, simplifying database access.</li>
+<li class="has-line-data" data-line-start="2" data-line-end="3">It enables developers to interact with databases using strongly typed objects without writing raw SQL.</li>
+<li class="has-line-data" data-line-start="3" data-line-end="4">EF handles tasks like data mapping, change tracking, and relationship management automatically.</li>
+<li class="has-line-data" data-line-start="4" data-line-end="5">By abstracting the database layer, EF allows developers to focus on business logic.</li>
+<li class="has-line-data" data-line-start="5" data-line-end="7">Example: In a project, EF was used to simplify CRUD operations by mapping database tables to C# classes, reducing boilerplate code.</li>
+</ul>
+<ol start="2">
+<li class="has-line-data" data-line-start="7" data-line-end="8"><strong>Compare Entity Framework and Entity Framework Core.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="8" data-line-end="9">Entity Framework is a full-featured, Windows-specific ORM, while EF Core is cross-platform and lightweight.</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">EF Core offers better performance and support for new features like global query filters and shadow properties.</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">EF supports Database-First and Model-First approaches, while EF Core emphasizes Code-First with improved flexibility.</li>
+<li class="has-line-data" data-line-start="11" data-line-end="12">EF Core lacks some EF features, such as EDMX-based models and lazy loading (in earlier versions).</li>
+<li class="has-line-data" data-line-start="12" data-line-end="14">Example: EF Core was used in a .NET Core project for its cross-platform support and better performance in handling LINQ queries.</li>
+</ul>
+<ol start="3">
+<li class="has-line-data" data-line-start="14" data-line-end="15"><strong>What are the different approaches to using EF, such as Code-First, Database-First, and Model-First?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="15" data-line-end="16">Code-First: Define your database schema using C# classes, and EF generates the database.</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">Database-First: Reverse-engineer the database schema into C# models.</li>
+<li class="has-line-data" data-line-start="17" data-line-end="18">Model-First: Create a visual model, and EF generates the database schema and classes.</li>
+<li class="has-line-data" data-line-start="18" data-line-end="19">Each approach is suited for different project requirements and developer preferences.</li>
+<li class="has-line-data" data-line-start="19" data-line-end="21">Example: In a recent project, the Code-First approach was preferred for its flexibility and alignment with agile development.</li>
+</ul>
+<ol start="4">
+<li class="has-line-data" data-line-start="21" data-line-end="22"><strong>How do you handle migrations in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="22" data-line-end="23">Migrations are used to manage database schema changes while preserving existing data.</li>
+<li class="has-line-data" data-line-start="23" data-line-end="24">Use the <code>Add-Migration</code> and <code>Update-Database</code> commands in the Package Manager Console or CLI.</li>
+<li class="has-line-data" data-line-start="24" data-line-end="25">Migrations track changes to models and apply them incrementally to the database.</li>
+<li class="has-line-data" data-line-start="25" data-line-end="26">Customize migration scripts to handle complex scenarios like seed data or renaming columns.</li>
+<li class="has-line-data" data-line-start="26" data-line-end="28">Example: Implemented a migration to add a new table for storing user preferences using <code>dotnet ef migrations add AddUserPreferences</code>.</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="29" data-line-end="34" class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ApplicationDbContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-keyword">public</span> DbSet&lt;UserPreference&gt; UserPreferences { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
+</code></pre>
+<ol start="5">
+<li class="has-line-data" data-line-start="35" data-line-end="36"><strong>What is lazy loading, and how does it differ from eager loading in EF?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="36" data-line-end="37">Lazy loading defers loading related data until it’s explicitly accessed.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="38">Eager loading loads related data upfront using <code>Include()</code> in LINQ queries.</li>
+<li class="has-line-data" data-line-start="38" data-line-end="39">Explicit loading manually loads related data using <code>Load()</code> after the initial query.</li>
+<li class="has-line-data" data-line-start="39" data-line-end="40">Lazy loading minimizes initial data retrieval but may result in multiple database calls.</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42">Example: Eager loading was used to optimize query performance in a reporting module:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="43" data-line-end="45" class="language-csharp"><span class="hljs-keyword">var</span> users = context.Users.Include(u =&gt; u.Orders).ToList();
+</code></pre>
+<ol start="6">
+<li class="has-line-data" data-line-start="46" data-line-end="47"><strong>How do you configure relationships between tables in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="47" data-line-end="48">Define relationships using navigation properties in entity classes.</li>
+<li class="has-line-data" data-line-start="48" data-line-end="49">Use Fluent API for more control over configurations in the <code>OnModelCreating</code> method.</li>
+<li class="has-line-data" data-line-start="49" data-line-end="50">Specify cardinality using methods like <code>HasOne</code>, <code>HasMany</code>, or <code>WithMany</code>.</li>
+<li class="has-line-data" data-line-start="50" data-line-end="51">Apply constraints like foreign keys using <code>HasForeignKey</code>.</li>
+<li class="has-line-data" data-line-start="51" data-line-end="53">Example: Configured a one-to-many relationship between <code>Order</code> and <code>OrderItem</code> entities:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="54" data-line-end="59" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .HasMany(o =&gt; o.OrderItems)
+    .WithOne(oi =&gt; oi.Order)
+    .HasForeignKey(oi =&gt; oi.OrderId);
+</code></pre>
+<ol start="7">
+<li class="has-line-data" data-line-start="60" data-line-end="61"><strong>How do you write a LINQ query in Entity Framework?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="61" data-line-end="62">LINQ queries can be written using query syntax or method syntax.</li>
+<li class="has-line-data" data-line-start="62" data-line-end="63">LINQ allows filtering, sorting, grouping, and projecting data.</li>
+<li class="has-line-data" data-line-start="63" data-line-end="64">EF Core translates LINQ queries to SQL for execution.</li>
+<li class="has-line-data" data-line-start="64" data-line-end="65">Queries support eager loading, lazy loading, and filtering for specific data.</li>
+<li class="has-line-data" data-line-start="65" data-line-end="67">Example: Fetching orders placed in the last week using LINQ:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="68" data-line-end="72" class="language-csharp"><span class="hljs-keyword">var</span> recentOrders = context.Orders
+    .Where(o =&gt; o.OrderDate &gt;= DateTime.Now.AddDays(-<span class="hljs-number">7</span>))
+    .ToList();
+</code></pre>
+<ol start="8">
+<li class="has-line-data" data-line-start="73" data-line-end="74"><strong>What are the common performance optimization techniques in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="74" data-line-end="75">Use <code>AsNoTracking</code> for read-only queries to disable change tracking.</li>
+<li class="has-line-data" data-line-start="75" data-line-end="76">Leverage eager loading with <code>Include</code> to minimize database calls.</li>
+<li class="has-line-data" data-line-start="76" data-line-end="77">Use projection to retrieve only required fields.</li>
+<li class="has-line-data" data-line-start="77" data-line-end="78">Optimize queries with proper indexing and by avoiding N+1 query issues.</li>
+<li class="has-line-data" data-line-start="78" data-line-end="80">Example: Optimized a dashboard query using eager loading and projections:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="81" data-line-end="86" class="language-csharp"><span class="hljs-keyword">var</span> data = context.Users
+    .Include(u =&gt; u.Orders)
+    .Select(u =&gt; <span class="hljs-keyword">new</span> { u.Name, OrderCount = u.Orders.Count })
+    .ToList();
+</code></pre>
+<ol start="9">
+<li class="has-line-data" data-line-start="87" data-line-end="88"><strong>How do you execute raw SQL queries in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="88" data-line-end="89">Use the <code>FromSqlRaw</code> or <code>FromSqlInterpolated</code> methods for executing raw SQL.</li>
+<li class="has-line-data" data-line-start="89" data-line-end="90">Combine raw SQL with LINQ for complex scenarios.</li>
+<li class="has-line-data" data-line-start="90" data-line-end="91">Ensure proper parameterization to prevent SQL injection.</li>
+<li class="has-line-data" data-line-start="91" data-line-end="92">Use raw SQL queries for operations unsupported by LINQ or for performance tuning.</li>
+<li class="has-line-data" data-line-start="92" data-line-end="94">Example: Executed a raw SQL query to retrieve active users:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="95" data-line-end="99" class="language-csharp"><span class="hljs-keyword">var</span> activeUsers = context.Users
+    .FromSqlRaw(<span class="hljs-string">"SELECT * FROM Users WHERE IsActive = 1"</span>)
+    .ToList();
+</code></pre>
+<ol start="10">
+<li class="has-line-data" data-line-start="100" data-line-end="101"><strong>Explain how to use the Fluent API in EF Core.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="101" data-line-end="102">Fluent API provides a programmatic way to configure entity mappings.</li>
+<li class="has-line-data" data-line-start="102" data-line-end="103">Override <code>OnModelCreating</code> in <code>DbContext</code> to define configurations.</li>
+<li class="has-line-data" data-line-start="103" data-line-end="104">Use Fluent API for configurations like keys, constraints, and relationships.</li>
+<li class="has-line-data" data-line-start="104" data-line-end="105">It offers greater control than data annotations.</li>
+<li class="has-line-data" data-line-start="105" data-line-end="107">Example: Configured a composite key using Fluent API:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="108" data-line-end="111" class="language-csharp">modelBuilder.Entity&lt;OrderDetail&gt;()
+    .HasKey(od =&gt; <span class="hljs-keyword">new</span> { od.OrderId, od.ProductId });
+</code></pre>
+<ol start="11">
+<li class="has-line-data" data-line-start="112" data-line-end="113"><strong>What is change tracking in EF Core, and how does it work?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="113" data-line-end="114">EF Core tracks changes to entity properties to update the database.</li>
+<li class="has-line-data" data-line-start="114" data-line-end="115">It uses a <code>DbContext</code> to maintain the state of entities (Added, Modified, Deleted).</li>
+<li class="has-line-data" data-line-start="115" data-line-end="116">Change tracking is automatic for entities retrieved from the database.</li>
+<li class="has-line-data" data-line-start="116" data-line-end="117">It enables efficient updates by sending only changed fields.</li>
+<li class="has-line-data" data-line-start="117" data-line-end="119">Example: Updated a user record, and EF Core automatically tracked the changes:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="120" data-line-end="124" class="language-csharp"><span class="hljs-keyword">var</span> user = context.Users.Find(<span class="hljs-number">1</span>);
+user.Name = <span class="hljs-string">"Updated Name"</span>;
+context.SaveChanges();
+</code></pre>
+<ol start="12">
+<li class="has-line-data" data-line-start="125" data-line-end="126"><strong>How do you handle concurrency in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="126" data-line-end="127">Concurrency is managed using concurrency tokens like <code>RowVersion</code>.</li>
+<li class="has-line-data" data-line-start="127" data-line-end="128">Add a property with <code>[ConcurrencyCheck]</code> or <code>IsRowVersion</code> for tracking.</li>
+<li class="has-line-data" data-line-start="128" data-line-end="129">Handle <code>DbUpdateConcurrencyException</code> for conflicts.</li>
+<li class="has-line-data" data-line-start="129" data-line-end="130">Merge or reject changes based on business rules.</li>
+<li class="has-line-data" data-line-start="130" data-line-end="132">Example: Added a <code>RowVersion</code> property for handling concurrency conflicts:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="133" data-line-end="135" class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] RowVersion { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+</code></pre>
+<ol start="13">
+<li class="has-line-data" data-line-start="136" data-line-end="137"><strong>Can you explain the role of repositories and unit of work patterns with EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="137" data-line-end="138">Repository pattern abstracts data access logic.</li>
+<li class="has-line-data" data-line-start="138" data-line-end="139">Unit of Work ensures transactional consistency across multiple repositories.</li>
+<li class="has-line-data" data-line-start="139" data-line-end="140">These patterns decouple business logic from EF Core-specific operations.</li>
+<li class="has-line-data" data-line-start="140" data-line-end="141">Simplifies testing and promotes cleaner architecture.</li>
+<li class="has-line-data" data-line-start="141" data-line-end="143">Example: Used a repository pattern to handle user operations in a service layer.</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="144" data-line-end="149" class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IUserRepository</span>
+{
+    <span class="hljs-function">User <span class="hljs-title">GetUserById</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> id</span>)</span>;
+}
+</code></pre>
+<ol start="14">
+<li class="has-line-data" data-line-start="150" data-line-end="151"><strong>What is the purpose of AsNoTracking in EF Core? When should it be used?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="151" data-line-end="152"><code>AsNoTracking</code> disables change tracking for read-only queries.</li>
+<li class="has-line-data" data-line-start="152" data-line-end="153">It improves performance by reducing memory usage.</li>
+<li class="has-line-data" data-line-start="153" data-line-end="154">Ideal for scenarios where entities are not updated.</li>
+<li class="has-line-data" data-line-start="154" data-line-end="155">Avoid using <code>AsNoTracking</code> for entities involved in updates.</li>
+<li class="has-line-data" data-line-start="155" data-line-end="157">Example: Used <code>AsNoTracking</code> for fetching report data to improve performance:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="158" data-line-end="160" class="language-csharp"><span class="hljs-keyword">var</span> users = context.Users.AsNoTracking().ToList();
+</code></pre>
+<ol start="15">
+<li class="has-line-data" data-line-start="161" data-line-end="162"><strong>How do you implement migrations in Entity Framework Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="162" data-line-end="163">Create migrations using <code>Add-Migration</code> and apply them with <code>Update-Database</code>.</li>
+<li class="has-line-data" data-line-start="163" data-line-end="164">Customize migration files to handle specific requirements.</li>
+<li class="has-line-data" data-line-start="164" data-line-end="165">Use <code>dotnet ef</code> CLI for migrations in cross-platform projects.</li>
+<li class="has-line-data" data-line-start="165" data-line-end="166">Rollback changes using <code>Remove-Migration</code> or revert to a previous migration.</li>
+<li class="has-line-data" data-line-start="166" data-line-end="168">Example: Created a migration to add an <code>IsActive</code> column to the <code>Users</code> table:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="169" data-line-end="171" class="language-bash">dotnet ef migrations add AddIsActiveColumn
+</code></pre>
+<ol start="16">
+<li class="has-line-data" data-line-start="171" data-line-end="172"><strong>Explain the use of LINQ in EF Core.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="172" data-line-end="173">LINQ (Language Integrated Query) in EF Core allows querying databases using strongly typed C# code.</li>
+<li class="has-line-data" data-line-start="173" data-line-end="174">It supports operations like filtering, projection, grouping, and ordering using query or method syntax.</li>
+<li class="has-line-data" data-line-start="174" data-line-end="175">EF Core translates LINQ queries into SQL queries executed on the database server.</li>
+<li class="has-line-data" data-line-start="175" data-line-end="177">Example: A LINQ query to fetch active users and their roles:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="178" data-line-end="183" class="language-csharp"><span class="hljs-keyword">var</span> activeUsers = context.Users
+    .Where(u =&gt; u.IsActive)
+    .Select(u =&gt; <span class="hljs-keyword">new</span> { u.Name, u.Role })
+    .ToList();
+</code></pre>
+<ol start="17">
+<li class="has-line-data" data-line-start="184" data-line-end="185"><strong>What is the role of DbContext in EF Core, and how do you configure it?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="185" data-line-end="186"><code>DbContext</code> is the primary class in EF Core for interacting with the database.</li>
+<li class="has-line-data" data-line-start="186" data-line-end="187">It manages entity objects, tracks changes, and performs database operations.</li>
+<li class="has-line-data" data-line-start="187" data-line-end="188">Configuration includes connection strings and database provider setup in the <code>OnConfiguring</code> method or <code>Startup.cs</code>.</li>
+<li class="has-line-data" data-line-start="188" data-line-end="190">Example: Configured <code>DbContext</code> to use SQL Server with a connection string:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="191" data-line-end="194" class="language-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseSqlServer(Configuration.GetConnectionString(<span class="hljs-string">"DefaultConnection"</span>)));
+</code></pre>
+<ol start="18">
+<li class="has-line-data" data-line-start="195" data-line-end="196"><strong>What are the performance considerations when using EF Core in large-scale systems?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="196" data-line-end="197">Optimize queries by selecting only necessary fields with projections.</li>
+<li class="has-line-data" data-line-start="197" data-line-end="198">Use eager loading or <code>AsNoTracking</code> for read-heavy operations to reduce memory overhead.</li>
+<li class="has-line-data" data-line-start="198" data-line-end="199">Minimize round trips to the database by batching operations.</li>
+<li class="has-line-data" data-line-start="199" data-line-end="201">Example: Improved performance in a reporting system by using projections and eager loading:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="202" data-line-end="207" class="language-csharp"><span class="hljs-keyword">var</span> reports = context.Reports
+    .Include(r =&gt; r.Author)
+    .Select(r =&gt; <span class="hljs-keyword">new</span> { r.Title, AuthorName = r.Author.Name })
+    .ToList();
+</code></pre>
+<ol start="19">
+<li class="has-line-data" data-line-start="208" data-line-end="209"><strong>How do you configure multiple database contexts in a .NET Core application?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="209" data-line-end="210">Define separate <code>DbContext</code> classes for each database schema or purpose.</li>
+<li class="has-line-data" data-line-start="210" data-line-end="211">Configure each context in the <code>Startup.cs</code> file using different connection strings.</li>
+<li class="has-line-data" data-line-start="211" data-line-end="212">Use dependency injection to resolve the appropriate <code>DbContext</code> where needed.</li>
+<li class="has-line-data" data-line-start="212" data-line-end="214">Example: Configured <code>UserDbContext</code> and <code>OrderDbContext</code> for separate databases:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="215" data-line-end="220" class="language-csharp">services.AddDbContext&lt;UserDbContext&gt;(options =&gt;
+    options.UseSqlServer(Configuration.GetConnectionString(<span class="hljs-string">"UserDb"</span>)));
+services.AddDbContext&lt;OrderDbContext&gt;(options =&gt;
+    options.UseSqlServer(Configuration.GetConnectionString(<span class="hljs-string">"OrderDb"</span>)));
+</code></pre>
+<ol start="20">
+<li class="has-line-data" data-line-start="220" data-line-end="221"><strong>How can you manage concurrency conflicts in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="221" data-line-end="222">Use a concurrency token such as <code>RowVersion</code> or <code>[ConcurrencyCheck]</code> on specific properties.</li>
+<li class="has-line-data" data-line-start="222" data-line-end="223">EF Core detects changes to the concurrency token and throws <code>DbUpdateConcurrencyException</code> when conflicts occur.</li>
+<li class="has-line-data" data-line-start="223" data-line-end="224">Handle conflicts by retrying, merging changes, or discarding updates based on application logic.</li>
+<li class="has-line-data" data-line-start="224" data-line-end="226">Example: Implemented <code>RowVersion</code> to track changes in an employee record system:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="227" data-line-end="235" class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Name { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    [Timestamp]
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">byte</span>[] RowVersion { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
+</code></pre>
+<ol start="21">
+<li class="has-line-data" data-line-start="236" data-line-end="237"><strong>Explain the difference between FirstOrDefault and SingleOrDefault in LINQ queries.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="237" data-line-end="238"><code>FirstOrDefault</code> retrieves the first matching element or returns <code>null</code> if no match is found.</li>
+<li class="has-line-data" data-line-start="238" data-line-end="239"><code>SingleOrDefault</code> ensures only one element matches the criteria and throws an exception if multiple matches exist.</li>
+<li class="has-line-data" data-line-start="239" data-line-end="240">Use <code>FirstOrDefault</code> for scenarios where multiple matches are acceptable but only the first is needed.</li>
+<li class="has-line-data" data-line-start="240" data-line-end="242">Example: Retrieved a user by email using <code>SingleOrDefault</code> to ensure uniqueness:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="243" data-line-end="245" class="language-csharp"><span class="hljs-keyword">var</span> user = context.Users.SingleOrDefault(u =&gt; u.Email == <span class="hljs-string">"<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e396908691a3869b828e938f86cd808c8e">[email&#160;protected]</a>"</span>);
+</code></pre>
+<ol start="22">
+<li class="has-line-data" data-line-start="246" data-line-end="247"><strong>How do you handle transactions in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="247" data-line-end="248">Use <code>DbContext.Database.BeginTransaction</code> to manually control transactions.</li>
+<li class="has-line-data" data-line-start="248" data-line-end="249">Combine operations within the transaction and commit only if all succeed.</li>
+<li class="has-line-data" data-line-start="249" data-line-end="250">Rollback the transaction in case of an exception or failure.</li>
+<li class="has-line-data" data-line-start="250" data-line-end="252">Example: Implemented a transaction to ensure order creation and payment processing were atomic:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="253" data-line-end="272" class="language-csharp"><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> transaction = context.Database.BeginTransaction())
+{
+    <span class="hljs-keyword">try</span>
+    {
+        context.Orders.Add(newOrder);
+        context.SaveChanges();
+        
+        context.Payments.Add(newPayment);
+        context.SaveChanges();
+        
+        transaction.Commit();
+    }
+    <span class="hljs-keyword">catch</span>
+    {
+        transaction.Rollback();
+        <span class="hljs-keyword">throw</span>;
+    }
+}
+</code></pre>
+<ol start="23">
+<li class="has-line-data" data-line-start="273" data-line-end="274"><strong>How can you debug SQL queries generated by EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="274" data-line-end="275">Enable logging for EF Core to view generated SQL queries in the output or logs.</li>
+<li class="has-line-data" data-line-start="275" data-line-end="276">Use <code>ToQueryString()</code> to directly view the SQL for a LINQ query.</li>
+<li class="has-line-data" data-line-start="276" data-line-end="277">Tools like SQL Profiler or logging frameworks can also capture and analyze queries.</li>
+<li class="has-line-data" data-line-start="277" data-line-end="279">Example: Debugged a slow query by examining its SQL using <code>ToQueryString()</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="280" data-line-end="283" class="language-csharp"><span class="hljs-keyword">var</span> query = context.Users.Where(u =&gt; u.IsActive).ToQueryString();
+Console.WriteLine(query);
+</code></pre>
+<ol start="24">
+<li class="has-line-data" data-line-start="283" data-line-end="284"><strong>Explain the use of Owned Entity Types in EF Core.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="284" data-line-end="285">Owned entity types allow modeling complex types as part of a parent entity rather than as a separate table.</li>
+<li class="has-line-data" data-line-start="285" data-line-end="286">These types are configured as value objects and share the table of their owning entity.</li>
+<li class="has-line-data" data-line-start="286" data-line-end="287">Use <code>OwnsOne</code> in the Fluent API to configure owned entity relationships.</li>
+<li class="has-line-data" data-line-start="287" data-line-end="289">Example: Implemented an <code>Address</code> type owned by a <code>Customer</code> entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="290" data-line-end="297" class="language-csharp">modelBuilder.Entity&lt;Customer&gt;()
+    .OwnsOne(c =&gt; c.Address, a =&gt;
+    {
+        a.Property(p =&gt; p.Street).HasColumnName(<span class="hljs-string">"Street"</span>);
+        a.Property(p =&gt; p.City).HasColumnName(<span class="hljs-string">"City"</span>);
+    });
+</code></pre>
+<ol start="25">
+<li class="has-line-data" data-line-start="298" data-line-end="299"><strong>What are the advantages and limitations of using EF Core in a high-performance application?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="299" data-line-end="300">Advantages: Simplifies data access, supports LINQ queries, and provides built-in migration and schema management.</li>
+<li class="has-line-data" data-line-start="300" data-line-end="301">Limitations: May generate inefficient SQL for complex queries, and runtime performance may lag raw SQL in high-load scenarios.</li>
+<li class="has-line-data" data-line-start="301" data-line-end="302">Mitigation: Optimize queries, disable change tracking for read-heavy workloads, and leverage raw SQL for critical operations.</li>
+<li class="has-line-data" data-line-start="302" data-line-end="304">Example: In a high-load e-commerce system, EF Core was optimized using <code>AsNoTracking</code> and projections for read-heavy queries.</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="305" data-line-end="309" class="language-csharp"><span class="hljs-keyword">var</span> products = context.Products.AsNoTracking()
+    .Select(p =&gt; <span class="hljs-keyword">new</span> { p.Name, p.Price })
+    .ToList();
+</code></pre>
+<ol start="26">
+<li class="has-line-data" data-line-start="310" data-line-end="311"><strong>How does Entity Framework Core handle shadow properties, and how can they be used effectively?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="311" data-line-end="312">Shadow properties exist in the model but are not defined in the entity class.</li>
+<li class="has-line-data" data-line-start="312" data-line-end="313">Useful for tracking metadata like timestamps or audit fields without modifying domain classes.</li>
+<li class="has-line-data" data-line-start="313" data-line-end="314">Configure shadow properties using Fluent API in <code>OnModelCreating</code>.</li>
+<li class="has-line-data" data-line-start="314" data-line-end="316">Example: Configured <code>CreatedDate</code> as a shadow property for auditing:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="317" data-line-end="321" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .Property&lt;DateTime&gt;(<span class="hljs-string">"CreatedDate"</span>)
+    .HasDefaultValueSql(<span class="hljs-string">"GETDATE()"</span>);
+</code></pre>
+<ol start="27">
+<li class="has-line-data" data-line-start="322" data-line-end="323"><strong>How do you configure table splitting in EF Core to map multiple entity types to a single database table?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="323" data-line-end="324">Use table splitting to map different entity types to shared columns in a single database table.</li>
+<li class="has-line-data" data-line-start="324" data-line-end="325">Configure table splitting with <code>HasOne</code> and <code>WithOwner</code> Fluent API methods.</li>
+<li class="has-line-data" data-line-start="325" data-line-end="326">Each entity must have a relationship with a common primary key.</li>
+<li class="has-line-data" data-line-start="326" data-line-end="328">Example: Configured <code>User</code> and <code>UserProfile</code> to share the same table:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="329" data-line-end="334" class="language-csharp">modelBuilder.Entity&lt;User&gt;()
+    .HasOne(u =&gt; u.Profile)
+    .WithOwner()
+    .HasForeignKey&lt;UserProfile&gt;(p =&gt; p.UserId);
+</code></pre>
+<ol start="28">
+<li class="has-line-data" data-line-start="335" data-line-end="336"><strong>What are the benefits and drawbacks of using lazy loading in EF Core?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="336" data-line-end="337">Benefits: Reduces initial data load and simplifies code by loading related data only when needed.</li>
+<li class="has-line-data" data-line-start="337" data-line-end="338">Drawbacks: Increases the risk of N+1 query problems and can negatively impact performance with frequent database calls.</li>
+<li class="has-line-data" data-line-start="338" data-line-end="339">Use eager loading or explicit loading where performance is critical.</li>
+<li class="has-line-data" data-line-start="339" data-line-end="341">Example: Disabled lazy loading in a project to avoid unintended queries and optimize performance.</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="342" data-line-end="345" class="language-csharp">services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+    options.UseLazyLoadingProxies(<span class="hljs-keyword">false</span>));
+</code></pre>
+<ol start="29">
+<li class="has-line-data" data-line-start="346" data-line-end="347"><strong>How can you implement soft delete functionality using EF Core’s global query filters?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="347" data-line-end="348">Soft delete involves marking records as inactive instead of physically deleting them.</li>
+<li class="has-line-data" data-line-start="348" data-line-end="349">Use global query filters to automatically exclude inactive records from queries.</li>
+<li class="has-line-data" data-line-start="349" data-line-end="350">Implement a <code>IsDeleted</code> property and configure it as a filter.</li>
+<li class="has-line-data" data-line-start="350" data-line-end="352">Example: Configured a global filter for soft deletion in the <code>OnModelCreating</code> method:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="353" data-line-end="355" class="language-csharp">modelBuilder.Entity&lt;User&gt;().HasQueryFilter(u =&gt; !u.IsDeleted);
+</code></pre>
+<ol start="30">
+<li class="has-line-data" data-line-start="356" data-line-end="357"><strong>Explain the difference between DbSet and DbQuery in EF Core and their respective use cases.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="357" data-line-end="358"><code>DbSet</code>: Represents a table in the database and allows CRUD operations.</li>
+<li class="has-line-data" data-line-start="358" data-line-end="359"><code>DbQuery</code>: Represents a read-only queryable object, often mapped to views or raw SQL.</li>
+<li class="has-line-data" data-line-start="359" data-line-end="360"><code>DbQuery</code> is suitable for scenarios where data does not have a primary key or is not updated.</li>
+<li class="has-line-data" data-line-start="360" data-line-end="362">Example: Used <code>DbSet</code> for user management and <code>DbQuery</code> for reporting on aggregated data.</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="363" data-line-end="366" class="language-csharp"><span class="hljs-keyword">public</span> DbSet&lt;User&gt; Users { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+<span class="hljs-keyword">public</span> DbQuery&lt;UserReport&gt; UserReports { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+</code></pre>
+<ol start="31">
+<li class="has-line-data" data-line-start="367" data-line-end="368"><strong>How do you optimize EF Core queries for performance with eager loading, projection, and splitting?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="368" data-line-end="369">Use eager loading to fetch related data in a single query.</li>
+<li class="has-line-data" data-line-start="369" data-line-end="370">Project data to retrieve only required fields and reduce payload size.</li>
+<li class="has-line-data" data-line-start="370" data-line-end="371">Split queries to handle complex data loads efficiently.</li>
+<li class="has-line-data" data-line-start="371" data-line-end="373">Example: Used projection to reduce overhead in a dashboard query:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="374" data-line-end="379" class="language-csharp"><span class="hljs-keyword">var</span> data = context.Users
+    .Include(u =&gt; u.Orders)
+    .Select(u =&gt; <span class="hljs-keyword">new</span> { u.Name, TotalOrders = u.Orders.Count })
+    .ToList();
+</code></pre>
+<ol start="32">
+<li class="has-line-data" data-line-start="380" data-line-end="381"><strong>What are value objects in EF Core, and how are they different from entities?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="381" data-line-end="382">Value objects represent concepts with no identity, defined by their properties.</li>
+<li class="has-line-data" data-line-start="382" data-line-end="383">Entities have unique identifiers (primary keys) and are tracked by EF Core.</li>
+<li class="has-line-data" data-line-start="383" data-line-end="384">Value objects are immutable and often used for small, reusable data structures.</li>
+<li class="has-line-data" data-line-start="384" data-line-end="386">Example: Implemented <code>Address</code> as a value object in a customer entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="387" data-line-end="393" class="language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Address</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Street { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">private</span> <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> City { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">private</span> <span class="hljs-keyword">set</span>; }
+}
+</code></pre>
+<ol start="33">
+<li class="has-line-data" data-line-start="394" data-line-end="395"><strong>How does EF Core support database-first and code-first approaches? Provide examples of each.</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="395" data-line-end="396">Database-First: Reverse-engineers a database schema into entity models using scaffolding.</li>
+<li class="has-line-data" data-line-start="396" data-line-end="397">Code-First: Models are defined in code, and EF Core generates the database schema.</li>
+<li class="has-line-data" data-line-start="397" data-line-end="399">Example: Scaffolded models from an existing database using the database-first approach:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="400" data-line-end="402" class="language-bash">dotnet ef dbcontext scaffold <span class="hljs-string">"YourConnectionString"</span> Microsoft.EntityFrameworkCore.SqlServer
+</code></pre>
+<ol start="34">
+<li class="has-line-data" data-line-start="403" data-line-end="404"><strong>How can you use migrations in EF Core to manage schema changes in production environments?</strong></li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="404" data-line-end="405">Use migrations to track schema changes and update databases incrementally.</li>
+<li class="has-line-data" data-line-start="405" data-line-end="406">Generate scripts using <code>dotnet ef migrations script</code> for deployment.</li>
+<li class="has-line-data" data-line-start="406" data-line-end="407">Apply scripts carefully in production to avoid downtime or data loss.</li>
+<li class="has-line-data" data-line-start="407" data-line-end="409">Example: Deployed a migration script to add a new column in production:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="410" data-line-end="413" class="language-bash">dotnet ef migrations add AddNewColumn
+dotnet ef database update
+</code></pre>
+<h3 class="code-line" data-line-start=413 data-line-end=414 ><a id="35_What_is_EF_Core_and_how_does_it_differ_from_EF6_413"></a>35. What is EF Core, and how does it differ from EF6?</h3>
+<ul>
+<li class="has-line-data" data-line-start="414" data-line-end="415">EF Core is a lightweight, extensible, and cross-platform version of Entity Framework.</li>
+<li class="has-line-data" data-line-start="415" data-line-end="416">EF6 is a mature, feature-rich framework limited to .NET Framework, whereas EF Core supports .NET Core and .NET 5+.</li>
+<li class="has-line-data" data-line-start="416" data-line-end="417">EF Core lacks some features of EF6, like lazy loading proxies by default but adds advanced features like alternate keys, batching, and shadow properties.</li>
+<li class="has-line-data" data-line-start="417" data-line-end="419">Example: Migrated an application from EF6 to EF Core to take advantage of cross-platform compatibility and improved performance.</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=421 data-line-end=422 ><a id="36_How_do_you_install_and_configure_EF_Core_in_a_NET_Core_project_421"></a>36. How do you install and configure EF Core in a .NET Core project?</h3>
+<ul>
+<li class="has-line-data" data-line-start="422" data-line-end="423">Install EF Core packages for your database provider using NuGet, e.g., <code>Microsoft.EntityFrameworkCore.SqlServer</code>.</li>
+<li class="has-line-data" data-line-start="423" data-line-end="424">Add a <code>DbContext</code> class to define your database context and entities.</li>
+<li class="has-line-data" data-line-start="424" data-line-end="425">Configure the database connection in the <code>OnConfiguring</code> method or in <code>Startup.cs</code> using <code>AddDbContext</code>.</li>
+<li class="has-line-data" data-line-start="425" data-line-end="427">Example: Installed and configured EF Core with SQL Server in a project:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="428" data-line-end="430" class="language-bash">dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+</code></pre>
+<pre><code class="has-line-data" data-line-start="432" data-line-end="435" class="language-csharp">services.AddDbContext&lt;AppDbContext&gt;(options =&gt;
+    options.UseSqlServer(Configuration.GetConnectionString(<span class="hljs-string">"DefaultConnection"</span>)));
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=438 data-line-end=439 ><a id="37_What_are_navigation_properties_in_EF_Core_and_why_are_they_important_438"></a>37. What are navigation properties in EF Core, and why are they important?</h3>
+<ul>
+<li class="has-line-data" data-line-start="439" data-line-end="440">Navigation properties define relationships between entities and allow navigation across related data.</li>
+<li class="has-line-data" data-line-start="440" data-line-end="441">They can be used to load related data using lazy, eager, or explicit loading.</li>
+<li class="has-line-data" data-line-start="441" data-line-end="442">Types include collection navigation (e.g., <code>ICollection&lt;T&gt;</code>) and reference navigation (e.g., single entity).</li>
+<li class="has-line-data" data-line-start="442" data-line-end="444">Example: Used navigation properties to load orders for a customer:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="445" data-line-end="449" class="language-csharp"><span class="hljs-keyword">var</span> customerWithOrders = context.Customers
+    .Include(c =&gt; c.Orders)
+    .FirstOrDefault(c =&gt; c.Id == customerId);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=452 data-line-end=453 ><a id="38_How_do_you_perform_basic_CRUD_operations_in_EF_Core_452"></a>38. How do you perform basic CRUD operations in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="453" data-line-end="454"><strong>Create</strong>: Add new entities using <code>Add</code> or <code>AddRange</code> and save changes using <code>SaveChanges</code>.</li>
+<li class="has-line-data" data-line-start="454" data-line-end="455"><strong>Read</strong>: Use LINQ queries to retrieve data from the database.</li>
+<li class="has-line-data" data-line-start="455" data-line-end="456"><strong>Update</strong>: Modify entity properties and call <code>SaveChanges</code>.</li>
+<li class="has-line-data" data-line-start="456" data-line-end="457"><strong>Delete</strong>: Use <code>Remove</code> or <code>RemoveRange</code> to delete entities and save changes.</li>
+<li class="has-line-data" data-line-start="457" data-line-end="459">Example: Performed CRUD operations in a product management module:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="460" data-line-end="476" class="language-csharp"><span class="hljs-comment">// Create</span>
+<span class="hljs-keyword">var</span> product = <span class="hljs-keyword">new</span> Product { Name = <span class="hljs-string">"New Product"</span>, Price = <span class="hljs-number">100</span> };
+context.Products.Add(product);
+context.SaveChanges();
+
+<span class="hljs-comment">// Read</span>
+<span class="hljs-keyword">var</span> productList = context.Products.ToList();
+
+<span class="hljs-comment">// Update</span>
+product.Price = <span class="hljs-number">120</span>;
+context.SaveChanges();
+
+<span class="hljs-comment">// Delete</span>
+context.Products.Remove(product);
+context.SaveChanges();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=479 data-line-end=480 ><a id="39_How_does_EF_Core_handle_primary_keys_by_default_479"></a>39. How does EF Core handle primary keys by default?</h3>
+<ul>
+<li class="has-line-data" data-line-start="480" data-line-end="481">EF Core expects a property named <code>Id</code> or <code>&lt;EntityName&gt;Id</code> as the primary key.</li>
+<li class="has-line-data" data-line-start="481" data-line-end="482">You can configure a primary key explicitly using the Fluent API or data annotations.</li>
+<li class="has-line-data" data-line-start="482" data-line-end="483">Composite keys must be defined using the Fluent API with <code>HasKey</code>.</li>
+<li class="has-line-data" data-line-start="483" data-line-end="485">Example: Configured a composite primary key for an <code>Order</code> entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="486" data-line-end="489" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .HasKey(o =&gt; <span class="hljs-keyword">new</span> { o.OrderId, o.ProductId });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=492 data-line-end=493 ><a id="40_How_do_you_configure_composite_keys_in_EF_Core_using_Fluent_API_492"></a>40. How do you configure composite keys in EF Core using Fluent API?</h3>
+<ul>
+<li class="has-line-data" data-line-start="493" data-line-end="494">Composite keys are configured using the <code>HasKey</code> method in the <code>OnModelCreating</code> method.</li>
+<li class="has-line-data" data-line-start="494" data-line-end="495">You need to specify multiple properties that together form the key.</li>
+<li class="has-line-data" data-line-start="495" data-line-end="496">EF Core does not support composite keys via data annotations.</li>
+<li class="has-line-data" data-line-start="496" data-line-end="498">Example: Configured a composite key for a <code>StudentCourse</code> junction table:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="499" data-line-end="502" class="language-csharp">modelBuilder.Entity&lt;StudentCourse&gt;()
+    .HasKey(sc =&gt; <span class="hljs-keyword">new</span> { sc.StudentId, sc.CourseId });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=505 data-line-end=506 ><a id="41_How_do_you_track_changes_to_entities_in_EF_Core_505"></a>41. How do you track changes to entities in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="506" data-line-end="507">EF Core uses <strong>Change Tracker</strong> to monitor changes made to entities.</li>
+<li class="has-line-data" data-line-start="507" data-line-end="508">Each entity’s state (e.g., Added, Modified, Deleted, Unchanged) is tracked by EF Core.</li>
+<li class="has-line-data" data-line-start="508" data-line-end="509">Use <code>context.Entry(entity).State</code> to inspect or change the state.</li>
+<li class="has-line-data" data-line-start="509" data-line-end="511">Example: Checked the state of an updated entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="512" data-line-end="516" class="language-csharp"><span class="hljs-keyword">var</span> student = context.Students.First();
+student.Name = <span class="hljs-string">"Updated Name"</span>;
+<span class="hljs-keyword">var</span> state = context.Entry(student).State; <span class="hljs-comment">// Outputs EntityState.Modified</span>
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=519 data-line-end=520 ><a id="42_How_do_you_configure_cascading_deletes_in_EF_Core_519"></a>42. How do you configure cascading deletes in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="520" data-line-end="521">Cascading deletes propagate a delete operation on a parent entity to its dependent entities.</li>
+<li class="has-line-data" data-line-start="521" data-line-end="522">Use the Fluent API with <code>OnDelete</code> to configure cascading behavior.</li>
+<li class="has-line-data" data-line-start="522" data-line-end="523">Options include <code>Cascade</code>, <code>Restrict</code>, and <code>SetNull</code>.</li>
+<li class="has-line-data" data-line-start="523" data-line-end="525">Example: Configured cascading delete for a <code>Student</code> and their <code>Enrollments</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="526" data-line-end="531" class="language-csharp">modelBuilder.Entity&lt;Student&gt;()
+    .HasMany(s =&gt; s.Enrollments)
+    .WithOne(e =&gt; e.Student)
+    .OnDelete(DeleteBehavior.Cascade);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=534 data-line-end=535 ><a id="43_What_is_the_difference_between_Include_and_ThenInclude_in_EF_Core_534"></a>43. What is the difference between <code>Include</code> and <code>ThenInclude</code> in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="535" data-line-end="536"><code>Include</code>: Used to load related data for a single level of navigation property.</li>
+<li class="has-line-data" data-line-start="536" data-line-end="537"><code>ThenInclude</code>: Used to load further related data for a property of a related entity.</li>
+<li class="has-line-data" data-line-start="537" data-line-end="538">Both are essential for eager loading in EF Core.</li>
+<li class="has-line-data" data-line-start="538" data-line-end="540">Example: Used <code>Include</code> and <code>ThenInclude</code> to fetch a nested relationship:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="541" data-line-end="546" class="language-csharp"><span class="hljs-keyword">var</span> data = context.Orders
+    .Include(o =&gt; o.Customer)
+    .ThenInclude(c =&gt; c.Address)
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=549 data-line-end=550 ><a id="44_What_is_the_difference_between_Add_Update_and_Attach_methods_in_EF_Core_549"></a>44. What is the difference between <code>Add</code>, <code>Update</code>, and <code>Attach</code> methods in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="550" data-line-end="551"><code>Add</code>: Marks an entity as <code>Added</code> to be inserted into the database on <code>SaveChanges</code>.</li>
+<li class="has-line-data" data-line-start="551" data-line-end="552"><code>Update</code>: Marks an entity as <code>Modified</code>, ensuring all properties are updated.</li>
+<li class="has-line-data" data-line-start="552" data-line-end="553"><code>Attach</code>: Tracks an entity without marking it as modified (used for disconnected scenarios).</li>
+<li class="has-line-data" data-line-start="553" data-line-end="555">Example: Attached an entity to update only specific properties:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="556" data-line-end="560" class="language-csharp">context.Attach(existingUser);
+existingUser.Email = <span class="hljs-string">"<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="09676c7e6c64686065496c71686479656c276a6664">[email&#160;protected]</a>"</span>;
+context.SaveChanges();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=563 data-line-end=564 ><a id="45_How_do_you_seed_initial_data_in_EF_Core_563"></a>45. How do you seed initial data in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="564" data-line-end="565">Seed data using the <code>HasData</code> method in <code>OnModelCreating</code>.</li>
+<li class="has-line-data" data-line-start="565" data-line-end="566">This ensures predefined data is inserted during migrations.</li>
+<li class="has-line-data" data-line-start="566" data-line-end="567">Use this for static data like roles, countries, or initial users.</li>
+<li class="has-line-data" data-line-start="567" data-line-end="569">Example: Seeded initial roles in a system:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="570" data-line-end="575" class="language-csharp">modelBuilder.Entity&lt;Role&gt;().HasData(
+    <span class="hljs-keyword">new</span> Role { Id = <span class="hljs-number">1</span>, Name = <span class="hljs-string">"Admin"</span> },
+    <span class="hljs-keyword">new</span> Role { Id = <span class="hljs-number">2</span>, Name = <span class="hljs-string">"User"</span> }
+);
+</code></pre>
+<h3 class="code-line" data-line-start=575 data-line-end=576 ><a id="46_What_are_query_types_in_EF_Core_and_how_do_they_differ_from_entity_types_575"></a>46. What are query types in EF Core, and how do they differ from entity types?</h3>
+<ul>
+<li class="has-line-data" data-line-start="576" data-line-end="577">Query types are used for non-entity types, such as views or raw SQL queries, that do not have primary keys.</li>
+<li class="has-line-data" data-line-start="577" data-line-end="578">They are read-only and cannot track changes or support CRUD operations.</li>
+<li class="has-line-data" data-line-start="578" data-line-end="579">Useful for fetching data not mapped to a database table.</li>
+<li class="has-line-data" data-line-start="579" data-line-end="581">Example: Mapped a query type to a SQL view:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="582" data-line-end="585" class="language-csharp">modelBuilder.Query&lt;SalesReport&gt;()
+    .ToView(<span class="hljs-string">"View_SalesReport"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=588 data-line-end=589 ><a id="47_How_does_EF_Core_support_disconnected_scenarios_588"></a>47. How does EF Core support disconnected scenarios?</h3>
+<ul>
+<li class="has-line-data" data-line-start="589" data-line-end="590">In disconnected scenarios, entities are detached from the context, typically during client-server interactions.</li>
+<li class="has-line-data" data-line-start="590" data-line-end="591">EF Core allows reattaching entities using <code>Attach</code> or <code>Update</code>.</li>
+<li class="has-line-data" data-line-start="591" data-line-end="592">Use change tracking to maintain state transitions effectively.</li>
+<li class="has-line-data" data-line-start="592" data-line-end="594">Example: Updated a disconnected entity in a web application:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="595" data-line-end="599" class="language-csharp">context.Attach(updatedEntity);
+context.Entry(updatedEntity).State = EntityState.Modified;
+context.SaveChanges();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=602 data-line-end=603 ><a id="48_What_are_alternate_keys_in_EF_Core_and_when_should_they_be_used_602"></a>48. What are alternate keys in EF Core, and when should they be used?</h3>
+<ul>
+<li class="has-line-data" data-line-start="603" data-line-end="604">Alternate keys are unique constraints other than the primary key.</li>
+<li class="has-line-data" data-line-start="604" data-line-end="605">They are useful for enforcing uniqueness on columns like email or username.</li>
+<li class="has-line-data" data-line-start="605" data-line-end="606">Configure them using the Fluent API with <code>HasAlternateKey</code>.</li>
+<li class="has-line-data" data-line-start="606" data-line-end="608">Example: Added an alternate key for a <code>User</code> entity’s <code>Email</code> property:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="609" data-line-end="612" class="language-csharp">modelBuilder.Entity&lt;User&gt;()
+    .HasAlternateKey(u =&gt; u.Email);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=615 data-line-end=616 ><a id="49_How_can_EF_Core_handle_hierarchical_data_structures_615"></a>49. How can EF Core handle hierarchical data structures?</h3>
+<ul>
+<li class="has-line-data" data-line-start="616" data-line-end="617">Model hierarchical relationships using self-referencing navigation properties.</li>
+<li class="has-line-data" data-line-start="617" data-line-end="618">Use Fluent API to configure relationships explicitly.</li>
+<li class="has-line-data" data-line-start="618" data-line-end="619">Load hierarchical data using recursive queries or eager loading.</li>
+<li class="has-line-data" data-line-start="619" data-line-end="621">Example: Configured a <code>Category</code> entity with a parent-child relationship:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="622" data-line-end="627" class="language-csharp">modelBuilder.Entity&lt;Category&gt;()
+    .HasOne(c =&gt; c.Parent)
+    .WithMany(c =&gt; c.Children)
+    .HasForeignKey(c =&gt; c.ParentId);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=630 data-line-end=631 ><a id="50_What_is_the_role_of_value_converters_in_EF_Core_630"></a>50. What is the role of value converters in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="631" data-line-end="632">Value converters allow transforming property values when reading from or writing to the database.</li>
+<li class="has-line-data" data-line-start="632" data-line-end="633">Useful for handling custom types or encrypted data.</li>
+<li class="has-line-data" data-line-start="633" data-line-end="634">Configure them in <code>OnModelCreating</code> using <code>HasConversion</code>.</li>
+<li class="has-line-data" data-line-start="634" data-line-end="636">Example: Converted an <code>enum</code> to a string column:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="637" data-line-end="641" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .Property(o =&gt; o.Status)
+    .HasConversion&lt;<span class="hljs-keyword">string</span>&gt;();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=644 data-line-end=645 ><a id="51_How_do_you_configure_a_default_schema_for_a_database_in_EF_Core_644"></a>51. How do you configure a default schema for a database in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="645" data-line-end="646">Set a default schema globally using the Fluent API in <code>OnModelCreating</code>.</li>
+<li class="has-line-data" data-line-start="646" data-line-end="647">This applies to all entities unless explicitly overridden.</li>
+<li class="has-line-data" data-line-start="647" data-line-end="648">Useful for multi-tenant or organized database setups.</li>
+<li class="has-line-data" data-line-start="648" data-line-end="650">Example: Configured a default schema for an application:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="651" data-line-end="653" class="language-csharp">modelBuilder.HasDefaultSchema(<span class="hljs-string">"Sales"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=656 data-line-end=657 ><a id="52_What_are_keyless_entities_in_EF_Core_and_how_are_they_used_656"></a>52. What are keyless entities in EF Core, and how are they used?</h3>
+<ul>
+<li class="has-line-data" data-line-start="657" data-line-end="658">Keyless entities are entities without a primary key.</li>
+<li class="has-line-data" data-line-start="658" data-line-end="659">They are used for read-only queries, like mapping database views or raw SQL results.</li>
+<li class="has-line-data" data-line-start="659" data-line-end="660">Configure them using the Fluent API with <code>HasNoKey</code>.</li>
+<li class="has-line-data" data-line-start="660" data-line-end="662">Example: Defined a keyless entity for a view:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="663" data-line-end="666" class="language-csharp">modelBuilder.Entity&lt;SalesReport&gt;()
+    .HasNoKey();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=669 data-line-end=670 ><a id="53_How_does_EF_Core_support_enum_mapping_to_database_columns_669"></a>53. How does EF Core support enum mapping to database columns?</h3>
+<ul>
+<li class="has-line-data" data-line-start="670" data-line-end="671">Enums can be directly mapped to integer columns by default.</li>
+<li class="has-line-data" data-line-start="671" data-line-end="672">Alternatively, map enums to strings using value converters.</li>
+<li class="has-line-data" data-line-start="672" data-line-end="673">Use <code>HasConversion</code> to customize the mapping.</li>
+<li class="has-line-data" data-line-start="673" data-line-end="675">Example: Mapped an <code>OrderStatus</code> enum to a string:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="676" data-line-end="682" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .Property(o =&gt; o.Status)
+    .HasConversion(
+        v =&gt; v.ToString(),
+        v =&gt; (OrderStatus)Enum.Parse(<span class="hljs-keyword">typeof</span>(OrderStatus), v));
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=685 data-line-end=686 ><a id="54_How_can_you_use_database_functions_in_EF_Core_queries_685"></a>54. How can you use database functions in EF Core queries?</h3>
+<ul>
+<li class="has-line-data" data-line-start="686" data-line-end="687">EF Core allows using database functions like <code>LEN</code>, <code>LOWER</code>, or custom functions in LINQ queries.</li>
+<li class="has-line-data" data-line-start="687" data-line-end="688">Use <code>EF.Functions</code> for built-in functions or <code>HasDbFunction</code> for custom functions.</li>
+<li class="has-line-data" data-line-start="688" data-line-end="690">Example: Used <code>LEN</code> function in a query:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="691" data-line-end="695" class="language-csharp"><span class="hljs-keyword">var</span> result = context.Users
+    .Where(u =&gt; EF.Functions.Like(u.Name, <span class="hljs-string">"%John%"</span>))
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=698 data-line-end=699 ><a id="55_How_does_EF_Core_handle_pessimistic_and_optimistic_concurrency_698"></a>55. How does EF Core handle pessimistic and optimistic concurrency?</h3>
+<ul>
+<li class="has-line-data" data-line-start="699" data-line-end="700">Optimistic concurrency: Uses a concurrency token, like a timestamp, to detect conflicts.</li>
+<li class="has-line-data" data-line-start="700" data-line-end="701">Pessimistic concurrency: Locks a database row during updates to prevent conflicts.</li>
+<li class="has-line-data" data-line-start="701" data-line-end="702">EF Core natively supports optimistic concurrency using <code>RowVersion</code> or similar fields.</li>
+<li class="has-line-data" data-line-start="702" data-line-end="704">Example: Configured a concurrency token in an entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="705" data-line-end="709" class="language-csharp">modelBuilder.Entity&lt;Product&gt;()
+    .Property(p =&gt; p.RowVersion)
+    .IsRowVersion();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=712 data-line-end=713 ><a id="56_What_are_tableperhierarchy_TPH_and_tablepertype_TPT_inheritance_strategies_in_EF_Core_712"></a>56. What are table-per-hierarchy (TPH) and table-per-type (TPT) inheritance strategies in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="713" data-line-end="714"><strong>TPH</strong>: All derived types share a single table with a discriminator column.</li>
+<li class="has-line-data" data-line-start="714" data-line-end="715"><strong>TPT</strong>: Each derived type has its own table with relationships to the base type.</li>
+<li class="has-line-data" data-line-start="715" data-line-end="716">Use Fluent API to configure inheritance strategies.</li>
+<li class="has-line-data" data-line-start="716" data-line-end="718">Example: Configured TPH inheritance for a <code>Shape</code> hierarchy:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="719" data-line-end="724" class="language-csharp">modelBuilder.Entity&lt;Shape&gt;()
+    .HasDiscriminator&lt;<span class="hljs-keyword">string</span>&gt;(<span class="hljs-string">"ShapeType"</span>)
+    .HasValue&lt;Circle&gt;(<span class="hljs-string">"Circle"</span>)
+    .HasValue&lt;Square&gt;(<span class="hljs-string">"Square"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=727 data-line-end=728 ><a id="57_How_do_you_configure_computed_columns_in_EF_Core_727"></a>57. How do you configure computed columns in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="728" data-line-end="729">Computed columns are database columns whose values are calculated by the database.</li>
+<li class="has-line-data" data-line-start="729" data-line-end="730">Use the Fluent API to define computed columns.</li>
+<li class="has-line-data" data-line-start="730" data-line-end="731">Useful for columns derived from other columns, like totals or timestamps.</li>
+<li class="has-line-data" data-line-start="731" data-line-end="733">Example: Configured a <code>FullName</code> computed column:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="734" data-line-end="738" class="language-csharp">modelBuilder.Entity&lt;User&gt;()
+    .Property(u =&gt; u.FullName)
+    .HasComputedColumnSql(<span class="hljs-string">"[FirstName] + ' ' + [LastName]"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=741 data-line-end=742 ><a id="58_How_can_you_track_raw_SQL_queries_in_EF_Core_for_debugging_741"></a>58. How can you track raw SQL queries in EF Core for debugging?</h3>
+<ul>
+<li class="has-line-data" data-line-start="742" data-line-end="743">Use EF Core’s <code>ToQueryString</code> to inspect the generated SQL for LINQ queries.</li>
+<li class="has-line-data" data-line-start="743" data-line-end="744">Use logging frameworks to log SQL commands executed by EF Core.</li>
+<li class="has-line-data" data-line-start="744" data-line-end="745">Enable detailed logs in the <code>DbContext</code> options configuration.</li>
+<li class="has-line-data" data-line-start="745" data-line-end="747">Example: Debugged a raw SQL query:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="748" data-line-end="751" class="language-csharp"><span class="hljs-keyword">var</span> query = context.Users.Where(u =&gt; u.Age &gt; <span class="hljs-number">30</span>);
+Console.WriteLine(query.ToQueryString());
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=754 data-line-end=755 ><a id="59_What_are_shadow_foreign_keys_and_how_are_they_used_in_EF_Core_754"></a>59. What are shadow foreign keys, and how are they used in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="755" data-line-end="756">Shadow foreign keys are keys not explicitly defined in the entity class but used for relationships.</li>
+<li class="has-line-data" data-line-start="756" data-line-end="757">EF Core creates them automatically when navigation properties are defined.</li>
+<li class="has-line-data" data-line-start="757" data-line-end="758">Access them using <code>EF.Property</code> in queries or configurations.</li>
+<li class="has-line-data" data-line-start="758" data-line-end="760">Example: Used a shadow foreign key in a query:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="761" data-line-end="765" class="language-csharp"><span class="hljs-keyword">var</span> students = context.Students
+    .Where(s =&gt; EF.Property&lt;<span class="hljs-keyword">int</span>&gt;(s, <span class="hljs-string">"CourseId"</span>) == <span class="hljs-number">1</span>)
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=768 data-line-end=769 ><a id="60_How_does_EF_Core_support_partitioned_tables_768"></a>60. How does EF Core support partitioned tables?</h3>
+<ul>
+<li class="has-line-data" data-line-start="769" data-line-end="770">EF Core doesn’t natively manage partitioning but supports querying partitioned tables created in the database.</li>
+<li class="has-line-data" data-line-start="770" data-line-end="771">Use Fluent API or SQL for partition-specific configurations.</li>
+<li class="has-line-data" data-line-start="771" data-line-end="772">Optimize queries by targeting partitions directly in raw SQL.</li>
+<li class="has-line-data" data-line-start="772" data-line-end="774">Example: Queried a partitioned table using raw SQL:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="775" data-line-end="779" class="language-csharp"><span class="hljs-keyword">var</span> data = context.Customers
+    .FromSqlRaw(<span class="hljs-string">"SELECT * FROM PartitionedTable WHERE PartitionKey = 2024"</span>)
+    .ToList();
+</code></pre>
+<h3 class="code-line" data-line-start=780 data-line-end=781 ><a id="61_How_do_you_map_a_onetomany_relationship_using_Fluent_API_in_EF_Core_780"></a>61. How do you map a one-to-many relationship using Fluent API in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="781" data-line-end="782">Define a <code>HasMany</code> relationship in the parent entity and <code>WithOne</code> in the child entity.</li>
+<li class="has-line-data" data-line-start="782" data-line-end="783">Specify the foreign key using <code>HasForeignKey</code>.</li>
+<li class="has-line-data" data-line-start="783" data-line-end="784">Use navigation properties for bidirectional or unidirectional relationships.</li>
+<li class="has-line-data" data-line-start="784" data-line-end="786">Example: Configured a one-to-many relationship for <code>Order</code> and <code>OrderItem</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="787" data-line-end="792" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .HasMany(o =&gt; o.OrderItems)
+    .WithOne(oi =&gt; oi.Order)
+    .HasForeignKey(oi =&gt; oi.OrderId);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=795 data-line-end=796 ><a id="62_How_does_EF_Core_support_splitting_queries_for_performance_optimization_795"></a>62. How does EF Core support splitting queries for performance optimization?</h3>
+<ul>
+<li class="has-line-data" data-line-start="796" data-line-end="797">Splitting queries reduces the SQL query complexity for loading related data.</li>
+<li class="has-line-data" data-line-start="797" data-line-end="798">Configure it using <code>AsSplitQuery</code> in LINQ for related entities.</li>
+<li class="has-line-data" data-line-start="798" data-line-end="799">Improves performance by breaking large joins into smaller queries.</li>
+<li class="has-line-data" data-line-start="799" data-line-end="801">Example: Split query for loading orders and their details:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="802" data-line-end="807" class="language-csharp"><span class="hljs-keyword">var</span> orders = context.Orders
+    .Include(o =&gt; o.OrderDetails)
+    .AsSplitQuery()
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=810 data-line-end=811 ><a id="63_What_is_the_purpose_of_global_query_filters_in_EF_Core_810"></a>63. What is the purpose of global query filters in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="811" data-line-end="812">Global query filters define a condition applied to all queries on an entity.</li>
+<li class="has-line-data" data-line-start="812" data-line-end="813">Useful for implementing multi-tenancy, soft deletes, or security filters.</li>
+<li class="has-line-data" data-line-start="813" data-line-end="814">Defined in <code>OnModelCreating</code> using the Fluent API.</li>
+<li class="has-line-data" data-line-start="814" data-line-end="816">Example: Added a global filter for soft-delete functionality:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="817" data-line-end="820" class="language-csharp">modelBuilder.Entity&lt;Product&gt;()
+    .HasQueryFilter(p =&gt; !p.IsDeleted);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=823 data-line-end=824 ><a id="64_How_do_you_handle_manytomany_relationships_in_EF_Core_823"></a>64. How do you handle many-to-many relationships in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="824" data-line-end="825">Define a join table implicitly by navigation properties or explicitly with an entity class.</li>
+<li class="has-line-data" data-line-start="825" data-line-end="826">Configure the relationship using <code>HasMany</code> and <code>WithMany</code>.</li>
+<li class="has-line-data" data-line-start="826" data-line-end="827">For explicit join entities, configure the primary key in the join table.</li>
+<li class="has-line-data" data-line-start="827" data-line-end="829">Example: Configured a many-to-many relationship for <code>Student</code> and <code>Course</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="830" data-line-end="837" class="language-csharp">modelBuilder.Entity&lt;Student&gt;()
+    .HasMany(s =&gt; s.Courses)
+    .WithMany(c =&gt; c.Students)
+    .UsingEntity&lt;Enrollment&gt;(
+        j =&gt; j.HasOne(e =&gt; e.Course).WithMany(c =&gt; c.Enrollments),
+        j =&gt; j.HasOne(e =&gt; e.Student).WithMany(s =&gt; s.Enrollments));
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=840 data-line-end=841 ><a id="65_How_does_EF_Core_handle_value_objects_and_what_are_they_840"></a>65. How does EF Core handle value objects, and what are they?</h3>
+<ul>
+<li class="has-line-data" data-line-start="841" data-line-end="842">Value objects are immutable objects that represent a concept, not a unique identity (e.g., <code>Address</code>).</li>
+<li class="has-line-data" data-line-start="842" data-line-end="843">Configured using owned types in EF Core with <code>OwnsOne</code>.</li>
+<li class="has-line-data" data-line-start="843" data-line-end="844">Changes to value objects require replacing the entire object.</li>
+<li class="has-line-data" data-line-start="844" data-line-end="846">Example: Configured an owned type for <code>Address</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="847" data-line-end="853" class="language-csharp">modelBuilder.Entity&lt;Customer&gt;()
+    .OwnsOne(c =&gt; c.Address, a =&gt;
+    {
+        a.Property(ad =&gt; ad.Street).HasColumnName(<span class="hljs-string">"StreetName"</span>);
+    });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=856 data-line-end=857 ><a id="66_What_is_the_role_of_database_providers_in_EF_Core_856"></a>66. What is the role of database providers in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="857" data-line-end="858">Database providers enable EF Core to work with different databases (e.g., SQL Server, PostgreSQL, SQLite).</li>
+<li class="has-line-data" data-line-start="858" data-line-end="859">You install the provider package to enable support for the chosen database.</li>
+<li class="has-line-data" data-line-start="859" data-line-end="860">Providers extend EF Core functionality specific to the database.</li>
+<li class="has-line-data" data-line-start="860" data-line-end="862">Example: Used <code>Microsoft.EntityFrameworkCore.SqlServer</code> for SQL Server in a project.</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=864 data-line-end=865 ><a id="67_How_do_you_implement_soft_delete_in_EF_Core_864"></a>67. How do you implement soft delete in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="865" data-line-end="866">Use a boolean property like <code>IsDeleted</code> in the entity class.</li>
+<li class="has-line-data" data-line-start="866" data-line-end="867">Apply a global query filter to exclude soft-deleted records.</li>
+<li class="has-line-data" data-line-start="867" data-line-end="868">Update the <code>IsDeleted</code> flag instead of deleting the record.</li>
+<li class="has-line-data" data-line-start="868" data-line-end="870">Example: Configured soft delete for a <code>Product</code> entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="871" data-line-end="874" class="language-csharp">modelBuilder.Entity&lt;Product&gt;()
+    .HasQueryFilter(p =&gt; !p.IsDeleted);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=877 data-line-end=878 ><a id="68_How_does_EF_Core_support_spatial_data_types_877"></a>68. How does EF Core support spatial data types?</h3>
+<ul>
+<li class="has-line-data" data-line-start="878" data-line-end="879">EF Core supports spatial data like geography and geometry types through extensions like <code>NetTopologySuite</code>.</li>
+<li class="has-line-data" data-line-start="879" data-line-end="880">Configure it by adding the spatial data package for your database provider.</li>
+<li class="has-line-data" data-line-start="880" data-line-end="881">Use spatial methods such as distance calculations in LINQ.</li>
+<li class="has-line-data" data-line-start="881" data-line-end="883">Example: Queried entities based on spatial distance:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="884" data-line-end="888" class="language-csharp"><span class="hljs-keyword">var</span> nearbyLocations = context.Locations
+    .Where(l =&gt; l.Location.Distance(targetLocation) &lt; <span class="hljs-number">1000</span>)
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=891 data-line-end=892 ><a id="69_How_can_EF_Core_integrate_with_database_views_891"></a>69. How can EF Core integrate with database views?</h3>
+<ul>
+<li class="has-line-data" data-line-start="892" data-line-end="893">Map a database view to an entity using the Fluent API with <code>ToView</code>.</li>
+<li class="has-line-data" data-line-start="893" data-line-end="894">Views are read-only unless explicitly mapped with appropriate configurations.</li>
+<li class="has-line-data" data-line-start="894" data-line-end="895">Useful for fetching aggregated or complex data.</li>
+<li class="has-line-data" data-line-start="895" data-line-end="897">Example: Mapped a <code>SalesReport</code> view to an entity:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="898" data-line-end="901" class="language-csharp">modelBuilder.Entity&lt;SalesReport&gt;()
+    .ToView(<span class="hljs-string">"View_SalesReport"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=904 data-line-end=905 ><a id="70_How_do_you_configure_alternate_schemas_for_entities_in_EF_Core_904"></a>70. How do you configure alternate schemas for entities in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="905" data-line-end="906">Specify a schema for an entity using the Fluent API with <code>ToTable</code>.</li>
+<li class="has-line-data" data-line-start="906" data-line-end="907">This allows organizing entities across different schemas.</li>
+<li class="has-line-data" data-line-start="907" data-line-end="908">Default schema configuration can also be applied globally.</li>
+<li class="has-line-data" data-line-start="908" data-line-end="910">Example: Configured a <code>Product</code> entity in the <code>Inventory</code> schema:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="911" data-line-end="914" class="language-csharp">modelBuilder.Entity&lt;Product&gt;()
+    .ToTable(<span class="hljs-string">"Products"</span>, schema: <span class="hljs-string">"Inventory"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=917 data-line-end=918 ><a id="71_How_does_EF_Core_support_raw_SQL_queries_with_parameterization_917"></a>71. How does EF Core support raw SQL queries with parameterization?</h3>
+<ul>
+<li class="has-line-data" data-line-start="918" data-line-end="919">Execute raw SQL using <code>FromSql</code> or <code>ExecuteSqlRaw</code> with parameters.</li>
+<li class="has-line-data" data-line-start="919" data-line-end="920">Parameterized queries prevent SQL injection.</li>
+<li class="has-line-data" data-line-start="920" data-line-end="921">Suitable for complex queries not supported by LINQ.</li>
+<li class="has-line-data" data-line-start="921" data-line-end="923">Example: Queried data with raw SQL and parameters:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="924" data-line-end="928" class="language-csharp"><span class="hljs-keyword">var</span> products = context.Products
+    .FromSqlRaw(<span class="hljs-string">"SELECT * FROM Products WHERE Price &gt; {0}"</span>, <span class="hljs-number">50</span>)
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=931 data-line-end=932 ><a id="72_How_do_you_configure_table_splitting_in_EF_Core_931"></a>72. How do you configure table splitting in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="932" data-line-end="933">Table splitting maps multiple entities to a single table.</li>
+<li class="has-line-data" data-line-start="933" data-line-end="934">Configure it using the Fluent API with <code>ToTable</code> and <code>HasOne</code>.</li>
+<li class="has-line-data" data-line-start="934" data-line-end="935">Useful for optimizing data storage and relationships.</li>
+<li class="has-line-data" data-line-start="935" data-line-end="937">Example: Configured table splitting for <code>Person</code> and <code>PersonDetail</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="938" data-line-end="944" class="language-csharp">modelBuilder.Entity&lt;Person&gt;()
+    .ToTable(<span class="hljs-string">"People"</span>)
+    .HasOne(p =&gt; p.PersonDetail)
+    .WithOne(pd =&gt; pd.Person)
+    .HasForeignKey&lt;PersonDetail&gt;(pd =&gt; pd.PersonId);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=947 data-line-end=948 ><a id="73_What_are_the_limitations_of_using_EF_Core_with_largescale_systems_947"></a>73. What are the limitations of using EF Core with large-scale systems?</h3>
+<ul>
+<li class="has-line-data" data-line-start="948" data-line-end="949">Performance can degrade with large datasets if not optimized (e.g., lazy loading).</li>
+<li class="has-line-data" data-line-start="949" data-line-end="950">Migrations may become cumbersome with complex schemas.</li>
+<li class="has-line-data" data-line-start="950" data-line-end="951">Query generation may not always match handcrafted SQL.</li>
+<li class="has-line-data" data-line-start="951" data-line-end="953">Example: Optimized EF Core by splitting queries and using stored procedures for critical operations.</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=955 data-line-end=956 ><a id="74_How_does_EF_Core_handle_shadow_properties_and_what_are_they_used_for_955"></a>74. How does EF Core handle shadow properties, and what are they used for?</h3>
+<ul>
+<li class="has-line-data" data-line-start="956" data-line-end="957">Shadow properties are properties not defined in the entity class but tracked by EF Core.</li>
+<li class="has-line-data" data-line-start="957" data-line-end="958">Used for metadata like foreign keys or audit fields (e.g., <code>CreatedAt</code>).</li>
+<li class="has-line-data" data-line-start="958" data-line-end="959">Access shadow properties using <code>EF.Property</code>.</li>
+<li class="has-line-data" data-line-start="959" data-line-end="961">Example: Queried using a shadow property for <code>CreatedAt</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="962" data-line-end="966" class="language-csharp"><span class="hljs-keyword">var</span> recentUsers = context.Users
+    .Where(u =&gt; EF.Property&lt;DateTime&gt;(u, <span class="hljs-string">"CreatedAt"</span>) &gt; DateTime.Now.AddDays(-<span class="hljs-number">7</span>))
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=969 data-line-end=970 ><a id="75_What_is_entity_splitting_and_how_do_you_implement_it_in_EF_Core_969"></a>75. What is entity splitting, and how do you implement it in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="970" data-line-end="971">Entity splitting maps different properties of an entity to separate tables.</li>
+<li class="has-line-data" data-line-start="971" data-line-end="972">Useful for organizing large entities into manageable pieces.</li>
+<li class="has-line-data" data-line-start="972" data-line-end="973">Configure it using Fluent API with <code>ToTable</code>.</li>
+<li class="has-line-data" data-line-start="973" data-line-end="975">Example: Split a <code>User</code> entity into <code>User</code> and <code>UserDetails</code> tables:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="976" data-line-end="984" class="language-csharp">modelBuilder.Entity&lt;User&gt;()
+    .ToTable(<span class="hljs-string">"Users"</span>)
+    .Property(u =&gt; u.Id).IsRequired();
+
+modelBuilder.Entity&lt;User&gt;()
+    .ToTable(<span class="hljs-string">"UserDetails"</span>)
+    .Property(u =&gt; u.Address).IsRequired();
+</code></pre>
+<h3 class="code-line" data-line-start=984 data-line-end=985 ><a id="76_How_does_EF_Core_handle_cascade_delete_and_how_can_it_be_configured_984"></a>76. How does EF Core handle cascade delete, and how can it be configured?</h3>
+<ul>
+<li class="has-line-data" data-line-start="985" data-line-end="986">Cascade delete automatically deletes dependent entities when a principal entity is removed.</li>
+<li class="has-line-data" data-line-start="986" data-line-end="987">Configure cascade behavior using <code>OnDelete</code> in the Fluent API.</li>
+<li class="has-line-data" data-line-start="987" data-line-end="988">Supported behaviors include <code>Cascade</code>, <code>SetNull</code>, and <code>Restrict</code>.</li>
+<li class="has-line-data" data-line-start="988" data-line-end="990">Example: Configured cascade delete for <code>Order</code> and <code>OrderItem</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="991" data-line-end="996" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .HasMany(o =&gt; o.OrderItems)
+    .WithOne(oi =&gt; oi.Order)
+    .OnDelete(DeleteBehavior.Cascade);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=999 data-line-end=1000 ><a id="77_How_can_you_create_custom_conventions_in_EF_Core_999"></a>77. How can you create custom conventions in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1000" data-line-end="1001">Custom conventions apply specific configurations globally to entities or properties.</li>
+<li class="has-line-data" data-line-start="1001" data-line-end="1002">Use <code>IModelFinalizingConvention</code> or configure in <code>OnModelCreating</code>.</li>
+<li class="has-line-data" data-line-start="1002" data-line-end="1003">Useful for enforcing uniform naming or validation rules.</li>
+<li class="has-line-data" data-line-start="1003" data-line-end="1005">Example: Configured a custom convention for table names:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1006" data-line-end="1011" class="language-csharp"><span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> entity <span class="hljs-keyword">in</span> modelBuilder.Model.GetEntityTypes())
+{
+    modelBuilder.Entity(entity.Name).ToTable(entity.GetTableName().ToLower());
+}
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1014 data-line-end=1015 ><a id="78_How_does_EF_Core_handle_data_seeding_and_how_can_it_be_implemented_1014"></a>78. How does EF Core handle data seeding, and how can it be implemented?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1015" data-line-end="1016">Data seeding populates the database with initial or default data during migrations.</li>
+<li class="has-line-data" data-line-start="1016" data-line-end="1017">Define seed data in <code>OnModelCreating</code> using <code>HasData</code>.</li>
+<li class="has-line-data" data-line-start="1017" data-line-end="1018">Seeded data is included in migration scripts.</li>
+<li class="has-line-data" data-line-start="1018" data-line-end="1020">Example: Seeded an admin user into the <code>Users</code> table:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1021" data-line-end="1025" class="language-csharp">modelBuilder.Entity&lt;User&gt;().HasData(
+    <span class="hljs-keyword">new</span> User { Id = <span class="hljs-number">1</span>, Name = <span class="hljs-string">"Admin"</span>, Role = <span class="hljs-string">"Administrator"</span> }
+);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1028 data-line-end=1029 ><a id="79_How_do_you_handle_JSON_columns_in_EF_Core_1028"></a>79. How do you handle JSON columns in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1029" data-line-end="1030">JSON columns are supported through providers like PostgreSQL or SQL Server.</li>
+<li class="has-line-data" data-line-start="1030" data-line-end="1031">Map a property to a JSON column using Fluent API.</li>
+<li class="has-line-data" data-line-start="1031" data-line-end="1032">Useful for storing structured data in a single column.</li>
+<li class="has-line-data" data-line-start="1032" data-line-end="1034">Example: Mapped a JSON column for <code>OrderDetails</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1035" data-line-end="1039" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .Property(o =&gt; o.OrderDetails)
+    .HasColumnType(<span class="hljs-string">"jsonb"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1042 data-line-end=1043 ><a id="80_What_are_owned_entity_types_and_how_do_you_configure_them_in_EF_Core_1042"></a>80. What are owned entity types, and how do you configure them in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1043" data-line-end="1044">Owned types represent value objects owned by a single entity.</li>
+<li class="has-line-data" data-line-start="1044" data-line-end="1045">Configure using <code>OwnsOne</code> in the Fluent API.</li>
+<li class="has-line-data" data-line-start="1045" data-line-end="1046">Stored in the same table as the owning entity by default.</li>
+<li class="has-line-data" data-line-start="1046" data-line-end="1048">Example: Configured an owned <code>Address</code> type for a <code>Customer</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1049" data-line-end="1055" class="language-csharp">modelBuilder.Entity&lt;Customer&gt;()
+    .OwnsOne(c =&gt; c.Address, a =&gt;
+    {
+        a.Property(ad =&gt; ad.City).HasColumnName(<span class="hljs-string">"City"</span>);
+    });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1058 data-line-end=1059 ><a id="81_How_does_EF_Core_handle_default_values_for_columns_1058"></a>81. How does EF Core handle default values for columns?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1059" data-line-end="1060">Default values can be set for columns using <code>HasDefaultValue</code> or <code>HasDefaultValueSql</code>.</li>
+<li class="has-line-data" data-line-start="1060" data-line-end="1061">Useful for timestamps, GUIDs, or predefined constants.</li>
+<li class="has-line-data" data-line-start="1061" data-line-end="1062">Defaults are applied during insertion if a value is not provided.</li>
+<li class="has-line-data" data-line-start="1062" data-line-end="1064">Example: Configured a default value for <code>CreatedAt</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1065" data-line-end="1069" class="language-csharp">modelBuilder.Entity&lt;User&gt;()
+    .Property(u =&gt; u.CreatedAt)
+    .HasDefaultValueSql(<span class="hljs-string">"GETDATE()"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1072 data-line-end=1073 ><a id="82_What_are_the_benefits_and_limitations_of_shadow_properties_in_EF_Core_1072"></a>82. What are the benefits and limitations of shadow properties in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1073" data-line-end="1074"><strong>Benefits</strong>: Simplifies entity models by avoiding explicit property definitions.</li>
+<li class="has-line-data" data-line-start="1074" data-line-end="1075"><strong>Limitations</strong>: Harder to query and debug since they are not in the entity class.</li>
+<li class="has-line-data" data-line-start="1075" data-line-end="1077">Example: Accessed a shadow property in a LINQ query:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1078" data-line-end="1082" class="language-csharp"><span class="hljs-keyword">var</span> recentOrders = context.Orders
+    .Where(o =&gt; EF.Property&lt;DateTime&gt;(o, <span class="hljs-string">"CreatedAt"</span>) &gt; DateTime.UtcNow.AddDays(-<span class="hljs-number">7</span>))
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1085 data-line-end=1086 ><a id="83_How_do_you_map_composite_keys_in_EF_Core_1085"></a>83. How do you map composite keys in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1086" data-line-end="1087">Composite keys combine multiple properties as a primary key.</li>
+<li class="has-line-data" data-line-start="1087" data-line-end="1088">Configure using the Fluent API with <code>HasKey</code>.</li>
+<li class="has-line-data" data-line-start="1088" data-line-end="1090">Example: Configured a composite key for <code>Order</code> and <code>Product</code> in <code>OrderDetail</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1091" data-line-end="1094" class="language-csharp">modelBuilder.Entity&lt;OrderDetail&gt;()
+    .HasKey(od =&gt; <span class="hljs-keyword">new</span> { od.OrderId, od.ProductId });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1097 data-line-end=1098 ><a id="84_How_does_EF_Core_support_raw_SQL_queries_with_projections_1097"></a>84. How does EF Core support raw SQL queries with projections?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1098" data-line-end="1099">Use <code>FromSql</code> with projections to map raw SQL query results to DTOs or anonymous types.</li>
+<li class="has-line-data" data-line-start="1099" data-line-end="1100">Useful for optimizing queries or fetching non-entity data.</li>
+<li class="has-line-data" data-line-start="1100" data-line-end="1102">Example: Fetched data into a DTO using raw SQL:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1103" data-line-end="1107" class="language-csharp"><span class="hljs-keyword">var</span> salesData = context.SalesReports
+    .FromSqlRaw(<span class="hljs-string">"SELECT ProductName, SUM(Sales) AS TotalSales FROM Sales GROUP BY ProductName"</span>)
+    .ToList();
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1110 data-line-end=1111 ><a id="85_How_do_you_handle_composite_foreign_keys_in_EF_Core_1110"></a>85. How do you handle composite foreign keys in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1111" data-line-end="1112">Composite foreign keys map multiple properties as a foreign key.</li>
+<li class="has-line-data" data-line-start="1112" data-line-end="1113">Configure using Fluent API with <code>HasForeignKey</code>.</li>
+<li class="has-line-data" data-line-start="1113" data-line-end="1115">Example: Configured a composite foreign key in <code>OrderDetail</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1116" data-line-end="1121" class="language-csharp">modelBuilder.Entity&lt;OrderDetail&gt;()
+    .HasOne(od =&gt; od.Product)
+    .WithMany(p =&gt; p.OrderDetails)
+    .HasForeignKey(od =&gt; <span class="hljs-keyword">new</span> { od.OrderId, od.ProductId });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1124 data-line-end=1125 ><a id="86_How_does_EF_Core_handle_transaction_management_1124"></a>86. How does EF Core handle transaction management?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1125" data-line-end="1126">EF Core supports transactions with <code>BeginTransaction</code>, <code>Commit</code>, and <code>Rollback</code>.</li>
+<li class="has-line-data" data-line-start="1126" data-line-end="1127">Use <code>DbContextTransaction</code> for explicit control or <code>TransactionScope</code> for distributed transactions.</li>
+<li class="has-line-data" data-line-start="1127" data-line-end="1129">Example: Handled a transaction to update multiple entities:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1130" data-line-end="1146" class="language-csharp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">var</span> transaction = context.Database.BeginTransaction();
+<span class="hljs-keyword">try</span>
+{
+    context.Users.Add(<span class="hljs-keyword">new</span> User { Name = <span class="hljs-string">"John"</span> });
+    context.SaveChanges();
+
+    context.Orders.Add(<span class="hljs-keyword">new</span> Order { UserId = <span class="hljs-number">1</span>, Total = <span class="hljs-number">100</span> });
+    context.SaveChanges();
+
+    transaction.Commit();
+}
+<span class="hljs-keyword">catch</span>
+{
+    transaction.Rollback();
+}
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1149 data-line-end=1150 ><a id="87_How_do_you_optimize_performance_in_EF_Core_for_large_datasets_1149"></a>87. How do you optimize performance in EF Core for large datasets?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1150" data-line-end="1151">Use projection to reduce data size in queries.</li>
+<li class="has-line-data" data-line-start="1151" data-line-end="1152">Avoid unnecessary <code>Include</code> for navigation properties.</li>
+<li class="has-line-data" data-line-start="1152" data-line-end="1153">Use compiled queries for frequently used LINQ queries.</li>
+<li class="has-line-data" data-line-start="1153" data-line-end="1155">Example: Used a compiled query for better performance:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1156" data-line-end="1160" class="language-csharp"><span class="hljs-keyword">var</span> compiledQuery = EF.CompileQuery((MyDbContext ctx, <span class="hljs-keyword">int</span> age) =&gt;
+    ctx.Users.Where(u =&gt; u.Age &gt; age));
+<span class="hljs-keyword">var</span> result = compiledQuery(context, <span class="hljs-number">30</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1163 data-line-end=1164 ><a id="88_How_can_you_map_entities_to_database_functions_in_EF_Core_1163"></a>88. How can you map entities to database functions in EF Core?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1164" data-line-end="1165">Map database functions using <code>HasDbFunction</code> in <code>OnModelCreating</code>.</li>
+<li class="has-line-data" data-line-start="1165" data-line-end="1166">Use them in LINQ queries as custom methods.</li>
+<li class="has-line-data" data-line-start="1166" data-line-end="1168">Example: Mapped a database function for calculating discounts:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1169" data-line-end="1172" class="language-csharp">modelBuilder.HasDbFunction(() =&gt; MyDbContext.CalculateDiscount(<span class="hljs-number">0</span>))
+    .HasName(<span class="hljs-string">"CalculateDiscount"</span>);
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1175 data-line-end=1176 ><a id="89_What_are_split_entities_in_EF_Core_and_how_do_they_improve_storage_1175"></a>89. What are split entities in EF Core, and how do they improve storage?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1176" data-line-end="1177">Split entities map different sets of properties to separate tables.</li>
+<li class="has-line-data" data-line-start="1177" data-line-end="1178">Useful for large entities with optional or infrequently used properties.</li>
+<li class="has-line-data" data-line-start="1178" data-line-end="1180">Example: Split a <code>User</code> entity into two tables:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1181" data-line-end="1185" class="language-csharp">modelBuilder.Entity&lt;User&gt;().SplitToTable(
+    <span class="hljs-string">"Users"</span>, u =&gt; <span class="hljs-keyword">new</span> { u.Id, u.Name },
+    <span class="hljs-string">"UserDetails"</span>, ud =&gt; <span class="hljs-keyword">new</span> { ud.Id, ud.Address });
+</code></pre>
+<hr>
+<h3 class="code-line" data-line-start=1188 data-line-end=1189 ><a id="90_How_does_EF_Core_support_temporal_tables_1188"></a>90. How does EF Core support temporal tables?</h3>
+<ul>
+<li class="has-line-data" data-line-start="1189" data-line-end="1190">Temporal tables track changes over time, storing historical data.</li>
+<li class="has-line-data" data-line-start="1190" data-line-end="1191">Enable using the Fluent API and include <code>PeriodStart</code> and <code>PeriodEnd</code>.</li>
+<li class="has-line-data" data-line-start="1191" data-line-end="1193">Example: Configured a temporal table for <code>Orders</code>:</li>
+</ul>
+<pre><code class="has-line-data" data-line-start="1194" data-line-end="1197" class="language-csharp">modelBuilder.Entity&lt;Order&gt;()
+    .ToTable(<span class="hljs-string">"Orders"</span>, table =&gt; table.IsTemporal());
+</code></pre>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
