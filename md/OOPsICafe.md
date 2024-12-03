@@ -1,3 +1,104 @@
+**1. What is inheritance?**  
+- Inheritance is a feature of OOP that allows a class (child) to acquire properties and behaviors of another class (parent).  
+- It helps in code reusability by enabling child classes to use existing parent class code.  
+- Supports hierarchical relationships where a base class can have multiple derived classes.  
+- Provides a way to override parent class methods for specific behaviors in the child class.  
+- I used inheritance in my project to create a base service class for HTTP requests, which derived classes customized for specific APIs:  
+```csharp
+// Base Class
+public class ApiService {
+    public virtual void MakeRequest() {
+        Console.WriteLine("Making API request");
+    }
+}
+
+// Derived Class
+public class UserService : ApiService {
+    public override void MakeRequest() {
+        Console.WriteLine("Making User API request");
+    }
+}
+```  
+
+**2. What is OOP?**  
+- OOP (Object-Oriented Programming) is a programming paradigm that models concepts as "objects" with data and behavior.  
+- It emphasizes modularity and reusability through encapsulation, inheritance, and polymorphism.  
+- Encourages abstraction by hiding implementation details and exposing only relevant functionality.  
+- Promotes easy maintenance and scalability for software development.  
+- In one project, I structured an e-commerce application using OOP principles, such as encapsulating product data and providing services to handle shopping cart operations.  
+
+**3. Why is the virtual keyword used in code?**  
+- The `virtual` keyword allows a method, property, or event to be overridden in derived classes.  
+- Ensures runtime polymorphism, enabling dynamic method binding based on the object type.  
+- Helps in creating extensible systems by allowing behavior modifications in inherited classes.  
+- Provides flexibility while maintaining a contract with the base class method signatures.  
+- I used the `virtual` keyword in a .NET Core project to allow customizable logging behavior in derived logging services:  
+```csharp
+public class Logger {
+    public virtual void Log(string message) {
+        Console.WriteLine($"Log: {message}");
+    }
+}
+public class FileLogger : Logger {
+    public override void Log(string message) {
+        System.IO.File.WriteAllText("log.txt", message);
+    }
+}
+```  
+
+**4. Difference between procedural and OOP?**  
+- Procedural programming is task-oriented, focusing on functions and logic, while OOP is object-oriented, focusing on objects and their interactions.  
+- Procedural uses a top-down approach, whereas OOP uses a bottom-up approach.  
+- Data and functions are separate in procedural programming, but in OOP, they are encapsulated together.  
+- Procedural programming lacks features like inheritance and polymorphism, which are central to OOP.  
+- In a real-world example, I used procedural programming for simple scripts, like batch file processing, and OOP for larger applications like CRM systems for scalability and maintainability.  
+
+**5. What is a class?**  
+- A class is a blueprint for creating objects, defining data (fields) and behaviors (methods).  
+- It encapsulates data for an object and provides methods for accessing and modifying it.  
+- Classes enable abstraction by hiding complex implementation details from users.  
+- They support OOP principles like inheritance and polymorphism.  
+- In a project, I created a `Product` class to encapsulate product details for an inventory management system:  
+```csharp
+public class Product {
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    
+    public void DisplayInfo() {
+        Console.WriteLine($"Product: {Name}, Price: {Price}");
+    }
+}
+```
+
+**6. Basic features of OOPs?**  
+- Encapsulation: Bundles data and methods to restrict direct access to object components.  
+- Inheritance: Allows a class to use properties and methods of another class.  
+- Polymorphism: Enables objects to take on multiple forms based on context.  
+- Abstraction: Hides implementation details, exposing only essential features.  
+- I applied all these features while creating a hierarchical system for different types of reports in an analytics tool, ensuring extensibility and reusability.  
+
+**7. Can you inherit private members of a class?**  
+- Private members of a class cannot be directly inherited by derived classes.  
+- Derived classes can only access public, protected, or internal members of the base class.  
+- To indirectly use private members, the base class provides access through public or protected methods.  
+- This ensures encapsulation, limiting access to sensitive data.  
+- I followed this approach in a project by exposing private member data via protected methods for derived classes:  
+```csharp
+public class BaseClass {
+    private string secret = "Hidden";
+
+    protected string GetSecret() {
+        return secret;
+    }
+}
+
+public class DerivedClass : BaseClass {
+    public void DisplaySecret() {
+        Console.WriteLine(GetSecret());
+    }
+}
+```
+
 **8. What is the difference between a class and a structure?**  
 - Classes are reference types, while structures are value types.  
 - Classes support inheritance, but structures do not.  
