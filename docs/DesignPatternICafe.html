@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>in</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><strong>1. What are the main categories of design
+patterns?</strong></p>
+<ul>
+<li>Creational patterns deal with object creation mechanisms, enhancing
+flexibility and reuse.</li>
+<li>Structural patterns focus on object composition, simplifying
+relationships between entities.</li>
+<li>Behavioral patterns address object collaboration and responsibility
+delegation.</li>
+<li>Examples include Singleton (Creational), Adapter (Structural), and
+Observer (Behavioral).</li>
+<li>I used Behavioral patterns in an event-driven project to manage
+communication between objects using the Observer pattern. Example:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ObserverExample</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> IObserver <span class="op">{</span> <span class="dt">void</span> <span class="fu">Update</span><span class="op">(</span><span class="dt">string</span> message<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">class</span> Subject</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> List<span class="op">&lt;</span>IObserver<span class="op">&gt;</span> observers <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>IObserver<span class="op">&gt;();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddObserver</span><span class="op">(</span>IObserver observer<span class="op">)</span> <span class="op">=&gt;</span> observers<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>observer<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">NotifyObservers</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            observers<span class="op">.</span><span class="fu">ForEach</span><span class="op">(</span>o <span class="op">=&gt;</span> o<span class="op">.</span><span class="fu">Update</span><span class="op">(</span>message<span class="op">));</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>2. What is a design pattern and why should anyone use
+them?</strong></p>
+<ul>
+<li>A design pattern is a proven, reusable solution to a common software
+design problem.</li>
+<li>They improve communication by providing shared terminology.</li>
+<li>Using them promotes code reusability, scalability, and
+maintainability.</li>
+<li>In my .NET Core API project, Singleton ensured a single instance of
+a logger, optimizing resource usage. Example:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">sealed</span> <span class="kw">class</span> Logger</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">static</span> <span class="kw">readonly</span> Logger instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">Logger</span><span class="op">();</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">Logger</span><span class="op">()</span> <span class="op">{}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> Logger Instance <span class="op">=&gt;</span> instance<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Log</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>message<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>3. What is a pattern in software design?</strong></p>
+<ul>
+<li>A pattern is a general reusable solution to a recurring
+problem.</li>
+<li>It’s not a finished design but a template for solving problems.</li>
+<li>Patterns guide developers to write optimized and clean code.</li>
+<li>In an Angular project, I used patterns to structure reusable
+services and components effectively.</li>
+</ul>
+<hr />
+<p><strong>4. What is the Singleton design pattern?</strong></p>
+<ul>
+<li>Ensures only one instance of a class exists throughout the
+application.</li>
+<li>Provides a global point of access to that instance.</li>
+<li>It is useful for managing shared resources like configuration or
+logging.</li>
+<li>Implemented Singleton for database connections in my project,
+reducing overhead. Example:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">sealed</span> <span class="kw">class</span> DatabaseConnection</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">static</span> <span class="kw">readonly</span> DatabaseConnection instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">DatabaseConnection</span><span class="op">();</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">DatabaseConnection</span><span class="op">()</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> DatabaseConnection Instance <span class="op">=&gt;</span> instance<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>5. What is Dependency Injection?</strong></p>
+<ul>
+<li>A technique to achieve Inversion of Control by providing
+dependencies externally.</li>
+<li>It decouples the creation of an object from its usage.</li>
+<li>Promotes testability and easier maintenance.</li>
+<li>Used Dependency Injection in .NET Core using built-in support to
+inject services into controllers. Example:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MyService <span class="op">:</span> IMyService</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">()</span> <span class="op">{</span> <span class="co">/* Implementation */</span> <span class="op">}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>6. What is the State design pattern?</strong></p>
+<ul>
+<li>Allows an object to alter its behavior when its internal state
+changes.</li>
+<li>Encapsulates state-specific behavior in separate classes.</li>
+<li>Improves code organization and makes it easy to add new states.</li>
+<li>Implemented this pattern for managing payment statuses in an
+e-commerce application. Example:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IState <span class="op">{</span> <span class="dt">void</span> <span class="fu">Handle</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ApprovedState <span class="op">:</span> IState <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Handle</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Payment approved.&quot;</span><span class="op">);</span> <span class="op">}</span> <span class="op">}</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> RejectedState <span class="op">:</span> IState <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Handle</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Payment rejected.&quot;</span><span class="op">);</span> <span class="op">}</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>7. What is the Null Object pattern?</strong></p>
+<ul>
+<li>Provides a default implementation for a class to avoid null
+checks.</li>
+<li>Improves code readability and reduces null reference errors.</li>
+<li>Useful for cases where the absence of an object should be handled
+gracefully.</li>
+<li>Used this pattern to avoid null checks in optional service handling.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IService <span class="op">{</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> NullService <span class="op">:</span> IService <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">()</span> <span class="op">{</span> <span class="op">}</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>8. What is the Template Method pattern?</strong></p>
+<ul>
+<li>Defines the skeleton of an algorithm in a method, deferring some
+steps to subclasses.</li>
+<li>Promotes code reuse and flexibility.</li>
+<li>Useful in situations with a common sequence of steps but variation
+in certain steps.</li>
+<li>Applied in a report generation system where formatting differed by
+report type. Example:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> ReportTemplate</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">GenerateReport</span><span class="op">()</span> <span class="op">{</span> <span class="fu">FetchData</span><span class="op">();</span> <span class="fu">FormatReport</span><span class="op">();</span> <span class="fu">SaveReport</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">FetchData</span><span class="op">();</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">FormatReport</span><span class="op">();</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">void</span> <span class="fu">SaveReport</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Saving Report...&quot;</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>9. What is the Iterator pattern?</strong></p>
+<ul>
+<li>Provides a way to access elements of a collection sequentially
+without exposing its structure.</li>
+<li>Useful for traversing complex data structures.</li>
+<li>Promotes encapsulation and simplifies traversal.</li>
+<li>Used this pattern for custom collections in a financial app.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IIterator <span class="op">{</span> <span class="dt">bool</span> <span class="fu">HasNext</span><span class="op">();</span> <span class="dt">object</span> <span class="fu">Next</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ArrayIterator <span class="op">:</span> IIterator</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span><span class="op">[]</span> _array<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> position <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">ArrayIterator</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> array<span class="op">)</span> <span class="op">{</span> _array <span class="op">=</span> array<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">HasNext</span><span class="op">()</span> <span class="op">=&gt;</span> position <span class="op">&lt;</span> _array<span class="op">.</span><span class="fu">Length</span><span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">object</span> <span class="fu">Next</span><span class="op">()</span> <span class="op">=&gt;</span> _array<span class="op">[</span>position<span class="op">++];</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>10. What is the Strategy pattern?</strong></p>
+<ul>
+<li>Defines a family of algorithms and makes them interchangeable.</li>
+<li>Promotes flexibility and reduces conditional logic.</li>
+<li>Ideal for implementing various behaviors dynamically.</li>
+<li>Used for implementing sorting algorithms in a library system.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> ISortingStrategy <span class="op">{</span> <span class="dt">void</span> <span class="fu">Sort</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> data<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> QuickSort <span class="op">:</span> ISortingStrategy <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Sort</span><span class="op">(</span><span class="dt">int</span><span class="op">[]</span> data<span class="op">)</span> <span class="op">{</span> <span class="co">/* QuickSort implementation */</span> <span class="op">}</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>11. What is the Proxy pattern?</strong></p>
+<ul>
+<li>Provides a surrogate or placeholder for another object to control
+access.</li>
+<li>Useful for lazy initialization, logging, or security purposes.</li>
+<li>Reduces resource usage by controlling object creation.</li>
+<li>Used a Proxy for caching API responses in a project. Example:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ServiceProxy <span class="op">:</span> IService</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> RealService _realService<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">()</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>_realService <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> _realService <span class="op">=</span> <span class="kw">new</span> <span class="fu">RealService</span><span class="op">();</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        _realService<span class="op">.</span><span class="fu">Execute</span><span class="op">();</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>12. What are some benefits of the Repository
+pattern?</strong></p>
+<ul>
+<li>Centralizes data access logic, improving code maintainability.</li>
+<li>Abstracts database operations, making code database-agnostic.</li>
+<li>Simplifies testing by enabling mock repositories.</li>
+<li>Used in a Unit of Work setup for efficient transaction management.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IRepository<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span> T <span class="fu">GetById</span><span class="op">(</span><span class="dt">int</span> id<span class="op">);</span> <span class="dt">void</span> <span class="fu">Add</span><span class="op">(</span>T entity<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Repository<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">:</span> IRepository<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span> <span class="co">/* Implementation */</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>13. What is the Filter pattern?</strong></p>
+<ul>
+<li>Filters a set of objects using different criteria and chaining them
+together.</li>
+<li>Promotes flexibility and reusability.</li>
+<li>Useful in applications requiring dynamic filtering.</li>
+<li>Implemented in a product filtering module of an e-commerce site.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IFilter<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span> IEnumerable<span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">Filter</span><span class="op">(</span>IEnumerable<span class="op">&lt;</span>T<span class="op">&gt;</span> items<span class="op">);</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>14. What is the Builder pattern?</strong></p>
+<ul>
+<li>Separates object construction from its representation.</li>
+<li>Ideal for creating complex objects with multiple
+configurations.</li>
+<li>Simplifies object creation and promotes immutability.</li>
+<li>Used for building configuration files dynamically. Example:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProductBuilder <span class="op">{</span> <span class="kw">public</span> ProductBuilder <span class="fu">SetName</span><span class="op">(</span><span class="dt">string</span> name<span class="op">)</span> <span class="op">{</span> <span class="co">/* Implementation */</span> <span class="kw">return</span> <span class="kw">this</span><span class="op">;</span> <span class="op">}</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>15. What are the types of design patterns?</strong></p>
+<ul>
+<li>Creational patterns focus on object creation.</li>
+<li>Structural patterns emphasize object relationships and
+compositions.</li>
+<li>Behavioral patterns govern object collaboration and
+interactions.</li>
+<li>Patterns like Singleton, Adapter, and Strategy cover these
+categories comprehensively.</li>
+<li>Implemented Strategy for configurable export formats in a document
+processing system. Example:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IExportStrategy <span class="op">{</span> <span class="dt">void</span> <span class="fu">Export</span><span class="op">(</span><span class="dt">string</span> data<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> PDFExport <span class="op">:</span> IExportStrategy <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Export</span><span class="op">(</span><span class="dt">string</span> data<span class="op">)</span> <span class="op">{</span> <span class="co">/* Export to PDF */</span> <span class="op">}</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>16. What is Inversion of Control?</strong></p>
+<ul>
+<li>A design principle where the control of object creation and flow is
+transferred from the program to a framework or container.</li>
+<li>Helps decouple the code by abstracting dependencies.</li>
+<li>Implemented using Dependency Injection, Service Locators, or
+Events.</li>
+<li>In .NET Core, IoC is achieved through the built-in Dependency
+Injection container. Example:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>services<span class="op">.</span><span class="fu">AddTransient</span><span class="op">&lt;</span>IMyService<span class="op">,</span> MyService<span class="op">&gt;();</span></span></code></pre></div>
+<hr />
+<p><strong>17. Why would you want to use a Repository pattern with an
+ORM?</strong></p>
+<ul>
+<li>Abstracts database queries, allowing switching ORMs without changing
+business logic.</li>
+<li>Simplifies testing by mocking repositories instead of actual
+database interactions.</li>
+<li>Centralizes and organizes data access logic.</li>
+<li>Used with Entity Framework Core to simplify queries and CRUD
+operations. Example:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ProductRepository <span class="op">:</span> IRepository<span class="op">&lt;</span>Product<span class="op">&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> DbContext _context<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">ProductRepository</span><span class="op">(</span>DbContext context<span class="op">)</span> <span class="op">{</span> _context <span class="op">=</span> context<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Product <span class="fu">GetById</span><span class="op">(</span><span class="dt">int</span> id<span class="op">)</span> <span class="op">=&gt;</span> _context<span class="op">.</span><span class="fu">Products</span><span class="op">.</span><span class="fu">Find</span><span class="op">(</span>id<span class="op">);</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>18. Can we create a clone of a Singleton object?</strong></p>
+<ul>
+<li>Technically, it is possible but violates the Singleton
+principle.</li>
+<li>Using reflection or serialization can bypass Singleton
+constraints.</li>
+<li>This is generally discouraged as it defeats the purpose of
+Singleton.</li>
+<li>Prevented cloning in a project by implementing
+<code>ICloneable</code> and throwing an exception. Example:</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Singleton <span class="op">:</span> ICloneable</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">static</span> Singleton instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">Singleton</span><span class="op">();</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="fu">Singleton</span><span class="op">()</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> Singleton Instance <span class="op">=&gt;</span> instance<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">object</span> <span class="fu">Clone</span><span class="op">()</span> <span class="op">=&gt;</span> <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">NotSupportedException</span><span class="op">(</span><span class="st">&quot;Cloning not allowed.&quot;</span><span class="op">);</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>19. What is the Factory pattern?</strong></p>
+<ul>
+<li>A creational pattern that provides an interface for creating objects
+without specifying their exact class.</li>
+<li>Promotes loose coupling and enhances code flexibility.</li>
+<li>Used for creating instances based on runtime conditions.</li>
+<li>Implemented for a notification system to generate email or SMS
+services dynamically. Example:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> INotification <span class="op">{</span> <span class="dt">void</span> <span class="fu">Send</span><span class="op">(</span><span class="dt">string</span> message<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> NotificationFactory</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> INotification <span class="fu">CreateNotification</span><span class="op">(</span><span class="dt">string</span> type<span class="op">)</span> <span class="op">=&gt;</span> type <span class="kw">switch</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Email&quot;</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">EmailNotification</span><span class="op">(),</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;SMS&quot;</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">SmsNotification</span><span class="op">(),</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        _ <span class="op">=&gt;</span> <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Invalid type&quot;</span><span class="op">)</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>20. What is Unit of Work?</strong></p>
+<ul>
+<li>A design pattern that groups related operations into a single
+transaction.</li>
+<li>Ensures that all operations either succeed or fail together.</li>
+<li>Works with Repository to manage object changes efficiently.</li>
+<li>Used in my project to wrap multiple database operations in a
+transaction. Example:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IUnitOfWork <span class="op">{</span> <span class="dt">void</span> <span class="fu">Commit</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UnitOfWork <span class="op">:</span> IUnitOfWork</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> DbContext _context<span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">UnitOfWork</span><span class="op">(</span>DbContext context<span class="op">)</span> <span class="op">{</span> _context <span class="op">=</span> context<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Commit</span><span class="op">()</span> <span class="op">{</span> _context<span class="op">.</span><span class="fu">SaveChanges</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>21. What is the Claim Check pattern in Azure Event
+Grid?</strong></p>
+<ul>
+<li>A messaging pattern to offload payloads from messages and replace
+them with references (claims).</li>
+<li>Reduces message size, improving performance and scalability.</li>
+<li>Claims are used to retrieve the full payload from storage when
+needed.</li>
+<li>Used this to handle large messages efficiently in a distributed
+system. Example:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;eventType&quot;</span><span class="fu">:</span> <span class="st">&quot;PayloadReference&quot;</span><span class="fu">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;url&quot;</span><span class="fu">:</span> <span class="st">&quot;https://storage.blob.core.windows.net/container/message.json&quot;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<p><strong>22. What is the Chain of Responsibility pattern?</strong></p>
+<ul>
+<li>Passes a request along a chain of handlers until one processes
+it.</li>
+<li>Decouples sender and receiver, promoting flexibility.</li>
+<li>Useful for workflows or dynamic request processing.</li>
+<li>Implemented for dynamic request validation in an API project.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Handler</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> Handler Next<span class="op">;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">SetNext</span><span class="op">(</span>Handler next<span class="op">)</span> <span class="op">=&gt;</span> Next <span class="op">=</span> next<span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">void</span> <span class="fu">HandleRequest</span><span class="op">(</span><span class="dt">int</span> request<span class="op">);</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>23. What is the Memento pattern?</strong></p>
+<ul>
+<li>Captures and restores an object’s state without violating
+encapsulation.</li>
+<li>Useful for undo functionality.</li>
+<li>Separates the concerns of saving state and managing state
+restoration.</li>
+<li>Used in a text editor application for undo/redo features.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Memento <span class="op">{</span> <span class="kw">public</span> <span class="dt">string</span> State <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span> <span class="op">}</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Originator</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">string</span> state<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">SetState</span><span class="op">(</span><span class="dt">string</span> state<span class="op">)</span> <span class="op">{</span> <span class="kw">this</span><span class="op">.</span><span class="fu">state</span> <span class="op">=</span> state<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Memento <span class="fu">SaveState</span><span class="op">()</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Memento</span><span class="op">(</span>state<span class="op">);</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>24. What is the Command pattern?</strong></p>
+<ul>
+<li>Encapsulates a request as an object, enabling parameterization and
+queuing.</li>
+<li>Useful for undoable operations and logging changes.</li>
+<li>Decouples sender and receiver of requests.</li>
+<li>Used to implement an undo system in a task management app.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> ICommand <span class="op">{</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">();</span> <span class="dt">void</span> <span class="fu">Undo</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> CreateTaskCommand <span class="op">:</span> ICommand</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Execute</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Task Created&quot;</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Undo</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Task Creation Undone&quot;</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>25. What is Event Sourcing?</strong></p>
+<ul>
+<li>Captures all changes to an application state as a sequence of
+events.</li>
+<li>Ensures immutability and traceability of data changes.</li>
+<li>Used for audit logs and temporal queries.</li>
+<li>Applied in an inventory system to track stock changes. Example:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Event <span class="op">{</span> <span class="kw">public</span> <span class="dt">string</span> EventType<span class="op">;</span> <span class="kw">public</span> DateTime Timestamp<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> EventStore <span class="op">{</span> <span class="kw">private</span> List<span class="op">&lt;</span>Event<span class="op">&gt;</span> events <span class="op">=</span> <span class="kw">new</span><span class="op">();</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddEvent</span><span class="op">(</span>Event e<span class="op">)</span> <span class="op">=&gt;</span> events<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>e<span class="op">);</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>26. What are the benefits of CQRS?</strong></p>
+<ul>
+<li>Separates command (write) and query (read) responsibilities for
+better scalability.</li>
+<li>Optimizes performance by tailoring read and write models.</li>
+<li>Improves maintainability by decoupling concerns.</li>
+<li>Implemented for high-traffic e-commerce sites to scale queries
+independently.</li>
+</ul>
+<hr />
+<p><strong>27. What are the drawbacks of the Active Record
+pattern?</strong></p>
+<ul>
+<li>Tight coupling between database and domain logic.</li>
+<li>Poor testability due to direct database dependency.</li>
+<li>Difficult to manage complex business logic in Active Records.</li>
+<li>Faced challenges with Active Record in a legacy project, moving to
+Repository solved them.</li>
+</ul>
+<hr />
+<p><strong>28. What is the Command and Query Responsibility Segregation
+(CQRS) pattern?</strong></p>
+<ul>
+<li>Splits write operations (commands) from read operations
+(queries).</li>
+<li>Enables scaling reads and writes independently.</li>
+<li>Improves performance and simplifies query optimization.</li>
+<li>Used CQRS in an analytics app to handle large-scale reporting.</li>
+</ul>
+<hr />
+<p><strong>29. What are the advantages of using Dependency
+Injection?</strong></p>
+<ul>
+<li>Promotes loose coupling and improves maintainability.</li>
+<li>Makes unit testing easier by enabling mocking.</li>
+<li>Enhances flexibility and reusability of components.</li>
+<li>Injected services in my .NET API project for streamlined testing and
+modularity.</li>
+</ul>
+<hr />
+<p><strong>30. What are some reasons to use the Repository
+pattern?</strong></p>
+<ul>
+<li>Centralizes data access logic and promotes code reuse.</li>
+<li>Decouples business logic from database operations.</li>
+<li>Simplifies testing by mocking repositories.</li>
+<li>Used in conjunction with Unit of Work for transaction
+management.</li>
+</ul>
+<p><strong>31. What is an Aggregate Root in the context of the
+Repository pattern?</strong></p>
+<ul>
+<li>It is the primary entity that controls the lifecycle of a group of
+related objects.</li>
+<li>Ensures that all changes to related objects go through the root
+entity.</li>
+<li>Maintains consistency and prevents direct access to related
+objects.</li>
+<li>Used Aggregate Roots in an e-commerce project for managing orders
+and their line items. Example:</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Order</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Id <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> List<span class="op">&lt;</span>OrderItem<span class="op">&gt;</span> Items <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddItem</span><span class="op">(</span>OrderItem item<span class="op">)</span> <span class="op">=&gt;</span> Items<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>item<span class="op">);</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>32. In OOP, what is the difference between the Repository
+pattern and a Service Layer?</strong></p>
+<ul>
+<li>The Repository pattern handles data access and persistence
+logic.</li>
+<li>The Service Layer contains business logic and coordinates operations
+across repositories.</li>
+<li>Repositories focus on CRUD operations, while services orchestrate
+workflows.</li>
+<li>Used Service Layer in conjunction with Repository to encapsulate
+business rules. Example:</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> OrderService</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> IRepository<span class="op">&lt;</span>Order<span class="op">&gt;</span> _repository<span class="op">;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">OrderService</span><span class="op">(</span>IRepository<span class="op">&lt;</span>Order<span class="op">&gt;</span> repository<span class="op">)</span> <span class="op">{</span> _repository <span class="op">=</span> repository<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">PlaceOrder</span><span class="op">(</span>Order order<span class="op">)</span> <span class="op">{</span> <span class="co">/* Business logic */</span> _repository<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>order<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>33. Is Unit of Work equal to Transaction or is it more than
+that?</strong></p>
+<ul>
+<li>Unit of Work coordinates changes across multiple repositories in a
+single transaction.</li>
+<li>Transactions are low-level, while Unit of Work is higher-level and
+manages multiple operations.</li>
+<li>Unit of Work also tracks changes to entities to minimize database
+interactions.</li>
+<li>Used Unit of Work in a multi-repository scenario to commit changes
+atomically. Example:</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> UnitOfWork <span class="op">:</span> IUnitOfWork</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> DbContext _context<span class="op">;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">UnitOfWork</span><span class="op">(</span>DbContext context<span class="op">)</span> <span class="op">{</span> _context <span class="op">=</span> context<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Commit</span><span class="op">()</span> <span class="op">{</span> _context<span class="op">.</span><span class="fu">SaveChanges</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>34. When should I use the Active Record vs. Repository
+pattern?</strong></p>
+<ul>
+<li>Use Active Record for simpler applications where domain logic is
+minimal.</li>
+<li>Use Repository for complex systems with intricate business rules and
+large teams.</li>
+<li>Repository promotes separation of concerns, making it more
+testable.</li>
+<li>Transitioned from Active Record to Repository in a project to better
+manage complexity.</li>
+</ul>
+<hr />
+<p><strong>35. What is the Interpreter pattern?</strong></p>
+<ul>
+<li>Defines a grammar for a language and an interpreter to interpret
+sentences in the language.</li>
+<li>Useful for parsing and evaluating expressions.</li>
+<li>Promotes extensibility by allowing new grammar rules.</li>
+<li>Used this pattern to evaluate mathematical expressions in a custom
+scripting language. Example:</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IExpression <span class="op">{</span> <span class="dt">int</span> <span class="fu">Interpret</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Number <span class="op">:</span> IExpression</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> <span class="dt">int</span> _number<span class="op">;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Number</span><span class="op">(</span><span class="dt">int</span> number<span class="op">)</span> <span class="op">{</span> _number <span class="op">=</span> number<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">Interpret</span><span class="op">()</span> <span class="op">=&gt;</span> _number<span class="op">;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>36. What is the Abstract Factory pattern?</strong></p>
+<ul>
+<li>Provides an interface for creating families of related objects
+without specifying their concrete classes.</li>
+<li>Useful for creating platform-specific implementations.</li>
+<li>Promotes consistency across products in the same family.</li>
+<li>Used for generating UI components for different operating systems.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IUIFactory <span class="op">{</span> IButton <span class="fu">CreateButton</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> WindowsUIFactory <span class="op">:</span> IUIFactory <span class="op">{</span> <span class="kw">public</span> IButton <span class="fu">CreateButton</span><span class="op">()</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">WindowsButton</span><span class="op">();</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>37. What is the Adapter pattern?</strong></p>
+<ul>
+<li>Converts the interface of a class into another interface the client
+expects.</li>
+<li>Promotes compatibility between incompatible interfaces.</li>
+<li>Used for integrating third-party libraries in legacy systems.</li>
+<li>Applied this pattern to use a new logging framework in an existing
+application. Example:</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> ILogger <span class="op">{</span> <span class="dt">void</span> <span class="fu">Log</span><span class="op">(</span><span class="dt">string</span> message<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> LogAdapter <span class="op">:</span> ILogger</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> ThirdPartyLogger _logger<span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">LogAdapter</span><span class="op">(</span>ThirdPartyLogger logger<span class="op">)</span> <span class="op">{</span> _logger <span class="op">=</span> logger<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Log</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span> <span class="op">=&gt;</span> _logger<span class="op">.</span><span class="fu">WriteLog</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>38. What is the Bridge pattern?</strong></p>
+<ul>
+<li>Decouples abstraction from implementation so that they can vary
+independently.</li>
+<li>Useful for designing cross-platform systems.</li>
+<li>Promotes flexibility and scalability in design.</li>
+<li>Used for implementing shape rendering in a graphics application.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IRenderer <span class="op">{</span> <span class="dt">void</span> <span class="fu">Render</span><span class="op">(</span><span class="dt">string</span> shape<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Circle</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> IRenderer _renderer<span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Circle</span><span class="op">(</span>IRenderer renderer<span class="op">)</span> <span class="op">{</span> _renderer <span class="op">=</span> renderer<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Draw</span><span class="op">()</span> <span class="op">=&gt;</span> _renderer<span class="op">.</span><span class="fu">Render</span><span class="op">(</span><span class="st">&quot;Circle&quot;</span><span class="op">);</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>39. What does “program to interfaces, not implementations”
+mean?</strong></p>
+<ul>
+<li>Encourages using abstractions (interfaces) instead of concrete
+classes.</li>
+<li>Promotes flexibility, making code more extensible and testable.</li>
+<li>Reduces coupling between modules and facilitates dependency
+injection.</li>
+<li>Followed this principle to inject dependencies in a modular
+application. Example:</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> INotification <span class="op">{</span> <span class="dt">void</span> <span class="fu">Send</span><span class="op">(</span><span class="dt">string</span> message<span class="op">);</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>40. What is the Decorator pattern?</strong></p>
+<ul>
+<li>Dynamically adds new behaviors to objects without altering their
+structure.</li>
+<li>Promotes code reuse and adherence to the open/closed principle.</li>
+<li>Used this pattern to add logging and validation to services.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> INotifier <span class="op">{</span> <span class="dt">void</span> <span class="fu">Notify</span><span class="op">(</span><span class="dt">string</span> message<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> EmailNotifier <span class="op">:</span> INotifier <span class="op">{</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Notify</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span> <span class="op">{</span> <span class="co">/* Email sending */</span> <span class="op">}</span> <span class="op">}</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> LoggingNotifier <span class="op">:</span> INotifier</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> INotifier _notifier<span class="op">;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">LoggingNotifier</span><span class="op">(</span>INotifier notifier<span class="op">)</span> <span class="op">{</span> _notifier <span class="op">=</span> notifier<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Notify</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Logging: &quot;</span> <span class="op">+</span> message<span class="op">);</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        _notifier<span class="op">.</span><span class="fu">Notify</span><span class="op">(</span>message<span class="op">);</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>41. What is the Prototype pattern?</strong></p>
+<ul>
+<li>Creates new objects by copying an existing object.</li>
+<li>Useful for creating objects with similar configurations.</li>
+<li>Promotes efficiency when object creation is expensive.</li>
+<li>Used this pattern for cloning configurations in a template-based
+system. Example:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Prototype <span class="op">:</span> ICloneable</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">object</span> <span class="fu">Clone</span><span class="op">()</span> <span class="op">=&gt;</span> <span class="fu">MemberwiseClone</span><span class="op">();</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>42. What is the Facade pattern?</strong></p>
+<ul>
+<li>Provides a simplified interface to a complex subsystem.</li>
+<li>Reduces the dependency of client code on subsystem classes.</li>
+<li>Used this pattern to simplify access to third-party APIs in a
+project. Example:</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> EmailService</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">SendEmail</span><span class="op">(</span><span class="dt">string</span> to<span class="op">,</span> <span class="dt">string</span> subject<span class="op">,</span> <span class="dt">string</span> body<span class="op">)</span> <span class="op">{</span> <span class="co">/* Implementation */</span> <span class="op">}</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> NotificationFacade</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> EmailService _emailService <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Notify</span><span class="op">(</span><span class="dt">string</span> message<span class="op">)</span> <span class="op">=&gt;</span> _emailService<span class="op">.</span><span class="fu">SendEmail</span><span class="op">(</span><span class="st">&quot;user@example.com&quot;</span><span class="op">,</span> <span class="st">&quot;Notification&quot;</span><span class="op">,</span> message<span class="op">);</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>43. What is the difference between Proxy and Decorator
+patterns?</strong></p>
+<ul>
+<li>Proxy controls access to the object, while Decorator adds new
+behavior.</li>
+<li>Proxy focuses on resource management; Decorator enhances
+functionality.</li>
+<li>Both follow similar structures but serve different purposes.</li>
+<li>Used Proxy for caching and Decorator for dynamic feature extension
+in different projects.</li>
+</ul>
+<hr />
+<p><strong>44. What are the differences between a Static class and a
+Singleton class?</strong></p>
+<ul>
+<li>A Static class cannot be instantiated; a Singleton ensures a single
+instance.</li>
+<li>Singleton allows controlled initialization; Static does not manage
+state.</li>
+<li>Singleton enables lazy loading and dependency injection.</li>
+<li>Used Singleton for shared configurations and Static for utility
+methods.</li>
+</ul>
+<hr />
+<p><strong>45. When should I use the Composite design
+pattern?</strong></p>
+<ul>
+<li>Use when you need to treat individual objects and compositions
+uniformly.</li>
+<li>Ideal for hierarchical structures like file systems or menus.</li>
+<li>Simplifies client code by providing a unified interface.</li>
+<li>Implemented for rendering nested UI elements in a web application.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IComponent <span class="op">{</span> <span class="dt">void</span> <span class="fu">Render</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Composite <span class="op">:</span> IComponent</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> List<span class="op">&lt;</span>IComponent<span class="op">&gt;</span> _children <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Add</span><span class="op">(</span>IComponent component<span class="op">)</span> <span class="op">=&gt;</span> _children<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>component<span class="op">);</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Render</span><span class="op">()</span> <span class="op">{</span> <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> child <span class="kw">in</span> _children<span class="op">)</span> child<span class="op">.</span><span class="fu">Render</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>46. What is the Observer pattern?</strong></p>
+<ul>
+<li>Defines a one-to-many dependency between objects so that when one
+object changes state, all its dependents are notified.</li>
+<li>Useful for implementing publish-subscribe mechanisms.</li>
+<li>Promotes loose coupling between subjects and observers.</li>
+<li>Used this pattern to notify multiple components of state changes in
+an Angular project. Example:</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Subject</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> List<span class="op">&lt;</span>IObserver<span class="op">&gt;</span> observers <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Attach</span><span class="op">(</span>IObserver observer<span class="op">)</span> <span class="op">=&gt;</span> observers<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>observer<span class="op">);</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Notify</span><span class="op">()</span> <span class="op">{</span> <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> observer <span class="kw">in</span> observers<span class="op">)</span> observer<span class="op">.</span><span class="fu">Update</span><span class="op">();</span> <span class="op">}</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">interface</span> IObserver <span class="op">{</span> <span class="dt">void</span> <span class="fu">Update</span><span class="op">();</span> <span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>47. What is the Mediator pattern?</strong></p>
+<ul>
+<li>Encapsulates interactions between multiple objects, promoting loose
+coupling.</li>
+<li>Centralizes communication to simplify object dependencies.</li>
+<li>Useful for managing complex workflows with multiple interacting
+components.</li>
+<li>Used this pattern in a chat application to coordinate user
+interactions. Example:</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ChatRoom</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">ShowMessage</span><span class="op">(</span><span class="dt">string</span> user<span class="op">,</span> <span class="dt">string</span> message<span class="op">)</span> <span class="op">=&gt;</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">&quot;{user}: {message}&quot;</span><span class="op">);</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>48. How is the Bridge pattern different from the Adapter
+pattern?</strong></p>
+<ul>
+<li>Bridge separates abstraction and implementation, allowing them to
+vary independently.</li>
+<li>Adapter makes an existing class compatible with a new
+interface.</li>
+<li>Bridge is used proactively for extensibility, while Adapter solves
+compatibility issues retroactively.</li>
+<li>Applied Bridge for modular development and Adapter for legacy
+integration.</li>
+</ul>
+<hr />
+<p><strong>49. What is the Service Locator pattern?</strong></p>
+<ul>
+<li>Provides a central registry for locating services in an
+application.</li>
+<li>Decouples client code from dependency initialization.</li>
+<li>Can make code harder to trace compared to Dependency Injection.</li>
+<li>Used this pattern in legacy codebases where DI was not feasible.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ServiceLocator</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">static</span> <span class="kw">readonly</span> Dictionary<span class="op">&lt;</span>Type<span class="op">,</span> <span class="dt">object</span><span class="op">&gt;</span> Services <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> Register<span class="op">&lt;</span>T<span class="op">&gt;(</span>T service<span class="op">)</span> <span class="op">=&gt;</span> Services<span class="op">[</span><span class="kw">typeof</span><span class="op">(</span>T<span class="op">)]</span> <span class="op">=</span> service<span class="op">;</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> T Resolve<span class="op">&lt;</span>T<span class="op">&gt;()</span> <span class="op">=&gt;</span> <span class="op">(</span>T<span class="op">)</span>Services<span class="op">[</span><span class="kw">typeof</span><span class="op">(</span>T<span class="op">)];</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>50. What is the Flyweight pattern?</strong></p>
+<ul>
+<li>Reduces memory usage by sharing common parts of objects that are
+expensive to instantiate.</li>
+<li>Useful when dealing with large numbers of objects with shared
+state.</li>
+<li>Separates intrinsic (shared) and extrinsic (unique) data.</li>
+<li>Used this pattern for rendering thousands of text characters in a
+graphics application. Example:</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Flyweight</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> <span class="dt">string</span> _intrinsicState<span class="op">;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Flyweight</span><span class="op">(</span><span class="dt">string</span> intrinsicState<span class="op">)</span> <span class="op">{</span> _intrinsicState <span class="op">=</span> intrinsicState<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Operation</span><span class="op">(</span><span class="dt">string</span> extrinsicState<span class="op">)</span> <span class="op">=&gt;</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">&quot;{_intrinsicState} - {extrinsicState}&quot;</span><span class="op">);</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>51. What is the difference between Strategy and State design
+patterns?</strong></p>
+<ul>
+<li>Strategy allows choosing an algorithm at runtime, while State
+changes behavior based on object state.</li>
+<li>Strategy focuses on behavior delegation; State focuses on
+transitions between states.</li>
+<li>Both promote flexibility but serve different purposes.</li>
+<li>Used Strategy for dynamic sorting and State for a finite state
+machine in different projects.</li>
+</ul>
+<hr />
+<p><strong>52. What are some disadvantages of Dependency
+Injection?</strong></p>
+<ul>
+<li>Can make code harder to read and debug due to indirection.</li>
+<li>Requires additional setup and configuration, increasing
+complexity.</li>
+<li>Overuse can lead to an explosion of interfaces and
+abstractions.</li>
+<li>Faced challenges with overly complex DI in a large-scale .NET
+application.</li>
+</ul>
+<hr />
+<p><strong>53. What is the relationship between Repository and Unit of
+Work?</strong></p>
+<ul>
+<li>Repository manages CRUD operations for entities.</li>
+<li>Unit of Work coordinates transactions across multiple
+repositories.</li>
+<li>Together, they ensure consistency and reduce database
+interaction.</li>
+<li>Implemented this combination to handle operations on multiple
+aggregates atomically.</li>
+</ul>
+<hr />
+<p><strong>54. Why would I use the Chain of Responsibility over a
+Decorator?</strong></p>
+<ul>
+<li>Chain of Responsibility processes requests in a sequence, allowing
+multiple handlers.</li>
+<li>Decorator adds behavior dynamically to a single object.</li>
+<li>Use Chain for request processing workflows; use Decorator for
+extensible functionality.</li>
+<li>Applied Chain in a middleware pipeline and Decorator for feature
+toggles in projects.</li>
+</ul>
+<hr />
+<p><strong>55. Why shouldn’t I use the Repository pattern with Entity
+Framework?</strong></p>
+<ul>
+<li>EF already provides a DbContext, which acts as a repository.</li>
+<li>Adding another Repository layer can lead to redundant
+abstractions.</li>
+<li>Complex repositories may hide EF features like LINQ and
+tracking.</li>
+<li>Used EF directly in simple projects but added Repository for complex
+systems with business logic.</li>
+</ul>
+<hr />
+<p><strong>56. When would you use the Builder pattern? Why not just use
+the Factory pattern?</strong></p>
+<ul>
+<li>Use Builder for constructing complex objects step-by-step.</li>
+<li>Factory is suitable for creating objects without complex
+configuration.</li>
+<li>Builder separates the construction process from the
+representation.</li>
+<li>Used Builder for configuring multi-step object creation in a
+reporting tool. Example:</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> ReportBuilder</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Report _report <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ReportBuilder <span class="fu">AddTitle</span><span class="op">(</span><span class="dt">string</span> title<span class="op">)</span> <span class="op">{</span> _report<span class="op">.</span><span class="fu">Title</span> <span class="op">=</span> title<span class="op">;</span> <span class="kw">return</span> <span class="kw">this</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Report <span class="fu">Build</span><span class="op">()</span> <span class="op">=&gt;</span> _report<span class="op">;</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>57. What is the difference between Composition and
+Inheritance?</strong></p>
+<ul>
+<li>Composition involves “has-a” relationships, while Inheritance
+represents “is-a” relationships.</li>
+<li>Composition is more flexible and avoids tight coupling.</li>
+<li>Inheritance can lead to brittle hierarchies if overused.</li>
+<li>Used Composition for dynamic behavior and Inheritance for shared
+attributes in a UI library.</li>
+</ul>
+<hr />
+<p><strong>58. How should I group my Repositories when using the
+Repository pattern?</strong></p>
+<ul>
+<li>Group repositories by aggregate roots or domain areas for better
+modularity.</li>
+<li>Avoid creating a repository for every entity; focus on
+aggregates.</li>
+<li>Centralize common logic in a base repository when possible.</li>
+<li>Organized repositories by domain in an e-commerce system:
+<code>OrderRepository</code>, <code>ProductRepository</code>, etc.</li>
+</ul>
+<hr />
+<p><strong>59. Is the Repository pattern the same as the Active Record
+pattern?</strong></p>
+<ul>
+<li>Repository separates domain logic from database access, while Active
+Record combines them.</li>
+<li>Repository promotes testability and decoupling.</li>
+<li>Active Record is simpler for smaller projects but harder to scale
+for complex systems.</li>
+<li>Migrated from Active Record to Repository in a project to simplify
+testing.</li>
+</ul>
+<hr />
+<p><strong>60. What would you choose: a Repository pattern or “smart”
+business objects?</strong></p>
+<ul>
+<li>Repository pattern for clear separation of data access and domain
+logic.</li>
+<li>Smart business objects for simpler, self-contained
+applications.</li>
+<li>Repository scales better for large systems, while smart objects are
+quick for prototypes.</li>
+<li>Chose Repository for an enterprise app requiring complex query
+handling.</li>
+</ul>
+<p><strong>61. Could you explain some benefits of the Repository
+pattern?</strong></p>
+<ul>
+<li>Simplifies data access logic by providing a clean abstraction
+layer.</li>
+<li>Promotes testability by allowing mock implementations.</li>
+<li>Centralizes database access, reducing duplication across
+codebases.</li>
+<li>Implemented this pattern to streamline data access in a
+multi-layered web application.</li>
+</ul>
+<hr />
+<p><strong>62. Could you explain the difference between Facade and
+Mediator patterns?</strong></p>
+<ul>
+<li>Facade simplifies access to a complex subsystem by providing a
+unified interface.</li>
+<li>Mediator manages communication between multiple objects without them
+knowing about each other.</li>
+<li>Facade is about reducing system complexity; Mediator focuses on
+object interaction.</li>
+<li>Used Facade for API calls and Mediator for event-driven workflows in
+projects.</li>
+</ul>
+<hr />
+<p><strong>63. What is the difference between Template and Strategy
+patterns?</strong></p>
+<ul>
+<li>Template defines the skeleton of an algorithm, deferring steps to
+subclasses.</li>
+<li>Strategy defines a family of algorithms and allows them to be
+interchangeable.</li>
+<li>Template enforces structure; Strategy promotes flexibility.</li>
+<li>Used Template for defining report generation steps and Strategy for
+dynamic payment methods.</li>
+</ul>
+<hr />
+<p><strong>64. What is the Deadly Diamond of Death in design
+patterns?</strong></p>
+<ul>
+<li>Refers to ambiguity in multiple inheritance when a class inherits
+from two classes with a common ancestor.</li>
+<li>Common in languages that support multiple inheritance (e.g.,
+C++).</li>
+<li>Avoided in languages like C# or Java by using interfaces or
+composition.</li>
+<li>Resolved this issue in a C++ project by ensuring proper virtual
+inheritance.</li>
+</ul>
+<hr />
+<p><strong>65. Could you explain the differences between Facade, Proxy,
+Adapter, and Decorator design patterns?</strong></p>
+<ul>
+<li><strong>Facade</strong>: Simplifies access to a subsystem by
+providing a single interface.</li>
+<li><strong>Proxy</strong>: Controls access to an object (e.g., caching,
+logging).</li>
+<li><strong>Adapter</strong>: Converts an interface into another
+compatible interface.</li>
+<li><strong>Decorator</strong>: Dynamically adds behavior to an object
+without altering its structure.</li>
+<li>Applied these patterns in different scenarios: Facade for API, Proxy
+for caching, Adapter for legacy systems, and Decorator for runtime
+extensions.</li>
+</ul>
+<hr />
+<p><strong>66. Can we use CQRS without Event Sourcing?</strong></p>
+<ul>
+<li>Yes, CQRS can be implemented without Event Sourcing.</li>
+<li>Event Sourcing is optional and records changes as events; CQRS
+separates reads and writes.</li>
+<li>Often used together but not inherently dependent on each other.</li>
+<li>Implemented CQRS with traditional database reads in a reporting tool
+without Event Sourcing.</li>
+</ul>
+<hr />
+<p><strong>67. What’s the difference between Dependency Injection and
+Service Locator patterns?</strong></p>
+<ul>
+<li>Dependency Injection provides dependencies explicitly, while Service
+Locator allows components to fetch them.</li>
+<li>DI promotes explicit dependencies and is more transparent.</li>
+<li>Service Locator can lead to hidden dependencies and harder-to-trace
+code.</li>
+<li>Switched from Service Locator to DI in a .NET Core project for
+better testability.</li>
+</ul>
+<hr />
+<p><strong>68. How should I add an object into a collection maintained
+by an Aggregate Root?</strong></p>
+<ul>
+<li>Use a method on the Aggregate Root to encapsulate the
+operation.</li>
+<li>This ensures business rules are enforced during object
+addition.</li>
+<li>Direct manipulation of collections violates the Aggregate’s
+consistency boundary.</li>
+<li>Example from an e-commerce project:</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Order</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">readonly</span> List<span class="op">&lt;</span>OrderItem<span class="op">&gt;</span> _items <span class="op">=</span> <span class="kw">new</span><span class="op">();</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddItem</span><span class="op">(</span>OrderItem item<span class="op">)</span> <span class="op">=&gt;</span> _items<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>item<span class="op">);</span> <span class="co">// Enforce rules here</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>69. What is the Data Mapper pattern?</strong></p>
+<ul>
+<li>Maps data between in-memory objects and a database while keeping
+them independent.</li>
+<li>Promotes decoupling between domain logic and database schemas.</li>
+<li>Used by tools like Entity Framework and Hibernate.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> DataMapper</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Order <span class="fu">MapToOrder</span><span class="op">(</span>DataRow row<span class="op">)</span> <span class="op">=&gt;</span> <span class="kw">new</span> Order <span class="op">{</span> Id <span class="op">=</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>row<span class="op">[</span><span class="st">&quot;Id&quot;</span><span class="op">],</span> Name <span class="op">=</span> <span class="op">(</span><span class="dt">string</span><span class="op">)</span>row<span class="op">[</span><span class="st">&quot;Name&quot;</span><span class="op">]</span> <span class="op">};</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>70. What is the Repository and Specification pattern
+combination?</strong></p>
+<ul>
+<li>Specification defines criteria for querying data, and Repository
+implements data access.</li>
+<li>This combination simplifies complex queries and keeps them
+reusable.</li>
+<li>Used to filter orders dynamically in a .NET application.
+Example:</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> OrderSpecification</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> Expression<span class="op">&lt;</span>Func<span class="op">&lt;</span>Order<span class="op">,</span> <span class="dt">bool</span><span class="op">&gt;&gt;</span> Criteria <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> order <span class="op">=&gt;</span> order<span class="op">.</span><span class="fu">IsPaid</span><span class="op">;</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>71. What is a Domain Event in DDD?</strong></p>
+<ul>
+<li>Represents something that happened in the domain that is significant
+to business.</li>
+<li>Often used to trigger side effects or notify other parts of the
+system.</li>
+<li>Encapsulates changes to the state in an immutable event object.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> OrderPlacedEvent</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> OrderId <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">OrderPlacedEvent</span><span class="op">(</span><span class="dt">int</span> orderId<span class="op">)</span> <span class="op">{</span> OrderId <span class="op">=</span> orderId<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>72. What is the Repository pattern in CQRS?</strong></p>
+<ul>
+<li>Provides separate repositories for queries and commands.</li>
+<li>Query repositories focus on read operations, and command
+repositories focus on writes.</li>
+<li>Promotes clarity and scalability in CQRS implementations.</li>
+<li>Example structure: <code>OrderQueryRepository</code>,
+<code>OrderCommandRepository</code>.</li>
+</ul>
+<hr />
+<p><strong>73. What is an Anti-Corruption Layer (ACL)?</strong></p>
+<ul>
+<li>Translates between different models or systems to maintain domain
+integrity.</li>
+<li>Prevents external systems from polluting the internal domain
+model.</li>
+<li>Used to integrate a legacy billing system with a modern payment
+service.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> BillingAcl</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ModernBillingRequest <span class="fu">ConvertToModernRequest</span><span class="op">(</span>LegacyBillingData legacyData<span class="op">)</span> <span class="op">{</span> <span class="co">/* Mapping logic */</span> <span class="op">}</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>74. What is the purpose of a Value Object in
+DDD?</strong></p>
+<ul>
+<li>Represents an immutable type defined by its attributes, not
+identity.</li>
+<li>Promotes consistency and encapsulates logic related to
+attributes.</li>
+<li>Used for reusable concepts like money, address, or date range.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode csharp"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Money</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">decimal</span> Amount <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Currency <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Money</span><span class="op">(</span><span class="dt">decimal</span> amount<span class="op">,</span> <span class="dt">string</span> currency<span class="op">)</span> <span class="op">{</span> Amount <span class="op">=</span> amount<span class="op">;</span> Currency <span class="op">=</span> currency<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<hr />
+<p><strong>75. What is a bounded context in Domain-Driven
+Design?</strong></p>
+<ul>
+<li>Represents a logical boundary within which a domain model is
+consistent.</li>
+<li>Defines clear separations of concerns between subdomains.</li>
+<li>Reduces complexity by isolating models and logic.</li>
+<li>Used bounded contexts to structure a microservices-based
+application.</li>
+</ul>
+</body>
+</html>

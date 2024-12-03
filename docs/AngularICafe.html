@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>in</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><strong>1. What is Routing Guard in Angular?</strong></p>
+<ul>
+<li>Routing Guards control navigation to and from routes in an Angular
+application.</li>
+<li>Common types include <code>CanActivate</code>,
+<code>CanDeactivate</code>, <code>Resolve</code>, and
+<code>CanLoad</code>.</li>
+<li>Guards are implemented using classes that implement a specific guard
+interface.</li>
+<li>Example: To protect a route, use <code>CanActivate</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>({ providedIn<span class="op">:</span> <span class="st">&#39;root&#39;</span> })</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthGuard <span class="kw">implements</span> CanActivate {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">canActivate</span>()<span class="op">:</span> <span class="dt">boolean</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">!!</span>localStorage<span class="op">.</span><span class="fu">getItem</span>(<span class="st">&#39;token&#39;</span>)<span class="op">;</span> <span class="co">// Allow only if token exists</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [{ path<span class="op">:</span> <span class="st">&#39;dashboard&#39;</span><span class="op">,</span> component<span class="op">:</span> DashboardComponent<span class="op">,</span> canActivate<span class="op">:</span> [AuthGuard] }]<span class="op">;</span></span></code></pre></div>
+<p><strong>2. What is a Module, and what does it contain?</strong></p>
+<ul>
+<li>A module is a container for components, directives, pipes, and
+services.</li>
+<li>Every Angular app has at least one module, the
+<code>AppModule</code>.</li>
+<li>Modules group related functionalities and can be lazy-loaded for
+optimization.</li>
+<li>Example: Import and declare components in
+<code>NgModule</code>.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [AppComponent<span class="op">,</span> DashboardComponent]<span class="op">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [BrowserModule]<span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  providers<span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="op">:</span> [AppComponent]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div>
+<p><strong>3. What’s the difference between an Angular Component and a
+Module?</strong></p>
+<ul>
+<li>A module organizes the structure of an app, while a component
+handles the UI and logic.</li>
+<li>Modules are defined with <code>@NgModule</code>, and components are
+defined with <code>@Component</code>.</li>
+<li>Components belong to a module and require their module to run.</li>
+<li>Example: A <code>UserModule</code> manages user-related components,
+such as <code>UserProfileComponent</code>.</li>
+</ul>
+<p><strong>4. How would you protect a component from being activated
+through the router?</strong></p>
+<ul>
+<li>Use a <code>CanActivate</code> guard.</li>
+<li>Implement logic to check user permissions or authentication.</li>
+<li>Attach the guard to the desired route.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>({ providedIn<span class="op">:</span> <span class="st">&#39;root&#39;</span> })</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthGuard <span class="kw">implements</span> CanActivate {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">canActivate</span>(route<span class="op">:</span> ActivatedRouteSnapshot)<span class="op">:</span> <span class="dt">boolean</span> {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> route<span class="op">.</span><span class="at">queryParams</span>[<span class="st">&#39;role&#39;</span>] <span class="op">===</span> <span class="st">&#39;admin&#39;</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>5. What are Observables?</strong></p>
+<ul>
+<li>Observables are data streams used for handling asynchronous
+events.</li>
+<li>Provided by RxJS, they support operations like mapping, filtering,
+and merging.</li>
+<li>Observables are lazy and execute only upon subscription.</li>
+<li>Example: Fetching data with <code>HttpClient</code>.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/users&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span></span></code></pre></div>
+<p><strong>6. How would you run unit tests in Angular?</strong></p>
+<ul>
+<li>Angular uses Karma as the default test runner.</li>
+<li>Write test cases using Jasmine framework.</li>
+<li>Run tests with the <code>ng test</code> command.</li>
+<li>Example: A basic component test.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">it</span>(<span class="st">&#39;should create the app&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> fixture <span class="op">=</span> TestBed<span class="op">.</span><span class="fu">createComponent</span>(AppComponent)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> app <span class="op">=</span> fixture<span class="op">.</span><span class="at">componentInstance</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(app)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>*<em>7. What is the difference between <em>ngIf vs ngIf
+[hidden]?</em></em></p>
+<ul>
+<li><code>*ngIf</code> removes or adds elements to the DOM.</li>
+<li><code>[hidden]</code> only hides elements via
+<code>display: none</code>.</li>
+<li><code>*ngIf</code> is better for performance when toggling large
+sections.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Visible<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">[hidden]</span><span class="ot">=</span><span class="st">&quot;!isVisible&quot;</span><span class="kw">&gt;</span>Hidden<span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p><strong>8. What is Interpolation in Angular?</strong></p>
+<ul>
+<li>Interpolation binds data from a component to the template.</li>
+<li>Uses <code>{{ expression }}</code> syntax to display dynamic
+values.</li>
+<li>Interpolation can evaluate simple expressions.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h1&gt;</span>Hello {{ username }}<span class="kw">&lt;/h1&gt;</span></span></code></pre></div>
+<p><strong>9. You have an HTML response I want to display. How do I do
+that?</strong></p>
+<ul>
+<li>Use <code>[innerHTML]</code> to bind HTML safely.</li>
+<li>Sanitize the response if needed to prevent XSS attacks.</li>
+<li>Use <code>DomSanitizer</code> for trusted content.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">safeHtml</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">sanitizer</span><span class="op">.</span><span class="fu">bypassSecurityTrustHtml</span>(responseHtml)<span class="op">;</span></span></code></pre></div>
+<p><strong>10. What is the difference between @Component and @Directive
+in Angular?</strong></p>
+<ul>
+<li><code>@Component</code> creates UI elements; <code>@Directive</code>
+modifies behavior or appearance.</li>
+<li>Components must have a template; directives don’t.</li>
+<li>Use <code>@Directive</code> for attribute and structural
+modifications.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;[highlight]&#39;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HighlightDirective {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>(el<span class="op">:</span> ElementRef) {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    el<span class="op">.</span><span class="at">nativeElement</span><span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;yellow&#39;</span><span class="op">;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>11. What is an Observer in Angular?</strong></p>
+<ul>
+<li>An observer listens to observable streams.</li>
+<li>It responds to <code>next</code>, <code>error</code>, or
+<code>complete</code> notifications.</li>
+<li>Observers must implement <code>Observer&lt;T&gt;</code>
+interface.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> observer <span class="op">=</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  next<span class="op">:</span> (value) <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(value)<span class="op">,</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  error<span class="op">:</span> (err) <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(err)<span class="op">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  complete<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Complete&#39;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>observable$<span class="op">.</span><span class="fu">subscribe</span>(observer)<span class="op">;</span></span></code></pre></div>
+<p><strong>12. What is the difference between Structural and Attribute
+directives in Angular?</strong></p>
+<ul>
+<li>Structural directives change the DOM layout, e.g.,
+<code>*ngIf</code>, <code>*ngFor</code>.</li>
+<li>Attribute directives change the appearance/behavior, e.g.,
+<code>[ngClass]</code>.</li>
+<li>Structural directives begin with an asterisk.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Visible<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">[ngClass]</span><span class="ot">=</span><span class="st">&quot;{&#39;highlight&#39;: isActive}&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span></code></pre></div>
+<p><strong>13. What is a bootstrapping module in Angular?</strong></p>
+<ul>
+<li>The root module bootstraps the Angular app.</li>
+<li>It declares the entry component for application rendering.</li>
+<li>Usually defined as <code>AppModule</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">platformBrowserDynamic</span>()<span class="op">.</span><span class="fu">bootstrapModule</span>(AppModule)<span class="op">;</span></span></code></pre></div>
+<p><strong>14. What is the purpose of the base href tag?</strong></p>
+<ul>
+<li>Specifies the base URL for resolving relative paths in the app.</li>
+<li>Enables Angular’s routing to interpret paths correctly.</li>
+<li>Located in <code>index.html</code> as
+<code>&lt;base href="/"&gt;</code>.</li>
+<li>Example: For a deployment under <code>/app/</code>, set
+<code>&lt;base href="/app/"&gt;</code>.</li>
+</ul>
+<p><strong>15. What is the equivalent of ngShow and ngHide in
+Angular?</strong></p>
+<ul>
+<li>Use <code>[hidden]</code> or <code>*ngIf</code> for show/hide
+functionality.</li>
+<li><code>[hidden]</code> retains elements in the DOM.</li>
+<li><code>*ngIf</code> removes or adds elements dynamically.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">[hidden]</span><span class="ot">=</span><span class="st">&quot;!isVisible&quot;</span><span class="kw">&gt;</span>Hidden<span class="kw">&lt;/div&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Visible<span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p><strong>16. What is an Observable?</strong></p>
+<ul>
+<li>An observable is a stream of asynchronous data that emits multiple
+values over time.</li>
+<li>It provides powerful operators like <code>map</code>,
+<code>filter</code>, and <code>merge</code>.</li>
+<li>Observables are lazy and require a subscription to begin
+execution.</li>
+<li>Example: Using <code>HttpClient</code> to fetch data as an
+observable.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/data&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(response <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(response))<span class="op">;</span></span></code></pre></div>
+<p><strong>17. What is the minimum definition of a
+Component?</strong></p>
+<ul>
+<li>A component requires a selector, template or template URL, and
+metadata.</li>
+<li>Defined with the <code>@Component</code> decorator.</li>
+<li>At least one root component must exist in an Angular
+application.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-hello&#39;</span><span class="op">,</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;h1&gt;Hello, World!&lt;/h1&gt;&#39;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HelloComponent {}</span></code></pre></div>
+<p><strong>18. What are the differences between AngularJS (Angular 1.x)
+and Angular (Angular 2.x and beyond)?</strong></p>
+<ul>
+<li>Angular uses TypeScript, whereas AngularJS uses JavaScript.</li>
+<li>Angular has a component-based architecture; AngularJS uses
+controllers and scope.</li>
+<li>Angular provides better performance with AOT and Ivy Renderer.</li>
+<li>Example: Angular uses modules (<code>@NgModule</code>), whereas
+AngularJS uses modules with dependency injection.</li>
+</ul>
+<p><strong>19. What is a Custom Component? Why would you use
+it?</strong></p>
+<ul>
+<li>A custom component is a user-defined, reusable UI building
+block.</li>
+<li>It encapsulates template, style, and logic for specific
+functionality.</li>
+<li>Used to maintain modularity and code reuse in applications.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-user-card&#39;</span><span class="op">,</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;div&gt;{{ user.name }}&lt;/div&gt;&#39;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> UserCardComponent {</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() user<span class="op">:</span> <span class="dt">any</span><span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>20. What is a Service, and when will you use it?</strong></p>
+<ul>
+<li>Services handle reusable logic, such as data fetching and business
+logic.</li>
+<li>They provide dependency injection for components.</li>
+<li>Services are shared across components for better
+maintainability.</li>
+<li>Example: Creating a user service for API calls.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>({ providedIn<span class="op">:</span> <span class="st">&#39;root&#39;</span> })</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> UserService {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>(<span class="kw">private</span> http<span class="op">:</span> HttpClient) {}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getUsers</span>() {</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/users&#39;</span>)<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>21. Explain how Custom Elements work internally.</strong></p>
+<ul>
+<li>Custom elements are web components defined with Angular
+components.</li>
+<li>Angular creates these as native browser elements via
+<code>@angular/elements</code>.</li>
+<li>They encapsulate functionality, making them reusable in non-Angular
+projects.</li>
+<li>Example: Convert a component into a custom element.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> userCardElement <span class="op">=</span> <span class="fu">createCustomElement</span>(UserCardComponent<span class="op">,</span> { injector })<span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>customElements<span class="op">.</span><span class="fu">define</span>(<span class="st">&#39;user-card&#39;</span><span class="op">,</span> userCardElement)<span class="op">;</span></span></code></pre></div>
+<p><strong>22. When would you use Lazy Loading in Angular?</strong></p>
+<ul>
+<li>Lazy loading loads modules only when required, improving app
+performance.</li>
+<li>Used for large apps to reduce initial load time.</li>
+<li>Implemented using Angular’s router with
+<code>loadChildren</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;admin&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./admin/admin.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">AdminModule</span>) }</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p><strong>23. What is a Parameterized Pipe?</strong></p>
+<ul>
+<li>A pipe that takes arguments to transform data dynamically.</li>
+<li>Examples include <code>date</code>, <code>currency</code>, and
+<code>slice</code> pipes.</li>
+<li>Custom parameterized pipes can be created.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>{{ price | currency:&#39;USD&#39;:true }}<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<p><strong>24. What is Bazel in Angular?</strong></p>
+<ul>
+<li>Bazel is a build tool for efficient, incremental builds in
+Angular.</li>
+<li>It provides fine-grained control over build outputs.</li>
+<li>Enables faster builds and tests in large-scale projects.</li>
+<li>Example: Configuring Bazel for Angular CLI.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> new my-app <span class="at">--collection</span><span class="op">=</span>@angular/bazel</span></code></pre></div>
+<p><strong>25. How do you categorize data binding types in
+Angular?</strong></p>
+<ul>
+<li>Interpolation: <code>{{ expression }}</code> for one-way binding
+from component to DOM.</li>
+<li>Property binding: <code>[property]="value"</code> for dynamic DOM
+updates.</li>
+<li>Event binding: <code>(event)="handler"</code> for handling user
+actions.</li>
+<li>Two-way binding: <code>[(ngModel)]</code> to bind both property and
+event.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">[(ngModel)]</span><span class="ot">=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+<p><strong>26. What is Multicasting in RxJS?</strong></p>
+<ul>
+<li>Multicasting shares a single observable execution among multiple
+subscribers.</li>
+<li>Achieved using subjects like <code>BehaviorSubject</code> or
+<code>ReplaySubject</code>.</li>
+<li>Reduces redundant operations and improves efficiency.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> subject <span class="op">=</span> <span class="kw">new</span> <span class="fu">BehaviorSubject</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>subject<span class="op">.</span><span class="fu">subscribe</span>(value <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Subscriber A:&#39;</span><span class="op">,</span> value))<span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>subject<span class="op">.</span><span class="fu">subscribe</span>(value <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Subscriber B:&#39;</span><span class="op">,</span> value))<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>subject<span class="op">.</span><span class="fu">next</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>27. What are the utility functions provided by
+RxJS?</strong></p>
+<ul>
+<li>Common utilities include <code>of</code>, <code>from</code>,
+<code>merge</code>, <code>concat</code>, <code>combineLatest</code>, and
+<code>forkJoin</code>.</li>
+<li>These functions create observables and manipulate data streams.</li>
+<li>Widely used for complex asynchronous tasks.</li>
+<li>Example: Combine multiple streams.</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">combineLatest</span>([stream1<span class="op">,</span> stream2])<span class="op">.</span><span class="fu">subscribe</span>(([a<span class="op">,</span> b]) <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">,</span> b))<span class="op">;</span></span></code></pre></div>
+<p><strong>28. Do I always need a Routing Module in
+Angular?</strong></p>
+<ul>
+<li>Routing modules are optional but recommended for modularity in apps
+with routing.</li>
+<li>For small apps, routes can be defined in
+<code>AppModule</code>.</li>
+<li>A separate routing module simplifies route management in large
+apps.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [RouterModule<span class="op">.</span><span class="fu">forChild</span>(routes)]<span class="op">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  exports<span class="op">:</span> [RouterModule]</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AdminRoutingModule {}</span></code></pre></div>
+<p><strong>29. What are the ways to control AOT
+compilation?</strong></p>
+<ul>
+<li>Enable AOT explicitly with <code>ng build --aot</code>.</li>
+<li>Use <code>angular.json</code> to set AOT as default.</li>
+<li>Optimize build pipelines by controlling template and metadata
+precompilation.</li>
+<li>Example: Configuring AOT in <code>angular.json</code>.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;build&quot;:</span> <span class="fu">{</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;options&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;aot&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>30. What is Router Outlet in Angular?</strong></p>
+<ul>
+<li><code>RouterOutlet</code> is a placeholder to load routed components
+dynamically.</li>
+<li>It acts as a viewport in a template for routing.</li>
+<li>Supports named outlets for rendering multiple routes.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span></span></code></pre></div>
+<p><strong>31. Explain Lazy Loading in Angular.</strong></p>
+<ul>
+<li>Lazy loading is a technique to load modules only when their routes
+are accessed.</li>
+<li>It helps reduce the initial load time of the application.</li>
+<li>Configured using the <code>loadChildren</code> property in the route
+definitions.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;feature&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./feature/feature.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">FeatureModule</span>) }</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p><strong>32. How to inject the base href in Angular?</strong></p>
+<ul>
+<li>Angular uses the <code>APP_BASE_HREF</code> token to configure the
+base path.</li>
+<li>You can set it explicitly in the providers array.</li>
+<li>Alternatively, it can be dynamically determined using
+<code>document.baseURI</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>providers<span class="op">:</span> [{ provide<span class="op">:</span> APP_BASE_HREF<span class="op">,</span> useValue<span class="op">:</span> <span class="st">&#39;/my-app/&#39;</span> }]</span></code></pre></div>
+<p><strong>33. What is Protractor in Angular?</strong></p>
+<ul>
+<li>Protractor is an end-to-end testing framework for Angular
+applications.</li>
+<li>It automates interaction with web elements for UI testing.</li>
+<li>Works seamlessly with Angular’s elements like <code>ng-model</code>
+and <code>ng-repeat</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">it</span>(<span class="st">&#39;should display the title&#39;</span><span class="op">,</span> <span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> browser<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/&#39;</span>)<span class="op">;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> title <span class="op">=</span> <span class="cf">await</span> <span class="fu">element</span>(by<span class="op">.</span><span class="fu">css</span>(<span class="st">&#39;h1&#39;</span>))<span class="op">.</span><span class="fu">getText</span>()<span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect</span>(title)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;My App&#39;</span>)<span class="op">;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p><strong>34. What is the Activated Route in Angular?</strong></p>
+<ul>
+<li><code>ActivatedRoute</code> provides access to the route’s
+parameters, data, and query parameters.</li>
+<li>It is an injectable service available for the current route.</li>
+<li>It enables reactive programming with observables for route
+changes.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constructor</span>(<span class="kw">private</span> route<span class="op">:</span> ActivatedRoute) {</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">route</span><span class="op">.</span><span class="at">params</span><span class="op">.</span><span class="fu">subscribe</span>(params <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(params[<span class="st">&#39;id&#39;</span>]))<span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>35. What is the purpose of a Wildcard route?</strong></p>
+<ul>
+<li>Wildcard routes handle undefined or fallback paths.</li>
+<li>They are typically defined as the last route in the
+configuration.</li>
+<li>Prevents users from accessing undefined routes.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;**&#39;</span><span class="op">,</span> component<span class="op">:</span> PageNotFoundComponent }</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p><strong>36. What is Router State in Angular?</strong></p>
+<ul>
+<li>Router state refers to the state of the router at a given point in
+navigation.</li>
+<li>It includes the activated route tree and snapshot of the route.</li>
+<li>Provides information like parameters, data, and URLs.</li>
+<li>Example: Accessing <code>RouterStateSnapshot</code>.</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constructor</span>(<span class="kw">private</span> router<span class="op">:</span> Router) {</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">router</span><span class="op">.</span><span class="at">routerState</span><span class="op">.</span><span class="at">snapshot</span><span class="op">.</span><span class="at">url</span>)<span class="op">;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>37. What are Custom Elements in Angular?</strong></p>
+<ul>
+<li>Custom elements are Angular components transformed into native web
+components.</li>
+<li>They are compatible with any framework or plain HTML.</li>
+<li>Created using <code>@angular/elements</code> package.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> customEl <span class="op">=</span> <span class="fu">createCustomElement</span>(MyComponent<span class="op">,</span> { injector })<span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>customElements<span class="op">.</span><span class="fu">define</span>(<span class="st">&#39;my-component&#39;</span><span class="op">,</span> customEl)<span class="op">;</span></span></code></pre></div>
+<p><strong>38. What is the difference between Promise and Observable in
+Angular?</strong></p>
+<ul>
+<li>Promises are eager and resolve once, while observables are lazy and
+emit multiple values.</li>
+<li>Observables support operators for transformation and
+composition.</li>
+<li>Observables are cancellable, but promises are not.</li>
+<li>Example: Observables for real-time data.</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">data$</span><span class="op">.</span><span class="fu">subscribe</span>(value <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(value))<span class="op">;</span></span></code></pre></div>
+<p><strong>39. What happens if you use a <code>&lt;script&gt;</code> tag
+inside the template?</strong></p>
+<ul>
+<li>Angular sanitizes and removes <code>&lt;script&gt;</code> tags for
+security reasons.</li>
+<li>It prevents cross-site scripting (XSS) vulnerabilities.</li>
+<li>Use <code>[innerHTML]</code> with sanitized content for dynamic
+script embedding.</li>
+<li>Example: Using <code>DomSanitizer</code> for safe HTML.</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">trustedHtml</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">sanitizer</span><span class="op">.</span><span class="fu">bypassSecurityTrustHtml</span>(<span class="st">&#39;&lt;div&gt;Hello&lt;/div&gt;&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>40. What is Angular Ivy Renderer?</strong></p>
+<ul>
+<li>Ivy is Angular’s next-generation rendering engine introduced in
+Angular 9.</li>
+<li>It optimizes bundle sizes and improves compilation speed.</li>
+<li>Offers better debugging with human-readable code.</li>
+<li>Example: Enabling Ivy in <code>angular.json</code>.</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;angularCompilerOptions&quot;:</span> <span class="fu">{</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;enableIvy&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>41. What is Subscribing in Angular?</strong></p>
+<ul>
+<li>Subscribing starts the execution of an observable.</li>
+<li>It listens for data emissions (<code>next</code>), errors, or
+completion of the observable.</li>
+<li>Required for consuming asynchronous streams like HTTP requests.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/data&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span></span></code></pre></div>
+<p><strong>42. What are dynamic components?</strong></p>
+<ul>
+<li>Dynamic components are created and loaded at runtime.</li>
+<li>Useful for modular and reusable UI elements.</li>
+<li>Achieved using <code>ComponentFactoryResolver</code> or
+<code>ViewContainerRef</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> factory <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">resolver</span><span class="op">.</span><span class="fu">resolveComponentFactory</span>(MyComponent)<span class="op">;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">container</span><span class="op">.</span><span class="fu">createComponent</span>(factory)<span class="op">;</span></span></code></pre></div>
+<p><strong>43. What is the option to choose between Inline and External
+template files?</strong></p>
+<ul>
+<li>Inline templates are defined directly in the <code>template</code>
+property.</li>
+<li>External templates are specified with <code>templateUrl</code> and
+loaded as separate files.</li>
+<li>Inline templates are suitable for small, simple components.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-inline&#39;</span><span class="op">,</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;h1&gt;Hello Inline!&lt;/h1&gt;&#39;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> InlineComponent {}</span></code></pre></div>
+<p><strong>44. Why does Incremental DOM have a low memory
+footprint?</strong></p>
+<ul>
+<li>It directly manipulates the DOM without creating intermediate
+structures.</li>
+<li>Only updates changed elements, minimizing overhead.</li>
+<li>Eliminates the need for virtual DOM reconciliation.</li>
+<li>Example: Angular Ivy uses Incremental DOM for efficient
+rendering.</li>
+</ul>
+<p><strong>45. How do you perform Error Handling for HttpClient in
+Angular?</strong></p>
+<ul>
+<li>Use <code>catchError</code> operator to handle HTTP errors.</li>
+<li>Optionally, log errors using a service for monitoring.</li>
+<li>Show user-friendly error messages in the UI.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api/data&#39;</span>)<span class="op">.</span><span class="fu">pipe</span>(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">catchError</span>(err <span class="kw">=&gt;</span> {</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;Error occurred:&#39;</span><span class="op">,</span> err)<span class="op">;</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">of</span>([])<span class="op">;</span> <span class="co">// Return fallback data</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">.</span><span class="fu">subscribe</span>()<span class="op">;</span></span></code></pre></div>
+<p><strong>46. How do you perform error handling in Observable in
+Angular?</strong></p>
+<ul>
+<li>Use the <code>catchError</code> operator in the observable pipeline
+to intercept errors.</li>
+<li>Combine with <code>retry</code> or <code>retryWhen</code> for
+automatic retries on failure.</li>
+<li>Gracefully handle errors by providing fallback values or logging
+them.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">data$</span><span class="op">.</span><span class="fu">pipe</span>(</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">catchError</span>(err <span class="kw">=&gt;</span> {</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;Error:&#39;</span><span class="op">,</span> err)<span class="op">;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">of</span>([])<span class="op">;</span> <span class="co">// Provide fallback data</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span></span></code></pre></div>
+<p><strong>47. What is Angular Universal?</strong></p>
+<ul>
+<li>Angular Universal enables server-side rendering (SSR) for Angular
+apps.</li>
+<li>Improves SEO and performance by rendering pages on the server.</li>
+<li>Uses <code>@nguniversal/express-engine</code> for Node.js server
+integration.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> add @nguniversal/express-engine</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run build:ssr</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run serve:ssr</span></code></pre></div>
+<p><strong>48. What is TestBed in Angular?</strong></p>
+<ul>
+<li><code>TestBed</code> is a testing utility that creates an Angular
+testing module.</li>
+<li>Configures components, services, and modules for testing.</li>
+<li>Allows mocking dependencies and simulating real scenarios.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>TestBed<span class="op">.</span><span class="fu">configureTestingModule</span>({</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [MyComponent]<span class="op">,</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  providers<span class="op">:</span> [MyService]</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">.</span><span class="fu">compileComponents</span>()<span class="op">;</span></span></code></pre></div>
+<p><strong>49. What is Redux, and how does it relate to an Angular
+app?</strong></p>
+<ul>
+<li>Redux is a predictable state management library for JavaScript
+apps.</li>
+<li>It centralizes app state in a single store, making debugging
+easier.</li>
+<li>Integrated into Angular via libraries like
+<code>ngrx/store</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>store<span class="op">.</span><span class="fu">dispatch</span>({ type<span class="op">:</span> <span class="st">&#39;[User] Load&#39;</span><span class="op">,</span> payload<span class="op">:</span> userId })<span class="op">;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>store<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;user&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span></span></code></pre></div>
+<p><strong>50. What is the use of Codelyzer in Angular?</strong></p>
+<ul>
+<li>Codelyzer is a static analysis tool for Angular TypeScript
+projects.</li>
+<li>Enforces Angular coding standards and best practices.</li>
+<li>Works as a TSLint plugin to provide linting rules for Angular.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">--save-dev</span> codelyzer</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> lint</span></code></pre></div>
+<p><strong>51. What’s new in Angular 6, and why should we upgrade to
+it?</strong></p>
+<ul>
+<li>Introduced <code>ng update</code> for automated dependency
+updates.</li>
+<li>Added <code>RxJS 6</code> with improved operators and better
+performance.</li>
+<li>Included support for Angular Elements to create custom web
+components.</li>
+<li>Example: Angular CLI workspace feature for managing multiple
+projects.</li>
+</ul>
+<p><strong>52. Can you explain the difference between Promise and
+Observable in Angular? In what scenario can we use each
+case?</strong></p>
+<ul>
+<li>Promises handle single asynchronous events, while observables handle
+streams.</li>
+<li>Observables support operators for chaining and transformation.</li>
+<li>Use Promises for simple, one-time HTTP requests and Observables for
+streams like real-time updates.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> observable$ <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;/api&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span></span></code></pre></div>
+<p><strong>53. What is the difference between declarations, providers,
+and imports in NgModule?</strong></p>
+<ul>
+<li><code>Declarations</code>: Components, directives, and pipes that
+belong to this module.</li>
+<li><code>Providers</code>: Services available throughout the app via
+dependency injection.</li>
+<li><code>Imports</code>: Other modules whose exported components and
+services are needed.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [MyComponent]<span class="op">,</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [CommonModule]<span class="op">,</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  providers<span class="op">:</span> [MyService]</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> MyModule {}</span></code></pre></div>
+<p><strong>54. Why should ngOnInit be used if we already have a
+constructor?</strong></p>
+<ul>
+<li>Constructor is for dependency injection and initialization of the
+object.</li>
+<li><code>ngOnInit</code> is specifically designed for component
+initialization logic.</li>
+<li>Ensures properties are set and bindings are available.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnInit</span>() {</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="fu">loadData</span>()<span class="op">;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>55. Why would you use a spy in a test?</strong></p>
+<ul>
+<li>Spies intercept and mock the behavior of dependencies.</li>
+<li>Used to test components in isolation without actual service
+calls.</li>
+<li>Captures method calls and arguments for verification.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> spy <span class="op">=</span> <span class="fu">spyOn</span>(service<span class="op">,</span> <span class="st">&#39;getData&#39;</span>)<span class="op">.</span><span class="at">and</span><span class="op">.</span><span class="fu">returnValue</span>(<span class="kw">of</span>(mockData))<span class="op">;</span></span></code></pre></div>
+<p><strong>56. What is AOT?</strong></p>
+<ul>
+<li>AOT (Ahead-of-Time) compiles Angular HTML and TypeScript code during
+build time.</li>
+<li>Reduces runtime errors and improves app performance.</li>
+<li>Produces optimized and smaller JavaScript bundles.</li>
+<li>Example: Enable AOT with Angular CLI:</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> build <span class="at">--aot</span></span></code></pre></div>
+<p><strong>57. Explain the difference between Constructor and
+ngOnInit.</strong></p>
+<ul>
+<li>Constructor is a TypeScript feature for dependency injection and
+initializing the object.</li>
+<li><code>ngOnInit</code> is an Angular lifecycle hook for initializing
+the component.</li>
+<li>Component bindings and inputs are not guaranteed in the
+constructor.</li>
+<li>Example: Use constructor for injection, and <code>ngOnInit</code>
+for setup logic.</li>
+</ul>
+<p><strong>58. What is the difference between @Component and @Directive
+in Angular?</strong></p>
+<ul>
+<li><code>@Component</code> is used to create UI elements with templates
+and styles.</li>
+<li><code>@Directive</code> adds behavior to existing DOM elements.</li>
+<li>Components are self-contained, while directives work on other
+elements.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;[highlight]&#39;</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HighlightDirective {</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() {</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="fu">highlight</span>(<span class="st">&#39;yellow&#39;</span>)<span class="op">;</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>59. What is the difference between Promise and Observable in
+Angular?</strong></p>
+<ul>
+<li>Promises are resolved once, Observables emit multiple values over
+time.</li>
+<li>Observables provide operators for data transformation.</li>
+<li>Observables are lazy, while Promises are eager.</li>
+<li>Example: Real-time chat using Observables vs fetching user data with
+Promises.</li>
+</ul>
+<p><strong>60. What is Incremental DOM, and how is it different from
+Virtual DOM?</strong></p>
+<ul>
+<li>Incremental DOM updates the DOM directly without creating a virtual
+representation.</li>
+<li>Reduces memory overhead and processing time by skipping
+reconciliation.</li>
+<li>Angular Ivy uses Incremental DOM for faster and more efficient
+rendering.</li>
+<li>Example: Incremental DOM optimizes partial updates rather than
+full-tree changes.</li>
+</ul>
+<p><strong>61. Angular 9: What are some new features in Angular
+9?</strong></p>
+<ul>
+<li>Introduction of Ivy as the default rendering engine.</li>
+<li>Enhanced debugging with stack traces and better error messages.</li>
+<li>Improved type-checking for templates in development mode.</li>
+<li>Example: Smaller bundle sizes with Ivy, enabling faster loads.</li>
+</ul>
+<p><strong>62. Do I need to bootstrap custom elements?</strong></p>
+<ul>
+<li>No, Angular custom elements are bootstrapped automatically by the
+browser.</li>
+<li>They are self-contained and registered with
+<code>customElements.define()</code>.</li>
+<li>Angular handles their lifecycle and change detection
+internally.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> el <span class="op">=</span> <span class="fu">createCustomElement</span>(MyComponent<span class="op">,</span> { injector })<span class="op">;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>customElements<span class="op">.</span><span class="fu">define</span>(<span class="st">&#39;my-element&#39;</span><span class="op">,</span> el)<span class="op">;</span></span></code></pre></div>
+<p><strong>63. Are there any pros/cons (especially performance-wise) in
+using local storage to replace cookie functionality?</strong></p>
+<ul>
+<li>Pros: Larger storage capacity, faster client-side access, no need
+for server communication.</li>
+<li>Cons: Not sent automatically with HTTP requests, less secure than
+HTTP-only cookies.</li>
+<li>Suitable for non-sensitive, client-side data storage.</li>
+<li>Example: Storing user preferences.</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>localStorage<span class="op">.</span><span class="fu">setItem</span>(<span class="st">&#39;theme&#39;</span><span class="op">,</span> <span class="st">&#39;dark&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>64. What are the lifecycle hooks for components and
+directives in Angular?</strong></p>
+<ul>
+<li><code>ngOnChanges</code>: Called when input properties change.</li>
+<li><code>ngOnInit</code>: Invoked after the component is
+initialized.</li>
+<li><code>ngOnDestroy</code>: Triggered before the component is
+destroyed.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">subscription</span><span class="op">.</span><span class="fu">unsubscribe</span>()<span class="op">;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>65. How to detect a route change in Angular?</strong></p>
+<ul>
+<li>Use the <code>Router</code> service’s <code>events</code>
+observable.</li>
+<li>Filter for <code>NavigationStart</code> or
+<code>NavigationEnd</code> events.</li>
+<li>Can also use <code>ActivatedRoute</code> for specific route
+parameters.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">router</span><span class="op">.</span><span class="at">events</span><span class="op">.</span><span class="fu">pipe</span>(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="bu">event</span> <span class="kw">=&gt;</span> <span class="bu">event</span> <span class="kw">instanceof</span> NavigationStart)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>)<span class="op">.</span><span class="fu">subscribe</span>(() <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Route changed&#39;</span>))<span class="op">;</span></span></code></pre></div>
+<p><strong>66. What are the advantages of AOT compilation?</strong></p>
+<ul>
+<li>Eliminates runtime template errors by catching them during build
+time.</li>
+<li>Reduces app bundle size with optimized code.</li>
+<li>Improves application performance by compiling templates ahead of
+time.</li>
+<li>Example: Production build with AOT.</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> build <span class="at">--prod</span> <span class="at">--aot</span></span></code></pre></div>
+<p><strong>67. Explain the purpose of Service Workers in
+Angular.</strong></p>
+<ul>
+<li>Service workers enable Progressive Web App (PWA) features like
+offline access and caching.</li>
+<li>Handle background tasks and push notifications.</li>
+<li>Implemented using the <code>@angular/service-worker</code>
+package.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> add @angular/pwa</span></code></pre></div>
+<p><strong>68. What is the difference between Incremental DOM and
+Virtual DOM?</strong></p>
+<ul>
+<li>Incremental DOM updates DOM directly and skips intermediate
+representations.</li>
+<li>Virtual DOM creates a virtual representation for reconciliation
+before DOM updates.</li>
+<li>Incremental DOM is more memory-efficient and faster for large
+apps.</li>
+<li>Example: Angular Ivy uses Incremental DOM for rendering.</li>
+</ul>
+<p><strong>69. Why do we need the compilation process in
+Angular?</strong></p>
+<ul>
+<li>Converts templates into JavaScript for rendering efficiency.</li>
+<li>Enables dependency injection, directives, and component
+behaviors.</li>
+<li>Ensures app is optimized for performance during the build
+process.</li>
+<li>Example: JIT compilation for dynamic builds, AOT for
+production.</li>
+</ul>
+<p><strong>70. What is the need for SystemJS in Angular?</strong></p>
+<ul>
+<li>SystemJS is a module loader that dynamically loads JavaScript
+modules.</li>
+<li>Used in earlier versions of Angular for module resolution.</li>
+<li>Replaced by Webpack in modern Angular CLI for better bundling.</li>
+<li>Example: Angular CLI-generated apps use Webpack by default.</li>
+</ul>
+<p><strong>71. Why should we use Bazel for Angular builds?</strong></p>
+<ul>
+<li>Bazel enables incremental builds and efficient dependency
+management.</li>
+<li>Allows parallel builds for large-scale applications.</li>
+<li>Facilitates universal builds across multiple languages.</li>
+<li>Example: Bazel’s support for distributed builds in CI
+pipelines.</li>
+</ul>
+<p><strong>72. How do you create an application to use
+Webpack?</strong></p>
+<ul>
+<li>Install Webpack and dependencies like loaders and plugins.</li>
+<li>Configure <code>webpack.config.js</code> with entry points and
+output.</li>
+<li>Replace Angular CLI commands with Webpack-specific scripts.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="ex">webpack</span> <span class="at">--config</span> webpack.config.js</span></code></pre></div>
+<p><strong>73. What is Upgrade in Angular?</strong></p>
+<ul>
+<li>Upgrade facilitates running AngularJS (1.x) and Angular (2+) side by
+side.</li>
+<li>Helps transition legacy apps incrementally to modern Angular.</li>
+<li>Achieved using <code>@angular/upgrade</code> library.</li>
+<li>Example: Upgrade an AngularJS service.</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>upgradeAdapter<span class="op">.</span><span class="fu">upgradeNg1Provider</span>(<span class="st">&#39;myService&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>74. What is Reactive Programming, and how does it relate to
+Angular?</strong></p>
+<ul>
+<li>Reactive programming focuses on asynchronous data streams.</li>
+<li>RxJS implements reactive programming for Angular applications.</li>
+<li>Enables event-driven architectures with operators for data
+transformation.</li>
+<li>Example: Using <code>switchMap</code> for HTTP calls.</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">search$</span><span class="op">.</span><span class="fu">pipe</span>(</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">switchMap</span>(term <span class="kw">=&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="vs">`/search?q=</span><span class="sc">${</span>term<span class="sc">}</span><span class="vs">`</span>))</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>)<span class="op">.</span><span class="fu">subscribe</span>(results <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(results))<span class="op">;</span></span></code></pre></div>
+<p><strong>75. Name some security best practices in
+Angular.</strong></p>
+<ul>
+<li>Use Angular’s built-in sanitization for user inputs
+(<code>DomSanitizer</code>).</li>
+<li>Avoid dynamic templates and <code>&lt;script&gt;</code> tags in
+bindings.</li>
+<li>Implement route guards and authentication mechanisms.</li>
+<li>Example: Use <code>HttpInterceptor</code> to append secure
+headers.</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intercept</span>(req<span class="op">:</span> HttpRequest<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;,</span> next<span class="op">:</span> HttpHandler)<span class="op">:</span> Observable<span class="op">&lt;</span>HttpEvent<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;&gt;</span> {</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> secureReq <span class="op">=</span> req<span class="op">.</span><span class="fu">clone</span>({ headers<span class="op">:</span> req<span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;Authorization&#39;</span><span class="op">,</span> <span class="st">&#39;Bearer token&#39;</span>) })<span class="op">;</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> next<span class="op">.</span><span class="fu">handle</span>(secureReq)<span class="op">;</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>76. When is a lazy-loaded module loaded?</strong></p>
+<ul>
+<li>A lazy-loaded module is loaded when its associated route is
+accessed.</li>
+<li>It is not part of the main bundle, reducing the initial load
+time.</li>
+<li>Configured using <code>loadChildren</code> in the route
+definition.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;feature&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./feature/feature.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">FeatureModule</span>) }</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p><strong>77. Why would you use Renderer methods instead of using
+native element methods?</strong></p>
+<ul>
+<li>Renderer methods provide a platform-independent way to manipulate
+DOM.</li>
+<li>Helps maintain compatibility across different environments like
+SSR.</li>
+<li>Prevents direct DOM access, ensuring secure interactions.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">renderer</span><span class="op">.</span><span class="fu">setStyle</span>(element<span class="op">,</span> <span class="st">&#39;background-color&#39;</span><span class="op">,</span> <span class="st">&#39;blue&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>78. What is Ivy Renderer in Angular?</strong></p>
+<ul>
+<li>Ivy is Angular’s new rendering engine introduced in Angular 9.</li>
+<li>It compiles components into efficient JavaScript code for faster
+rendering.</li>
+<li>Supports incremental DOM for memory-efficient updates.</li>
+<li>Example: Ivy reduces the size of unused components in
+tree-shaking.</li>
+</ul>
+<p><strong>79. What does detectChanges do in Angular Jasmine
+tests?</strong></p>
+<ul>
+<li><code>detectChanges</code> triggers change detection for the
+component.</li>
+<li>Ensures updates to bindings and the DOM are reflected during
+tests.</li>
+<li>Used with <code>ComponentFixture</code> in Angular test setups.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb65"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>fixture<span class="op">.</span><span class="fu">detectChanges</span>()<span class="op">;</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(component<span class="op">.</span><span class="at">title</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;Test Title&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>80. What is the difference between a pure and impure pipe in
+Angular?</strong></p>
+<ul>
+<li>A pure pipe runs only when input values change.</li>
+<li>An impure pipe runs on every change detection cycle, even for
+unrelated changes.</li>
+<li>Use pure pipes for performance-critical scenarios.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb66"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Pipe</span>({ name<span class="op">:</span> <span class="st">&#39;filter&#39;</span><span class="op">,</span> pure<span class="op">:</span> <span class="kw">false</span> })</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> FilterPipe {</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(items<span class="op">:</span> <span class="dt">any</span>[]<span class="op">,</span> searchText<span class="op">:</span> <span class="dt">string</span>)<span class="op">:</span> <span class="dt">any</span>[] { <span class="co">/* filtering logic */</span> }</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>81. Why would you use lazy loading for modules in an Angular
+app?</strong></p>
+<ul>
+<li>Reduces the initial load time by deferring module loading.</li>
+<li>Improves performance for apps with many features.</li>
+<li>Helps organize and maintain large codebases.</li>
+<li>Example: Lazy load a module with route configuration as
+follows:</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>{ path<span class="op">:</span> <span class="st">&#39;admin&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./admin/admin.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">AdminModule</span>) }</span></code></pre></div>
+<p><strong>82. What are the mapping rules between Angular component and
+custom element?</strong></p>
+<ul>
+<li>Component selector becomes the custom element tag name.</li>
+<li>Inputs and outputs map to properties and events of the custom
+element.</li>
+<li>Styles and encapsulation are retained within the shadow DOM.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb68"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({ selector<span class="op">:</span> <span class="st">&#39;app-my-element&#39;</span><span class="op">,</span> template<span class="op">:</span> <span class="vs">`&lt;p&gt;Hello!&lt;/p&gt;`</span> })</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> MyElement {}</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>customElements<span class="op">.</span><span class="fu">define</span>(<span class="st">&#39;app-my-element&#39;</span><span class="op">,</span> <span class="fu">createCustomElement</span>(MyElement<span class="op">,</span> { injector }))<span class="op">;</span></span></code></pre></div>
+<p><strong>83. Name and explain some Angular Module Loading
+examples.</strong></p>
+<ul>
+<li><strong>Eager Loading</strong>: Modules are loaded at the app’s
+startup.</li>
+<li><strong>Lazy Loading</strong>: Modules are loaded when their route
+is accessed.</li>
+<li><strong>Preloading</strong>: Modules are loaded in the background
+after the app initializes.</li>
+<li>Example: Configure preloading with
+<code>PreloadAllModules</code>:</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>RouterModule<span class="op">.</span><span class="fu">forRoot</span>(routes<span class="op">,</span> { preloadingStrategy<span class="op">:</span> PreloadAllModules })</span></code></pre></div>
+<p><strong>84. What is Zone in Angular?</strong></p>
+<ul>
+<li>Zone.js is a library for intercepting and keeping track of
+asynchronous operations.</li>
+<li>It ensures Angular detects changes triggered by async tasks.</li>
+<li>Facilitates seamless DOM updates in response to events.</li>
+<li>Example: Zone handles events like setTimeout or HTTP requests
+automatically.</li>
+</ul>
+<p><strong>85. What would be a good use for NgZone service?</strong></p>
+<ul>
+<li>Use <code>NgZone</code> to run code outside Angular’s zone to avoid
+triggering change detection.</li>
+<li>Re-enter the zone for tasks requiring UI updates.</li>
+<li>Helps optimize performance in high-frequency async tasks.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">ngZone</span><span class="op">.</span><span class="fu">runOutsideAngular</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">ngZone</span><span class="op">.</span><span class="fu">run</span>(() <span class="kw">=&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="fu">updateUI</span>())<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p><strong>86. How would you insert an embedded view from a prepared
+TemplateRef?</strong></p>
+<ul>
+<li>Use <code>ViewContainerRef</code> to create and insert a view.</li>
+<li>Pass the <code>TemplateRef</code> to <code>createEmbeddedView</code>
+of <code>ViewContainerRef</code>.</li>
+<li>Useful for dynamic templates and reusable UI blocks.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">viewContainerRef</span><span class="op">.</span><span class="fu">createEmbeddedView</span>(<span class="kw">this</span><span class="op">.</span><span class="at">templateRef</span>)<span class="op">;</span></span></code></pre></div>
+<p><strong>87. What does the Just-in-Time (JIT) compiler
+do?</strong></p>
+<ul>
+<li>JIT compiles Angular templates and code at runtime in the
+browser.</li>
+<li>Useful for development mode with faster rebuild times.</li>
+<li>Does not require precompiled templates, unlike AOT.</li>
+<li>Example: Angular CLI uses JIT by default for development:</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> serve</span></code></pre></div>
+<p><strong>88. What are observable creation functions in
+RxJS?</strong></p>
+<ul>
+<li>Functions like <code>of</code>, <code>from</code>,
+<code>interval</code>, and <code>timer</code> create observables.</li>
+<li>Enable the creation of different types of streams for various
+scenarios.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb73"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> observable$ <span class="op">=</span> <span class="kw">of</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>observable$<span class="op">.</span><span class="fu">subscribe</span>(val <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(val))<span class="op">;</span></span></code></pre></div>
+<p><strong>89. What is the Locality principle for Ivy?</strong></p>
+<ul>
+<li>Locality means each component is compiled independently.</li>
+<li>Simplifies debugging and enables better tree-shaking.</li>
+<li>Reduces the coupling between components and modules.</li>
+<li>Example: Ivy doesn’t need module context for compiling
+components.</li>
+</ul>
+<p><strong>90. How would you compare View Engine vs Ivy in
+Angular?</strong></p>
+<ul>
+<li>Ivy has smaller bundle sizes due to tree-shaking; View Engine
+doesn’t.</li>
+<li>Ivy uses incremental DOM for faster rendering, while View Engine
+relies on templates.</li>
+<li>Ivy supports locality for independent component compilation.</li>
+<li>Example: Upgrading to Ivy reduces bundle sizes and improves
+debugging.</li>
+</ul>
+<p><strong>91. When to use query parameters vs matrix parameters in
+URLs?</strong></p>
+<ul>
+<li><strong>Query Parameters</strong>: Used to pass data globally,
+typically for search, filters, or pagination.</li>
+<li><strong>Matrix Parameters</strong>: Used for passing parameters
+specific to a route segment.</li>
+<li>Query parameters are part of the URL query string
+(<code>?param=value</code>), while matrix parameters use a semicolon
+(<code>;param=value</code>).</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb74"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Query parameters</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">router</span><span class="op">.</span><span class="fu">navigate</span>([<span class="st">&#39;/search&#39;</span>]<span class="op">,</span> { queryParams<span class="op">:</span> { q<span class="op">:</span> <span class="st">&#39;angular&#39;</span> } })<span class="op">;</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Matrix parameters</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">router</span><span class="op">.</span><span class="fu">navigate</span>([<span class="st">&#39;/product&#39;</span><span class="op">,</span> { id<span class="op">:</span> <span class="dv">1</span><span class="op">,</span> color<span class="op">:</span> <span class="st">&#39;red&#39;</span> }])<span class="op">;</span></span></code></pre></div>
+<p><strong>92. Angular 8: What are some changes in the Location
+module?</strong></p>
+<ul>
+<li>Support for multiple <code>baseHref</code> values during
+runtime.</li>
+<li>Added support for <code>Location.getState()</code> to retrieve
+history states.</li>
+<li>Improved handling of hash-based navigation.</li>
+<li>Example: Retrieve the current state:</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> state <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="fu">getState</span>()<span class="op">;</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(state)<span class="op">;</span></span></code></pre></div>
+<p><strong>93. Angular 9: Explain improvements in
+Tree-Shaking.</strong></p>
+<ul>
+<li>Ivy eliminates unused code more effectively with enhanced
+tree-shaking.</li>
+<li>Components and directives are compiled independently, enabling
+better optimizations.</li>
+<li>Reduces bundle size by removing unused features and modules.</li>
+<li>Example: Unused Angular directives no longer inflate the bundle
+size.</li>
+</ul>
+<p><strong>94. How does Ivy affect the (Re)build time?</strong></p>
+<ul>
+<li>Ivy improves incremental rebuild times due to its locality
+principle.</li>
+<li>Uses precompiled code, reducing the need for recompiling unchanged
+modules.</li>
+<li>Smaller bundle sizes lead to faster development and testing
+cycles.</li>
+<li>Example: Faster component-only rebuilds during development.</li>
+</ul>
+<p><strong>95. Just-in-Time (JIT) vs Ahead-of-Time (AOT) compilation:
+Explain the difference.</strong></p>
+<ul>
+<li><strong>JIT</strong>: Compilation happens in the browser during
+runtime; faster builds but slower runtime.</li>
+<li><strong>AOT</strong>: Compilation occurs at build time, resulting in
+faster runtime and optimized bundles.</li>
+<li>AOT detects errors at build time, reducing runtime crashes.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb76"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JIT</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> serve</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co"># AOT</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> build <span class="at">--prod</span> <span class="at">--aot</span></span></code></pre></div>
+<p><strong>96. Do you know how you can run AngularJS and Angular side by
+side?</strong></p>
+<ul>
+<li>Use <code>@angular/upgrade</code> for hybrid apps to bridge
+AngularJS and Angular.</li>
+<li>Upgrade AngularJS components and services incrementally.</li>
+<li>Bootstrap the app using <code>UpgradeModule</code>.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb77"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { UpgradeModule } <span class="im">from</span> <span class="st">&#39;@angular/upgrade/static&#39;</span><span class="op">;</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">platformBrowserDynamic</span>()<span class="op">.</span><span class="fu">bootstrapModule</span>(AppModule)<span class="op">.</span><span class="fu">then</span>(ref <span class="kw">=&gt;</span> ref<span class="op">.</span><span class="at">injector</span><span class="op">.</span><span class="fu">get</span>(UpgradeModule)<span class="op">.</span><span class="fu">bootstrap</span>(<span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">,</span> [<span class="st">&#39;myApp&#39;</span>]))<span class="op">;</span></span></code></pre></div>
+<p><strong>97. Why does Angular use URL segments?</strong></p>
+<ul>
+<li>URL segments allow Angular to parse and handle routes
+hierarchically.</li>
+<li>Provides better control over child routes and their parameters.</li>
+<li>Facilitates matrix parameters for route-specific data.</li>
+<li>Example: <code>/product;id=123/details;tab=reviews</code> uses
+segments for clarity.</li>
+</ul>
+<p><strong>98. What is the difference between BehaviorSubject vs
+Observable in Angular?</strong></p>
+<ul>
+<li><strong>Observable</strong>: Emits values only to subscribers when
+they subscribe.</li>
+<li><strong>BehaviorSubject</strong>: Emits the last emitted value to
+new subscribers immediately.</li>
+<li>BehaviorSubject requires an initial value; Observable does not.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb78"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> behaviorSubject <span class="op">=</span> <span class="kw">new</span> <span class="fu">BehaviorSubject</span>(<span class="st">&#39;Initial Value&#39;</span>)<span class="op">;</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>behaviorSubject<span class="op">.</span><span class="fu">subscribe</span>(value <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(value))<span class="op">;</span> <span class="co">// Outputs: &#39;Initial Value&#39;</span></span></code></pre></div>
+<p><strong>99. Name some differences between SystemJS vs
+Webpack.</strong></p>
+<ul>
+<li><strong>SystemJS</strong>: A dynamic module loader; less optimized
+for bundling.</li>
+<li><strong>Webpack</strong>: A static bundler, handles multiple assets
+and optimizations.</li>
+<li>Webpack supports advanced features like lazy loading and
+tree-shaking.</li>
+<li>Example: Angular CLI uses Webpack under the hood for builds.</li>
+</ul>
+<p><strong>100. How would you extract Webpack config from an Angular CLI
+project?</strong></p>
+<ul>
+<li>Angular CLI abstracts Webpack configuration by default.</li>
+<li>Use <code>ng eject</code> in earlier versions (deprecated after
+Angular 6).</li>
+<li>Alternative: Use custom builders to override Webpack
+configuration.</li>
+<li>Example: Modify configurations using
+<code>angular-builders/custom-webpack</code>.</li>
+</ul>
+<p><strong>101. Why is Incremental DOM Tree-Shakable?</strong></p>
+<ul>
+<li>Incremental DOM directly manipulates the DOM, avoiding intermediate
+representations.</li>
+<li>Compiles each component into independent, self-contained code.</li>
+<li>Unused components are automatically excluded during
+tree-shaking.</li>
+<li>Example: Ivy leverages Incremental DOM for tree-shakable
+builds.</li>
+</ul>
+<p><strong>102. Why did the Google team go with Incremental DOM instead
+of Virtual DOM?</strong></p>
+<ul>
+<li>Incremental DOM is more memory-efficient for large apps.</li>
+<li>Updates only the necessary DOM elements, reducing reconciliation
+overhead.</li>
+<li>It simplifies Angular’s rendering pipeline with fewer
+abstractions.</li>
+<li>Example: Faster rendering for data-heavy apps using Angular
+Ivy.</li>
+</ul>
+<p><strong>103. Could you provide some particular examples of using Zone
+in Angular?</strong></p>
+<ul>
+<li>Tracking asynchronous operations like <code>setTimeout</code> or
+<code>HTTP</code> requests.</li>
+<li>Ensuring UI updates automatically in response to async tasks.</li>
+<li>Useful in debugging with zone-related error stack traces.</li>
+<li>Example: Zone handles automatic change detection for promises.</li>
+</ul>
+<p><strong>104. What are Pipes in Angular? Give me an
+example.</strong></p>
+<ul>
+<li>Pipes transform data for presentation in templates.</li>
+<li>Angular provides built-in pipes like <code>uppercase</code>,
+<code>date</code>, and <code>currency</code>.</li>
+<li>Custom pipes can handle domain-specific transformations.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb79"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Pipe</span>({ name<span class="op">:</span> <span class="st">&#39;square&#39;</span> })</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> SquarePipe {</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(value<span class="op">:</span> <span class="dt">number</span>)<span class="op">:</span> <span class="dt">number</span> {</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value <span class="op">*</span> value<span class="op">;</span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Usage: {{ 5 | square }} outputs 25</span></span></code></pre></div>
+<p><strong>105. What does this line do in Angular?</strong></p>
+<div class="sourceCode" id="cb80"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">changeDetectorRef</span><span class="op">.</span><span class="fu">detectChanges</span>()<span class="op">;</span></span></code></pre></div>
+<ul>
+<li>Manually triggers change detection for the component.</li>
+<li>Useful in scenarios where Angular’s automatic change detection
+doesn’t suffice.</li>
+<li>Ensures updates to the DOM after async operations.</li>
+<li>Example: Force update a component after external state changes.</li>
+</ul>
+<p><strong>106. How can I select an element in a component
+template?</strong></p>
+<ul>
+<li>Use Angular’s <code>@ViewChild</code> or <code>@ViewChildren</code>
+decorators.</li>
+<li><code>ElementRef</code> provides direct access to the DOM
+element.</li>
+<li>Prefer <code>Renderer2</code> for DOM manipulations to maintain
+compatibility.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb81"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">ViewChild</span>(<span class="st">&#39;myElement&#39;</span>) myElement<span class="op">:</span> ElementRef<span class="op">;</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ngAfterViewInit</span>() {</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">renderer</span><span class="op">.</span><span class="fu">setStyle</span>(<span class="kw">this</span><span class="op">.</span><span class="at">myElement</span><span class="op">.</span><span class="at">nativeElement</span><span class="op">,</span> <span class="st">&#39;color&#39;</span><span class="op">,</span> <span class="st">&#39;red&#39;</span>)<span class="op">;</span></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>107. How would you control the size of an element on the
+resize of the window in a component?</strong></p>
+<ul>
+<li>Use Angular’s <code>HostListener</code> to listen to window resize
+events.</li>
+<li>Adjust the element size dynamically in the handler.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb82"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;window:resize&#39;</span><span class="op">,</span> [<span class="st">&#39;$event&#39;</span>])</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">onResize</span>(event<span class="op">:</span> <span class="dt">any</span>) {</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">width</span> <span class="op">=</span> <span class="bu">event</span><span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">innerWidth</span><span class="op">;</span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>108. How to bundle an Angular app for
+production?</strong></p>
+<ul>
+<li>Use <code>ng build --prod</code> for an optimized production
+build.</li>
+<li>Minifies, compresses, and bundles the code.</li>
+<li>Enables AOT and tree-shaking by default.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb83"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ng</span> build <span class="at">--prod</span> <span class="at">--aot</span></span></code></pre></div>
+<p><strong>109. How to set headers for every request in
+Angular?</strong></p>
+<ul>
+<li>Use <code>HttpInterceptor</code> to intercept outgoing
+requests.</li>
+<li>Add headers using <code>HttpRequest.clone()</code> method.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb84"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intercept</span>(req<span class="op">:</span> HttpRequest<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;,</span> next<span class="op">:</span> HttpHandler)<span class="op">:</span> Observable<span class="op">&lt;</span>HttpEvent<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;&gt;</span> {</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> cloned <span class="op">=</span> req<span class="op">.</span><span class="fu">clone</span>({ headers<span class="op">:</span> req<span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;Authorization&#39;</span><span class="op">,</span> <span class="st">&#39;Bearer token&#39;</span>) })<span class="op">;</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> next<span class="op">.</span><span class="fu">handle</span>(cloned)<span class="op">;</span></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>110. Could I use jQuery with Angular?</strong></p>
+<ul>
+<li>Yes, but it’s not recommended due to potential conflicts with
+Angular’s DOM handling.</li>
+<li>Import jQuery and use it within components as needed.</li>
+<li>Example:</li>
+</ul>
+<div class="sourceCode" id="cb85"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> $ <span class="im">from</span> <span class="st">&#39;jquery&#39;</span><span class="op">;</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ngAfterViewInit</span>() {</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">$</span>(<span class="st">&#39;#myDiv&#39;</span>)<span class="op">.</span><span class="fu">fadeIn</span>()<span class="op">;</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</body>
+</html>

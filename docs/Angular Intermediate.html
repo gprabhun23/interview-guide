@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>in</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h3
+id="1-what-are-directives-in-angular-have-you-ever-created-a-custom-directive-can-you-explain-the-steps">1.
+What are directives in Angular? Have you ever created a custom
+directive? Can you explain the steps?</h3>
+<ul>
+<li>Directives in Angular are classes that add custom behavior to
+elements in the DOM.</li>
+<li>There are three types: Structural (<code>*ngIf</code>,
+<code>*ngFor</code>), Attribute (e.g., <code>[ngClass]</code>), and
+Component.</li>
+<li>Custom directives are used to create reusable behaviors like
+toggling styles or handling events.</li>
+<li>Steps to create a custom directive:
+<ol type="1">
+<li>Use <code>ng generate directive &lt;directive-name&gt;</code> to
+scaffold the directive.</li>
+<li>Define behavior in the <code>@Directive</code> class.</li>
+<li>Apply the directive to elements in templates.</li>
+</ol></li>
+<li><strong>Example</strong>: Created a hover effect directive in a
+project.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { Directive<span class="op">,</span> ElementRef<span class="op">,</span> HostListener } <span class="im">from</span> <span class="st">&#39;@angular/core&#39;</span><span class="op">;</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;[appHoverHighlight]&#39;</span>  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HoverHighlightDirective {  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>(<span class="kw">private</span> el<span class="op">:</span> ElementRef) {}  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() {  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">el</span><span class="op">.</span><span class="at">nativeElement</span><span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;yellow&#39;</span><span class="op">;</span>  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostListener</span>(<span class="st">&#39;mouseleave&#39;</span>) <span class="fu">onMouseLeave</span>() {  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">el</span><span class="op">.</span><span class="at">nativeElement</span><span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;white&#39;</span><span class="op">;</span>  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<p>Applied it for dynamic hover highlighting in a dashboard
+component.</p>
+<hr />
+<h3
+id="2-what-are-the-different-ways-to-share-data-between-components">2.
+What are the different ways to share data between components?</h3>
+<ul>
+<li>Sharing data between components depends on their relationship
+(parent-child, siblings, etc.).</li>
+<li>Use <strong>Input and Output</strong> bindings for parent-child
+communication.</li>
+<li>Use a <strong>shared service with Subjects or
+BehaviorSubjects</strong> for sibling components.</li>
+<li>Use <strong>Angular’s State Management tools</strong> like NGRX for
+application-wide sharing.</li>
+<li><strong>Example</strong>: Used a service with BehaviorSubject for
+real-time updates between unrelated components in a project
+dashboard.</li>
+</ul>
+<hr />
+<h3
+id="3-can-you-explain-your-role-and-responsibilities-in-the-current-project-do-you-follow-the-agile-methodology">3.
+Can you explain your role and responsibilities in the current project?
+Do you follow the Agile methodology?</h3>
+<ul>
+<li>As a full-stack developer, responsible for building Angular-based
+user interfaces and integrating APIs.</li>
+<li>Participate in sprint planning, daily stand-ups, and retrospectives
+following Agile.</li>
+<li>Write and optimize Angular components for scalability and
+performance.</li>
+<li>Ensure code quality using unit tests, code reviews, and adherence to
+best practices.</li>
+<li><strong>Example</strong>: Delivered a reusable component library
+that reduced development time across multiple sprints.</li>
+</ul>
+<hr />
+<h3 id="4-what-is-an-interceptor-in-angular">4. What is an Interceptor
+in Angular?</h3>
+<ul>
+<li>Interceptors intercept HTTP requests and responses globally in an
+Angular application.</li>
+<li>Useful for logging, modifying headers, or handling errors.</li>
+<li>Implemented by creating a class that implements
+<code>HttpInterceptor</code>.</li>
+<li>Add the interceptor in the <code>providers</code> array using
+<code>HTTP_INTERCEPTORS</code>.</li>
+<li><strong>Example</strong>: Used an interceptor for adding
+authentication tokens to all API requests.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { Injectable } <span class="im">from</span> <span class="st">&#39;@angular/core&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { HttpInterceptor<span class="op">,</span> HttpRequest<span class="op">,</span> HttpHandler } <span class="im">from</span> <span class="st">&#39;@angular/common/http&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>()  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthInterceptor <span class="kw">implements</span> HttpInterceptor {  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">intercept</span>(req<span class="op">:</span> HttpRequest<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;,</span> next<span class="op">:</span> HttpHandler) {  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> authToken <span class="op">=</span> <span class="st">&#39;Bearer token&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> authReq <span class="op">=</span> req<span class="op">.</span><span class="fu">clone</span>({ setHeaders<span class="op">:</span> { Authorization<span class="op">:</span> authToken } })<span class="op">;</span>  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next<span class="op">.</span><span class="fu">handle</span>(authReq)<span class="op">;</span>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="5-how-would-you-handle-error-handling-in-a-centralized-manner-in-angular">5.
+How would you handle error handling in a centralized manner in
+Angular?</h3>
+<ul>
+<li>Use HTTP Interceptors for centralizing error handling.</li>
+<li>Create a global error service to display error messages via UI
+components.</li>
+<li>Use RxJS operators like <code>catchError</code> in services for more
+granular control.</li>
+<li>Implement Angular’s <code>ErrorHandler</code> class to catch
+application-level errors.</li>
+<li><strong>Example</strong>: Centralized error handling in an
+e-commerce app using an interceptor to log errors and notify users.</li>
+</ul>
+<hr />
+<h3
+id="6-how-does-lazy-loading-work-in-angular-and-what-are-the-routing-guards-available-how-do-you-perform-role-based-routing-and-restrict-access-to-certain-pages-in-angular">6.
+How does lazy loading work in Angular, and what are the routing guards
+available? How do you perform role-based routing and restrict access to
+certain pages in Angular?</h3>
+<ul>
+<li>Lazy loading loads feature modules only when needed to improve
+performance.</li>
+<li>Use <code>loadChildren</code> in the route configuration to enable
+lazy loading.</li>
+<li>Routing guards include <code>canActivate</code>,
+<code>canDeactivate</code>, <code>canLoad</code>, and
+<code>resolve</code>.</li>
+<li>Implement role-based routing by checking roles in a guard and
+redirecting unauthorized users.</li>
+<li><strong>Example</strong>: Restricted admin routes by implementing a
+<code>canActivate</code> guard in an enterprise application.</li>
+</ul>
+<hr />
+<h3
+id="7-how-do-you-manage-communication-between-two-unrelated-components-in-angular">7.
+How do you manage communication between two unrelated components in
+Angular?</h3>
+<ul>
+<li>Use a shared service with Subject or BehaviorSubject to share
+data.</li>
+<li>Use the Angular EventEmitter API in services for emitting
+events.</li>
+<li>Leverage local storage or session storage for persistent data
+sharing.</li>
+<li>Use Angular’s state management tools for global application state
+sharing.</li>
+<li><strong>Example</strong>: Built a service using BehaviorSubject for
+real-time notifications in unrelated dashboard widgets.</li>
+</ul>
+<hr />
+<h3
+id="8-how-do-you-manage-session-or-local-storage-for-large-data-in-the-browser">8.
+How do you manage session or local storage for large data in the
+browser?</h3>
+<ul>
+<li>Store data in JSON format using <code>localStorage</code> or
+<code>sessionStorage</code>.</li>
+<li>Compress data using libraries like LZ-String for large data.</li>
+<li>Use IndexedDB for structured storage of large datasets.</li>
+<li>Implement custom storage services for better encapsulation and
+reusability.</li>
+<li><strong>Example</strong>: Used IndexedDB for offline storage of
+order history in a retail app.</li>
+</ul>
+<hr />
+<h3
+id="9-have-you-worked-with-angular-material-what-components-have-you-used-or-customized">9.
+Have you worked with Angular Material? What components have you used or
+customized?</h3>
+<ul>
+<li>Angular Material provides pre-built UI components that follow
+Material Design.</li>
+<li>Frequently used components include buttons, dialogs, tables, and
+date pickers.</li>
+<li>Customized themes using Angular Material’s theming
+capabilities.</li>
+<li>Integrated Material icons for consistent design.</li>
+<li><strong>Example</strong>: Customized Material tables with dynamic
+filtering and sorting for a data-heavy application.</li>
+</ul>
+<hr />
+<h3
+id="10-how-does-the-initialization-of-an-angular-application-happen">10.
+How does the initialization of an Angular application happen?</h3>
+<ul>
+<li>Starts with <code>main.ts</code> that bootstraps the root module
+(<code>AppModule</code>).</li>
+<li>The root module declares components and imports modules like
+<code>BrowserModule</code>.</li>
+<li>The <code>AppComponent</code> is the root component rendered in
+<code>index.html</code>.</li>
+<li>Lifecycle hooks like <code>ngOnInit</code> initialize components
+post-bootstrap.</li>
+<li><strong>Example</strong>: Debugged application initialization issues
+using the bootstrapping sequence in <code>main.ts</code>.</li>
+</ul>
+<hr />
+<h3 id="11-what-are-decorators-in-angular">11. What are decorators in
+Angular?</h3>
+<ul>
+<li>Decorators are functions that add metadata to classes, methods,
+properties, or parameters.</li>
+<li>Common decorators include <code>@Component</code>,
+<code>@Directive</code>, <code>@Injectable</code>, <code>@Input</code>,
+and <code>@Output</code>.</li>
+<li>Decorators enable Angular to understand the structure and behavior
+of the application.</li>
+<li>Used extensively for dependency injection and configuring
+components.</li>
+<li><strong>Example</strong>: Used <code>@Input</code> and
+<code>@Output</code> decorators for parent-child communication in
+reusable components.</li>
+</ul>
+<hr />
+<h3
+id="12-what-is-the-importance-of-the-ngif-directive-in-angular-can-you-use-the-ngif-directive-to-check-if-the-array-is-empty-or-not">12.
+What is the importance of the ngIf directive in Angular? Can you use the
+ngIf directive to check if the array is empty or not?</h3>
+<ul>
+<li><code>ngIf</code> conditionally renders DOM elements based on the
+given expression.</li>
+<li>Improves performance by removing elements not required in the
+DOM.</li>
+<li>Supports <code>else</code> template for fallback rendering.</li>
+<li>Can check if an array is empty using <code>array.length</code>.</li>
+<li><strong>Example</strong>: Used <code>*ngIf</code> to show a “No Data
+Available” message when a table’s data array was empty.</li>
+</ul>
+<hr />
+<h3
+id="13-can-you-explain-the-changes-in-angular-17-regarding-the-syntax-for-directives-like-ngfor-and-ngif">13.
+Can you explain the changes in Angular 17 regarding the syntax for
+directives like ngFor and ngIf?</h3>
+<ul>
+<li>Angular 17 introduced simpler syntax for commonly used
+directives.</li>
+<li>Enables compact usage of structural directives without
+repetition.</li>
+<li>Removed some verbosity in directive implementation for improved
+readability.</li>
+<li>Simplified examples include shorthand for conditional loops or
+checks.</li>
+<li><strong>Example</strong>: Migrated existing <code>*ngFor</code>
+loops to new Angular 17 syntax in a project for cleaner code.</li>
+</ul>
+<hr />
+<h3 id="14-how-can-we-communicate-between-components-in-angular">14. How
+can we communicate between components in Angular?</h3>
+<ul>
+<li>Use <code>@Input</code> for parent-to-child communication.</li>
+<li>Use <code>@Output</code> with <code>EventEmitter</code> for
+child-to-parent communication.</li>
+<li>Use a shared service for sibling or unrelated components.</li>
+<li>Leverage Angular’s state management libraries for complex use
+cases.</li>
+<li><strong>Example</strong>: Used shared services for dynamic menu
+updates across unrelated components.</li>
+</ul>
+<hr />
+<h3
+id="15-what-is-the-difference-between-observable-subject-and-behaviorsubject-in-angular">15.
+What is the difference between Observable, Subject, and BehaviorSubject
+in Angular?</h3>
+<ul>
+<li>Observable is a data stream that emits values over time.</li>
+<li>Subject is both an observer and observable; it multicasts
+values.</li>
+<li>BehaviorSubject emits the last value upon subscription.</li>
+<li>BehaviorSubject requires an initial value, unlike Subject.</li>
+<li><strong>Example</strong>: Used BehaviorSubject for maintaining and
+updating the user authentication state in a project.</li>
+</ul>
+<p>Apologies for the mix-up earlier! Let me start properly from
+<strong>16</strong> as you requested, ensuring every question is
+answered concisely and examples are included.</p>
+<hr />
+<h3 id="16-what-is-debounce-and-why-do-we-use-it-in-angular">16. What is
+Debounce, and why do we use it in Angular?</h3>
+<ul>
+<li>Debounce delays execution of a function after a user’s last
+action.</li>
+<li>It reduces redundant calls, optimizing performance (e.g., during
+keypress events).</li>
+<li>Implemented with RxJS <code>debounceTime</code> or
+<code>debounce</code>.</li>
+<li>Used primarily in search inputs or real-time filters.</li>
+<li><strong>Example</strong>: Implemented <code>debounceTime</code> in a
+search bar to delay API calls.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>searchControl<span class="op">.</span><span class="at">valueChanges</span><span class="op">.</span><span class="fu">pipe</span>(<span class="fu">debounceTime</span>(<span class="dv">300</span>))<span class="op">.</span><span class="fu">subscribe</span>(query <span class="kw">=&gt;</span> {  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">searchService</span><span class="op">.</span><span class="fu">search</span>(query)<span class="op">;</span>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="17-what-is-the-difference-between-hot-and-cold-observables-in-angular">17.
+What is the difference between hot and cold observables in Angular?</h3>
+<ul>
+<li>Cold observables emit data only when there’s an active
+subscription.</li>
+<li>Hot observables produce data continuously, even without
+subscribers.</li>
+<li>Cold observables are used for operations like HTTP requests.</li>
+<li>Hot observables are suitable for shared event streams like WebSocket
+updates.</li>
+<li><strong>Example</strong>: Used a hot observable to stream real-time
+notifications in a messaging app.</li>
+</ul>
+<hr />
+<h3 id="18-why-was-typescript-used-in-angular-instead-of-javascript">18.
+Why was TypeScript used in Angular (instead of JavaScript)?</h3>
+<ul>
+<li>TypeScript offers static typing, reducing runtime errors.</li>
+<li>Provides powerful tooling like interfaces and decorators.</li>
+<li>Supports ES6+ features, enabling modern development practices.</li>
+<li>Makes the codebase more maintainable and scalable.</li>
+<li><strong>Example</strong>: Used TypeScript interfaces to enforce
+consistent API data structure validation.</li>
+</ul>
+<hr />
+<h3 id="19-do-you-have-any-questions-for-me">19. Do you have any
+questions for me?</h3>
+<ul>
+<li>What technologies are you currently exploring for future
+projects?</li>
+<li>How does your team ensure a balance between quality and delivery
+timelines?</li>
+<li>Can you describe the structure of the development team?</li>
+<li>What are your expectations for this role in the first six
+months?</li>
+<li><strong>Example</strong>: Asked these questions in my previous
+interview to gauge team dynamics and project priorities.</li>
+</ul>
+<hr />
+<h3
+id="20-what-is-the-difference-between-hostbinding-and-hostlistener-in-angular">20.
+What is the difference between @HostBinding and @HostListener in
+Angular?</h3>
+<ul>
+<li><code>@HostBinding</code> binds a property or attribute to the host
+element.</li>
+<li><code>@HostListener</code> listens to events on the host
+element.</li>
+<li>Both are used to interact with host components or elements.</li>
+<li>Commonly used in directives for DOM manipulation.</li>
+<li><strong>Example</strong>: Used <code>@HostListener</code> to handle
+clicks and <code>@HostBinding</code> to toggle classes in a hover
+directive.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({ selector<span class="op">:</span> <span class="st">&#39;[appHoverHighlight]&#39;</span> })  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HoverHighlightDirective {  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostBinding</span>(<span class="st">&#39;class.highlight&#39;</span>) isHighlighted <span class="op">=</span> <span class="kw">false</span><span class="op">;</span>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() { <span class="kw">this</span><span class="op">.</span><span class="at">isHighlighted</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> }  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">HostListener</span>(<span class="st">&#39;mouseleave&#39;</span>) <span class="fu">onMouseLeave</span>() { <span class="kw">this</span><span class="op">.</span><span class="at">isHighlighted</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span> }  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="21-have-you-ever-faced-event-bubbling-in-an-angular-application">21.
+Have you ever faced event bubbling in an Angular application?</h3>
+<ul>
+<li>Event bubbling occurs when events propagate from child to parent
+elements.</li>
+<li>Can lead to unintended consequences if not properly managed.</li>
+<li>Use <code>stopPropagation()</code> to prevent bubbling.</li>
+<li>Angular’s event binding automatically contains bubbling in most
+cases.</li>
+<li><strong>Example</strong>: Encountered bubbling in a nested dropdown
+menu and resolved it using <code>stopPropagation()</code>.</li>
+</ul>
+<hr />
+<h3
+id="22-do-you-use-observables-or-promises-more-frequently-in-angular-which-is-better-for-data-handling">22.
+Do you use Observables or Promises more frequently in Angular? Which is
+better for data handling?</h3>
+<ul>
+<li>Observables are more flexible than Promises for asynchronous
+tasks.</li>
+<li>Observables can handle multiple values over time, while Promises
+resolve once.</li>
+<li>Observables integrate seamlessly with RxJS operators like
+<code>map</code>, <code>filter</code>, etc.</li>
+<li>Promises are simpler for one-time HTTP requests.</li>
+<li><strong>Example</strong>: Used Observables for real-time stock
+updates and Promises for user login operations.</li>
+</ul>
+<hr />
+<h3
+id="23-how-do-you-unsubscribe-from-an-observable-when-navigating-away-from-a-component-in-angular">23.
+How do you unsubscribe from an Observable when navigating away from a
+component in Angular?</h3>
+<ul>
+<li>Use <code>Subscription.unsubscribe()</code> in the
+<code>ngOnDestroy</code> lifecycle hook.</li>
+<li>Utilize <code>takeUntil</code> with a Subject to manage
+unsubscription automatically.</li>
+<li>Use <code>async pipe</code> for template bindings to handle
+unsubscription automatically.</li>
+<li>Avoid memory leaks by unsubscribing from all subscriptions.</li>
+<li><strong>Example</strong>: Used <code>takeUntil</code> in a dashboard
+component to unsubscribe from live data streams.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">unsubscribe$</span><span class="op">.</span><span class="fu">next</span>()<span class="op">;</span>  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">unsubscribe$</span><span class="op">.</span><span class="fu">complete</span>()<span class="op">;</span>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="24-why-do-we-use-ngondestroy-in-angular-how-do-you-handle-async-data-and-avoid-memory-leaks-using-ngondestroy">24.
+Why do we use ngOnDestroy in Angular? How do you handle async data and
+avoid memory leaks using ngOnDestroy?</h3>
+<ul>
+<li><code>ngOnDestroy</code> is called when a component is
+destroyed.</li>
+<li>Used to clean up resources like subscriptions, intervals, or
+listeners.</li>
+<li>Unsubscribe from Observables to prevent memory leaks.</li>
+<li>Clear timers or event listeners for better performance.</li>
+<li><strong>Example</strong>: Used <code>ngOnDestroy</code> to clear
+WebSocket connections in a chat application.</li>
+</ul>
+<hr />
+<h3 id="25-what-is-the-purpose-of-the-ngmodule-decorator-in-angular">25.
+What is the purpose of the @NgModule decorator in Angular?</h3>
+<ul>
+<li>Declares and organizes Angular modules.</li>
+<li>Defines the components, directives, and pipes used within the
+module.</li>
+<li>Specifies imports, exports, and providers for dependency
+injection.</li>
+<li>Helps with modularization and lazy loading of features.</li>
+<li><strong>Example</strong>: Used <code>@NgModule</code> to structure
+feature modules like UserModule and AdminModule.</li>
+</ul>
+<hr />
+<h3 id="26-what-are-the-key-sections-inside-the-ngmodule-decorator">26.
+What are the key sections inside the @NgModule decorator?</h3>
+<ul>
+<li><code>declarations</code>: Declares components, directives, and
+pipes.</li>
+<li><code>imports</code>: Includes other modules like
+<code>BrowserModule</code> or <code>FormsModule</code>.</li>
+<li><code>providers</code>: Registers services and dependencies for
+DI.</li>
+<li><code>bootstrap</code>: Specifies the root component for
+bootstrapping.</li>
+<li><strong>Example</strong>: Used <code>imports</code> to integrate
+Angular Material in a module.</li>
+</ul>
+<hr />
+<h3
+id="27-can-you-have-multiple-ngmodule-decorators-in-an-angular-application">27.
+Can you have multiple @NgModule decorators in an Angular
+application?</h3>
+<ul>
+<li>Yes, Angular supports multiple modules to modularize the
+application.</li>
+<li>Feature modules encapsulate related functionality.</li>
+<li>CoreModule contains singleton services; SharedModule contains
+reusable components.</li>
+<li>Helps with lazy loading and reducing bundle size.</li>
+<li><strong>Example</strong>: Created separate modules for
+authentication, dashboard, and reporting in a project.</li>
+</ul>
+<hr />
+<h3
+id="28-how-do-you-implement-lazy-loading-in-angular-using-ngmodule">28.
+How do you implement lazy loading in Angular using @NgModule?</h3>
+<ul>
+<li>Define feature modules with their own routing configurations.</li>
+<li>Use <code>loadChildren</code> in the <code>AppRoutingModule</code>
+to load modules lazily.</li>
+<li>Ensure each feature module has its own <code>RouterModule</code>
+configuration.</li>
+<li>Improves application performance by reducing initial load size.</li>
+<li><strong>Example</strong>: Implemented lazy loading for an admin
+module in an e-commerce app.</li>
+</ul>
+<hr />
+<h3
+id="29-what-is-the-purpose-of-the-providers-and-declarations-properties-in-the-ngmodule-decorator">29.
+What is the purpose of the providers and declarations properties in the
+@NgModule decorator?</h3>
+<ul>
+<li><code>providers</code> registers services and dependencies at the
+module level.</li>
+<li><code>declarations</code> registers components, directives, and
+pipes in the module.</li>
+<li>Ensures proper DI and component recognition.</li>
+<li>Prevents redeclaration errors by scoping components to their
+modules.</li>
+<li><strong>Example</strong>: Declared shared components in SharedModule
+and services in CoreModule.</li>
+</ul>
+<hr />
+<h3
+id="30-how-do-you-add-a-module-like-the-formsmodule-to-an-angular-application">30.
+How do you add a module like the FormsModule to an Angular
+application?</h3>
+<ul>
+<li>Import the module in the <code>AppModule</code> or the required
+feature module.</li>
+<li>Add the module to the <code>imports</code> array of
+<code>@NgModule</code>.</li>
+<li>Use the directives or components provided by the module in
+templates.</li>
+<li>Ensure proper configuration if required (e.g.,
+ReactiveFormsModule).</li>
+<li><strong>Example</strong>: Used <code>FormsModule</code> for two-way
+binding in a user registration form.</li>
+</ul>
+<hr />
+<h3
+id="31-what-are-route-guards-in-angular-and-how-do-you-implement-them-for-authentication">31.
+What are route guards in Angular, and how do you implement them for
+authentication?</h3>
+<ul>
+<li>Route guards control access to specific routes based on
+conditions.</li>
+<li>Common types include <code>CanActivate</code>,
+<code>CanDeactivate</code>, and <code>Resolve</code>.</li>
+<li>Implement route guards as services by extending their respective
+interfaces.</li>
+<li>Use guards in the <code>AppRoutingModule</code> to protect
+routes.</li>
+<li><strong>Example</strong>: Used <code>CanActivate</code> guard to
+restrict access to admin routes for unauthorized users.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>({ providedIn<span class="op">:</span> <span class="st">&#39;root&#39;</span> })  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthGuard <span class="kw">implements</span> CanActivate {  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>(<span class="kw">private</span> authService<span class="op">:</span> AuthService<span class="op">,</span> <span class="kw">private</span> router<span class="op">:</span> Router) {}  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">canActivate</span>()<span class="op">:</span> <span class="dt">boolean</span> {  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">authService</span><span class="op">.</span><span class="fu">isLoggedIn</span>()) {  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    }  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">router</span><span class="op">.</span><span class="fu">navigate</span>([<span class="st">&#39;/login&#39;</span>])<span class="op">;</span>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span>  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="32-what-is-the-purpose-of-canactivate-and-candeactivate-route-guards-in-angular">32.
+What is the purpose of canActivate and canDeactivate route guards in
+Angular?</h3>
+<ul>
+<li><code>CanActivate</code> determines whether a user can access a
+route.</li>
+<li><code>CanDeactivate</code> checks if a user can leave a route,
+useful for unsaved changes.</li>
+<li>Both return boolean or Observable/Promise resolving to boolean.</li>
+<li>Used to enforce authentication, permissions, or confirm
+actions.</li>
+<li><strong>Example</strong>: Used <code>CanDeactivate</code> in a form
+editor to prevent unsaved data loss.</li>
+</ul>
+<hr />
+<h3
+id="33-how-do-you-manage-data-transfer-between-components-using-services-and-subject-in-angular">33.
+How do you manage data transfer between components using services and
+Subject in Angular?</h3>
+<ul>
+<li>Create a shared service for communication between components.</li>
+<li>Use an RxJS <code>Subject</code> for broadcasting data changes.</li>
+<li>Inject the service into the components needing communication.</li>
+<li>Subscribe to the <code>Subject</code> to listen for updates.</li>
+<li><strong>Example</strong>: Used a shared service to notify components
+of user role changes.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>({ providedIn<span class="op">:</span> <span class="st">&#39;root&#39;</span> })  </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> DataService {  </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">private</span> userRoleSubject <span class="op">=</span> <span class="kw">new</span> <span class="fu">Subject</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>()<span class="op">;</span>  </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  userRole$ <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">userRoleSubject</span><span class="op">.</span><span class="fu">asObservable</span>()<span class="op">;</span>  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">updateRole</span>(role<span class="op">:</span> <span class="dt">string</span>) {  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">userRoleSubject</span><span class="op">.</span><span class="fu">next</span>(role)<span class="op">;</span>  </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="34-how-do-you-style-components-in-angular-using-external-or-inline-styles">34.
+How do you style components in Angular using external or inline
+styles?</h3>
+<ul>
+<li>External styles: Use <code>styleUrls</code> in the component
+metadata.</li>
+<li>Inline styles: Use the <code>styles</code> property in the component
+metadata.</li>
+<li>CSS can be scoped to components using Angular’s View
+Encapsulation.</li>
+<li>External stylesheets can also be included globally via
+<code>angular.json</code>.</li>
+<li><strong>Example</strong>: Used <code>styleUrls</code> for
+maintaining reusable CSS across components.</li>
+</ul>
+<hr />
+<h3
+id="35-how-do-you-apply-conditional-classes-or-styles-in-angular-templates">35.
+How do you apply conditional classes or styles in Angular
+templates?</h3>
+<ul>
+<li>Use <code>[class.className]</code> to conditionally apply a
+class.</li>
+<li>Use <code>[ngClass]</code> for multiple dynamic classes.</li>
+<li>Apply inline styles conditionally using
+<code>[style.property]</code> or <code>[ngStyle]</code>.</li>
+<li>Useful for UI state changes like active/inactive toggles.</li>
+<li><strong>Example</strong>: Used <code>[ngClass]</code> to highlight
+selected rows in a table dynamically.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;tr</span> <span class="er">[ngClass]</span><span class="ot">=</span><span class="st">&quot;{ &#39;selected&#39;: isSelected(row) }&quot;</span> <span class="er">*ngFor</span><span class="ot">=</span><span class="st">&quot;let row of rows&quot;</span><span class="kw">&gt;</span>  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  {{ row.name }}  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/tr&gt;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="36-how-do-you-handle-forms-in-angular-template-driven-vs-reactive">36.
+How do you handle forms in Angular? (Template-driven vs. Reactive)</h3>
+<ul>
+<li>Template-driven forms rely on directives in templates and are
+simpler for basic forms.</li>
+<li>Reactive forms provide a model-driven approach with better control
+and validation.</li>
+<li>Use <code>FormsModule</code> for template-driven and
+<code>ReactiveFormsModule</code> for reactive forms.</li>
+<li>Reactive forms use <code>FormGroup</code> and
+<code>FormControl</code> for form control management.</li>
+<li><strong>Example</strong>: Used reactive forms for building dynamic
+form fields with validation.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">form</span> <span class="op">=</span> <span class="kw">new</span> <span class="fu">FormGroup</span>({  </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  name<span class="op">:</span> <span class="kw">new</span> <span class="fu">FormControl</span>(<span class="st">&#39;&#39;</span><span class="op">,</span> Validators<span class="op">.</span><span class="at">required</span>)<span class="op">,</span>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  email<span class="op">:</span> <span class="kw">new</span> <span class="fu">FormControl</span>(<span class="st">&#39;&#39;</span><span class="op">,</span> [Validators<span class="op">.</span><span class="at">required</span><span class="op">,</span> Validators<span class="op">.</span><span class="at">email</span>])  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="37-how-can-you-handle-form-validation-in-angular-using-reactiveforms-and-templatedrivenforms">37.
+How can you handle form validation in Angular using ReactiveForms and
+TemplateDrivenForms?</h3>
+<ul>
+<li>Use <code>Validators</code> for both approaches to enforce
+rules.</li>
+<li>For reactive forms, bind errors to controls programmatically.</li>
+<li>For template-driven forms, use Angular’s built-in validation
+directives.</li>
+<li>Display error messages using conditional rendering in the
+template.</li>
+<li><strong>Example</strong>: Used reactive form validators to validate
+email and password fields.</li>
+</ul>
+<hr />
+<h3
+id="38-what-are-the-best-practices-for-handling-dynamic-content-loading-in-angular">38.
+What are the best practices for handling dynamic content loading in
+Angular?</h3>
+<ul>
+<li>Use lazy loading for heavy modules or components.</li>
+<li>Implement <code>trackBy</code> in <code>*ngFor</code> to optimize
+DOM rendering.</li>
+<li>Avoid unnecessary API calls by caching data.</li>
+<li>Use Angular resolvers for pre-fetching route data.</li>
+<li><strong>Example</strong>: Used lazy loading to defer loading of the
+admin dashboard module.</li>
+</ul>
+<hr />
+<h3
+id="39-what-is-the-purpose-of-formbuilder-and-formgroup-in-angular">39.
+What is the purpose of FormBuilder and FormGroup in Angular?</h3>
+<ul>
+<li><code>FormBuilder</code> simplifies form creation using less
+boilerplate code.</li>
+<li><code>FormGroup</code> manages multiple form controls as a single
+group.</li>
+<li>Use <code>FormBuilder</code> to instantiate <code>FormGroup</code>
+and <code>FormControl</code>.</li>
+<li>Helps organize and validate complex forms easily.</li>
+<li><strong>Example</strong>: Used <code>FormBuilder</code> to
+dynamically generate a user registration form.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">form</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">fb</span><span class="op">.</span><span class="fu">group</span>({  </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  username<span class="op">:</span> [<span class="st">&#39;&#39;</span><span class="op">,</span> Validators<span class="op">.</span><span class="at">required</span>]<span class="op">,</span>  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  password<span class="op">:</span> [<span class="st">&#39;&#39;</span><span class="op">,</span> Validators<span class="op">.</span><span class="at">required</span>]  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="40-how-can-you-add-dynamic-validation-to-angular-reactive-form-controls">40.
+How can you add dynamic validation to Angular reactive form
+controls?</h3>
+<ul>
+<li>Use the <code>setValidators</code> method on form controls to add or
+update validators.</li>
+<li>Use <code>updateValueAndValidity()</code> to re-evaluate validation
+rules.</li>
+<li>Useful for conditional form requirements based on user actions.</li>
+<li>Validators can be combined or removed dynamically.</li>
+<li><strong>Example</strong>: Added validation dynamically for a
+required OTP field based on user input.</li>
+</ul>
+<hr />
+<h3 id="41-what-is-the-purpose-of-using-an-interface-in-angular">41.
+What is the purpose of using an interface in Angular?</h3>
+<ul>
+<li>Defines a contract for data structures to ensure type safety.</li>
+<li>Simplifies API response handling by describing expected shapes.</li>
+<li>Makes code more readable and maintainable.</li>
+<li>Enables type-checking during development to catch errors early.</li>
+<li><strong>Example</strong>: Used an interface to type-check API
+response data for user profiles.</li>
+</ul>
+<hr />
+<h3 id="42-what-is-the-purpose-of-the-async-pipe-in-angular">42. What is
+the purpose of the async pipe in Angular?</h3>
+<ul>
+<li>Simplifies subscription to Observables or Promises in
+templates.</li>
+<li>Automatically handles unsubscription to avoid memory leaks.</li>
+<li>Reduces boilerplate code for manual subscription handling.</li>
+<li>Useful for binding async data directly in the template.</li>
+<li><strong>Example</strong>: Used <code>async</code> pipe to display
+user notifications from an Observable stream.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngFor</span><span class="ot">=</span><span class="st">&quot;let notification of notifications$ | async&quot;</span><span class="kw">&gt;</span>  </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  {{ notification.message }}  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span>  </span></code></pre></div>
+<hr />
+<h3 id="43-what-is-an-angular-resolver-and-how-does-it-work">43. What is
+an Angular resolver, and how does it work?</h3>
+<ul>
+<li>Pre-fetches data for a route before navigating to it.</li>
+<li>Implemented as a service using the <code>Resolve</code>
+interface.</li>
+<li>Ensures route loads only after data is available.</li>
+<li>Use <code>resolve</code> property in the
+<code>AppRoutingModule</code> for configuration.</li>
+<li><strong>Example</strong>: Used a resolver to load user details
+before rendering the dashboard.</li>
+</ul>
+<hr />
+<h3
+id="44-what-is-the-difference-between-jit-and-aot-compilation-in-angular">44.
+What is the difference between JIT and AOT compilation in Angular?</h3>
+<ul>
+<li>JIT (Just-In-Time) compiles the app in the browser at runtime.</li>
+<li>AOT (Ahead-Of-Time) compiles the app during the build process.</li>
+<li>AOT provides faster load times and better performance.</li>
+<li>JIT is more suitable for development; AOT is recommended for
+production.</li>
+<li><strong>Example</strong>: Used AOT compilation for production builds
+to minimize load times.</li>
+</ul>
+<hr />
+<h3
+id="45-what-is-lazy-loading-in-angular-and-how-does-it-improve-performance">45.
+What is lazy loading in Angular, and how does it improve
+performance?</h3>
+<ul>
+<li>Defers loading of feature modules until they are needed.</li>
+<li>Reduces the initial bundle size, improving load time.</li>
+<li>Configured using <code>loadChildren</code> in routing modules.</li>
+<li>Ensures efficient resource utilization and better scalability.</li>
+<li><strong>Example</strong>: Implemented lazy loading for the reports
+module in an analytics dashboard.</li>
+</ul>
+<hr />
+<h3 id="46-what-is-the-role-of-http-interceptors-in-angular">46. What is
+the role of HTTP interceptors in Angular?</h3>
+<ul>
+<li>Intercept and modify HTTP requests or responses globally.</li>
+<li>Useful for adding headers like authentication tokens to
+requests.</li>
+<li>Can handle centralized error handling or request logging.</li>
+<li>Implemented by extending the <code>HttpInterceptor</code>
+interface.</li>
+<li><strong>Example</strong>: Used an interceptor to attach JWT tokens
+to outgoing API calls.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>()  </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthInterceptor <span class="kw">implements</span> HttpInterceptor {  </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">intercept</span>(req<span class="op">:</span> HttpRequest<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;,</span> next<span class="op">:</span> HttpHandler)<span class="op">:</span> Observable<span class="op">&lt;</span>HttpEvent<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;&gt;</span> {  </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> cloned <span class="op">=</span> req<span class="op">.</span><span class="fu">clone</span>({ headers<span class="op">:</span> req<span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;Authorization&#39;</span><span class="op">,</span> <span class="vs">`Bearer </span><span class="sc">${</span>token<span class="sc">}</span><span class="vs">`</span>) })<span class="op">;</span>  </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next<span class="op">.</span><span class="fu">handle</span>(cloned)<span class="op">;</span>  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="47-what-is-the-purpose-of-viewchild-and-viewchildren-in-angular">47.
+What is the purpose of ViewChild and ViewChildren in Angular?</h3>
+<ul>
+<li><code>ViewChild</code> retrieves a reference to a single DOM element
+or component.</li>
+<li><code>ViewChildren</code> retrieves references to multiple elements
+or components.</li>
+<li>Access children in the component’s template for manipulation or
+querying.</li>
+<li>Useful for DOM interactions or component communication.</li>
+<li><strong>Example</strong>: Used <code>ViewChild</code> to reset a
+child form component programmatically.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">ViewChild</span>(ChildComponent) childComp<span class="op">!:</span> ChildComponent<span class="op">;</span>  </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">resetChild</span>() {  </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">childComp</span><span class="op">.</span><span class="fu">resetForm</span>()<span class="op">;</span>  </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3 id="48-what-are-entrycomponents-in-angular">48. What are
+entryComponents in Angular?</h3>
+<ul>
+<li>Components loaded dynamically rather than declared in a
+template.</li>
+<li>Specified in the <code>entryComponents</code> array in earlier
+Angular versions.</li>
+<li>No longer required in Angular 9+ due to Ivy renderer.</li>
+<li>Commonly used for dialog boxes, modals, or dynamically added UI
+elements.</li>
+<li><strong>Example</strong>: Used an entry component to create a custom
+dynamic modal dialog.</li>
+</ul>
+<hr />
+<h3
+id="49-what-is-the-role-of-angular-material-in-an-angular-application">49.
+What is the role of Angular Material in an Angular application?</h3>
+<ul>
+<li>Provides pre-designed UI components for faster development.</li>
+<li>Ensures consistency with Google’s Material Design guidelines.</li>
+<li>Components include buttons, forms, dialogs, and tables.</li>
+<li>Supports accessibility and responsiveness out of the box.</li>
+<li><strong>Example</strong>: Used Angular Material’s
+<code>MatTable</code> and <code>MatPaginator</code> for a paginated data
+table.</li>
+</ul>
+<hr />
+<h3 id="50-what-is-a-component-in-angular">50. What is a component in
+Angular?</h3>
+<ul>
+<li>A building block of Angular applications consisting of TypeScript,
+HTML, and CSS.</li>
+<li>Defined using the <code>@Component</code> decorator.</li>
+<li>Controls a specific portion of the UI and handles data binding.</li>
+<li>Communicates with other components using inputs, outputs, or
+services.</li>
+<li><strong>Example</strong>: Created a reusable button component for a
+project.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({  </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-button&#39;</span><span class="op">,</span>  </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="vs">`&lt;button [class]=&quot;btnClass&quot;&gt;{{ label }}&lt;/button&gt;`</span>  </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>})  </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> ButtonComponent {  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() label<span class="op">!:</span> <span class="dt">string</span><span class="op">;</span>  </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() btnClass<span class="op">!:</span> <span class="dt">string</span><span class="op">;</span>  </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3 id="51-how-do-you-bind-data-in-angular">51. How do you bind data in
+Angular?</h3>
+<ul>
+<li>Interpolation (<code>{{}}</code>) for binding data to
+templates.</li>
+<li>Property binding (<code>[property]="expression"</code>) for dynamic
+property values.</li>
+<li>Event binding (<code>(event)="handler"</code>) for listening to DOM
+events.</li>
+<li>Two-way binding (<code>[(ngModel)]</code>) for syncing data between
+the UI and model.</li>
+<li><strong>Example</strong>: Used two-way binding to sync form input
+with a model.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;input</span> <span class="er">[(ngModel)]</span><span class="ot">=</span><span class="st">&quot;username&quot;</span> <span class="er">placeholder</span><span class="ot">=</span><span class="st">&quot;Enter your name&quot;</span><span class="kw">&gt;</span>  </span></code></pre></div>
+<hr />
+<h3 id="52-what-is-ngmodel-and-how-is-it-used">52. What is ngModel, and
+how is it used?</h3>
+<ul>
+<li>A directive for two-way data binding in Angular.</li>
+<li>Requires importing <code>FormsModule</code> in
+<code>AppModule</code>.</li>
+<li>Binds an input element to a component property.</li>
+<li>Automatically updates the property value on user input.</li>
+<li><strong>Example</strong>: Used <code>ngModel</code> to bind a search
+bar input to a component property.</li>
+</ul>
+<hr />
+<h3 id="53-how-do-you-add-modules-in-angular">53. How do you add modules
+in Angular?</h3>
+<ul>
+<li>Use <code>ng generate module</code> or <code>ng g module</code>
+command with Angular CLI.</li>
+<li>Import the module in the root or feature module.</li>
+<li>Use <code>NgModule</code> metadata to configure the module’s
+components and services.</li>
+<li>Modular architecture helps organize large applications.</li>
+<li><strong>Example</strong>: Added a feature module for managing user
+profiles in an application.</li>
+</ul>
+<hr />
+<h3 id="54-what-is-the-appmodule-and-why-is-it-important">54. What is
+the AppModule, and why is it important?</h3>
+<ul>
+<li>The root module of an Angular application, bootstrapped at
+runtime.</li>
+<li>Declares and provides all components, directives, and pipes used in
+the app.</li>
+<li>Imports essential Angular modules like <code>BrowserModule</code>
+and <code>FormsModule</code>.</li>
+<li>Defines entry components and the root component.</li>
+<li><strong>Example</strong>: Configured global services and root-level
+declarations in <code>AppModule</code>.</li>
+</ul>
+<hr />
+<h3 id="55-how-do-you-handle-routing-in-angular">55. How do you handle
+routing in Angular?</h3>
+<ul>
+<li>Define routes using <code>RouterModule</code> in the
+<code>AppRoutingModule</code>.</li>
+<li>Use <code>RouterOutlet</code> in templates to load components
+dynamically.</li>
+<li>Link routes with <code>routerLink</code> directive.</li>
+<li>Manage route parameters with <code>ActivatedRoute</code>
+service.</li>
+<li><strong>Example</strong>: Configured routes for navigation in an
+e-commerce application.</li>
+</ul>
+<hr />
+<h3 id="56-what-are-the-different-types-of-angular-guards">56. What are
+the different types of Angular guards?</h3>
+<ul>
+<li><code>CanActivate</code>: Controls access to a route.</li>
+<li><code>CanDeactivate</code>: Prevents leaving a route without
+confirmation.</li>
+<li><code>Resolve</code>: Pre-fetches data before route activation.</li>
+<li><code>CanLoad</code>: Restricts loading of lazy-loaded modules.</li>
+<li><strong>Example</strong>: Used <code>CanLoad</code> guard to
+restrict loading of admin modules for unauthorized users.</li>
+</ul>
+<hr />
+<h3
+id="57-what-is-the-difference-between-a-subject-and-an-observable-in-angular">57.
+What is the difference between a subject and an observable in
+Angular?</h3>
+<ul>
+<li>Observable emits data streams, while Subject emits and listens
+simultaneously.</li>
+<li>Subjects act as both Observable and Observer.</li>
+<li>Useful for multicasting data to multiple subscribers.</li>
+<li>Subjects allow manual control of emitted data.</li>
+<li><strong>Example</strong>: Used a <code>Subject</code> in a shared
+service to broadcast user role changes.</li>
+</ul>
+<hr />
+<h3
+id="58-what-is-a-behavior-subject-how-does-it-differ-from-a-regular-subject">58.
+What is a behavior subject? How does it differ from a regular
+subject?</h3>
+<ul>
+<li>BehaviorSubject holds a default value and emits the latest value to
+new subscribers.</li>
+<li>Regular Subject doesn’t retain the last emitted value.</li>
+<li>Useful for managing state across components.</li>
+<li>BehaviorSubject is ideal for application-level state sharing.</li>
+<li><strong>Example</strong>: Used BehaviorSubject to store and share
+authentication status.</li>
+</ul>
+<hr />
+<h3
+id="59-how-do-you-handle-data-sharing-between-components-in-angular">59.
+How do you handle data sharing between components in Angular?</h3>
+<ul>
+<li>Use <code>@Input</code> and <code>@Output</code> for parent-child
+communication.</li>
+<li>Use shared services with Observables or Subjects for unrelated
+components.</li>
+<li>Use <code>EventEmitter</code> for emitting events from child to
+parent.</li>
+<li>Avoid tight coupling by using state management libraries for large
+apps.</li>
+<li><strong>Example</strong>: Shared user preferences using a service
+and BehaviorSubject.</li>
+</ul>
+<hr />
+<h3
+id="60-how-does-angular-handle-data-sharing-between-components-eg-parent-child">60.
+How does Angular handle data sharing between components (e.g.,
+parent-child)?</h3>
+<ul>
+<li>Parent to child: Use <code>@Input</code> binding for passing
+data.</li>
+<li>Child to parent: Use <code>@Output</code> and
+<code>EventEmitter</code>.</li>
+<li>Sibling components: Use shared services with Subjects or
+Observables.</li>
+<li>Unrelated components: Use global state management solutions like
+NGRX.</li>
+<li><strong>Example</strong>: Passed user details from parent to child
+using <code>@Input</code>.</li>
+</ul>
+<hr />
+<p>We have covered questions 1–60. A total of 120 questions are to be
+answered. This means <strong>60 questions are pending.</strong> Here is
+the next set:</p>
+<hr />
+<h3 id="61-how-do-you-handle-http-requests-in-angular">61. How do you
+handle HTTP requests in Angular?</h3>
+<ul>
+<li>Use <code>HttpClient</code> module to send HTTP requests.</li>
+<li>Provides methods like <code>get</code>, <code>post</code>,
+<code>put</code>, <code>delete</code> for CRUD operations.</li>
+<li>Supports request options like headers, parameters, and response
+type.</li>
+<li>Use Observables to handle asynchronous responses.</li>
+<li><strong>Example</strong>: Used <code>HttpClient</code> to fetch user
+data from a REST API.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">http</span><span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;https://api.example.com/users&#39;</span>)<span class="op">.</span><span class="fu">subscribe</span>(data <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data))<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3 id="62-how-do-you-work-with-the-httpclientmodule-in-angular">62. How
+do you work with the HttpClientModule in Angular?</h3>
+<ul>
+<li>Import <code>HttpClientModule</code> into the app or feature
+module.</li>
+<li>Use <code>HttpClient</code> service for making HTTP calls.</li>
+<li>Can intercept requests using HTTP interceptors.</li>
+<li>Supports advanced features like retry logic and error handling.</li>
+<li><strong>Example</strong>: Imported <code>HttpClientModule</code> to
+enable HTTP services in <code>AppModule</code>.</li>
+</ul>
+<hr />
+<h3 id="63-how-do-you-prevent-memory-leaks-in-angular">63. How do you
+prevent memory leaks in Angular?</h3>
+<ul>
+<li>Use <code>takeUntil</code> with a <code>Subject</code> for
+unsubscribing from Observables.</li>
+<li>Use the <code>async</code> pipe to manage subscriptions in
+templates.</li>
+<li>Destroy subscriptions in the <code>ngOnDestroy</code> lifecycle
+hook.</li>
+<li>Avoid retaining unused DOM references or listeners.</li>
+<li><strong>Example</strong>: Used <code>takeUntil</code> to safely
+unsubscribe on component destruction.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> destroy$ <span class="op">=</span> <span class="kw">new</span> <span class="fu">Subject</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;</span>()<span class="op">;</span>  </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">observable</span><span class="op">.</span><span class="fu">pipe</span>(<span class="fu">takeUntil</span>(<span class="kw">this</span><span class="op">.</span><span class="at">destroy$</span>))<span class="op">.</span><span class="fu">subscribe</span>()<span class="op">;</span>  </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {  </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">destroy$</span><span class="op">.</span><span class="fu">next</span>()<span class="op">;</span>  </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">destroy$</span><span class="op">.</span><span class="fu">complete</span>()<span class="op">;</span>  </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3 id="64-what-is-appinitializer-and-where-would-you-use-it">64. What
+is AppInitializer, and where would you use it?</h3>
+<ul>
+<li>A function or service that runs before the Angular app
+initializes.</li>
+<li>Configured in the <code>providers</code> array of the root
+module.</li>
+<li>Useful for preloading configurations or fetching essential
+data.</li>
+<li>Executes during the bootstrapping process.</li>
+<li><strong>Example</strong>: Used AppInitializer to fetch environment
+settings before app loads.</li>
+</ul>
+<hr />
+<h3 id="65-how-do-you-run-tests-in-angular-using-karma-and-jasmine">65.
+How do you run tests in Angular using Karma and Jasmine?</h3>
+<ul>
+<li>Write test cases using Jasmine syntax (<code>describe</code>,
+<code>it</code>, <code>expect</code>).</li>
+<li>Use Angular CLI command <code>ng test</code> to run tests with Karma
+test runner.</li>
+<li>Configure Karma for test execution and reporting.</li>
+<li>Test both unit and integration scenarios.</li>
+<li><strong>Example</strong>: Wrote a unit test to verify a service
+function’s output.</li>
+</ul>
+<hr />
+<h3
+id="66-what-is-the-purpose-of-the-angularjson-file-in-configuring-tests">66.
+What is the purpose of the angular.json file in configuring tests?</h3>
+<ul>
+<li>Configures Angular CLI build and test settings.</li>
+<li>Specifies test frameworks, environments, and scripts.</li>
+<li>Allows customizing Karma and Protractor configurations.</li>
+<li>Defines test coverage options and output paths.</li>
+<li><strong>Example</strong>: Updated <code>angular.json</code> to
+enable detailed test coverage reports.</li>
+</ul>
+<hr />
+<h3 id="67-how-do-you-generate-a-coverage-report-in-angular-tests">67.
+How do you generate a coverage report in Angular tests?</h3>
+<ul>
+<li>Run tests using <code>ng test --code-coverage</code> command.</li>
+<li>Generates a <code>coverage</code> folder in the root directory.</li>
+<li>Open <code>index.html</code> inside the folder to view detailed
+coverage.</li>
+<li>Includes metrics like lines, branches, and functions covered.</li>
+<li><strong>Example</strong>: Used coverage reports to optimize
+under-tested components.</li>
+</ul>
+<hr />
+<h3 id="68-how-do-you-debug-an-angular-application">68. How do you debug
+an Angular application?</h3>
+<ul>
+<li>Use Chrome Developer Tools to inspect elements and console
+logs.</li>
+<li>Use Angular DevTools for component and state debugging.</li>
+<li>Add breakpoints in TypeScript files using source maps.</li>
+<li>Leverage <code>console.log</code> and debugging utilities for
+real-time insights.</li>
+<li><strong>Example</strong>: Debugged a routing issue by analyzing the
+navigation state in Angular DevTools.</li>
+</ul>
+<hr />
+<h3 id="69-how-do-you-mock-services-for-testing-in-angular">69. How do
+you mock services for testing in Angular?</h3>
+<ul>
+<li>Create mock classes that implement the service interface.</li>
+<li>Use <code>TestBed</code> to provide mock services during tests.</li>
+<li>Replace actual dependencies with mock versions using
+<code>useClass</code> or <code>useValue</code>.</li>
+<li>Test component behavior independently of service logic.</li>
+<li><strong>Example</strong>: Mocked an API call by returning a
+predefined response.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> mockService <span class="op">=</span> { getData<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="kw">of</span>([{ id<span class="op">:</span> <span class="dv">1</span><span class="op">,</span> name<span class="op">:</span> <span class="st">&#39;Test&#39;</span> }]) }<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="70-what-is-the-difference-between-unit-testing-and-integration-testing">70.
+What is the difference between unit testing and integration
+testing?</h3>
+<ul>
+<li>Unit testing focuses on individual components or functions in
+isolation.</li>
+<li>Integration testing validates interactions between components or
+modules.</li>
+<li>Unit tests are faster and easier to debug.</li>
+<li>Integration tests ensure overall system correctness.</li>
+<li><strong>Example</strong>: Used unit testing to validate form
+validation logic in a component.</li>
+</ul>
+<hr />
+<h3 id="71-how-do-you-structure-an-angular-project-for-scalability">71.
+How do you structure an Angular project for scalability?</h3>
+<ul>
+<li>Use feature modules to group related functionality.</li>
+<li>Separate shared modules for reusable components and services.</li>
+<li>Use consistent naming conventions for files and folders.</li>
+<li>Modularize services, pipes, and directives.</li>
+<li><strong>Example</strong>: Organized e-commerce features like product
+listing and cart into feature modules.</li>
+</ul>
+<hr />
+<h3
+id="72-how-do-you-break-down-an-e-commerce-website-into-modules-and-components">72.
+How do you break down an e-commerce website into modules and
+components?</h3>
+<ul>
+<li>Create feature modules like <code>Product</code>, <code>Cart</code>,
+<code>Order</code>, and <code>User</code>.</li>
+<li>Use components for UI elements like product cards, filters, and
+headers.</li>
+<li>Define shared services for managing cart data and API
+interactions.</li>
+<li>Create reusable components for common features like modals.</li>
+<li><strong>Example</strong>: Built a <code>ProductCard</code> component
+and reused it across the site.</li>
+</ul>
+<hr />
+<h3
+id="73-how-do-you-manage-shared-components-in-an-angular-project">73.
+How do you manage shared components in an Angular project?</h3>
+<ul>
+<li>Create a shared module to declare and export reusable
+components.</li>
+<li>Import the shared module in feature modules where needed.</li>
+<li>Avoid duplicating components by centralizing their definitions.</li>
+<li>Update the shared module to include additional components or
+pipes.</li>
+<li><strong>Example</strong>: Added a custom <code>LoadingSpinner</code>
+component to a shared module.</li>
+</ul>
+<hr />
+<h3
+id="74-what-is-role-based-access-control-rbac-and-how-do-you-implement-it-in-angular">74.
+What is role-based access control (RBAC), and how do you implement it in
+Angular?</h3>
+<ul>
+<li>RBAC restricts user actions based on assigned roles.</li>
+<li>Implement using route guards and conditional UI rendering.</li>
+<li>Store roles in JWT tokens or a user management service.</li>
+<li>Validate roles during route navigation or API calls.</li>
+<li><strong>Example</strong>: Used <code>canActivate</code> guard to
+block unauthorized users from admin routes.</li>
+</ul>
+<hr />
+<h3
+id="75-what-is-clean-architecture-how-do-you-implement-it-in-angular">75.
+What is Clean Architecture? How do you implement it in Angular?</h3>
+<ul>
+<li>A layered design approach separating concerns like UI, business
+logic, and data access.</li>
+<li>Use feature modules for UI and core modules for shared
+services.</li>
+<li>Ensure that dependencies flow inward, not outward.</li>
+<li>Utilize interfaces for dependency inversion.</li>
+<li><strong>Example</strong>: Structured an Angular application using
+clean architecture for maintainability.</li>
+</ul>
+<hr />
+<h3 id="76-how-do-you-deploy-an-angular-application">76. How do you
+deploy an Angular application?</h3>
+<ul>
+<li>Use <code>ng build --prod</code> to generate production-ready static
+files.</li>
+<li>Deploy files to a web server like Apache, Nginx, or Azure Static Web
+Apps.</li>
+<li>Configure routing with <code>rewrites</code> or
+<code>.htaccess</code> for SPA navigation.</li>
+<li>Use CI/CD pipelines for automated deployment.</li>
+<li><strong>Example</strong>: Deployed the application to AWS S3 with
+CloudFront for faster delivery.</li>
+</ul>
+<hr />
+<h3 id="77-what-is-the-difference-between-ng-build-and-ng-serve">77.
+What is the difference between ng build and ng serve?</h3>
+<ul>
+<li><code>ng build</code> compiles the app into static files for
+deployment.</li>
+<li><code>ng serve</code> runs a development server for local
+testing.</li>
+<li><code>ng build</code> includes optimizations like AOT and
+minification for production builds.</li>
+<li><code>ng serve</code> provides live reloading for development.</li>
+<li><strong>Example</strong>: Used <code>ng build</code> to generate a
+production version before deploying.</li>
+</ul>
+<hr />
+<h3 id="78-how-do-you-configure-multiple-environments-in-angular">78.
+How do you configure multiple environments in Angular?</h3>
+<ul>
+<li>Define environment-specific files like
+<code>environment.prod.ts</code> and
+<code>environment.dev.ts</code>.</li>
+<li>Use the <code>fileReplacements</code> option in
+<code>angular.json</code> to switch environments.</li>
+<li>Access environment variables via the <code>environment</code>
+object.</li>
+<li>Build the application using flags like
+<code>--configuration=production</code>.</li>
+<li><strong>Example</strong>: Configured <code>API_BASE_URL</code> for
+different environments in the app.</li>
+</ul>
+<hr />
+<h3
+id="79-how-do-you-manage-dependencies-and-versions-in-an-angular-project">79.
+How do you manage dependencies and versions in an Angular project?</h3>
+<ul>
+<li>Use <code>package.json</code> to declare project dependencies.</li>
+<li>Use <code>npm</code> or <code>yarn</code> to install and manage
+dependencies.</li>
+<li>Lock dependency versions with <code>package-lock.json</code> or
+<code>yarn.lock</code>.</li>
+<li>Update dependencies periodically using tools like
+<code>npm-check-updates</code>.</li>
+<li><strong>Example</strong>: Resolved version conflicts by updating all
+related packages.</li>
+</ul>
+<hr />
+<h3 id="80-what-happens-when-you-run-npm-install">80. What happens when
+you run npm install?</h3>
+<ul>
+<li>Downloads and installs packages listed in
+<code>package.json</code>.</li>
+<li>Resolves dependencies and creates <code>node_modules</code>.</li>
+<li>Updates <code>package-lock.json</code> to lock specific
+versions.</li>
+<li>Installs both development and production dependencies.</li>
+<li><strong>Example</strong>: Installed required packages for Angular
+Material using <code>npm install</code>.</li>
+</ul>
+<hr />
+<h3 id="81-what-is-the-purpose-of-the-package-lockjson-file">81. What is
+the purpose of the package-lock.json file?</h3>
+<ul>
+<li>Locks exact dependency versions to ensure consistency across
+environments.</li>
+<li>Provides a snapshot of the dependency tree.</li>
+<li>Speeds up future installations by caching resolved packages.</li>
+<li>Helps in debugging version conflicts.</li>
+<li><strong>Example</strong>: Used <code>package-lock.json</code> to
+restore the exact dependency tree on a new system.</li>
+</ul>
+<hr />
+<h3 id="82-how-do-you-handle-node-version-conflicts">82. How do you
+handle node version conflicts?</h3>
+<ul>
+<li>Use a version manager like <code>nvm</code> to switch between Node
+versions.</li>
+<li>Specify the required version in a <code>.nvmrc</code> file.</li>
+<li>Update Node.js to compatible versions when required.</li>
+<li>Test the application on multiple versions during development.</li>
+<li><strong>Example</strong>: Resolved compatibility issues by switching
+to Node.js LTS version.</li>
+</ul>
+<hr />
+<h3 id="83-how-do-you-use-the-force-flag-in-npm">83. How do you use the
+–force flag in npm?</h3>
+<ul>
+<li>Forces installation of packages despite errors or warnings.</li>
+<li>Used to bypass peer dependency conflicts.</li>
+<li>Risky as it might lead to compatibility issues.</li>
+<li>Use sparingly and test thoroughly after using it.</li>
+<li><strong>Example</strong>: Installed a specific library version by
+using <code>npm install package-name --force</code>.</li>
+</ul>
+<hr />
+<h3 id="84-how-do-you-manage-state-in-an-angular-application">84. How do
+you manage state in an Angular application?</h3>
+<ul>
+<li>Use services to share and manage state across components.</li>
+<li>Employ state management libraries like NgRx or Akita for complex
+applications.</li>
+<li>Use <code>BehaviorSubject</code> or <code>ReplaySubject</code> for
+reactive state updates.</li>
+<li>Keep the application state immutable wherever possible.</li>
+<li><strong>Example</strong>: Used NgRx for managing the shopping cart
+state in an e-commerce app.</li>
+</ul>
+<hr />
+<h3
+id="85-what-does-the-angular-cli-do-when-you-add-a-component-to-your-project">85.
+What does the Angular CLI do when you add a component to your
+project?</h3>
+<ul>
+<li>Creates a new component file structure (HTML, TS, CSS, spec).</li>
+<li>Updates <code>AppModule</code> or feature module with the new
+component.</li>
+<li>Automatically adds component dependencies if routing is
+enabled.</li>
+<li>Provides configuration flags for customization during creation.</li>
+<li><strong>Example</strong>: Used
+<code>ng generate component header</code> to add a header component with
+routing.</li>
+</ul>
+<hr />
+<h3
+id="86-what-is-the-difference-between-angular-cli-commands-like-ng-build-ng-serve-and-ng-test">86.
+What is the difference between Angular CLI commands like ng build, ng
+serve, and ng test?</h3>
+<ul>
+<li><code>ng build</code>: Compiles app into static files for
+deployment.</li>
+<li><code>ng serve</code>: Starts a development server with live
+reload.</li>
+<li><code>ng test</code>: Runs unit tests using Karma and Jasmine.</li>
+<li><code>ng build</code> focuses on production readiness;
+<code>ng serve</code> is for local testing.</li>
+<li><strong>Example</strong>: Used <code>ng test</code> to validate a
+new service implementation.</li>
+</ul>
+<hr />
+<h3 id="87-how-do-you-handle-custom-pipes-in-angular">87. How do you
+handle custom pipes in Angular?</h3>
+<ul>
+<li>Create a pipe class using the <code>@Pipe</code> decorator.</li>
+<li>Implement the <code>PipeTransform</code> interface to define
+transformation logic.</li>
+<li>Register the pipe in the module’s <code>declarations</code>
+array.</li>
+<li>Use the pipe in templates with the <code>|</code> operator.</li>
+<li><strong>Example</strong>: Created a
+<code>CurrencyFormatterPipe</code> to display formatted prices.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Pipe</span>({ name<span class="op">:</span> <span class="st">&#39;currencyFormatter&#39;</span> })  </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> CurrencyFormatterPipe <span class="kw">implements</span> PipeTransform {  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(value<span class="op">:</span> <span class="dt">number</span>)<span class="op">:</span> <span class="dt">string</span> {  </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`$</span><span class="sc">${</span>value<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs">`</span><span class="op">;</span>  </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3 id="88-what-are-content-projection-and-ng-content-slots">88. What
+are content projection and ng-content slots?</h3>
+<ul>
+<li>Content projection allows inserting custom content into a component
+template.</li>
+<li>Use the <code>&lt;ng-content&gt;</code> tag to define projection
+slots.</li>
+<li>Supports single or multiple slots with <code>select</code>
+attributes.</li>
+<li>Enhances component reusability and flexibility.</li>
+<li><strong>Example</strong>: Used <code>ng-content</code> for creating
+a reusable card component.</li>
+</ul>
+<hr />
+<h3
+id="89-what-is-ngrx-and-how-do-you-use-it-for-state-management-in-angular">89.
+What is NGRX, and how do you use it for state management in
+Angular?</h3>
+<ul>
+<li>A Redux-inspired state management library for Angular.</li>
+<li>Stores application state in a centralized store.</li>
+<li>Manages state changes through actions, reducers, and effects.</li>
+<li>Ensures a predictable state flow across the application.</li>
+<li><strong>Example</strong>: Used NGRX to manage user authentication
+state in a dashboard app.</li>
+</ul>
+<hr />
+<h3 id="90-how-do-you-handle-side-effects-in-ngrx-using-effects">90. How
+do you handle side effects in NGRX using effects?</h3>
+<ul>
+<li>Use <code>@ngrx/effects</code> to handle asynchronous tasks like
+HTTP requests.</li>
+<li>Define effects as Observables that listen to actions and trigger
+side effects.</li>
+<li>Use <code>Actions</code> stream to map actions to effects.</li>
+<li>Dispatch new actions based on the effect’s outcome.</li>
+<li><strong>Example</strong>: Created an effect to fetch products from
+an API when the app loads.</li>
+</ul>
+<hr />
+<h3
+id="91-can-you-explain-the-difference-between-a-smart-component-and-a-dumb-component-in-angular">91.
+Can you explain the difference between a smart component and a dumb
+component in Angular?</h3>
+<ul>
+<li>Smart components manage logic and data; dumb components focus on
+presentation.</li>
+<li>Smart components communicate with services or APIs; dumb components
+rely on inputs/outputs.</li>
+<li>Smart components handle state changes; dumb components only receive
+data.</li>
+<li>Dumb components are reusable and focused on UI.</li>
+<li><strong>Example</strong>: Created a smart component for fetching and
+storing user data and a dumb component for displaying it.</li>
+</ul>
+<hr />
+<h3
+id="92-how-would-you-handle-data-sharing-between-components-in-angular">92.
+How would you handle data sharing between components in Angular?</h3>
+<ul>
+<li>Use <code>@Input()</code> and <code>@Output()</code> for
+parent-child communication.</li>
+<li>Use services with observables for sibling and parent-child
+communication.</li>
+<li>Employ state management libraries like NgRx for global state
+sharing.</li>
+<li>Use <code>EventEmitter</code> to send data from child to
+parent.</li>
+<li><strong>Example</strong>: Used a shared service with
+<code>BehaviorSubject</code> to manage theme preferences across
+components.</li>
+</ul>
+<hr />
+<h3
+id="93-can-you-explain-dependency-injection-in-angular-and-how-it-works">93.
+Can you explain dependency injection in Angular and how it works?</h3>
+<ul>
+<li>Angular uses dependency injection (DI) to provide services and
+dependencies.</li>
+<li>DI simplifies the creation and management of services across
+components.</li>
+<li>Services are injected through constructors or
+<code>@Injectable</code> decorators.</li>
+<li>DI helps in improving modularity and testability.</li>
+<li><strong>Example</strong>: Injected an authentication service into a
+component to manage user login.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constructor</span>(<span class="kw">private</span> authService<span class="op">:</span> AuthService) {}  </span></code></pre></div>
+<hr />
+<h3
+id="94-what-is-the-purpose-of-hostbinding-and-hostlistener-decorators-in-angular">94.
+What is the purpose of HostBinding and HostListener decorators in
+Angular?</h3>
+<ul>
+<li><code>@HostBinding</code> binds properties or attributes to the host
+element.</li>
+<li><code>@HostListener</code> listens for events on the host
+element.</li>
+<li>These decorators are used for enhancing the behavior of components
+without modifying templates.</li>
+<li>They are useful for working with DOM events directly within the
+component.</li>
+<li><strong>Example</strong>: Used <code>@HostListener</code> to detect
+mouse events and <code>@HostBinding</code> to change class based on the
+event.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostBinding</span>(<span class="st">&#39;class.active&#39;</span>) isActive <span class="op">=</span> <span class="kw">false</span><span class="op">;</span>  </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() {  </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">isActive</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>  </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="95-can-you-explain-how-an-angular-interceptor-works-and-how-you-can-add-it-to-an-angular-application">95.
+Can you explain how an Angular Interceptor works and how you can add it
+to an Angular application?</h3>
+<ul>
+<li>An HTTP interceptor intercepts and modifies HTTP requests or
+responses.</li>
+<li>It allows for tasks like adding authentication headers or
+logging.</li>
+<li>Interceptors are added to the <code>HTTP_INTERCEPTORS</code> array
+in the providers section.</li>
+<li>They can modify outgoing requests and incoming responses
+globally.</li>
+<li><strong>Example</strong>: Used an interceptor to add an
+authentication token to HTTP requests.</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Injectable</span>()  </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AuthInterceptor <span class="kw">implements</span> HttpInterceptor {  </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">intercept</span>(req<span class="op">:</span> HttpRequest<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;,</span> next<span class="op">:</span> HttpHandler)<span class="op">:</span> Observable<span class="op">&lt;</span>HttpEvent<span class="op">&lt;</span><span class="dt">any</span><span class="op">&gt;&gt;</span> {  </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> clonedRequest <span class="op">=</span> req<span class="op">.</span><span class="fu">clone</span>({  </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      setHeaders<span class="op">:</span> { Authorization<span class="op">:</span> <span class="vs">`Bearer </span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">authService</span><span class="op">.</span><span class="fu">getToken</span>()<span class="sc">}</span><span class="vs">`</span> }  </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span>  </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next<span class="op">.</span><span class="fu">handle</span>(clonedRequest)<span class="op">;</span>  </span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  }  </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
+<hr />
+<h3
+id="96-what-changes-were-introduced-in-angular-16-and-17-regarding-modules-and-component-creation">96.
+What changes were introduced in Angular 16 and 17 regarding modules and
+component creation?</h3>
+<ul>
+<li>Angular 16 introduced standalone components to reduce module
+reliance.</li>
+<li>Standalone components eliminate the need for <code>@NgModule</code>
+in certain cases.</li>
+<li>Angular 17 further enhanced support for reactive forms and directive
+bindings.</li>
+<li>These changes aim to simplify application structure and improve
+modularity.</li>
+<li><strong>Example</strong>: Migrated components to be standalone in
+Angular 16 for improved readability and testability.</li>
+</ul>
+<hr />
+<h3
+id="97-what-is-npm-in-the-context-of-angular-why-is-it-important">97.
+What is npm in the context of Angular? Why is it important?</h3>
+<ul>
+<li><code>npm</code> (Node Package Manager) is a package manager for
+JavaScript.</li>
+<li>It is used to install and manage libraries and dependencies in an
+Angular project.</li>
+<li><code>npm</code> ensures that the correct versions of libraries are
+installed.</li>
+<li>It is essential for managing dependencies and scripts in an Angular
+app.</li>
+<li><strong>Example</strong>: Used <code>npm install</code> to add
+Angular Material to my project for UI components.</li>
+</ul>
+<hr />
+<h3
+id="98-what-is-the-significance-of-the-angularcore-module-in-angular-applications">98.
+What is the significance of the @angular/core module in Angular
+applications?</h3>
+<ul>
+<li><code>@angular/core</code> contains essential Angular features like
+components, directives, services, and dependency injection.</li>
+<li>It includes foundational decorators like <code>@Component</code>,
+<code>@NgModule</code>, and <code>@Injectable</code>.</li>
+<li>The module provides APIs for core functionality, like lifecycle
+hooks and change detection.</li>
+<li>It is a mandatory module for every Angular application.</li>
+<li><strong>Example</strong>: Imported <code>@angular/core</code> in my
+custom service to use the <code>@Injectable()</code> decorator.</li>
+</ul>
+<hr />
+<h3 id="99-how-do-you-handle-routing-in-angular">99. How do you handle
+routing in Angular?</h3>
+<ul>
+<li>Use <code>RouterModule</code> to define routes in the
+application.</li>
+<li>Define routes in an array and configure them in the module’s imports
+section.</li>
+<li>Use <code>routerLink</code> for navigation and
+<code>ActivatedRoute</code> for route parameters.</li>
+<li>Implement lazy loading for better performance with feature
+modules.</li>
+<li><strong>Example</strong>: Configured routing for an admin and user
+module in the application.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [  </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;admin&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./admin/admin.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">AdminModule</span>) }  </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="100-what-are-the-different-types-of-angular-guards-canactivate-candeactivate">100.
+What are the different types of Angular guards (canActivate,
+canDeactivate)?</h3>
+<ul>
+<li><code>canActivate</code>: Checks if a route can be activated.</li>
+<li><code>canDeactivate</code>: Ensures a user can leave the current
+route.</li>
+<li><code>canLoad</code>: Prevents loading a module based on
+conditions.</li>
+<li><code>resolve</code>: Pre-fetches data before a route is
+activated.</li>
+<li><strong>Example</strong>: Implemented <code>canActivate</code> guard
+to prevent unauthorized users from accessing certain pages.</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">canActivate</span>(route<span class="op">:</span> ActivatedRouteSnapshot<span class="op">,</span> state<span class="op">:</span> RouterStateSnapshot)<span class="op">:</span> Observable<span class="op">&lt;</span><span class="dt">boolean</span><span class="op">&gt;</span> <span class="op">|</span> <span class="bu">Promise</span><span class="op">&lt;</span><span class="dt">boolean</span><span class="op">&gt;</span> <span class="op">|</span> <span class="dt">boolean</span> {  </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">authService</span><span class="op">.</span><span class="fu">isLoggedIn</span>()<span class="op">;</span>  </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<p>There are <strong>10 questions</strong> pending. Here’s the next
+set:</p>
+<hr />
+<h3
+id="101-what-is-the-difference-between-observable-subject-and-behaviorsubject-in-angular">101.
+What is the difference between Observable, Subject, and BehaviorSubject
+in Angular?</h3>
+<ul>
+<li><strong>Observable</strong>: Streams of data that you can subscribe
+to.</li>
+<li><strong>Subject</strong>: A type of Observable that allows
+multicasting to many Observers.</li>
+<li><strong>BehaviorSubject</strong>: A Subject that holds a current
+value and emits it to new subscribers.</li>
+<li><strong>Observable</strong> is used for one-time data streams;
+<strong>BehaviorSubject</strong> is used for streams with a starting
+value.</li>
+<li><strong>Example</strong>: Used a <code>BehaviorSubject</code> to
+store and emit the current user’s authentication state.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> userSubject <span class="op">=</span> <span class="kw">new</span> <span class="fu">BehaviorSubject</span><span class="op">&lt;</span>User<span class="op">&gt;</span>(<span class="kw">null</span>)<span class="op">;</span>  </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>currentUser$ <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">userSubject</span><span class="op">.</span><span class="fu">asObservable</span>()<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3 id="102-what-is-debounce-and-why-do-we-use-it-in-angular">102. What
+is Debounce and why do we use it in Angular?</h3>
+<ul>
+<li><strong>Debounce</strong>: Delays the processing of an event until a
+specified amount of time has passed.</li>
+<li>Used to avoid unnecessary API calls or heavy computations on every
+user input.</li>
+<li>Commonly used with search inputs to wait for the user to stop typing
+before sending a request.</li>
+<li>It prevents high frequency, redundant API calls.</li>
+<li><strong>Example</strong>: Used debounce in a search bar to wait for
+the user to stop typing before making an API call.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>searchTerm <span class="op">=</span> <span class="kw">new</span> <span class="fu">Subject</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>()<span class="op">;</span>  </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">searchTerm</span><span class="op">.</span><span class="fu">pipe</span>(<span class="fu">debounceTime</span>(<span class="dv">300</span>)<span class="op">,</span> <span class="fu">switchMap</span>(query <span class="kw">=&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">searchService</span><span class="op">.</span><span class="fu">search</span>(query)))  </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">subscribe</span>(results <span class="kw">=&gt;</span> <span class="kw">this</span><span class="op">.</span><span class="at">searchResults</span> <span class="op">=</span> results)<span class="op">;</span>  </span></code></pre></div>
+<hr />
+<h3
+id="103-what-is-the-difference-between-hot-and-cold-observables-in-angular">103.
+What is the difference between hot and cold observables in Angular?</h3>
+<ul>
+<li><strong>Cold Observable</strong>: Starts emitting values only when
+subscribed to, e.g., HTTP requests.</li>
+<li><strong>Hot Observable</strong>: Emits values immediately and shares
+them with all subscribers, e.g., event streams.</li>
+<li>Cold observables can result in multiple calls to the server if
+subscribed multiple times.</li>
+<li>Hot observables are shared, so the same event is emitted to all
+subscribers.</li>
+<li><strong>Example</strong>: Used a cold observable for an HTTP request
+and a hot observable for a WebSocket connection.</li>
+</ul>
+<hr />
+<h3
+id="104-why-was-typescript-used-in-angular-instead-of-javascript">104.
+Why was TypeScript used in Angular (instead of JavaScript)?</h3>
+<ul>
+<li>TypeScript offers static typing, which helps catch errors
+early.</li>
+<li>Provides better tooling support with IntelliSense, refactoring, and
+auto-completion.</li>
+<li>Improves code maintainability and readability with features like
+classes, interfaces, and decorators.</li>
+<li>TypeScript’s strict typing ensures more reliable code for large
+applications.</li>
+<li><strong>Example</strong>: Used TypeScript’s strong typing to define
+strict interfaces for API response objects, reducing runtime
+errors.</li>
+</ul>
+<hr />
+<h3 id="105-do-you-have-any-questions-for-me">105. Do you have any
+questions for me?</h3>
+<ul>
+<li>This question is asked in interviews to gauge your interest and
+understanding of the role.</li>
+<li>Ask about the team structure, project technologies, or challenges
+the company faces.</li>
+<li>Inquire about how they measure success or what a typical day looks
+like.</li>
+<li>Show interest in their approach to software development or their
+adoption of new technologies.</li>
+<li><strong>Example</strong>: “Can you share more about the team’s
+approach to implementing Angular best practices?”</li>
+</ul>
+<hr />
+<h3
+id="106-what-is-the-difference-between-hostbinding-and-hostlistener-in-angular">106.
+What is the difference between @HostBinding and @HostListener in
+Angular?</h3>
+<ul>
+<li><strong>@HostBinding</strong> binds properties or attributes to the
+host element of a directive or component.</li>
+<li><strong>@HostListener</strong> listens to events on the host
+element.</li>
+<li><code>@HostBinding</code> is used to manipulate DOM properties,
+while <code>@HostListener</code> is used for event handling.</li>
+<li>Both decorators enhance the interaction with the host element, but
+for different purposes.</li>
+<li><strong>Example</strong>: Used <code>@HostListener</code> to detect
+mouse events and <code>@HostBinding</code> to apply styles
+dynamically.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() {  </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">isHovered</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>  </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>}  </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostBinding</span>(<span class="st">&#39;style.backgroundColor&#39;</span>) <span class="kw">get</span> <span class="fu">backgroundColor</span>() {  </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">isHovered</span> <span class="op">?</span> <span class="st">&#39;blue&#39;</span> <span class="op">:</span> <span class="st">&#39;gray&#39;</span><span class="op">;</span>  </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3
+id="107-have-you-ever-faced-event-bubbling-in-an-angular-application">107.
+Have you ever faced event bubbling in an Angular application?</h3>
+<ul>
+<li>Event bubbling occurs when an event triggered on a child element
+propagates to its parent elements.</li>
+<li>It can lead to unintended actions if not managed properly.</li>
+<li>Prevent bubbling using <code>event.stopPropagation()</code> or
+<code>event.preventDefault()</code>.</li>
+<li>In Angular, event bubbling can be handled with
+<code>@HostListener</code> and <code>@Output</code>.</li>
+<li><strong>Example</strong>: Stopped the bubbling of a click event in a
+child component to prevent the parent’s click handler from
+triggering.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> [<span class="st">&#39;$event&#39;</span>]) <span class="fu">onClick</span>(event<span class="op">:</span> <span class="bu">MouseEvent</span>) {  </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">event</span><span class="op">.</span><span class="fu">stopPropagation</span>()<span class="op">;</span>  </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3
+id="108-do-you-use-observables-or-promises-more-frequently-in-angular-which-is-better-for-data-handling">108.
+Do you use Observables or Promises more frequently in Angular? Which is
+better for data handling?</h3>
+<ul>
+<li><strong>Observables</strong> are more flexible, support multiple
+values, and can be cancelled or unsubscribed.</li>
+<li><strong>Promises</strong> are simpler and resolve a single value
+once.</li>
+<li>Observables are better suited for continuous streams like HTTP
+requests, user events, etc.</li>
+<li>Promises are ideal for handling single asynchronous results.</li>
+<li><strong>Example</strong>: Used Observables for handling HTTP
+requests, and Promises for handling single async results in a form
+validation scenario.</li>
+</ul>
+<hr />
+<h3
+id="109-how-do-you-unsubscribe-from-an-observable-when-navigating-away-from-a-component-in-angular">109.
+How do you unsubscribe from an Observable when navigating away from a
+component in Angular?</h3>
+<ul>
+<li>Use the <code>ngOnDestroy</code> lifecycle hook to unsubscribe from
+Observables.</li>
+<li>It ensures that subscriptions do not persist after the component is
+destroyed, preventing memory leaks.</li>
+<li>You can store subscriptions in an array and unsubscribe them in
+<code>ngOnDestroy</code>.</li>
+<li>Another approach is using the <code>takeUntil</code> operator to
+automatically unsubscribe.</li>
+<li><strong>Example</strong>: Unsubscribed from an Observable in the
+<code>ngOnDestroy</code> lifecycle hook.</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {  </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">subscription</span><span class="op">.</span><span class="fu">unsubscribe</span>()<span class="op">;</span>  </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+<h3
+id="110-why-do-we-use-ngondestroy-in-angular-how-do-you-handle-async-data-and-avoid-memory-leaks-using-ngondestroy-in-angular">110.
+Why do we use ngOnDestroy in Angular? How do you handle async data and
+avoid memory leaks using ngOnDestroy in Angular?</h3>
+<ul>
+<li><code>ngOnDestroy</code> is used to clean up resources, cancel
+subscriptions, and remove event listeners when a component is
+destroyed.</li>
+<li>It helps in preventing memory leaks by ensuring subscriptions and
+other resources are disposed of.</li>
+<li>For async data, unsubscribe from Observables in
+<code>ngOnDestroy</code> or use the <code>takeUntil</code>
+operator.</li>
+<li>It is important for managing resources and cleaning up timers,
+subscriptions, etc.</li>
+<li><strong>Example</strong>: Used <code>ngOnDestroy</code> to
+unsubscribe from a timer Observable to avoid memory leaks.</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {  </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">timerSubscription</span><span class="op">.</span><span class="fu">unsubscribe</span>()<span class="op">;</span>  </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</body>
+</html>
