@@ -23,7 +23,7 @@
       left: -250px;
       width: 250px;
       height: 100%;
-      background-color: #266bb1;
+      background-color: #1c7ddf;
       color: white;
       font-weight: bolder;
       transition: left 0.3s ease;
@@ -92,7 +92,39 @@
     .updated {
       margin: 0px;
     }
-  
+    .button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
   </style>
 </head>
 
@@ -105,7 +137,7 @@
 
   <!-- Page Content -->
   <div class="content">
-    <button id="toggleBtn" class="btn btn-primary mt-3" style="width: 100%;"> <i class="fa fa-expand" style="font-size:24px"></i></button>
+    <button id="toggleBtn button" class="btn btn-primary mt-3" style="width: 100%;"> <i class="fa fa-expand" style="font-size:24px"></i></button>
 
     <div class="container mt-5 updated">
       <div class="row">
