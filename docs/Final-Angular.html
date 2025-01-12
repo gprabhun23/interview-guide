@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>in</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h3
+id="1-what-is-zone-in-angular-and-how-do-you-use-ngzone-for-specific-tasks">1.
+<strong>What is Zone in Angular, and how do you use NgZone for specific
+tasks?</strong></h3>
+<ul>
+<li><strong>Zone.js</strong>: A library used by Angular to track and
+manage asynchronous operations, ensuring UI updates when required.</li>
+<li><strong>NgZone</strong>: Angular’s service to run code inside or
+outside the Angular zone for better control of change detection.</li>
+<li><strong>Use Case</strong>: Improves performance by skipping change
+detection for non-Angular processes.</li>
+<li><strong>How to Use</strong>: Use <code>runOutsideAngular</code> to
+bypass change detection, then re-enter with <code>run</code> when
+needed.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="at">ngZone</span><span class="op">.</span><span class="fu">runOutsideAngular</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">ngZone</span><span class="op">.</span><span class="fu">run</span>(() <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Change detection triggered&#39;</span>))<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div></li>
+</ul>
+<hr />
+<h3
+id="2-what-is-incremental-dom-and-how-does-it-differ-from-virtual-dom">2.
+<strong>What is Incremental DOM, and how does it differ from Virtual
+DOM?</strong></h3>
+<ul>
+<li><strong>Incremental DOM</strong>: Updates only the DOM nodes that
+change, instead of creating a virtual copy of the DOM tree.</li>
+<li><strong>Virtual DOM</strong>: Creates an in-memory virtual
+representation of the DOM and compares it with the actual DOM to
+identify updates.</li>
+<li><strong>Differences</strong>:
+<ul>
+<li>Incremental DOM is memory efficient and faster for small
+updates.</li>
+<li>Virtual DOM requires extra memory to store the virtual tree.</li>
+</ul></li>
+<li><strong>Why Google Uses Incremental DOM</strong>: It reduces memory
+usage, which is critical for large-scale apps like Gmail.</li>
+<li><strong>Example</strong>: Incremental DOM directly patches the DOM
+without a diffing process.</li>
+</ul>
+<hr />
+<h3 id="3-changes-in-angular-17-directive-syntax-ngfor-and-ngif">3.
+<strong>Changes in Angular 17 Directive Syntax (<code>ngFor</code> and
+<code>ngIf</code>)</strong></h3>
+<p>@if:</p>
+<p>Concise Conditionals: Replaces traditional *ngIf with a more readable
+and concise syntax for conditional rendering.</p>
+<p>Example:</p>
+<p>HTML</p>
+<div>
+  @if (isLoggedIn) {
+    <p>Welcome, user!</p>
+  } @else if (isLoading) {
+    <p>Loading...</p>
+  } @else {
+    <p>Please log in.</p>
+  }
+</div>
+@switch:
+
+<p>Simplified Switch Cases: Provides a cleaner way to handle multiple
+conditions within your templates.</p>
+<p>Example:</p>
+<p>HTML</p>
+<div>
+  @switch (selectedOption) {
+    @case('option1'):
+      <p>Option 1 content</p>
+    @case('option2'):
+      <p>Option 2 content</p>
+    @default:
+      <p>Default content</p>
+  }
+</div>
+@for:
+
+<p>Simplified Loops: Offers a more concise and readable syntax for
+iterating over arrays or collections.</p>
+<p>Example:</p>
+<p>HTML</p>
+<ul>
+  @for (let item of items) {
+    <li>{{ item.name }}</li>
+  }
+</ul>
+@pipe:
+
+<p>Inline Pipe Transformations: Allows you to apply pipes directly
+within the template expression.</p>
+<p>Example:</p>
+<p>HTML</p>
+<p>Total: @pipe(currency) {{ total }}</p>
+@bind:
+
+<p>Two-Way Binding: Provides a simplified syntax for two-way data
+binding.</p>
+<p>Example:</p>
+<p>HTML</p>
+<p>&lt;input type=“text” @bind(value)=“username” /&gt; Important
+Note:</p>
+<p>These template expressions are part of ongoing development and their
+availability may vary depending on the specific Angular version you are
+using. Refer to the official Angular documentation for the most
+up-to-date information and usage guidelines.</p>
+<hr />
+<h3
+id="4-changes-in-angular-16-and-17-for-modules-and-component-creation">4.
+<strong>Changes in Angular 16 and 17 for Modules and Component
+Creation</strong></h3>
+<ul>
+<li><strong>Standalone Components</strong>: Components can now be
+created without modules, making Angular simpler and more modular.</li>
+<li><strong>Tree-shakable Providers</strong>: Services are optimized for
+better performance by removing unused code.</li>
+<li><strong>No Need for Modules</strong>: Use
+<code>standalone: true</code> in the component metadata.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  standalone<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-example&#39;</span><span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;p&gt;Standalone Component&lt;/p&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> ExampleComponent {}</span></code></pre></div></li>
+<li><strong>Backward Compatibility</strong>: Traditional module-based
+architecture is still supported.</li>
+</ul>
+<hr />
+<h3 id="5-how-to-safely-display-html-responses">5. <strong>How to Safely
+Display HTML Responses</strong></h3>
+<ul>
+<li><strong>Security by Angular</strong>: Angular sanitizes the HTML by
+default to prevent XSS attacks.</li>
+<li><strong>Using <code>DomSanitizer</code></strong>: You can mark
+specific HTML as safe using the <code>bypassSecurityTrustHtml</code>
+method.</li>
+<li><strong>Avoid Direct HTML Binding</strong>: Avoid directly using
+<code>[innerHTML]</code> for user-provided or dynamic HTML content.</li>
+<li><strong>What Happens with <code>&lt;script&gt;</code> Tags</strong>:
+Angular removes <code>&lt;script&gt;</code> tags from HTML to block
+script execution.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">constructor</span>(<span class="kw">private</span> sanitizer<span class="op">:</span> DomSanitizer) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">safeHtml</span> <span class="op">=</span> <span class="kw">this</span><span class="op">.</span><span class="at">sanitizer</span><span class="op">.</span><span class="fu">bypassSecurityTrustHtml</span>(<span class="st">&#39;&lt;b&gt;Safe Content&lt;/b&gt;&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul>
+<hr />
+<h3 id="6-what-are-smart-components-vs-dumb-components">6. <strong>What
+are Smart Components vs. Dumb Components?</strong></h3>
+<ul>
+<li><strong>Smart Components</strong>:
+<ul>
+<li>Handle business logic and interact with services.</li>
+<li>Manage the state of the application.</li>
+<li>Example:
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-smart&#39;</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="vs">`&lt;app-dumb [data]=&quot;items&quot;&gt;&lt;/app-dumb&gt;`</span><span class="op">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> SmartComponent {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  items <span class="op">=</span> [<span class="st">&#39;Item1&#39;</span><span class="op">,</span> <span class="st">&#39;Item2&#39;</span>]<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Dumb Components</strong>:
+<ul>
+<li>Focus only on UI and presentation.</li>
+<li>Use <code>@Input</code> for data and <code>@Output</code> for event
+communication.</li>
+<li>Example:
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-dumb&#39;</span><span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="vs">`&lt;div *ngFor=&quot;let item of data&quot;&gt;{{ item }}&lt;/div&gt;`</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> DumbComponent {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  @<span class="fu">Input</span>() data<span class="op">:</span> <span class="dt">string</span>[] <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Communication</strong>: Smart components pass data to dumb
+components via inputs.</li>
+</ul>
+<hr />
+<h3 id="7-how-to-prevent-memory-leaks-in-angular">7. <strong>How to
+Prevent Memory Leaks in Angular?</strong></h3>
+<ul>
+<li><strong>Use <code>AsyncPipe</code></strong>: Automatically handles
+subscriptions and unsubscriptions.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;(data$ | async) as data&quot;</span><span class="kw">&gt;</span>{{ data }}<span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Unsubscribe Manually</strong>: For observable subscriptions,
+use <code>ngOnDestroy</code>.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">subscription</span><span class="op">.</span><span class="fu">unsubscribe</span>()<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Use <code>takeUntil</code> with a
+<code>Subject</code></strong>:
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> destroy$ <span class="op">=</span> <span class="kw">new</span> <span class="fu">Subject</span><span class="op">&lt;</span><span class="dt">void</span><span class="op">&gt;</span>()<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ngOnDestroy</span>() {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">destroy$</span><span class="op">.</span><span class="fu">next</span>()<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">destroy$</span><span class="op">.</span><span class="fu">complete</span>()<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Detach Event Listeners</strong>: Remove listeners in
+<code>ngOnDestroy</code>.</li>
+</ul>
+<hr />
+<h3 id="8-how-to-structure-an-angular-project-for-scalability">8.
+<strong>How to Structure an Angular Project for
+Scalability?</strong></h3>
+<ul>
+<li><strong>Use Feature Modules</strong>: Split features into their own
+modules for better organization.</li>
+<li><strong>Shared Module</strong>: Place reusable components,
+directives, and pipes here.</li>
+<li><strong>Lazy Loading</strong>: Load modules only when needed to
+improve performance.</li>
+<li><strong>Example Structure</strong>:
+<pre><code>src/
+├── app/
+│   ├── core/ (Singleton services, app-wide features)
+│   ├── shared/ (Reusable components, directives, pipes)
+│   ├── feature-module/ (Specific feature logic)</code></pre></li>
+<li><strong>Follow Naming Conventions</strong>: Use consistent naming
+for files and folders.</li>
+</ul>
+<hr />
+<h3 id="9-how-to-manage-shared-components-in-an-angular-project">9.
+<strong>How to Manage Shared Components in an Angular
+Project?</strong></h3>
+<ul>
+<li><strong>Create a Shared Module</strong>: Declare and export all
+shared components, pipes, and directives.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [SharedComponent]<span class="op">,</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  exports<span class="op">:</span> [SharedComponent]<span class="op">,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> SharedModule {}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Use <code>forRoot</code> or <code>forChild</code></strong>:
+To configure shared services at the module level.</li>
+<li><strong>Avoid Duplicates</strong>: Ensure the shared module is
+imported once in the app module.</li>
+<li><strong>Centralize Common Logic</strong>: Include commonly used
+pipes or directives in the shared module.</li>
+</ul>
+<hr />
+<h3
+id="10-difference-between-angularjs-1x-and-angular-2x-and-beyond">10.
+<strong>Difference Between AngularJS (1.x) and Angular (2.x and
+Beyond)?</strong></h3>
+<ul>
+<li><strong>Architecture</strong>:
+<ul>
+<li>AngularJS: MVC-based.</li>
+<li>Angular: Component-based architecture.</li>
+</ul></li>
+<li><strong>Language</strong>:
+<ul>
+<li>AngularJS: JavaScript.</li>
+<li>Angular: TypeScript.</li>
+</ul></li>
+<li><strong>Performance</strong>:
+<ul>
+<li>AngularJS: Two-way data binding caused performance issues.</li>
+<li>Angular: Unidirectional data flow and better change detection.</li>
+</ul></li>
+<li><strong>Mobile Support</strong>: Angular is optimized for mobile;
+AngularJS is not.</li>
+<li><strong>Example</strong>:
+<ul>
+<li>AngularJS:
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">controller</span>(<span class="st">&#39;MainCtrl&#39;</span><span class="op">,</span> <span class="kw">function</span>($scope) { $scope<span class="op">.</span><span class="at">message</span> <span class="op">=</span> <span class="st">&#39;Hello&#39;</span><span class="op">;</span> })<span class="op">;</span></span></code></pre></div></li>
+<li>Angular:
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-root&#39;</span><span class="op">,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="vs">`&lt;h1&gt;{{ message }}&lt;/h1&gt;`</span><span class="op">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppComponent {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  message <span class="op">=</span> <span class="st">&#39;Hello&#39;</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3
+id="11-how-to-break-down-an-e-commerce-website-into-modules-and-components">11.
+<strong>How to Break Down an E-Commerce Website into Modules and
+Components?</strong></h3>
+<ul>
+<li><strong>Feature Modules</strong>: Create modules for key features
+like <code>ProductsModule</code>, <code>CartModule</code>, and
+<code>UserModule</code>.</li>
+<li><strong>Shared Module</strong>: Use a module for shared components
+like <code>NavbarComponent</code> and <code>FooterComponent</code>.</li>
+<li><strong>Core Module</strong>: For services like
+<code>AuthService</code> or <code>HttpInterceptor</code>.</li>
+<li><strong>Example Structure</strong>:
+<pre><code>src/
+├── app/
+│   ├── products/ (Product listing and details)
+│   ├── cart/ (Cart functionality)
+│   ├── user/ (Login, registration, profile)</code></pre></li>
+<li><strong>Components</strong>:
+<ul>
+<li>Product: <code>ProductListComponent</code>,
+<code>ProductDetailComponent</code>.</li>
+<li>Cart: <code>CartSummaryComponent</code>,
+<code>CheckoutComponent</code>.</li>
+</ul></li>
+</ul>
+<hr />
+<h3
+id="12-how-does-the-initialization-of-an-angular-application-happen">12.
+<strong>How Does the Initialization of an Angular Application
+Happen?</strong></h3>
+<ul>
+<li><strong>Bootstrapping</strong>: Angular starts with the
+<code>main.ts</code> file and calls the
+<code>platformBrowserDynamic</code> function.</li>
+<li><strong>Root Module</strong>: The <code>AppModule</code> is
+bootstrapped as the starting point.</li>
+<li><strong>Root Component</strong>: Defined in the
+<code>AppModule</code> using the <code>bootstrap</code> array.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">platformBrowserDynamic</span>()<span class="op">.</span><span class="fu">bootstrapModule</span>(AppModule)<span class="op">;</span></span></code></pre></div></li>
+<li><strong>Modules and Components</strong>: Angular initializes all
+imported modules and declared components in the root module.</li>
+</ul>
+<hr />
+<h3
+id="13-what-is-the-purpose-of-the-ngmodule-decorator-and-what-are-its-key-sections">13.
+<strong>What is the Purpose of the <code>@NgModule</code> Decorator, and
+What Are Its Key Sections?</strong></h3>
+<ul>
+<li><strong>Purpose</strong>: Defines metadata for a module, including
+its components, services, and dependencies.</li>
+<li><strong>Key Sections</strong>:
+<ul>
+<li><code>declarations</code>: Components, directives, and pipes.</li>
+<li><code>imports</code>: Other modules to include.</li>
+<li><code>providers</code>: Services to use across the module.</li>
+<li><code>bootstrap</code>: The root component to load initially.</li>
+</ul></li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [AppComponent]<span class="op">,</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [BrowserModule]<span class="op">,</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  providers<span class="op">:</span> []<span class="op">,</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="op">:</span> [AppComponent]<span class="op">,</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+</ul>
+<hr />
+<h3
+id="14-can-you-have-multiple-ngmodule-decorators-in-an-angular-application">14.
+<strong>Can You Have Multiple <code>@NgModule</code> Decorators in an
+Angular Application?</strong></h3>
+<ul>
+<li><strong>Yes</strong>, Angular applications can have multiple modules
+for organization.</li>
+<li><strong>Feature Modules</strong>: Define modules for specific
+functionalities (e.g., <code>UserModule</code>).</li>
+<li><strong>Shared Module</strong>: Used for reusable components and
+services.</li>
+<li><strong>Core Module</strong>: For single-instance services like
+<code>AuthService</code>.</li>
+<li><strong>Example</strong>:
+<ul>
+<li><strong>AppModule</strong>:
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [UserModule]<span class="op">,</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+<li><strong>UserModule</strong>:
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [UserProfileComponent]<span class="op">,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> UserModule {}</span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="15-how-to-add-modules-in-angular">15. <strong>How to Add Modules
+in Angular?</strong></h3>
+<ul>
+<li><strong>Manually Import Modules</strong>: Use the
+<code>imports</code> array in <code>@NgModule</code>.</li>
+<li><strong>Add to AppModule</strong>: Import built-in modules like
+<code>HttpClientModule</code> or custom modules.</li>
+<li><strong>Lazy Loading</strong>: Use the <code>loadChildren</code>
+property in the router for lazy-loaded modules.</li>
+<li><strong>Example</strong>:
+<ul>
+<li><strong>Eager Loading</strong>:
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [BrowserModule<span class="op">,</span> HttpClientModule]<span class="op">,</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+<li><strong>Lazy Loading</strong>:
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;products&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./products/products.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">ProductsModule</span>) }<span class="op">,</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3
+id="16-how-does-angular-determine-the-root-component-for-bootstrapping">16.
+<strong>How Does Angular Determine the Root Component for
+Bootstrapping?</strong></h3>
+<ul>
+<li><strong>Defined in AppModule</strong>: The <code>bootstrap</code>
+array in <code>@NgModule</code> specifies the root component.</li>
+<li><strong>AppComponent</strong>: By default, <code>AppComponent</code>
+is the root component.</li>
+<li><strong>Bootstrapping Process</strong>:
+<ol type="1">
+<li><code>main.ts</code> calls
+<code>platformBrowserDynamic().bootstrapModule(AppModule)</code>.</li>
+<li>Angular loads <code>AppComponent</code> to render the app.</li>
+</ol></li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="op">:</span> [AppComponent]<span class="op">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+<li><strong>Root Element</strong>: The component selector (e.g.,
+<code>&lt;app-root&gt;</code>) must match the one in
+<code>index.html</code>.</li>
+</ul>
+<hr />
+<h3 id="17-what-is-the-appmodule-and-why-is-it-important">17.
+<strong>What is the AppModule, and Why Is It Important?</strong></h3>
+<ul>
+<li><strong>Definition</strong>: The root module of the application,
+which bootstraps the Angular app.</li>
+<li><strong>Purpose</strong>: Organizes the app by declaring components,
+importing modules, and providing services.</li>
+<li><strong>Key Sections</strong>:
+<ul>
+<li><code>declarations</code>: List of app-specific components,
+directives, and pipes.</li>
+<li><code>imports</code>: Other modules needed for the app.</li>
+<li><code>bootstrap</code>: Specifies the root component to render
+initially.</li>
+</ul></li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  declarations<span class="op">:</span> [AppComponent]<span class="op">,</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [BrowserModule]<span class="op">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  bootstrap<span class="op">:</span> [AppComponent]<span class="op">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+</ul>
+<hr />
+<h3
+id="18-what-is-the-purpose-of-enableprodmode-in-angular-and-when-should-you-use-it">18.
+<strong>What is the Purpose of <code>enableProdMode()</code> in Angular,
+and When Should You Use It?</strong></h3>
+<ul>
+<li><strong>Purpose</strong>: Disables Angular’s development-specific
+checks for improved performance in production.</li>
+<li><strong>When to Use</strong>: Always enable it in production builds
+to reduce overhead.</li>
+<li><strong>How to Enable</strong>: Call <code>enableProdMode()</code>
+in the <code>main.ts</code> file.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { enableProdMode } <span class="im">from</span> <span class="st">&#39;@angular/core&#39;</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (environment<span class="op">.</span><span class="at">production</span>) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enableProdMode</span>()<span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">platformBrowserDynamic</span>()<span class="op">.</span><span class="fu">bootstrapModule</span>(AppModule)<span class="op">;</span></span></code></pre></div></li>
+<li><strong>Benefits</strong>: Removes debug info and reduces runtime
+checks.</li>
+</ul>
+<hr />
+<h3
+id="19-how-does-angular-handle-error-handling-during-the-bootstrapping-phase">19.
+<strong>How Does Angular Handle Error Handling During the Bootstrapping
+Phase?</strong></h3>
+<ul>
+<li><strong>Global Error Handling</strong>: Angular uses
+<code>ErrorHandler</code> for unhandled errors.</li>
+<li><strong>Custom Error Handler</strong>: You can override
+<code>ErrorHandler</code> to log or display custom messages.</li>
+<li><strong>Errors During Bootstrapping</strong>: Angular logs errors to
+the console if the app fails to bootstrap.</li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> MyErrorHandler <span class="kw">implements</span> ErrorHandler {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">handleError</span>(error<span class="op">:</span> <span class="dt">any</span>) {</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&#39;Custom Error:&#39;</span><span class="op">,</span> error)<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  providers<span class="op">:</span> [{ provide<span class="op">:</span> ErrorHandler<span class="op">,</span> useClass<span class="op">:</span> MyErrorHandler }]<span class="op">,</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppModule {}</span></code></pre></div></li>
+<li><strong>Best Practices</strong>: Use logging services to capture
+errors for debugging.</li>
+</ul>
+<hr />
+<h3 id="20-how-to-implement-lazy-loading-in-angular-using-ngmodule">20.
+<strong>How to Implement Lazy Loading in Angular Using
+<code>@NgModule</code>?</strong></h3>
+<ul>
+<li><strong>Definition</strong>: Lazy loading loads feature modules only
+when needed, reducing the initial app load time.</li>
+<li><strong>Router Configuration</strong>: Use <code>loadChildren</code>
+in the route definition.</li>
+<li><strong>Steps</strong>:
+<ol type="1">
+<li>Create a feature module (e.g., <code>ProductsModule</code>).</li>
+<li>Configure lazy loading in the route.</li>
+<li>Ensure <code>RouterModule.forChild</code> is used in the feature
+module.</li>
+</ol></li>
+<li><strong>Example</strong>:
+<ul>
+<li><strong>App Routing</strong>:
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> routes<span class="op">:</span> Routes <span class="op">=</span> [</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  { path<span class="op">:</span> <span class="st">&#39;products&#39;</span><span class="op">,</span> loadChildren<span class="op">:</span> () <span class="kw">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;./products/products.module&#39;</span>)<span class="op">.</span><span class="fu">then</span>(m <span class="kw">=&gt;</span> m<span class="op">.</span><span class="at">ProductsModule</span>) }<span class="op">,</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div></li>
+<li><strong>Products Module</strong>:
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">NgModule</span>({</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  imports<span class="op">:</span> [RouterModule<span class="op">.</span><span class="fu">forChild</span>(routes)]<span class="op">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> ProductsModule {}</span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="21-how-to-configure-multiple-environments-in-angular">21.
+<strong>How to Configure Multiple Environments in Angular?</strong></h3>
+<ul>
+<li><strong>Purpose</strong>: Manage different settings (e.g., API URLs)
+for development, staging, and production environments.</li>
+<li><strong>Environment Files</strong>: Angular uses
+<code>environment.ts</code> and <code>environment.prod.ts</code>.</li>
+<li><strong>File Configuration</strong>: Add properties specific to each
+environment.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// environment.ts</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> environment <span class="op">=</span> {</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  production<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  apiUrl<span class="op">:</span> <span class="st">&#39;http://localhost:3000&#39;</span><span class="op">,</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">// environment.prod.ts</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> environment <span class="op">=</span> {</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  production<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  apiUrl<span class="op">:</span> <span class="st">&#39;https://api.example.com&#39;</span><span class="op">,</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Build Configuration</strong>: Update
+<code>angular.json</code> to replace files based on the build
+environment.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;fileReplacements&quot;:</span> <span class="ot">[</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;replace&quot;</span><span class="fu">:</span> <span class="st">&quot;src/environments/environment.ts&quot;</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;with&quot;</span><span class="fu">:</span> <span class="st">&quot;src/environments/environment.prod.ts&quot;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="22-what-is-the-difference-between-ng-build-and-ng-serve">22.
+<strong>What is the Difference Between <code>ng build</code> and
+<code>ng serve</code>?</strong></h3>
+<ul>
+<li><strong><code>ng build</code></strong>:
+<ul>
+<li>Compiles the app into static files for deployment.</li>
+<li>Generates output in the <code>dist/</code> folder.</li>
+<li>Can be used with <code>--prod</code> flag for optimized builds.</li>
+</ul></li>
+<li><strong><code>ng serve</code></strong>:
+<ul>
+<li>Starts a local development server with live-reload.</li>
+<li>Does not generate build files in <code>dist/</code>.</li>
+<li>For development purposes only.</li>
+</ul></li>
+<li><strong>Example Commands</strong>:
+<ul>
+<li><code>ng build --prod</code>: Build for production.</li>
+<li><code>ng serve --open</code>: Serve the app and open it in a
+browser.</li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="23-what-are-decorators-in-angular">23. <strong>What Are
+Decorators in Angular?</strong></h3>
+<ul>
+<li><strong>Definition</strong>: Special functions in TypeScript that
+add metadata to classes, methods, or properties.</li>
+<li><strong>Types of Decorators</strong>:
+<ul>
+<li><strong>Class Decorators</strong>: <code>@Component</code>,
+<code>@Directive</code>, <code>@NgModule</code>.</li>
+<li><strong>Property Decorators</strong>: <code>@Input</code>,
+<code>@Output</code>.</li>
+<li><strong>Method Decorators</strong>: <code>@HostListener</code>,
+<code>@HostBinding</code>.</li>
+</ul></li>
+<li><strong>Example</strong>:
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-root&#39;</span><span class="op">,</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;h1&gt;Hello&lt;/h1&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> AppComponent {}</span></code></pre></div></li>
+<li><strong>Purpose</strong>: Help Angular identify and configure
+components, directives, and services.</li>
+</ul>
+<hr />
+<h3
+id="24-what-is-the-difference-between-component-and-directive-in-angular">24.
+<strong>What is the Difference Between <code>@Component</code> and
+<code>@Directive</code> in Angular?</strong></h3>
+<ul>
+<li><strong><code>@Component</code></strong>:
+<ul>
+<li>Used to define a view (HTML template and associated logic).</li>
+<li>Example:
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-example&#39;</span><span class="op">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="st">&#39;&lt;p&gt;Component Template&lt;/p&gt;&#39;</span><span class="op">,</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> ExampleComponent {}</span></code></pre></div></li>
+</ul></li>
+<li><strong><code>@Directive</code></strong>:
+<ul>
+<li>Adds behavior to existing elements without defining a view.</li>
+<li>Example:
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;[appHighlight]&#39;</span><span class="op">,</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HighlightDirective {}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Key Difference</strong>: Components have templates,
+directives do not.</li>
+</ul>
+<hr />
+<h3 id="25-what-are-directives-in-angular">25. <strong>What Are
+Directives in Angular?</strong></h3>
+<ul>
+<li><strong>Definition</strong>: Instructions in Angular templates to
+extend HTML functionality.</li>
+<li><strong>Types of Directives</strong>:
+<ul>
+<li><strong>Structural</strong>: Change DOM structure (e.g.,
+<code>*ngIf</code>, <code>*ngFor</code>).</li>
+<li><strong>Attribute</strong>: Change behavior or appearance of
+elements (e.g., <code>ngClass</code>, <code>ngStyle</code>).</li>
+<li><strong>Custom</strong>: User-defined directives.</li>
+</ul></li>
+<li><strong>Example</strong>:
+<ul>
+<li><strong>Structural</strong>:
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Visible Content<span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+<li><strong>Attribute</strong>:
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">[ngStyle]</span><span class="ot">=</span><span class="st">&quot;{ color: &#39;red&#39; }&quot;</span><span class="kw">&gt;</span>Styled Content<span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+</ul></li>
+</ul>
+<hr />
+<h3
+id="26-what-is-the-difference-between-structural-and-attribute-directives-in-angular">26.
+<strong>What is the Difference Between Structural and Attribute
+Directives in Angular?</strong></h3>
+<ul>
+<li><strong>Structural Directives</strong>:
+<ul>
+<li>Modify the DOM structure by adding or removing elements.</li>
+<li>Example:
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">*ngIf</span><span class="ot">=</span><span class="st">&quot;isVisible&quot;</span><span class="kw">&gt;</span>Content is visible<span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Attribute Directives</strong>:
+<ul>
+<li>Change the appearance or behavior of an element without altering its
+structure.</li>
+<li>Example:
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">[ngStyle]</span><span class="ot">=</span><span class="st">&quot;{ color: &#39;blue&#39; }&quot;</span><span class="kw">&gt;</span>Styled content<span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Key Difference</strong>: Structural directives use
+<code>*</code>, attribute directives do not.</li>
+</ul>
+<hr />
+<h3
+id="27-have-you-ever-created-a-custom-directive-can-you-explain-the-steps">27.
+<strong>Have You Ever Created a Custom Directive? Can You Explain the
+Steps?</strong></h3>
+<ul>
+<li><strong>Steps to Create a Custom Directive</strong>:
+<ol type="1">
+<li><strong>Generate Directive</strong>: Use the Angular CLI command:
+<code>ng generate directive highlight</code>.</li>
+<li><strong>Add Metadata</strong>: Define the directive selector in
+<code>@Directive</code>.</li>
+<li><strong>Write Logic</strong>: Add functionality inside the directive
+class.</li>
+</ol>
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Directive</span>({</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;[appHighlight]&#39;</span><span class="op">,</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> HighlightDirective {</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>(<span class="kw">private</span> el<span class="op">:</span> ElementRef) {</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">el</span><span class="op">.</span><span class="at">nativeElement</span><span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;yellow&#39;</span><span class="op">;</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Use in Template</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p</span> <span class="er">appHighlight</span><span class="kw">&gt;</span>Highlighted Text<span class="kw">&lt;/p&gt;</span></span></code></pre></div></li>
+</ul>
+<hr />
+<h3
+id="28-how-do-you-use-hostbinding-and-hostlistener-in-directives">28.
+<strong>How Do You Use <code>@HostBinding</code> and
+<code>@HostListener</code> in Directives?</strong></h3>
+<ul>
+<li><strong><code>@HostBinding</code></strong>: Binds a property to a
+host element.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostBinding</span>(<span class="st">&#39;style.color&#39;</span>) textColor <span class="op">=</span> <span class="st">&#39;red&#39;</span><span class="op">;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong><code>@HostListener</code></strong>: Listens to events on
+the host element.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;mouseenter&#39;</span>) <span class="fu">onMouseEnter</span>() {</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">textColor</span> <span class="op">=</span> <span class="st">&#39;blue&#39;</span><span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>@<span class="fu">HostListener</span>(<span class="st">&#39;mouseleave&#39;</span>) <span class="fu">onMouseLeave</span>() {</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">textColor</span> <span class="op">=</span> <span class="st">&#39;black&#39;</span><span class="op">;</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ul></li>
+<li><strong>Use Together</strong>: Create interactive directives like
+hover effects.</li>
+</ul>
+<hr />
+<h3
+id="29-what-is-content-projection-and-how-do-you-implement-it-using-ng-content">29.
+<strong>What is Content Projection, and How Do You Implement It Using
+<code>ng-content</code>?</strong></h3>
+<ul>
+<li><strong>Definition</strong>: Allows components to insert dynamic
+content into their templates.</li>
+<li><strong>Implementation Steps</strong>:
+<ol type="1">
+<li>Add <code>&lt;ng-content&gt;</code> in the child component’s
+template.</li>
+</ol>
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Component</span>({</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  selector<span class="op">:</span> <span class="st">&#39;app-card&#39;</span><span class="op">,</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  template<span class="op">:</span> <span class="vs">`&lt;div class=&quot;card&quot;&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/div&gt;`</span><span class="op">,</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> CardComponent {}</span></code></pre></div></li>
+</ul>
+<ol start="2" type="1">
+<li>Use the component in a parent template:</li>
+</ol>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;app-card&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;p&gt;</span>Projected Content<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/app-card&gt;</span></span></code></pre></div></li>
+<li><strong>Output</strong>: Displays “Projected Content” inside the
+card component.</li>
+</ul>
+<hr />
+<h3
+id="30-how-do-you-pass-data-between-a-parent-and-a-child-component-using-input-and-output">30.
+<strong>How Do You Pass Data Between a Parent and a Child Component
+Using <code>@Input</code> and <code>@Output</code>?</strong></h3>
+<ul>
+<li><strong><code>@Input</code></strong>: Pass data from parent to
+child.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Input</span>() title<span class="op">:</span> <span class="dt">string</span> <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;child-component</span> <span class="er">[title]</span><span class="ot">=</span><span class="st">&quot;&#39;Hello&#39;&quot;</span><span class="kw">&gt;&lt;/child-component&gt;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong><code>@Output</code></strong>: Emit events from child to
+parent.
+<ul>
+<li>Example:
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>@<span class="fu">Output</span>() clicked <span class="op">=</span> <span class="kw">new</span> <span class="bu">EventEmitter</span><span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span>()<span class="op">;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">onClick</span>() {</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">clicked</span><span class="op">.</span><span class="fu">emit</span>(<span class="st">&#39;Child clicked!&#39;</span>)<span class="op">;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;child-component</span> <span class="er">(clicked)</span><span class="ot">=</span><span class="st">&quot;handleClick($event)&quot;</span><span class="kw">&gt;&lt;/child-component&gt;</span></span></code></pre></div></li>
+</ul></li>
+<li><strong>Communication</strong>: Enables bidirectional data flow
+between components.</li>
+</ul>
+<hr />
+</body>
+</html>
