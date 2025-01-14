@@ -1427,3 +1427,666 @@ Would you like the next set of questions or further details on these topics?### 
 - **Benefit**: Optimizes performance by reducing unnecessary calls.  
 
 ---
+
+### 76. **How Do You Cancel a Pending HTTP Request in Angular Using RxJS?**  
+- **Use `takeUntil` with a `Subject`**: Emits and completes an observable to cancel the request.  
+  - Example:  
+    ```typescript
+    private destroy$ = new Subject<void>();
+    this.http.get('/api/data').pipe(
+      takeUntil(this.destroy$)
+    ).subscribe();
+    // Cancel the request
+    this.destroy$.next();
+    this.destroy$.complete();
+    ```  
+- **Use `AbortController` (Angular 16+ with Fetch API)**: Abort ongoing requests.  
+  - Example:  
+    ```typescript
+    const controller = new AbortController();
+    this.http.get('/api/data', { signal: controller.signal }).subscribe();
+    controller.abort(); // Cancels the request
+    ```  
+
+---
+
+### 77. **What Is NGRX, and How Do You Use It for State Management in Angular?**  
+- **Definition**: A reactive state management library using the Redux pattern.  
+- **Core Elements**:  
+  - **Store**: Centralized state container.  
+  - **Actions**: Dispatchable events to change the state.  
+  - **Reducers**: Pure functions to handle state changes.  
+  - **Selectors**: Retrieve specific state slices.  
+- **Example**:  
+  ```typescript
+  // Action
+  export const increment = createAction('[Counter] Increment');
+  // Reducer
+  const counterReducer = createReducer(0, on(increment, state => state + 1));
+  // Component
+  this.store.dispatch(increment());
+  this.store.select('counter').subscribe(console.log);
+  ```  
+
+---
+
+### 78. **How Do You Handle Side Effects in NGRX Using Effects?**  
+- **Purpose**: To handle external interactions like API calls without directly modifying the store.  
+- **Example**:  
+  ```typescript
+  @Injectable()
+  export class CounterEffects {
+    loadData$ = createEffect(() => this.actions$.pipe(
+      ofType(loadData),
+      mergeMap(() => this.apiService.getData().pipe(
+        map(data => loadDataSuccess({ data })),
+        catchError(() => of(loadDataFailure()))
+      ))
+    ));
+    constructor(private actions$: Actions, private apiService: ApiService) {}
+  }
+  ```  
+
+---
+
+### 79. **How Do You Use NGRX Selectors for Better State Querying?**  
+- **Purpose**: Simplifies and memoizes state queries.  
+- **Create Selector**:  
+  - Example:  
+    ```typescript
+    const selectFeature = (state: AppState) => state.feature;
+    const selectFeatureItems = createSelector(selectFeature, feature => feature.items);
+    this.store.select(selectFeatureItems).subscribe(console.log);
+    ```  
+- **Composition**: Combine selectors for nested or derived data.  
+
+---
+
+### 80. **What Is the Purpose of Immutability in State Management, and How Do You Enforce It?**  
+- **Purpose**: Prevents accidental state mutations, ensuring predictable behavior.  
+- **Enforcement in NGRX**:  
+  - Use immutability helpers like `createReducer` and `on`.  
+  - Avoid mutating state directly in reducers.  
+- **Immutable Libraries**: Use libraries like `immer` for complex structures.  
+  - Example:  
+    ```typescript
+    const newState = produce(oldState, draft => {
+      draft.items.push(newItem);
+    });
+    ```  
+
+---
+
+### 81. **How Do You Manage Local Component State Versus Global Application State in Angular?**  
+- **Local Component State**:  
+  - Stored directly in the component for UI-specific needs.  
+  - Example:  
+    ```typescript
+    export class MyComponent {
+      localState = { isActive: false };
+    }
+    ```  
+- **Global Application State**:  
+  - Managed using services or state management libraries like NGRX.  
+  - Example:  
+    ```typescript
+    this.store.select('globalState').subscribe(data => console.log(data));
+    ```  
+- **Decision**: Use local state for isolated components and global state for shared data or cross-component communication.  
+
+---
+
+### 82. **How Do You Handle HTTP Requests in Angular Using the `HttpClientModule`?**  
+- **Steps**:  
+  1. Import `HttpClientModule` in `AppModule`.  
+  2. Inject `HttpClient` service into a component or service.  
+  3. Use HTTP methods like `get`, `post`, `put`, and `delete`.  
+  - Example:  
+    ```typescript
+    this.http.get('/api/items').subscribe(data => console.log(data));
+    ```  
+- **Use Cases**: Fetch data, send form data, and delete resources.  
+
+---
+
+### 83. **How Do You Implement Interceptors for Modifying Outgoing HTTP Requests?**  
+- **Definition**: Interceptors allow you to inspect or modify HTTP requests or responses globally.  
+- **Implementation**:  
+  1. Create a service implementing `HttpInterceptor`.  
+  2. Modify the `req` or handle `res`.  
+  - Example:  
+    ```typescript
+    export class AuthInterceptor implements HttpInterceptor {
+      intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        const authReq = req.clone({ headers: req.headers.set('Authorization', 'Bearer token') });
+        return next.handle(authReq);
+      }
+    }
+    ```  
+  3. Provide it in `AppModule` with `HTTP_INTERCEPTORS`.  
+
+---
+
+### 84. **How Do You Handle Error Handling for HTTP Requests in a Centralized Manner?**  
+- **Approaches**:  
+  - **Use Interceptors**: Catch and handle errors globally.  
+    ```typescript
+    export class ErrorInterceptor implements HttpInterceptor {
+      intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        return next.handle(req).pipe(
+          catchError(err => {
+            console.error('Error intercepted:', err);
+            return throwError(() => new Error(err.message));
+          })
+        );
+      }
+    }
+    ```  
+  - **Central Error Service**: Create a service to manage error logs or user notifications.  
+
+---
+
+### 85. **What Is the Role of `HttpParams` in Angular HTTP Requests?**  
+- **Definition**: Used for adding query parameters to HTTP requests.  
+- **Example**:  
+  ```typescript
+  const params = new HttpParams().set('page', '1').set('limit', '10');
+  this.http.get('/api/items', { params }).subscribe();
+  ```  
+- **Benefits**:  
+  - Cleaner URL construction.  
+  - Helps with dynamic query parameter addition.  
+
+---
+
+### 86. **How Do You Handle Retry Logic for Failed HTTP Requests in Angular?**  
+- **Using `retry` Operator**: Automatically retry failed requests a specified number of times.  
+  - Example:  
+    ```typescript
+    this.http.get('/api/data').pipe(
+      retry(3),
+      catchError(err => {
+        console.error('Request failed:', err);
+        return throwError(() => new Error('Retry failed'));
+      })
+    ).subscribe();
+    ```  
+- **Using `retryWhen`**: Retry based on custom logic (e.g., exponential backoff).  
+  - Example:  
+    ```typescript
+    this.http.get('/api/data').pipe(
+      retryWhen(errors => errors.pipe(delay(1000), take(3)))
+    ).subscribe();
+    ```  
+
+---
+
+### 87. **How Do You Test Angular Components Using Karma and Jasmine?**  
+- **Steps**:  
+  1. Generate the component test file using Angular CLI (`.spec.ts`).  
+  2. Import required modules and dependencies in `TestBed`.  
+  - Example:  
+    ```typescript
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        declarations: [MyComponent],
+        imports: [HttpClientTestingModule],
+      }).compileComponents();
+    });
+    ```  
+  3. Write unit tests for component behavior using `it`.  
+  - Example:  
+    ```typescript
+    it('should create the component', () => {
+      const fixture = TestBed.createComponent(MyComponent);
+      const app = fixture.componentInstance;
+      expect(app).toBeTruthy();
+    });
+    ```  
+
+---
+
+### 88. **How Do You Generate a Coverage Report in Angular Tests?**  
+- **Steps to Generate**:  
+  1. Run tests with coverage:  
+     ```bash
+     ng test --code-coverage
+     ```  
+  2. Navigate to the `coverage` folder generated in the project directory.  
+  3. Open `index.html` in a browser for detailed reports.  
+- **Usage**: Identifies untested parts of the application.  
+
+---
+
+### 89. **How Do You Mock Services for Testing in Angular?**  
+- **Using Jasmine Spies**: Replace service methods with mock implementations.  
+  - Example:  
+    ```typescript
+    const mockService = jasmine.createSpyObj('MyService', ['getData']);
+    mockService.getData.and.returnValue(of(mockData));
+    ```  
+- **Using `HttpClientTestingModule`**: Mock HTTP requests.  
+  - Example:  
+    ```typescript
+    TestBed.configureTestingModule({
+      providers: [MyService],
+      imports: [HttpClientTestingModule]
+    });
+    ```  
+
+---
+
+### 90. **What Are Angular `TestBed` Utilities, and How Do You Use Them?**  
+- **Purpose**: Configure and initialize the Angular testing environment.  
+- **Key Features**:  
+  - `configureTestingModule`: Sets up module dependencies.  
+  - `createComponent`: Instantiates components.  
+  - Example:  
+    ```typescript
+    TestBed.configureTestingModule({
+      declarations: [MyComponent],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
+    ```  
+- **Use Case**: Unit testing for components, services, and directives.  
+
+---
+
+### 91. **How Do You Debug an Angular Application or a Lazy-Loaded Module?**  
+- **Use Angular DevTools**: A Chrome extension for inspecting Angular applications.  
+- **Enable Source Maps**: Add `"sourceMap": true` in `angular.json` for debugging TypeScript in browsers.  
+- **Console Logging**: Use `console.log` or `debugger` to inspect variables.  
+- **Debug Lazy-Loaded Modules**:  
+  - Check `RouterModule.forChild` configuration.  
+  - Verify module paths in `loadChildren`.  
+  - Example:  
+    ```typescript
+    RouterModule.forRoot([
+      { path: 'lazy', loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule) }
+    ])
+    ```  
+
+---
+
+### 92. **How Do You Test a Component That Uses Angular Material?**  
+- **Import Material Modules**: Import required Material modules in the test.  
+  - Example:  
+    ```typescript
+    TestBed.configureTestingModule({
+      declarations: [MaterialComponent],
+      imports: [MatButtonModule, MatDialogModule]
+    }).compileComponents();
+    ```  
+- **Use `Harness` for Testing**: Use Angular Material test harness for robust testing.  
+  - Example:  
+    ```typescript
+    const loader = TestbedHarnessEnvironment.loader(fixture);
+    const button = await loader.getHarness(MatButtonHarness);
+    await button.click();
+    ```  
+
+---
+
+### 93. **How Do You Optimize the Performance of an Angular Application?**  
+- **Use OnPush Change Detection**: Minimizes unnecessary component checks.  
+- **Lazy Load Modules**: Load only required modules on demand.  
+- **Tree-Shaking**: Ensure unused code is removed during build.  
+- **Optimize Template Rendering**:  
+  - Use `trackBy` in `ngFor`.  
+  - Example:  
+    ```typescript
+    <div *ngFor="let item of items; trackBy: trackByFn"></div>
+    ```  
+- **Bundle Optimization**: Use `ng build --prod`.  
+
+---
+
+### 94. **What Are Some Key Performance Bottlenecks in Angular, and How Do You Address Them?**  
+- **Excessive Change Detection**: Use `ChangeDetectionStrategy.OnPush`.  
+- **Large Initial Bundle Size**:  
+  - Use lazy loading for modules.  
+  - Enable code splitting with dynamic imports.  
+- **Inefficient DOM Updates**: Use `trackBy` for lists and `ngIf` for conditional rendering.  
+- **Multiple HTTP Calls**: Use `forkJoin` or caching mechanisms.  
+
+---
+
+### 95. **How Do You Use `trackBy` in `ngFor` to Improve Performance?**  
+- **Purpose**: Reduces DOM re-rendering by identifying changes using a unique key.  
+- **Implementation**:  
+  - Add a `trackBy` function in the component.  
+  - Example:  
+    ```typescript
+    trackByFn(index: number, item: any): number {
+      return item.id; // or unique key
+    }
+    ```  
+  - Use it in the template:  
+    ```html
+    <div *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</div>
+    ```  
+
+---
+### 96. **How Does Angular Optimize HTTP Requests with Caching?**  
+- **Using Interceptors**: Cache responses globally to avoid redundant requests.  
+  - Example:  
+    ```typescript
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+      const cachedResponse = this.cache.get(req.url);
+      return cachedResponse ? of(cachedResponse) : next.handle(req).pipe(
+        tap(event => {
+          if (event instanceof HttpResponse) {
+            this.cache.set(req.url, event);
+          }
+        })
+      );
+    }
+    ```  
+- **HTTP Headers**: Use caching headers like `ETag` or `Cache-Control`.  
+- **Service Layer Caching**: Store frequently accessed data in a service variable.  
+
+---
+
+### 97. **How Do You Implement Lazy Loading of Images in Angular?**  
+- **Using `loading="lazy"` Attribute**: Add to image tags for native lazy loading.  
+  - Example:  
+    ```html
+    <img src="image.jpg" alt="example" loading="lazy" />
+    ```  
+- **Using Directives**: Create a custom directive to load images when in the viewport.  
+  - Example:  
+    ```typescript
+    @Directive({ selector: '[lazyLoad]' })
+    export class LazyLoadDirective {
+      @HostBinding('attr.src') srcAttr = null;
+      @Input('lazyLoad') set lazyLoad(src: string) {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            this.srcAttr = src;
+            observer.disconnect();
+          }
+        });
+        observer.observe(this.element.nativeElement);
+      }
+    }
+    ```  
+
+---
+
+### 98. **What Are Best Practices for Optimizing Large Forms in Angular?**  
+- **Lazy Loading Form Modules**: Split forms into smaller, lazy-loaded modules.  
+- **OnPush Change Detection**: Reduce unnecessary checks.  
+- **Use `FormArray` for Dynamic Fields**: Manage large dynamic inputs efficiently.  
+  - Example:  
+    ```typescript
+    this.form = this.fb.group({
+      items: this.fb.array([])
+    });
+    ```  
+- **Debounce Validation**: Minimize frequent validations with `debounceTime`.  
+  - Example:  
+    ```typescript
+    this.form.valueChanges.pipe(debounceTime(300)).subscribe();
+    ```  
+
+---
+
+### 99. **How Does Angular Prevent XSS Attacks, and What Are Best Practices for Securing Templates?**  
+- **Built-in Sanitization**: Automatically sanitizes HTML, URLs, and styles.  
+- **Avoid `innerHTML`**: Use Angular bindings instead of directly setting HTML.  
+- **Sanitize with `DomSanitizer`**: Explicitly mark trusted content.  
+  - Example:  
+    ```typescript
+    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml('<b>Safe Content</b>');
+    ```  
+- **Use `strictTemplatePolicy`**: Enable strict template checks in `tsconfig.json`.  
+
+---
+
+### 100. **How Do You Handle CSRF Tokens in Angular Applications?**  
+- **Set CSRF Token in Request Headers**: Send tokens with every HTTP request.  
+  - Example:  
+    ```typescript
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+      const token = this.csrfService.getToken();
+      const cloned = req.clone({ headers: req.headers.set('X-CSRF-Token', token) });
+      return next.handle(cloned);
+    }
+    ```  
+- **Use Secure Cookies**: Store tokens in `HttpOnly` cookies to avoid client-side tampering.  
+- **Validate on Server Side**: Ensure tokens are validated for each request.  
+
+---
+
+### 101. **How Do You Implement OAuth2 Authentication in Angular?**  
+- **Integrate OAuth2 Library**: Use libraries like `angular-oauth2-oidc`.  
+  - Example:  
+    ```typescript
+    this.oauthService.configure({
+      clientId: 'client-id',
+      issuer: 'https://auth-server.com',
+      redirectUri: window.location.origin,
+      responseType: 'code',
+      scope: 'openid profile email'
+    });
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    ```  
+- **Handle Tokens**: Store the access token securely (e.g., in memory or `HttpOnly` cookies).  
+- **Guard Routes**: Use `AuthGuard` to protect routes.  
+  - Example:  
+    ```typescript
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+    ```  
+
+---
+
+### 102. **What Is the Role of HTTP Interceptors in Securing API Calls?**  
+- **Add Authorization Headers**: Automatically attach tokens to API calls.  
+  - Example:  
+    ```typescript
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+      const token = this.authService.getToken();
+      const cloned = req.clone({ headers: req.headers.set('Authorization', `Bearer ${token}`) });
+      return next.handle(cloned);
+    }
+    ```  
+- **Handle Errors**: Redirect to login on `401 Unauthorized`.  
+- **Log API Calls**: Track or debug HTTP traffic.  
+
+---
+
+### 103. **How Do You Implement Content Security Policy (CSP) with Angular?**  
+- **Define CSP Headers**: Add headers in the server configuration.  
+  - Example (Nginx):  
+    ```nginx
+    Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-abc123';
+    ```  
+- **Nonce for Scripts**: Dynamically generate and attach a nonce to inline scripts.  
+- **Sanitize Dynamic Content**: Use Angular's `DomSanitizer` to ensure content adheres to CSP.  
+
+---
+
+### 104. **What Is Angular Universal, and How Do You Implement Server-Side Rendering (SSR)?**  
+- **Definition**: Angular Universal enables server-side rendering (SSR) for better SEO and faster load times.  
+- **Steps to Implement**:  
+  1. Install Universal:  
+     ```bash
+     ng add @nguniversal/express-engine
+     ```  
+  2. Build SSR Application:  
+     ```bash
+     npm run build:ssr
+     ```  
+  3. Serve with Node.js:  
+     ```bash
+     npm run serve:ssr
+     ```  
+  - Example: Pre-rendered content for SEO bots.
+
+---
+
+### 105. **How Do You Cache Data in SSR for Performance Improvements?**  
+- **Server-Side Caching**: Cache rendered pages at the server level (e.g., Redis or CDN).  
+- **Angular Transfer State**: Share API responses between SSR and client.  
+  - Example:  
+    ```typescript
+    import { TransferState, makeStateKey } from '@angular/platform-browser';
+    const DATA_KEY = makeStateKey<any>('cachedData');
+    
+    this.state.set(DATA_KEY, fetchedData);
+    const cachedData = this.state.get(DATA_KEY, null);
+    ```  
+- **Service Worker Caching**: Use Angular’s PWA capabilities to cache assets and API calls.  
+
+--- 
+
+### 106. **What Are Common Challenges in Implementing SSR with Angular, and How Do You Overcome Them?**  
+- **Challenge: Third-Party Libraries**: Some libraries depend on browser-specific APIs (e.g., `window` or `document`).  
+  - **Solution**: Use `isPlatformBrowser` to conditionally run code.  
+  - Example:  
+    ```typescript
+    if (isPlatformBrowser(this.platformId)) {
+      // Browser-specific code
+    }
+    ```  
+- **Challenge: State Transfer**: Data fetched during SSR isn't shared with the client.  
+  - **Solution**: Use Angular's `TransferState` module to share data between server and client.  
+- **Challenge: Large Initial Payload**: SSR may send large HTML files.  
+  - **Solution**: Optimize lazy loading and use compression (e.g., Gzip).  
+
+---
+
+### 107. **What Is the Ivy Renderer, and How Does It Differ from the Previous View Engine?**  
+- **Definition**: Ivy is Angular’s next-generation rendering engine, introduced in Angular 9.  
+- **Differences from View Engine**:  
+  - **Faster Compilation**: Compiles components to highly optimized JavaScript.  
+  - **Smaller Bundle Size**: Implements tree-shaking to remove unused code.  
+  - **Improved Debugging**: Better error messages and stack traces.  
+  - Example: Ivy allows dynamic component rendering using `createComponent`.  
+
+---
+
+### 108. **What Is `ng-template` vs. `ng-container` in Angular?**  
+- **`ng-template`**: Used to define reusable template content.  
+  - Example:  
+    ```html
+    <ng-template #templateRef><p>Template Content</p></ng-template>
+    <ng-container *ngTemplateOutlet="templateRef"></ng-container>
+    ```  
+- **`ng-container`**: Acts as a logical grouping element without adding extra DOM.  
+  - Example:  
+    ```html
+    <ng-container *ngIf="isVisible">
+      <p>Conditionally Rendered</p>
+    </ng-container>
+    ```  
+- **Key Difference**: `ng-template` is for templates, while `ng-container` is for grouping without extra DOM.
+
+---
+
+### 109. **How Does Angular Handle Tree-Shaking to Reduce Bundle Size Using Ivy?**  
+- **Tree-Shaking Defined**: Removes unused code during build time.  
+- **Mechanisms in Ivy**:  
+  - **Component-Level Code Splitting**: Compiles components into independent functions.  
+  - **Dead Code Elimination**: Removes unused services, pipes, or directives.  
+- **Example**: If a pipe isn’t used, it’s excluded from the final bundle.  
+  - **Tools**: `ng build --prod` leverages Webpack for tree-shaking.  
+
+---
+
+### 110. **What Is Differential Loading in Angular?**  
+- **Definition**: Angular generates two bundles: one for modern browsers (ES2015) and another for older ones (ES5).  
+- **Advantages**:  
+  - Smaller, faster bundles for modern browsers.  
+  - Compatibility with older browsers.  
+- **Configuration**: Angular CLI automatically handles it during production builds.  
+  - Example:  
+    ```json
+    "browserslist": ["last 2 versions", "not dead", "IE 11"]
+    ```  
+
+---  
+
+### 111. **How Do You Configure Angular for Microservices Architectures?**  
+- **Separate Modules for Each Feature**: Create Angular modules corresponding to each microservice.  
+  - Example:  
+    ```typescript
+    const routes: Routes = [
+      { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+      { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
+    ];
+    ```  
+- **API Gateway**: Use a centralized service for communication with microservices.  
+- **Shared Module**: Create a shared library for common utilities (e.g., models, services).  
+- **Environment-Specific Configurations**: Use `environment.ts` for different microservice URLs.  
+
+---
+
+### 112. **How Do You Dynamically Load External Modules in Angular?**  
+- **Use Angular’s `loadChildren` Syntax**: Load modules lazily at runtime.  
+  - Example:  
+    ```typescript
+    const routes: Routes = [
+      { path: 'external', loadChildren: () => import('external-lib/module').then(m => m.ExternalModule) },
+    ];
+    ```  
+- **Dynamic Module Federation**: Use Webpack’s Module Federation Plugin for runtime module loading.  
+- **NgModules and Components**: Dynamically create components using Angular’s `createComponent`.  
+
+---
+
+### 113. **What Are Signals in Angular 17, and How Do They Differ from Observables and Subjects?**  
+- **Definition**: Signals are reactive state primitives introduced in Angular 17 for better reactivity and change detection.  
+- **Key Differences**:  
+  - Signals are synchronous and more predictable.  
+  - Observables support asynchronous streams, while signals focus on state management.  
+- **Example**:  
+    ```typescript
+    const counter = signal(0);
+    counter.set(counter() + 1); // Update the signal value
+    console.log(counter()); // Read the signal value
+    ```  
+
+---
+
+### 114. **How Do Writable Signals Work in Angular, and What Advantages Do They Bring Over BehaviorSubjects or NgRx?**  
+- **Writable Signals**: Provide direct methods for reading, setting, and updating state.  
+  - Example:  
+    ```typescript
+    const state = signal({ count: 0 });
+    state.update(s => ({ ...s, count: s.count + 1 }));
+    ```  
+- **Advantages**:  
+  - Easier syntax compared to `BehaviorSubject` or `NgRx`.  
+  - Built-in integration with Angular’s reactivity system.  
+
+---
+
+### 115. **What Is Angular’s Plan Regarding Signals and Change Detection, and How Will It Impact Performance in Large Applications?**  
+- **Plan**: Angular aims to integrate signals fully into its framework for optimized change detection.  
+- **Impact on Performance**:  
+  - Reduces unnecessary DOM updates.  
+  - Works seamlessly with OnPush strategy for better efficiency.  
+  - Fine-grained reactivity allows targeting updates to specific components.  
+
+---
+
+### 116. **How Does Angular 17’s Signal System Integrate with Existing State Management Solutions Like NgRx or Services?**  
+- **Integration with Services**: Signals can be used in Angular services to manage state instead of `BehaviorSubject` or `ReplaySubject`.  
+  - Example:  
+    ```typescript
+    @Injectable({ providedIn: 'root' })
+    export class CounterService {
+      count = signal(0);
+      
+      increment() {
+        this.count.set(this.count() + 1);
+      }
+    }
+    ```  
+- **Usage with NgRx**: Signals can complement NgRx by simplifying local component state management while using NgRx for global state.  
+  - Example: Combine `signal()` for local state and `store.select()` for global state.  
+- **Reactive Bindings**: Signals automatically integrate with Angular’s change detection, allowing efficient updates without manual subscriptions.  
+- **Backward Compatibility**: Angular ensures signals work alongside existing RxJS-based patterns for a smooth migration.  
+
+--- 
